@@ -1,0 +1,87 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
+
+public class OverchargeMonitor : MonoBehaviour
+{
+    public static OverchargeMonitor instance;
+
+    public static float timeLimit = 2.2f;
+    public int timerTrigger = 1;
+    public CrashChainDynLevelSaver levelSaver;
+    public PopulationCheck popChecker;
+    public GameObject [] activateObjects;
+    public GameObject [] disableObjects;
+
+    private float clock;
+    private bool saveSwitch = false;
+
+	// Use this for initialization
+	void Start ()
+    {
+        instance = this;
+
+        if(popChecker == null)
+            popChecker = FindObjectOfType<PopulationCheck>();
+
+        if (levelSaver == null)
+            levelSaver = FindObjectOfType<CrashChainDynLevelSaver>();
+
+        clock = timeLimit;
+    }
+
+	
+	// Update is called once per frame
+	void Update ()
+    {
+	    if(CrashLink.overchargeCount == timerTrigger)
+        {
+            if (clock > 0)
+            {
+                if (!saveSwitch)
+                {
+                    levelSaver.SaveLevel();
+                    saveSwitch = true;
+                }
+
+                clock -= Time.deltaTime;
+            }
+            else
+            {
+                Trigger();
+            }
+        }
+        else if (CrashLink.overchargeCount > timerTrigger)
+        {
+            Trigger();
+        }
+	}
+
+    public void Trigger()
+    {
+        //don't be defeated if the board is already cleared.. 
+        if (popChecker != null)
+            if (popChecker.GetPop() == 0)
+            {
+                //reset retry count, player has won!
+                levelSaver.RegisterWin();
+                return;
+            }
+
+        foreach (GameObject o in activateObjects)
+            o.SetActive(true);
+
+        foreach (GameObject o in disableObjects)
+            o.SetActive(false);
+
+        //increment retry count, player has lost...
+        levelSaver.ReryIncrement();
+
+        CrashLink.overchargeCount = 0;
+    }
+
+    public void AddToClock(float t)
+    {
+        clock += t;
+    }
+}
