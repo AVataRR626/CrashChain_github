@@ -32,6 +32,7 @@ public class CrashLink : MonoBehaviour
     public float baseSpinRate = 30;
     public Transform graphicsRoot;
     public GameObject [] deathSpawnList;
+    public GameObject[] overchargeSpawnList;
     public float doubleClickTime = 0.5f;
     public float timeBonus = 0.65f;
 
@@ -117,6 +118,7 @@ public class CrashLink : MonoBehaviour
     //t is the countdown timer;
     public void Kill(float t)
     {
+        SpawnOverchargeList();
         chargeSwitch = true;
         killClock = t;
         charge = chargeLimit;
@@ -167,14 +169,7 @@ public class CrashLink : MonoBehaviour
                 }
 
 
-                //generate the death spawn list
-                if (deathSpawnList != null)
-                {
-                    for (int i = 0; i < deathSpawnList.Length; i++)
-                    {
-                        Instantiate(deathSpawnList[i], transform.position, Quaternion.identity);
-                    }
-                }
+                SpawnDeathList();
 
                 // Debug.Log("Adding " + timeBonus + " to " + OverchargeMonitor.timeLimit + " ");
                 OverchargeMonitor.instance.AddToClock(timeBonus);
@@ -189,6 +184,26 @@ public class CrashLink : MonoBehaviour
                 overchargeCount++;
                 Kill();
             }
+        }
+    }
+
+    void SpawnDeathList()
+    {
+        //generate the death spawn list
+        if (deathSpawnList != null)
+        {
+            for (int i = 0; i < deathSpawnList.Length; i++)
+            {
+                Instantiate(deathSpawnList[i], transform.position, Quaternion.identity);
+            }
+        }
+    }
+
+    void SpawnOverchargeList()
+    {
+        for (int i = 0; i < overchargeSpawnList.Length; i++)
+        {
+            Instantiate(overchargeSpawnList[i], transform.position, transform.rotation);
         }
     }
 
@@ -223,6 +238,7 @@ public class CrashLink : MonoBehaviour
 
         if (charge < chargeLimit)
         {
+
             if (charge > 0)
             {
                 charge -= Time.deltaTime;
