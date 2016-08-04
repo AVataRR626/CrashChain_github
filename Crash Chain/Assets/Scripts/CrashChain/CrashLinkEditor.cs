@@ -277,14 +277,20 @@ public class CrashLinkEditor : MonoBehaviour
         //retreive the level list        
 
         //if there are already levels in the list
-        if (PlayerPrefs.HasKey("SetList"))
+        if (PlayerPrefs.HasKey(CrashChainSetManager.SetListKey))
         {
-            string setList = PlayerPrefs.GetString("SetList");
+
+            string setList = PlayerPrefs.GetString(CrashChainSetManager.SetListKey);
             //if the level name hasn't been listed yet, add it in there... 
             if (!setList.Contains(setName))
-                PlayerPrefs.SetString("SetList", setList + ";" + setName);
-
+            {
+                setList = setList + ";" + setName;
+                PlayerPrefs.SetString(CrashChainSetManager.SetListKey, setList);
+                
+            }
+             
             setListString = setList;
+
         }
         else
         {
@@ -460,16 +466,5 @@ public class CrashLinkEditor : MonoBehaviour
 
         Debug.Log("SourceLevelString:" + sourceLevelString);
         Debug.Log("DestLevelString:" + destLevelString);
-    }
-
-    /*
-    Duplicate a given sest...
-    */
-    public void CopySet(string sourceSet, string newSetName)
-    {
-        for(int i = 0; i < 12; i++)
-        {
-
-        }
     }
 }
