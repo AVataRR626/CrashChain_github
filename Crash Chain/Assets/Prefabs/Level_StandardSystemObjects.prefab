@@ -151,6 +151,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 224000011954170014}
+  - 114: {fileID: 114000010254221808}
   m_Layer: 0
   m_Name: VictoryTree
   m_TagString: Untagged
@@ -622,6 +623,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Next
+--- !u!114 &114000010254221808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c43def68fa281649bf4a0388573c956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010305081132
 MonoBehaviour:
   m_ObjectHideFlags: 1

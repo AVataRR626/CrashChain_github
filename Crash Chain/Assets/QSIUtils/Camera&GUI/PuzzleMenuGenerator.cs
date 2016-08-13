@@ -59,7 +59,9 @@ public class PuzzleMenuGenerator : MonoBehaviour
             {
                 xSpeed = 0;
                 moveMode = false;
-                transform.localPosition = originalPos;                
+                transform.localPosition = originalPos;
+                DeleteButtons();
+                GenerateButtons();
                 DisplayUpdate();
             }
 
@@ -136,6 +138,14 @@ public class PuzzleMenuGenerator : MonoBehaviour
             }
             spawnPos.y += yDistance;
             spawnPos.x = startPoint.position.x;
+        }
+    }
+
+    void DeleteButtons()
+    {
+        foreach(Transform child in transform)
+        {
+            Destroy(child.gameObject);
         }
     }
 }
