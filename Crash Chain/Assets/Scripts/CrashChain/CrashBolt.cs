@@ -42,47 +42,20 @@ public class CrashBolt : MonoBehaviour
         {
             if (opMode == OperationMode.ShellCrash)
             {
-                if (myTypeMaster.typeMatch[type] == cl.shellType)
-                {
-                    //continue the chain reaction if the shells match..
-                    cl.GetComponent<SmoothSnap>().noSnapOverride = true;
-                    cl.Kill();
-
-                }
-                else
-                {
-
-                    //push the crash chain if it doesn't...
-                    SmoothSnap snapper = cl.GetComponent<SmoothSnap>();
-
-                    if (Mathf.Abs(cl.transform.position.y - transform.position.y) > 1)
-                    { 
-                        if (cl.transform.position.y > transform.position.y)
-                            snapper.gridCoordinates.y++;
-                        else
-                            snapper.gridCoordinates.y--;
-
-                        
-                     }
-
-                    if(Mathf.Abs(cl.transform.position.x - transform.position.x) > 1)
-                    { 
-                        if (cl.transform.position.x > transform.position.x)
-                            snapper.gridCoordinates.x++;
-                        else if (cl.transform.position.x < transform.position.x)
-                            snapper.gridCoordinates.x--;
-                    }
-
-                    snapper.anchorGridCoordinates = snapper.gridCoordinates;
-                    snapper.snapSwitch = true;
-                    snapper.ManualSnap(snapper.gridCoordinates);
-               
-                }
+                //default shell crashing behaviour..
+                ShellCrash(cl);
             }
 
             if (opMode == OperationMode.ConvertShell)
             {
-                cl.shellType = type;
+                //convert the shell if it doesn't match..
+                if (cl.shellType != type)
+                    cl.shellType = type;
+                else
+                {
+                    //if it does match, just do the normal thing
+                    ShellCrash(cl);
+                }
             }
 
             if (opMode == OperationMode.ConvertCore)
@@ -92,5 +65,45 @@ public class CrashBolt : MonoBehaviour
 
         }
         Destroy(gameObject);
+    }
+
+    void ShellCrash(CrashLink cl)
+    {
+        if (myTypeMaster.typeMatch[type] == cl.shellType)
+        {
+            //continue the chain reaction if the shells match..
+            cl.GetComponent<SmoothSnap>().noSnapOverride = true;
+            cl.Kill();
+
+        }
+        else
+        {
+
+            //push the crash chain if it doesn't...
+            SmoothSnap snapper = cl.GetComponent<SmoothSnap>();
+
+            if (Mathf.Abs(cl.transform.position.y - transform.position.y) > 1)
+            {
+                if (cl.transform.position.y > transform.position.y)
+                    snapper.gridCoordinates.y++;
+                else
+                    snapper.gridCoordinates.y--;
+
+
+            }
+
+            if (Mathf.Abs(cl.transform.position.x - transform.position.x) > 1)
+            {
+                if (cl.transform.position.x > transform.position.x)
+                    snapper.gridCoordinates.x++;
+                else if (cl.transform.position.x < transform.position.x)
+                    snapper.gridCoordinates.x--;
+            }
+
+            snapper.anchorGridCoordinates = snapper.gridCoordinates;
+            snapper.snapSwitch = true;
+            snapper.ManualSnap(snapper.gridCoordinates);
+
+        }
     }
 }

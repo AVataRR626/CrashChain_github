@@ -259,24 +259,25 @@ MonoBehaviour:
   coreType: 0
   shellType: 0
   myCrashBolt: {fileID: 11494030, guid: 2c59ee0141921eb4db31b375d854da89, type: 2}
-  boltForce: 800
+  boltForce: 400
   north: 1
   east: 1
   south: 1
   west: 1
-  myEditor: {fileID: 0}
-  touchFactor: 2.5
-  charge: 0
-  chargeLimit: 3.5
-  defaultDeathTime: 0.25
-  baseSpinRate: 120
-  graphicsRoot: {fileID: 0}
   deathSpawnList:
   - {fileID: 148294, guid: 6c38d98e8fb574c41be9e74cd218d42c, type: 2}
   overchargeSpawnList:
   - {fileID: 120376, guid: 74633493cb7c4b14099ad3e9e2109342, type: 2}
-  doubleClickTime: 0.5
   timeBonus: 0.5
+  defaultDeathTime: 0.25
+  baseSpinRate: 120
+  deathSpinExtension: 0
+  myEditor: {fileID: 0}
+  doubleClickTime: 0.5
+  touchFactor: 2.5
+  charge: 0
+  chargeLimit: 3.5
+  graphicsRoot: {fileID: 0}
 --- !u!114 &11466924
 MonoBehaviour:
   m_ObjectHideFlags: 1

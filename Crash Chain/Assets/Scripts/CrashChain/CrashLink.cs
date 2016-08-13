@@ -10,10 +10,12 @@ public class CrashLink : MonoBehaviour
     public static int overchargeCount = 0;
     public static int crashCount = 0;
 
+    [Header("Basic Attributes")]
     //basic attributes..
     public int coreType;
-    public int shellType; 
+    public int shellType;
 
+    [Header("Crash Bolt Settings")]
     //crash bolt stuff..
     public CrashBolt myCrashBolt;
     public float boltForce = 400;
@@ -23,18 +25,23 @@ public class CrashLink : MonoBehaviour
     public bool south = true;
     public bool west = true;
 
-    //system things..
-    public CrashLinkEditor myEditor;
-    public float touchFactor = 1;
-    public float charge;
-    public float chargeLimit = 2;
+    [Header("Overcharge Behaviours")]
+    public GameObject[] deathSpawnList;
+    public GameObject[] overchargeSpawnList;    
+    public float timeBonus = 0.65f;//extra time player gets before losing
     public float defaultDeathTime = 0.25f;
     public float baseSpinRate = 30;
-    public Transform graphicsRoot;
-    public GameObject [] deathSpawnList;
-    public GameObject[] overchargeSpawnList;
+    public float deathSpinExtension = 0;//extra spin time this chain's overcharge gives
+                                    //to other blocks..
+
+    [Header("System Settings")]
+    //system things..
+    public CrashLinkEditor myEditor;
     public float doubleClickTime = 0.5f;
-    public float timeBonus = 0.65f;
+    public float touchFactor = 1;
+    public float charge;
+    public float chargeLimit = 2;    
+    public Transform graphicsRoot;
 
     private LerpToPosition mover;
     private MouseDrag2D dragger;
@@ -122,6 +129,28 @@ public class CrashLink : MonoBehaviour
         chargeSwitch = true;
         killClock = t;
         charge = chargeLimit;
+
+        if(deathSpinExtension > 0)
+            ExtendOtherDeathTimes();
+    }
+
+    public void ExtendOtherDeathTimes()
+    {
+        CrashLink[] links = FindObjectsOfType<CrashLink>();
+
+        foreach(CrashLink l in links)
+        {
+            if(l != this)
+            {
+                l.DeathSpinExtend(deathSpinExtension);
+            }
+        }
+    }
+
+    public void DeathSpinExtend(float t)
+    {
+        if(killClock > 0)
+            killClock += t;
     }
         
     public void SpawnCrashBolt(Vector2 force)
