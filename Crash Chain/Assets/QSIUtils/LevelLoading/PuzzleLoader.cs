@@ -23,10 +23,11 @@ public class PuzzleLoader : MonoBehaviour
 
         if (checkLocked)
         {
-            if (PlayerPrefs.GetInt(GetPrevLevelString()) != 1)
-                LockButton();
-            else
+            if (PlayerPrefs.GetInt(GetPrevLevelString()) == 1 || 
+                PlayerPrefs.GetInt(GetLevelString()) == 1)
                 locked = false;
+            else
+                LockButton(); 
         }
             
 	}

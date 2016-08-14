@@ -328,6 +328,7 @@ public class CrashLink : MonoBehaviour
     void OnMouseDown()
     {
         StartDrag();
+        
     }
 
 
@@ -338,7 +339,6 @@ public class CrashLink : MonoBehaviour
         //don't automatically dim if in edit mode...
         if(myEditor == null)
             gameObject.BroadcastMessage("TouchDim");
-
 
     }
 

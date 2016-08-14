@@ -18,6 +18,7 @@ public class TypeMask : MonoBehaviour
 
     private Color touchColourAdd = new Color(0.2f, 0.2f, 0.2f);
 
+
     void Awake()
     {
         if (myCrashLink == null)

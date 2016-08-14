@@ -87,7 +87,7 @@ public class MouseDrag2D : MonoBehaviour
         CameraClickMove.Instance.pauseMove = false;
 
 
-        Debug.Log("MouseDrag2D:OnMouseUp");
+        //Debug.Log("MouseDrag2D:OnMouseUp");
     }
 
     public void TrackMouse()

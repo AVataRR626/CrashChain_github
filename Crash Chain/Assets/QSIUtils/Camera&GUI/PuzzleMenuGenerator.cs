@@ -9,6 +9,8 @@ public class PuzzleMenuGenerator : MonoBehaviour
     [Header("Set Settings")]
     public int setNumber = 1;
     public int maxSet = 12;
+    public bool customMode = false;
+    public string setName;
 
     //display stuff
     [Header("Display Settings")]
