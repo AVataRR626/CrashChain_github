@@ -41,6 +41,7 @@ public class TypeMask : MonoBehaviour
 
         spr = GetComponent<SpriteRenderer>();
         myTypeMaster = TypeMaster.Instance;
+
     }
 	
 	// Update is called once per frame
