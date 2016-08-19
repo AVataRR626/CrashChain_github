@@ -10,6 +10,7 @@ public class PulseMessage : MonoBehaviour
     public float pulseInterval = 0.1f;
     public int pulseCount = 2;
     public float resetCLock = 2;
+    public float startDelay = 0;
 
     private float pulseClock;
     private float pulseCountTracker;
@@ -17,7 +18,8 @@ public class PulseMessage : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        Init();
+        Invoke("Init", startDelay);
+        //Init();
     }
 	
 	// Update is called once per frame

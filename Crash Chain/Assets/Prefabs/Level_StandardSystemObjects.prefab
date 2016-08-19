@@ -71,6 +71,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 407446}
+  - 114: {fileID: 114000012669388466}
+  - 114: {fileID: 114000012925153798}
   m_Layer: 0
   m_Name: Level_StandardSystemObjects
   m_TagString: Untagged
@@ -151,7 +153,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 224000011954170014}
-  - 114: {fileID: 114000010254221808}
   m_Layer: 0
   m_Name: VictoryTree
   m_TagString: Untagged
@@ -369,7 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadCustomMode: 0
   customLevel: 
-  retryMode: 0
+  retryMode: 1
   serialisedLevel: 
   squareLinkPrefab: {fileID: 11471638, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   triLinkPrefab: {fileID: 11471660, guid: 047dd4659c123624e924510087f30691, type: 2}
@@ -623,17 +624,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Next
---- !u!114 &114000010254221808
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c43def68fa281649bf4a0388573c956, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114000010305081132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -702,7 +692,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ae364cfe268492b4e8926a14d86e58f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 00e29b170d579734aa4cf93d79e04e8a, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -710,6 +700,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000012669388466
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a50ccff34406c4e889518ddec92618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlePrefix: puzzle_
+  delimiter: 95
+  setNumber: -1
+  puzzleNumber: -1
+  autoSetBySceneName: 1
 --- !u!114 &114000012878922184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -800,6 +806,17 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000012925153798
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c43def68fa281649bf4a0388573c956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013001625968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -821,11 +838,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4777675f3327abc4cb8ddca5a35f0eec, type: 3}
-    m_FontSize: 39
+    m_FontSize: 61
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 63
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1102,7 +1119,7 @@ RectTransform:
   m_GameObject: {fileID: 1000011333985252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.45747137, y: 0.45747137, z: 0.45747137}
+  m_LocalScale: {x: 0.37512654, y: 0.37512657, z: 0.37512657}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224000011493786254}
@@ -1110,8 +1127,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 46, y: -28.1}
-  m_SizeDelta: {x: 185.1, y: 101.8}
+  m_AnchoredPosition: {x: 56.9, y: -28.1}
+  m_SizeDelta: {x: 201.55, y: 125.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000011954170014
 RectTransform:

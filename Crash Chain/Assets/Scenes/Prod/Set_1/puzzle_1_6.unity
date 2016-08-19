@@ -200,6 +200,57 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be8796ece01a4e5498939c01dd92fe02, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &166399363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 166399365}
+  - 114: {fileID: 166399364}
+  m_Layer: 0
+  m_Name: BlockBlinker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &166399364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 166399363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ab86af5078e944ab22f209991480bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: {fileID: 228411001}
+  startMessage: TouchGlow
+  endMessage: TouchDim
+  pulseLength: 0.2
+  pulseInterval: 0.1
+  pulseCount: 2
+  resetCLock: 0.85
+--- !u!4 &166399365
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 166399363}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 788, y: 262, z: -0.039463997}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+--- !u!1 &228411001 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 189308, guid: be8796ece01a4e5498939c01dd92fe02, type: 2}
+  m_PrefabInternal: {fileID: 148800126}
 --- !u!1001 &534671190
 Prefab:
   m_ObjectHideFlags: 0

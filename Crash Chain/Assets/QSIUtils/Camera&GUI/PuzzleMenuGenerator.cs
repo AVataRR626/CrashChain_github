@@ -42,13 +42,14 @@ public class PuzzleMenuGenerator : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-        originalPos = transform.localPosition;
+        originalPos = transform.position;
         autoMover = GetComponent<AutoMoveAndRotate>();
         StartCoroutine("GenerateButtonsTimed", buttonGenDelay);
         //GenerateButtonsTimed(2f);
 
-        DisplayUpdate();
+       
 
+        DisplayUpdate();       
     }
 
 
@@ -59,11 +60,11 @@ public class PuzzleMenuGenerator : MonoBehaviour
         {
             xSpeed += moveAcceleration * Time.deltaTime * -direction;
 
-            if(transform.localPosition.x < originalPos.x + xMax ^ transform.localPosition.x > originalPos.x + xMin)
+            if(transform.position.x < originalPos.x + xMax ^ transform.position.x > originalPos.x + xMin)
             {
                 xSpeed = 0;
                 moveMode = false;
-                transform.localPosition = originalPos;
+                transform.position = originalPos;
                 DeleteButtons();
                 GenerateButtons();
                 DisplayUpdate();
@@ -76,6 +77,8 @@ public class PuzzleMenuGenerator : MonoBehaviour
 
     public void DisplayUpdate()
     {
+        setNumber = PlayerPrefs.GetInt("CurrentSet");
+
         textDisplay.text = prefix + setNumber.ToString();
     }
 
@@ -104,6 +107,8 @@ public class PuzzleMenuGenerator : MonoBehaviour
 
         if (setNumber > maxSet)
             setNumber = 1;
+
+        PlayerPrefs.SetInt("CurrentSet", setNumber);
     }
 
     public void GenerateButtons()
