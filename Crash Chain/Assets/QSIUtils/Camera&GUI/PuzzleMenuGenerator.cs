@@ -44,12 +44,9 @@ public class PuzzleMenuGenerator : MonoBehaviour
     {
         originalPos = transform.position;
         autoMover = GetComponent<AutoMoveAndRotate>();
+        DisplayUpdate();
         StartCoroutine("GenerateButtonsTimed", buttonGenDelay);
-        //GenerateButtonsTimed(2f);
 
-       
-
-        DisplayUpdate();       
     }
 
 
@@ -67,11 +64,11 @@ public class PuzzleMenuGenerator : MonoBehaviour
                 transform.position = originalPos;
                 DeleteButtons();
                 GenerateButtons();
-                DisplayUpdate();
+                
             }
 
             autoMover.moveUnitsPerSecond.value.x = xSpeed;
-
+            DisplayUpdate();
         }
 	}
 
