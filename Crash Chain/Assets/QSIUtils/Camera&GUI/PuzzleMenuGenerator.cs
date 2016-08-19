@@ -76,6 +76,13 @@ public class PuzzleMenuGenerator : MonoBehaviour
     {
         setNumber = PlayerPrefs.GetInt("CurrentSet");
 
+        if (setNumber <= 0)
+        {
+            setNumber = 1;
+            PlayerPrefs.SetInt("CurrentSet",1);
+
+        }
+
         textDisplay.text = prefix + setNumber.ToString();
     }
 
