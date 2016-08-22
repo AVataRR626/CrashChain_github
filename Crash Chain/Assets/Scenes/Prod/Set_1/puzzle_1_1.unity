@@ -504,6 +504,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11458758, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: retryMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
   m_IsPrefabParent: 0
@@ -782,7 +786,8 @@ MonoBehaviour:
   pulseLength: 0.2
   pulseInterval: 0.1
   pulseCount: 2
-  resetCLock: 0.85
+  resetCLock: 0.65
+  startDelay: 0.1
 --- !u!4 &1429548973
 Transform:
   m_ObjectHideFlags: 0
@@ -888,6 +893,10 @@ Prefab:
     - target: {fileID: 139522, guid: edb1d0a3a0eafe043a43f4fa700c0f3a, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409916, guid: edb1d0a3a0eafe043a43f4fa700c0f3a, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 2.5243893
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edb1d0a3a0eafe043a43f4fa700c0f3a, type: 2}
