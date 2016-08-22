@@ -191,7 +191,7 @@ public class PuzzleMenuGenerator : MonoBehaviour
                 spawnPos.x += xDistance;
                 puzzleNumber++;
 
-                Debug.Log("WOO");
+                //Debug.Log("WOO");
 
                 yield return new WaitForSeconds(waitTime);
             }
