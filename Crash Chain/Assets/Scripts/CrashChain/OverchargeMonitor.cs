@@ -35,9 +35,15 @@ public class OverchargeMonitor : MonoBehaviour
 	void Update ()
     {
 	    if(CrashLink.overchargeCount == timerTrigger)
-        {
+        {       
+
             if (clock > 0)
             {
+
+                //someone's trying to cheat! end the game now.
+                if (Input.GetMouseButtonDown(0))
+                    clock = 0;
+
                 if (!saveSwitch)
                 {
                     levelSaver.SaveLevel();

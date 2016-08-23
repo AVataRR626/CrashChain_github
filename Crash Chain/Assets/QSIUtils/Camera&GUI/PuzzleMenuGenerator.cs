@@ -118,43 +118,6 @@ public class PuzzleMenuGenerator : MonoBehaviour
     public void GenerateButtons()
     {
         StartCoroutine("GenerateButtonsTimed", buttonGenDelay);
-        /*
-        Vector3 spawnPos = startPoint.position;
-
-        int puzzleNumber = 1;
-
-        for(int i = 0; i < rowCount; i++)
-        { 
-            for(int j = 0; j < colCount; j++)
-            { 
-                //place the button
-                GameObject b = Instantiate(template, spawnPos, startPoint.rotation) as GameObject;
-                b.transform.parent = transform;
-                
-
-                //set the button settings
-                PuzzleLoader pl = b.GetComponent<PuzzleLoader>();
-
-                if(pl != null)
-                {
-                    pl.setNumber = setNumber;
-                    pl.puzzleNumber = puzzleNumber;
-
-                    Transform label = pl.transform.FindChild("Text");
-
-                    if(label != null)
-                    {
-                        label.GetComponent<Text>().text = puzzleNumber.ToString();
-                    }
-                }
-
-                spawnPos.x += xDistance;
-                puzzleNumber++;
-            }
-            spawnPos.y += yDistance;
-            spawnPos.x = startPoint.position.x;
-        }
-        */
     }
 
     IEnumerator GenerateButtonsTimed(float waitTime)
