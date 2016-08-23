@@ -36,14 +36,18 @@ public class PulseMessage : MonoBehaviour
 
     void PulseStart()
     {
-        subject.SendMessage(startMessage);
+        if(subject != null)
+            subject.SendMessage(startMessage);
+
         Invoke("PulseEnd", pulseLength);
     }
 
     void PulseEnd()
     {
         pulseCountTracker--;
-        subject.SendMessage(endMessage);
+
+        if (subject != null)
+            subject.SendMessage(endMessage);
 
         if(pulseCountTracker > 0)
             Invoke("PulseStart", pulseInterval);

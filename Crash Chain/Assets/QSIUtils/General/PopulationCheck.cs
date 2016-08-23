@@ -15,9 +15,10 @@ public class PopulationCheck : MonoBehaviour
     public CrashChainDynLevelSaver levelSaver;
 
     private int pop;
+    private GameObject[] tagSearch;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         if (levelSaver == null)
             levelSaver = FindObjectOfType<CrashChainDynLevelSaver>();
@@ -31,7 +32,7 @@ public class PopulationCheck : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        GameObject[] tagSearch = GameObject.FindGameObjectsWithTag(checkTag);
+        tagSearch = GameObject.FindGameObjectsWithTag(checkTag);
 
         pop = tagSearch.Length;
 
