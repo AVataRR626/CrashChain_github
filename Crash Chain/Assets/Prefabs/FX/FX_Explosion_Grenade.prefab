@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &139720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 406886}
+  - 114: {fileID: 11431810}
+  m_Layer: 0
+  m_Name: FX_Explosion_Grenade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &406886
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139720}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.75, y: 5.4100037, z: 8.850781}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11431810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ebdade8d6ad7ff4fb39f6c8c1ca5467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnOnStart: 1
+  killOnSpawn: 1
+  spawnObjects:
+  - {fileID: 50000012890177878, guid: 1b20dfc8c13a6f24ab5460589b77277d, type: 2}
+  - {fileID: 50000012890177878, guid: 1b20dfc8c13a6f24ab5460589b77277d, type: 2}
+  - {fileID: 50000012890177878, guid: 1b20dfc8c13a6f24ab5460589b77277d, type: 2}
+  - {fileID: 50000012890177878, guid: 1b20dfc8c13a6f24ab5460589b77277d, type: 2}
+  spawnForce:
+  - {x: 0.45, y: 0.45, z: 0}
+  - {x: -0.45, y: 0.45, z: 0}
+  - {x: -0.45, y: -0.45, z: 0}
+  - {x: 0.45, y: -0.45, z: 0}
+  forceFactor: 400
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: spawnObjects.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spawnForce.Array.data[0].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spawnForce.Array.data[1].y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spawnForce.Array.data[2].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spawnForce.Array.data[3].x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: spawnObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 5013542, guid: 56aa76dfa8212084b9ce90f3ba13a0c7, type: 2}
+    - target: {fileID: 0}
+      propertyPath: spawnObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 5013542, guid: 05a7ef879cb74774da242c570efd5f36, type: 2}
+    - target: {fileID: 0}
+      propertyPath: spawnObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 5013542, guid: 05a7ef879cb74774da242c570efd5f36, type: 2}
+    - target: {fileID: 0}
+      propertyPath: spawnObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 5013542, guid: 05a7ef879cb74774da242c570efd5f36, type: 2}
+    - target: {fileID: 0}
+      propertyPath: forceFactor
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: killOnSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 139720}
+  m_IsPrefabParent: 1

@@ -30,6 +30,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012595079692}
+  - {fileID: 4000010718743778}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!82 &8207598
@@ -147,6 +148,22 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 148294}
   m_IsPrefabParent: 1
+--- !u!1 &1000011792913402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010718743778}
+  - 114: {fileID: 114000012572008878}
+  m_Layer: 0
+  m_Name: FX_Explosion_Grenade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000012021061036
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +181,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!4 &4000010718743778
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011792913402}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 431986}
+  m_RootOrder: 1
 --- !u!4 &4000012595079692
 Transform:
   m_ObjectHideFlags: 1
@@ -177,6 +207,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 431986}
   m_RootOrder: 0
+--- !u!114 &114000012572008878
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011792913402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ebdade8d6ad7ff4fb39f6c8c1ca5467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnOnStart: 1
+  killOnSpawn: 1
+  spawnObjects:
+  - {fileID: 50000012890177878, guid: 1b20dfc8c13a6f24ab5460589b77277d, type: 2}
+  - {fileID: 50000012890177878, guid: 1b20dfc8c13a6f24ab5460589b77277d, type: 2}
+  - {fileID: 50000012890177878, guid: 1b20dfc8c13a6f24ab5460589b77277d, type: 2}
+  - {fileID: 50000012890177878, guid: 1b20dfc8c13a6f24ab5460589b77277d, type: 2}
+  spawnForce:
+  - {x: 0.45, y: 0.45, z: 0}
+  - {x: -0.45, y: 0.45, z: 0}
+  - {x: -0.45, y: -0.45, z: 0}
+  - {x: 0.45, y: -0.45, z: 0}
+  forceFactor: 400
 --- !u!198 &198000010665562376
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -368,8 +422,8 @@ ParticleSystem:
         atime7: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 0, g: 1, b: 0.047058824, a: 1}
-      maxColor: {r: 1, g: 0, b: 0.14509805, a: 1}
+      minColor: {r: 0, g: 1, b: 0.047058824, a: 0.21568628}
+      maxColor: {r: 1, g: 0, b: 0.14509805, a: 0.23921569}
       minMaxState: 2
     startSize:
       scalar: 0.25
@@ -583,14 +637,14 @@ ParticleSystem:
       minMaxState: 0
     randomizeRotationDirection: 1
     gravityModifier: 0
-    maxNumParticles: 30
+    maxNumParticles: 60
     size3D: 0
     rotation3D: 0
   ShapeModule:
     serializedVersion: 2
     enabled: 1
-    type: 10
-    radius: 1
+    type: 11
+    radius: 0.01
     angle: 25
     length: 5
     boxX: 1
@@ -645,11 +699,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    cnt0: 30
+    cnt0: 60
     cnt1: 30
     cnt2: 30
     cnt3: 30
-    cntmax0: 30
+    cntmax0: 60
     cntmax1: 30
     cntmax2: 30
     cntmax3: 30

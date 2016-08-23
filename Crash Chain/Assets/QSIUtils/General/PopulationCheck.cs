@@ -13,9 +13,11 @@ public class PopulationCheck : MonoBehaviour
     public GameObject triggerObject;
     public string triggerMessage;
     public CrashChainDynLevelSaver levelSaver;
+    public float triggerDelay = 0.5f;
 
     private int pop;
     private GameObject[] tagSearch;
+    private bool triggerSwitch = false;
 
     // Use this for initialization
     void Start ()
@@ -36,14 +38,21 @@ public class PopulationCheck : MonoBehaviour
 
         pop = tagSearch.Length;
 
-        if(pop == triggerNum)
+        if(pop == triggerNum && !triggerSwitch)
         {
-            if(triggerObject != null)
-            {
-                triggerObject.SetActive(true);
-                triggerObject.SendMessage(triggerMessage, SendMessageOptions.DontRequireReceiver);
-                levelSaver.RegisterWin();
-            }
+            Invoke("Trigger", triggerDelay);
+            triggerSwitch = true;
+
         }
 	}
+
+    void Trigger()
+    {
+        if (triggerObject != null)
+        {
+            triggerObject.SetActive(true);
+            triggerObject.SendMessage(triggerMessage, SendMessageOptions.DontRequireReceiver);
+            levelSaver.RegisterWin();
+        }
+    }
 }

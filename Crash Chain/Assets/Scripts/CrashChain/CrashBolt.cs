@@ -73,6 +73,7 @@ public class CrashBolt : MonoBehaviour
         {
             //continue the chain reaction if the shells match..
             cl.GetComponent<SmoothSnap>().noSnapOverride = true;
+            cl.GetComponent<Rigidbody2D>().isKinematic = true;
             cl.Kill();
 
         }
