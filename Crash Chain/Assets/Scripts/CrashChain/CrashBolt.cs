@@ -12,6 +12,10 @@ public class CrashBolt : MonoBehaviour
     public float ttl = 10;
     public TypeMaster myTypeMaster;
 
+    public GameObject[] shellCrashSpawnList;
+    public GameObject[] convertShellSpawnList;
+    public GameObject[] convertCoreSpawnList;
+
     // Use this for initialization
     void Start ()
     {
@@ -50,12 +54,16 @@ public class CrashBolt : MonoBehaviour
             {
                 //convert the shell if it doesn't match..
                 if (cl.shellType != type)
+                {
                     cl.shellType = type;
+                    GenUtils.SpawnList(convertShellSpawnList, cl.transform);
+                }
                 else
                 {
                     //if it does match, just do the normal thing
                     ShellCrash(cl);
                 }
+                
             }
 
             if (opMode == OperationMode.ConvertCore)
@@ -71,6 +79,8 @@ public class CrashBolt : MonoBehaviour
     {
         if (myTypeMaster.typeMatch[type] == cl.shellType)
         {
+            GenUtils.SpawnList(shellCrashSpawnList, transform);
+
             //continue the chain reaction if the shells match..
             cl.GetComponent<SmoothSnap>().noSnapOverride = true;
             cl.GetComponent<Rigidbody2D>().isKinematic = true;
@@ -108,3 +118,4 @@ public class CrashBolt : MonoBehaviour
         }
     }
 }
+

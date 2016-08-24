@@ -483,6 +483,14 @@ Prefab:
       propertyPath: m_Color.b
       value: 0.9764706
       objectReference: {fileID: 0}
+    - target: {fileID: 21275708, guid: e3908240c0f73a74ebfdc70a3c3b210d, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 21217938, guid: e3908240c0f73a74ebfdc70a3c3b210d, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e3908240c0f73a74ebfdc70a3c3b210d, type: 2}
   m_IsPrefabParent: 0
@@ -794,15 +802,35 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
       propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
