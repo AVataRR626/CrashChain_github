@@ -6,7 +6,7 @@ public class OverchargeMonitor : MonoBehaviour
 {
     public static OverchargeMonitor instance;
 
-    public static float timeLimit = 1.5f;    
+    public static float timeLimit = 1.65f;    
     public int timerTrigger = 1;
     public CrashChainDynLevelSaver levelSaver;
     public PopulationCheck popChecker;
