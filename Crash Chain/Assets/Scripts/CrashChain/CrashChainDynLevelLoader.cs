@@ -5,7 +5,7 @@ using System.Collections;
 public class CrashChainDynLevelLoader : MonoBehaviour
 {
     public bool loadCustomMode = false;
-    public string customLevel;
+    public string customLevel = "";
     public bool retryMode = true;
     public string serialisedLevel;
     public CrashLink squareLinkPrefab;
@@ -14,11 +14,20 @@ public class CrashChainDynLevelLoader : MonoBehaviour
 
     int retryCount = 0;
 
+    string setName;
+    int lvlNumber;
     // Use this for initialization
     void Start ()
     {
         if(loadCustomMode)
         {
+            if(customLevel == "")
+            {
+                setName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetKey);
+                lvlNumber = PlayerPrefs.GetInt(PuzzleLoader.currentCustomPuzzleNumberKey);
+                customLevel = setName + ":" + lvlNumber.ToString();
+            }
+
             HandleCustomLoad();
         }
 

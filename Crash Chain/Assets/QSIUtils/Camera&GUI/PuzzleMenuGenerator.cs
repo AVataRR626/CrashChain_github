@@ -38,14 +38,54 @@ public class PuzzleMenuGenerator : MonoBehaviour
     private bool moveMode;
     private int direction = 1;
     Vector3 originalPos;
+    private string [] customSets;
+    private string setListKey = "SetList";
+    private char setDelimiter = ';';
+    private bool emptyMode = false;
 
-	// Use this for initialization
-	void Start ()
+    private string currentSetKey;
+
+    
+
+    // Use this for initialization
+    void Start ()
     {
+        currentSetKey = PuzzleLoader.currentSetKey;
         originalPos = transform.position;
         autoMover = GetComponent<AutoMoveAndRotate>();
+
+        if (customMode)
+        {
+            currentSetKey = PuzzleLoader.currentCustomSetKey;
+
+            string rawCustomSetString = PlayerPrefs.GetString(setListKey,"");
+
+            if(rawCustomSetString != "")
+                customSets = rawCustomSetString.Split(setDelimiter);
+            else
+            {
+                setNumber = 1;
+                emptyMode = true;
+
+            }
+
+            PlayerPrefs.SetInt(currentSetKey, setNumber);
+            if (customSets != null)
+                maxSet = customSets.Length;
+            else
+                maxSet = 1;
+
+        }
+
         DisplayUpdate();
-        StartCoroutine("GenerateButtonsTimed", buttonGenDelay);
+
+        if (!emptyMode)
+        {
+            StartCoroutine("GenerateButtonsTimed", buttonGenDelay);
+
+            if(customMode)
+                PlayerPrefs.SetString(currentSetKey, customSets[setNumber - 1]);
+        }
 
     }
 
@@ -74,16 +114,21 @@ public class PuzzleMenuGenerator : MonoBehaviour
 
     public void DisplayUpdate()
     {
-        setNumber = PlayerPrefs.GetInt("CurrentSet");
+        setNumber = PlayerPrefs.GetInt(currentSetKey);
 
         if (setNumber <= 0)
         {
             setNumber = 1;
-            PlayerPrefs.SetInt("CurrentSet",1);
+            PlayerPrefs.SetInt(currentSetKey, 1);
 
         }
 
-        textDisplay.text = prefix + setNumber.ToString();
+        if (!customMode)
+            textDisplay.text = prefix + setNumber.ToString();
+        else if (!emptyMode)
+            textDisplay.text = setNumber.ToString() + " : " + customSets[setNumber - 1];
+        else
+            textDisplay.text = " - NO CUSTOM PUZZLES FOUND - ";
     }
 
 
@@ -102,6 +147,8 @@ public class PuzzleMenuGenerator : MonoBehaviour
 
     void SetChange(int i)
     {
+        //Debug.Log("SET CHANGE");
+
         setNumber += i;
         moveMode = true;
         direction = i;
@@ -112,12 +159,22 @@ public class PuzzleMenuGenerator : MonoBehaviour
         if (setNumber > maxSet)
             setNumber = 1;
 
-        PlayerPrefs.SetInt("CurrentSet", setNumber);
+        PlayerPrefs.SetInt(currentSetKey, setNumber);
+
+        if (!emptyMode)
+        {
+            if(customMode)
+            { 
+                PlayerPrefs.SetString(currentSetKey, customSets[setNumber - 1]);
+                
+            }
+        }
     }
 
     public void GenerateButtons()
     {
-        StartCoroutine("GenerateButtonsTimed", buttonGenDelay);
+        if(!emptyMode)
+            StartCoroutine("GenerateButtonsTimed", buttonGenDelay);
     }
 
     IEnumerator GenerateButtonsTimed(float waitTime)
@@ -132,8 +189,7 @@ public class PuzzleMenuGenerator : MonoBehaviour
             {
                 //place the button
                 GameObject b = Instantiate(template, spawnPos, startPoint.rotation) as GameObject;
-                b.transform.parent = transform;
-
+                b.transform.SetParent(transform);
 
                 //set the button settings
                 PuzzleLoader pl = b.GetComponent<PuzzleLoader>();
@@ -142,6 +198,21 @@ public class PuzzleMenuGenerator : MonoBehaviour
                 {
                     pl.setNumber = setNumber;
                     pl.puzzleNumber = puzzleNumber;
+
+                    //if loading custom puzzles...
+                    if (customMode)
+                    {
+                        //don't follow the standard numbering system..
+                        pl.customMode = true;
+                        pl.customSetName = customSets[setNumber - 1];
+
+                        //and always unlock the first one
+                        if (puzzleNumber == 1)
+                        {
+                            pl.locked = false;
+                            pl.checkLocked = false;
+                        }
+                    }
 
                     Transform label = pl.transform.FindChild("Text");
 
