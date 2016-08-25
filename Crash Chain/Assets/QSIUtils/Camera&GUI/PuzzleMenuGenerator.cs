@@ -10,8 +10,7 @@ public class PuzzleMenuGenerator : MonoBehaviour
     public int setNumber = 1;
     public int maxSet = 12;
     public bool customMode = false;
-    public string setName;
-    public bool loopSets = true;
+    public string setName;    
 
     //display stuff
     [Header("Display Settings")]
@@ -34,7 +33,10 @@ public class PuzzleMenuGenerator : MonoBehaviour
     public float xSpeed;    
     public float xMax = 1000;
     public float xMin = -1000;
-    public float buttonGenDelay = 0.05f;    
+    public float buttonGenDelay = 0.05f;
+    public bool loopSets = true;
+    public GameObject leftArrow;
+    public GameObject rightArrow;
 
     private bool moveMode;
     private int direction = 1;
@@ -130,6 +132,27 @@ public class PuzzleMenuGenerator : MonoBehaviour
             textDisplay.text = setNumber.ToString() + " : " + customSets[setNumber - 1];
         else
             textDisplay.text = " - NO CUSTOM PUZZLES FOUND - ";
+
+        if(!loopSets)
+        {   
+            if (leftArrow != null)
+                leftArrow.SetActive(true);
+
+            if (rightArrow != null)
+                rightArrow.SetActive(true);
+
+            if (setNumber == 1)
+            {
+                if (leftArrow != null)
+                    leftArrow.SetActive(false);
+            }
+
+            if (setNumber == maxSet)
+            {
+                if (rightArrow != null)
+                    rightArrow.SetActive(false);
+            }
+        }
     }
 
 
@@ -154,6 +177,7 @@ public class PuzzleMenuGenerator : MonoBehaviour
         moveMode = true;
         direction = i;
 
+        //internal m enu management..
         if (setNumber < 1)
         {
             if (loopSets)
@@ -161,9 +185,11 @@ public class PuzzleMenuGenerator : MonoBehaviour
             else
             {
                 setNumber = 1;
-                moveMode = false;
+                moveMode = false;                
             }
         }
+
+        
 
         if (setNumber > maxSet)
         {
@@ -173,11 +199,13 @@ public class PuzzleMenuGenerator : MonoBehaviour
             {
                 setNumber = maxSet;
                 moveMode = false;
+
+                
             }
         }
 
+        //scene management
         PlayerPrefs.SetInt(currentSetKey, setNumber);
-
         if (!emptyMode)
         {
             if(customMode)
@@ -186,6 +214,7 @@ public class PuzzleMenuGenerator : MonoBehaviour
                 
             }
         }
+
     }
 
     public void GenerateButtons()
