@@ -11,6 +11,7 @@ public class PuzzleMenuGenerator : MonoBehaviour
     public int maxSet = 12;
     public bool customMode = false;
     public string setName;
+    public bool loopSets = true;
 
     //display stuff
     [Header("Display Settings")]
@@ -33,7 +34,7 @@ public class PuzzleMenuGenerator : MonoBehaviour
     public float xSpeed;    
     public float xMax = 1000;
     public float xMin = -1000;
-    public float buttonGenDelay = 0.05f;
+    public float buttonGenDelay = 0.05f;    
 
     private bool moveMode;
     private int direction = 1;
@@ -154,10 +155,26 @@ public class PuzzleMenuGenerator : MonoBehaviour
         direction = i;
 
         if (setNumber < 1)
-            setNumber = maxSet;
+        {
+            if (loopSets)
+                setNumber = maxSet;
+            else
+            {
+                setNumber = 1;
+                moveMode = false;
+            }
+        }
 
         if (setNumber > maxSet)
-            setNumber = 1;
+        {
+            if (loopSets)
+                setNumber = 1;
+            else
+            {
+                setNumber = maxSet;
+                moveMode = false;
+            }
+        }
 
         PlayerPrefs.SetInt(currentSetKey, setNumber);
 

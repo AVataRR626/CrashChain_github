@@ -4,11 +4,25 @@ using UnityEngine.SceneManagement;
 
 public class PuzzleUnlocker : MonoBehaviour
 {
+    public bool customMode = false;
 
-	// Use this for initialization
-	void Start ()
+    LevelNavigator myNavigator;
+    string levelName;
+
+    // Use this for initialization
+    void Start ()
     {
-        string levelName = SceneManager.GetActiveScene().name;
+        myNavigator = FindObjectOfType<LevelNavigator>();
+
+        if (!customMode)
+        { 
+            levelName = SceneManager.GetActiveScene().name;            
+        }
+        else if(myNavigator != null)
+        {
+            levelName = myNavigator.GetSceneName();
+        }
+
         PlayerPrefs.SetInt(levelName, 1);
-	}
+    }
 }

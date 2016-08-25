@@ -4,13 +4,19 @@ using System.Collections;
 
 public class LevelNavigator : MonoBehaviour
 {
-    
+    [Header("Default Mode Settings")]
     public string puzzlePrefix = "puzzle_";
     public char delimiter = '_';
     public int setNumber = -1;
     public int puzzleNumber = -1;
     public bool autoSetBySceneName = true;
+    
+
+    [Header("Custom Mode Settings")]
     public bool customMode = false;
+    public string customSetName = "";
+    public string customPrefix = "lvl";
+    public string customDelimiter = ":";
 
     // Use this for initialization
     void Start ()
@@ -31,13 +37,25 @@ public class LevelNavigator : MonoBehaviour
         }
         
         if(customMode)
-        {
-            puzzlePrefix = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetKey);
-            int.TryParse(PlayerPrefs.GetString(PuzzleLoader.currentCustomPuzzleNumberKey), out puzzleNumber);
+        {   
+            customSetName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetKey);
+            puzzleNumber = PlayerPrefs.GetInt(PuzzleLoader.currentCustomPuzzleNumberKey);
         }
 	}
 	
 	void Update () {
 	
 	}
+
+    public string GetSceneName()
+    {
+        if(!customMode)
+        {
+            return SceneManager.GetActiveScene().name;
+        }
+        else
+        {
+            return customSetName + customDelimiter + (puzzleNumber).ToString();
+        }
+    }
 }

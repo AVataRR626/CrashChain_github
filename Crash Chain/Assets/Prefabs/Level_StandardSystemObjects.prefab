@@ -284,7 +284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkTag: CrashLink
   triggerNum: 0
-  triggerObject: {fileID: 197276}
+  triggerObjects:
+  - {fileID: 197276}
   triggerMessage: 
   levelSaver: {fileID: 11452704}
   triggerDelay: 0.5
@@ -395,6 +396,8 @@ MonoBehaviour:
   - {fileID: 144004}
   disableObjects:
   - {fileID: 186830}
+  messageList: []
+  message: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -798,6 +801,10 @@ MonoBehaviour:
   setNumber: -1
   puzzleNumber: -1
   autoSetBySceneName: 1
+  customMode: 0
+  customSetName: 
+  customPrefix: lvl
+  customDelimiter: ':'
 --- !u!114 &114000012878922184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -888,6 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c43def68fa281649bf4a0388573c956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customMode: 0
 --- !u!114 &114000013001625968
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -5104,7 +5104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkTag: CrashLink
   triggerNum: 0
-  triggerObject: {fileID: 59681992}
+  triggerObjects: []
   triggerMessage: 
   levelSaver: {fileID: 0}
   triggerDelay: 0.5
@@ -5885,46 +5885,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 181858, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
-      propertyPath: m_Name
-      value: Editor_StandardSystemObjects
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403086, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
-      propertyPath: typeColours.Array.data[0].r
-      value: 0.56078434
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403086, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
-      propertyPath: typeColours.Array.data[0].g
-      value: 0.7921569
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403086, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
-      propertyPath: typeColours.Array.data[0].b
-      value: 0.9764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403086, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
-      propertyPath: typeColours.Array.data[1].r
-      value: 0.6392157
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403086, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
-      propertyPath: typeColours.Array.data[1].g
-      value: 0.84313726
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403086, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
-      propertyPath: typeColours.Array.data[1].b
-      value: 0.6627451
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403086, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
-      propertyPath: typeColours.Array.data[2].r
-      value: 0.94509804
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403086, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
-      propertyPath: typeColours.Array.data[2].g
-      value: 0.8745098
-      objectReference: {fileID: 0}
-    - target: {fileID: 11403086, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
-      propertyPath: typeColours.Array.data[2].b
-      value: 0.43137255
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
   m_IsPrefabParent: 0
@@ -6294,6 +6254,8 @@ MonoBehaviour:
   - {fileID: 96316310}
   disableObjects:
   - {fileID: 1266751510}
+  messageList: []
+  message: 
 --- !u!1 &1958524444
 GameObject:
   m_ObjectHideFlags: 0

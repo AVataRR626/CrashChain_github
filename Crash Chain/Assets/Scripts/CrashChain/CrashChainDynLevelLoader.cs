@@ -11,6 +11,7 @@ public class CrashChainDynLevelLoader : MonoBehaviour
     public CrashLink squareLinkPrefab;
     public CrashLink triLinkPrefab;
     public CrashLink hexLinkPrefab;
+    public float nextLevelDelay = 1;
 
     int retryCount = 0;
 
@@ -24,11 +25,11 @@ public class CrashChainDynLevelLoader : MonoBehaviour
             if(customLevel == "")
             {
                 setName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetKey);
-                lvlNumber = PlayerPrefs.GetInt(PuzzleLoader.currentCustomPuzzleNumberKey);
+                lvlNumber = PlayerPrefs.GetInt(PuzzleLoader.currentCustomPuzzleNumberKey) - 1;//index starts from 0, but puzzle numbers startt from 1
                 customLevel = setName + ":" + lvlNumber.ToString();
             }
 
-            HandleCustomLoad();
+            LoadLevel();
         }
 
         if(retryMode)
@@ -48,14 +49,21 @@ public class CrashChainDynLevelLoader : MonoBehaviour
     [ContextMenu("LoadLevel")]
     public void LoadLevel()
     {
+        Debug.Log("LOAD LEVEL");
+        CrashChainUtil.ClearLevel();
 
-        CrashChainUtil.DeserialiseLevel(serialisedLevel, transform, squareLinkPrefab, triLinkPrefab, hexLinkPrefab);
+        if (!loadCustomMode)
+            CrashChainUtil.DeserialiseLevel(serialisedLevel, transform, squareLinkPrefab, triLinkPrefab, hexLinkPrefab);
+        else
+            HandleCustomLoad();
     }
 
     void HandleCustomLoad()
     {
+        
         string levelString = "lvl:" + customLevel;
-        serialisedLevel = PlayerPrefs.GetString(levelString);
+        Debug.Log("Handling Custom Load: " + levelString);
+        serialisedLevel = PlayerPrefs.GetString(levelString);        
         CrashChainUtil.DeserialiseLevel(serialisedLevel, transform, squareLinkPrefab, triLinkPrefab, hexLinkPrefab);
     }
 
@@ -76,5 +84,19 @@ public class CrashChainDynLevelLoader : MonoBehaviour
             }
 
         }
+    }
+
+    void NextLevel()
+    {
+        Debug.Log("DynLevelLoader:NextLevel");
+        lvlNumber++;
+        PlayerPrefs.SetInt(PuzzleLoader.currentCustomPuzzleNumberKey, lvlNumber + 1);
+        customLevel = setName + ":" + lvlNumber.ToString();
+        //HandleCustomLoad();
+    }
+
+    void NextLevelDelayed()
+    {
+        Invoke("NextLevel", nextLevelDelay);
     }
 }

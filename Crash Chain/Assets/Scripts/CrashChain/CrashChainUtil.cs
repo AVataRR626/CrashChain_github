@@ -14,11 +14,13 @@ public class CrashChainUtil : MonoBehaviour {
 	}
 
     public static void ClearLevel()
-    {
+    {        
         CrashLink[] allTheLinks = FindObjectsOfType<CrashLink>();
+        //Debug.Log("ClearLevel:"+allTheLinks.Length);
         foreach (CrashLink l in allTheLinks)
         {
             Destroy(l.gameObject);
+            //Debug.Log("Destroying:" + l.name);
         }
     }
 

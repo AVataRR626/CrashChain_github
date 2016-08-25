@@ -79,7 +79,7 @@ public class PuzzleLoader : MonoBehaviour
         if (!customMode)
             return puzzlePrefix + delimiter + setNumber.ToString() + delimiter + lvlNo.ToString();
         else
-            return customPrefix + customDelimiter + customSetName + customDelimiter + lvlNo.ToString();
+            return customSetName + customDelimiter + lvlNo.ToString();
     }
 
     public string GetPrevLevelString()

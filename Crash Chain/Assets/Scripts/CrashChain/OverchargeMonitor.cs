@@ -6,12 +6,14 @@ public class OverchargeMonitor : MonoBehaviour
 {
     public static OverchargeMonitor instance;
 
-    public static float timeLimit = 1.5f;
+    public static float timeLimit = 1.5f;    
     public int timerTrigger = 1;
     public CrashChainDynLevelSaver levelSaver;
     public PopulationCheck popChecker;
     public GameObject [] activateObjects;
     public GameObject [] disableObjects;
+    public GameObject [] messageList;
+    public string message;
 
     private float clock;
     private bool saveSwitch = false;
@@ -80,6 +82,9 @@ public class OverchargeMonitor : MonoBehaviour
         foreach (GameObject o in disableObjects)
             o.SetActive(false);
 
+        foreach (GameObject o in messageList)
+            o.SendMessage(message);
+
         //increment retry count, player has lost...
         levelSaver.ReryIncrement();
 
@@ -88,6 +93,9 @@ public class OverchargeMonitor : MonoBehaviour
 
     public void AddToClock(float t)
     {
-        clock += t;
+        if (clock + t < timeLimit)
+            clock += t;
+        else
+            clock = timeLimit;
     }
 }
