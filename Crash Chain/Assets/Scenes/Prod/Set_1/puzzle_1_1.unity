@@ -94,6 +94,10 @@ NavMeshSettings:
 GameObject:
   m_PrefabParentObject: {fileID: 189308, guid: be8796ece01a4e5498939c01dd92fe02, type: 2}
   m_PrefabInternal: {fileID: 534671190}
+--- !u!4 &110622343 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 444984, guid: be8796ece01a4e5498939c01dd92fe02, type: 2}
+  m_PrefabInternal: {fileID: 534671190}
 --- !u!1 &232595708
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,13 +171,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 232595708}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 787.9, y: 263.33, z: -0.0390625}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.04, y: 1.3299866, z: -0.0390625}
   m_LocalScale: {x: 0.12611501, y: 0.12611501, z: 0.12611501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 110622343}
+  m_RootOrder: 1
 --- !u!1 &389885389
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,11 +564,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22475288, guid: 1b5615c155e58f9409c5d125997cc8dd, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 22475288, guid: 1b5615c155e58f9409c5d125997cc8dd, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 787.81
+      value: 787.82
       objectReference: {fileID: 0}
     - target: {fileID: 22475288, guid: 1b5615c155e58f9409c5d125997cc8dd, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -812,7 +816,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1001 &1976393694
 Prefab:
   m_ObjectHideFlags: 0

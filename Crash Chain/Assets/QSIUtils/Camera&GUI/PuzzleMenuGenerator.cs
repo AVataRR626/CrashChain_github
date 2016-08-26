@@ -9,7 +9,9 @@ public class PuzzleMenuGenerator : MonoBehaviour
     [Header("Set Settings")]
     public int setNumber = 1;
     public int maxSet = 12;
+    public bool checkLocked = true;
     public bool customMode = false;
+    public string customLevelLoader = "CustomLevelLoader";
     public string setName;    
 
     //display stuff
@@ -258,6 +260,15 @@ public class PuzzleMenuGenerator : MonoBehaviour
                             pl.locked = false;
                             pl.checkLocked = false;
                         }
+
+                        //set the custom loader
+                        pl.customLevelLoader = customLevelLoader;
+                    }
+
+                    if(!checkLocked)
+                    {
+                        pl.locked = false;
+                        pl.checkLocked = false;
                     }
 
                     Transform label = pl.transform.FindChild("Text");

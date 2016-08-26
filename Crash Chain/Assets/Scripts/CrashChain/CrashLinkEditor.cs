@@ -33,18 +33,26 @@ public class CrashLinkEditor : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        if(iptSetName == null)
+        setName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetKey);
+        levelNumber = PlayerPrefs.GetInt(PuzzleLoader.currentCustomPuzzleNumberKey) - 1;
+
+        Init();
+    }
+
+    public void Init()
+    {
+        if (iptSetName == null)
         {
             GameObject sn = GameObject.FindGameObjectWithTag("EditorSetName");
 
             if (sn != null)
             {
                 iptSetName = sn.GetComponent<InputField>();
-                setName = iptSetName.text;
+                iptSetName.text = setName;
             }
         }
 
-        if(lblLevelNumber == null)
+        if (lblLevelNumber == null)
         {
             GameObject ln = GameObject.FindGameObjectWithTag("EditorLevelNumber");
 
@@ -94,6 +102,7 @@ public class CrashLinkEditor : MonoBehaviour
 
             PopulateLoadDropdown();
         }
+
 
         Invoke("LoadLevel", 0.1f);
     }

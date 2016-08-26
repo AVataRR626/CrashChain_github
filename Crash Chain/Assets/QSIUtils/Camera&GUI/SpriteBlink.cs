@@ -8,7 +8,8 @@ public class SpriteBlink : MonoBehaviour
 	public Color col1;
 	public Color col2;
 	public float col1BlinkRate;
-	public float col2BlinkRate;
+    public float col2BlinkRate;
+    public float delay = 0;
 
 	private SpriteRenderer sr;
 	private bool blinkFlag;
@@ -22,17 +23,24 @@ public class SpriteBlink : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-
-		if(sr.color == col1 || sr.color == col2)
-			blinkFlag = !blinkFlag;
-
-		if(blinkFlag)
-		{
-			sr.color = Color.Lerp (sr.color,col1,col1BlinkRate);
-		}
-		else
-		{
-			sr.color = Color.Lerp (sr.color,col2,col2BlinkRate);
-		}
+        if (delay > 0)
+            delay -= Time.deltaTime;
+        else
+            Blink();
 	}
+
+    void Blink()
+    {
+        if (sr.color == col1 || sr.color == col2)
+            blinkFlag = !blinkFlag;
+
+        if (blinkFlag)
+        {
+            sr.color = Color.Lerp(sr.color, col1, col1BlinkRate);
+        }
+        else
+        {
+            sr.color = Color.Lerp(sr.color, col2, col2BlinkRate);
+        }
+    }
 }

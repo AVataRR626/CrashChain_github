@@ -27,6 +27,16 @@ public class CrashChainSetManager : MonoBehaviour
         return setListString.Split(delim);
     }
 
+    public void NewSetButton()
+    {
+        int endNum = setList.Length;
+        string newSetName = "NewSet_"+endNum;
+
+        AddSet(newSetName);
+        PlayerPrefs.SetString(PuzzleLoader.currentCustomSetKey, newSetName);
+        PlayerPrefs.SetInt(PuzzleLoader.currentCustomPuzzleNumberKey, 1);
+    }
+
     /*
     Duplicate a given set...
     */

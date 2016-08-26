@@ -30,6 +30,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000011183057578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000010850562186}
+  - 114: {fileID: 114000011347349212}
+  m_Layer: 0
+  m_Name: SetManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000011282363092
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +431,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4000010850562186
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011183057578}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 19.224308, y: 11.052993, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 224000011928350366}
+  m_RootOrder: 4
 --- !u!114 &114000010047100530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -536,7 +565,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setNumber: 1
   maxSet: 6
+  checkLocked: 0
   customMode: 1
+  customLevelLoader: LevelEditor
   setName: 
   textDisplay: {fileID: 114000010082416022}
   prefix: 'SET: '
@@ -665,7 +696,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Custom  puzzles
+  m_Text: EDIT CUSTOM PUZZLES
 --- !u!114 &114000010536877274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1052,6 +1083,19 @@ MonoBehaviour:
   txt: {fileID: 0}
   fadeInRate: 1
   startDelay: 1.75
+--- !u!114 &114000011347349212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011183057578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c637222dff957f6499d0d212ecdcccfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setButtonTemplate: {fileID: 0}
+  setList: []
 --- !u!114 &114000011350447568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1596,9 +1640,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114000010374401134}
-        m_MethodName: LoadLevel
-        m_Mode: 5
+      - m_Target: {fileID: 114000011347349212}
+        m_MethodName: NewSetButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1607,15 +1651,15 @@ MonoBehaviour:
           m_StringArgument: MainMenu
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: RegisterWin
-        m_Mode: 1
+      - m_Target: {fileID: 114000010374401134}
+        m_MethodName: LoadLevel
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: LevelEditor
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -2030,7 +2074,7 @@ RectTransform:
   m_Children:
   - {fileID: 224000011518202762}
   m_Father: {fileID: 224000011928350366}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -57.4, y: -18}
@@ -2067,7 +2111,7 @@ RectTransform:
   m_Children:
   - {fileID: 224000012958543698}
   m_Father: {fileID: 224000011928350366}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: -157.99998, y: 172.5}
@@ -2104,7 +2148,7 @@ RectTransform:
   m_Children:
   - {fileID: 224000012512936036}
   m_Father: {fileID: 224000011928350366}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: -158, y: 209.6}
@@ -2123,7 +2167,7 @@ RectTransform:
   m_Children:
   - {fileID: 224000012070071864}
   m_Father: {fileID: 224000011928350366}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 159, y: 172.5}
@@ -2142,7 +2186,7 @@ RectTransform:
   m_Children:
   - {fileID: 224000011997225254}
   m_Father: {fileID: 224000011928350366}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 57.4, y: -18}
@@ -2197,7 +2241,7 @@ RectTransform:
   m_Children:
   - {fileID: 224000012235320038}
   m_Father: {fileID: 224000011928350366}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 30}
@@ -2254,6 +2298,7 @@ RectTransform:
   - {fileID: 224000011751505100}
   - {fileID: 224000011498510678}
   - {fileID: 224000011790903866}
+  - {fileID: 4000010850562186}
   - {fileID: 224000012879072014}
   - {fileID: 224000011278290752}
   - {fileID: 224000010053921778}
@@ -2337,7 +2382,7 @@ RectTransform:
   m_Children:
   - {fileID: 224000012379188756}
   m_Father: {fileID: 224000011928350366}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 159, y: 30}
@@ -2391,7 +2436,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 224000011928350366}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2428,7 +2473,7 @@ RectTransform:
   m_Children:
   - {fileID: 224000010451258910}
   m_Father: {fileID: 224000011928350366}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 159, y: 209.6}
