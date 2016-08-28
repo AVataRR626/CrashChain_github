@@ -77,6 +77,8 @@ public class CrashChainDynLevelLoader : MonoBehaviour
             //try to load the load last state before defeat
             if (PlayerPrefs.HasKey("GameLastLevel"))
             {
+                int lastMoves = PlayerPrefs.GetInt("LastMoveCount", 0);
+                OverchargeMonitor.instance.AddMoves(lastMoves);
                 CrashChainUtil.ClearLevel();
                 serialisedLevel = PlayerPrefs.GetString("GameLastLevel");
                 CrashChainUtil.DeserialiseLevel(serialisedLevel, transform, squareLinkPrefab, triLinkPrefab, hexLinkPrefab);

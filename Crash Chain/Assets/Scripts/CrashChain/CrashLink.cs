@@ -55,6 +55,8 @@ public class CrashLink : MonoBehaviour
     private Quaternion initialGraphicsRotation;
     private TypeMaster myTypeMaster;
 
+    private Vector3 prevGridCoordinates;
+
     void Awake()
     {
         myTypeMaster = FindObjectOfType<TypeMaster>();
@@ -80,6 +82,7 @@ public class CrashLink : MonoBehaviour
         initialGraphicsRotation = graphicsRoot.rotation;
 
         smoothSnap = GetComponent<SmoothSnap>();
+        prevGridCoordinates = smoothSnap.gridCoordinates;
 
         myTypeMaster = FindObjectOfType<TypeMaster>();
 
@@ -129,6 +132,15 @@ public class CrashLink : MonoBehaviour
         dragger.enabled = movable;
         ManageSpin();
         ManageKillTriggers();
+        MonitorMoves();
+    }
+
+    void MonitorMoves()
+    {
+        if (prevGridCoordinates != smoothSnap.gridCoordinates)
+            OverchargeMonitor.instance.AddMove();
+
+        prevGridCoordinates = smoothSnap.gridCoordinates;
     }
 
     public void Kill()

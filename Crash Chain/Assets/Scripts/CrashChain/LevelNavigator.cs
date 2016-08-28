@@ -18,9 +18,13 @@ public class LevelNavigator : MonoBehaviour
     public string customPrefix = "lvl";
     public string customDelimiter = ":";
 
+    public static LevelNavigator instance;
+
     // Use this for initialization
     void Start ()
     {
+        instance = this;
+
 	    if(autoSetBySceneName)
         {
             string sceneString = SceneManager.GetActiveScene().name;

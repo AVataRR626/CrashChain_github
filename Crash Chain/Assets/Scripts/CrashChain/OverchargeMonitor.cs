@@ -15,6 +15,7 @@ public class OverchargeMonitor : MonoBehaviour
     public GameObject [] messageList;
     public string message;
 
+    private int moveCount = 0;
     private float clock;
     private bool saveSwitch = false;
 
@@ -64,6 +65,22 @@ public class OverchargeMonitor : MonoBehaviour
             Trigger();
         }
 	}
+
+    public int GetMoves()
+    {
+        return moveCount;
+    }
+    
+    public void AddMove()
+    {
+        if(CrashLink.overchargeCount != timerTrigger)
+            moveCount++;
+    }
+
+    public void AddMoves(int n)
+    {
+        moveCount += n;
+    }
 
     public void Trigger()
     {

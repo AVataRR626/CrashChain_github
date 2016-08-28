@@ -15,6 +15,7 @@ public class LevelLoadUtil : MonoBehaviour
     public bool reloadLevelOnStart = false;
     public float timer = 3;
     public string level = "next";
+    public bool timerSkipClick = true;
 
 	// Use this for initialization
 	void Start ()
@@ -25,6 +26,12 @@ public class LevelLoadUtil : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if(timerSkipClick)
+        {
+            if (Input.GetMouseButton(0))
+                timer = 0;
+        }
+
         if(timer > 0)
         {
             timer -= Time.deltaTime;

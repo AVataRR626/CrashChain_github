@@ -30,15 +30,13 @@ public class PuzzleLoader : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-
-
         //never lock the first puzzle
         if (setNumber == 1 && puzzleNumber == 1)
             checkLocked = false;
 
         if (checkLocked)
         {
-            if (PlayerPrefs.GetInt(GetLevelString()) == 1)
+            if (PlayerPrefs.GetInt(GetLevelString(),-10) != -10)
                 locked = false;
             else
                 LockButton(); 
