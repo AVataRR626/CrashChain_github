@@ -121,6 +121,10 @@ Transform:
   - {fileID: 1905503935}
   m_Father: {fileID: 0}
   m_RootOrder: 10
+--- !u!1 &199284864 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 189308, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+  m_PrefabInternal: {fileID: 235129573}
 --- !u!1001 &235129573
 Prefab:
   m_ObjectHideFlags: 0
@@ -483,7 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ab86af5078e944ab22f209991480bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subject: {fileID: 0}
+  subject: {fileID: 199284864}
   startMessage: TouchGlow
   endMessage: TouchDim
   pulseLength: 0.1
@@ -725,6 +729,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0ac7612e9493824c8e08cf504bfb57f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1098305040 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 189308, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+  m_PrefabInternal: {fileID: 308184396}
 --- !u!1001 &1104775809
 Prefab:
   m_ObjectHideFlags: 0
@@ -853,7 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ab86af5078e944ab22f209991480bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subject: {fileID: 0}
+  subject: {fileID: 1098305040}
   startMessage: TouchGlow
   endMessage: TouchDim
   pulseLength: 0.1
