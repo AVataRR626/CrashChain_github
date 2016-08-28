@@ -378,6 +378,7 @@ MonoBehaviour:
   squareLinkPrefab: {fileID: 11471638, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   triLinkPrefab: {fileID: 11471660, guid: 047dd4659c123624e924510087f30691, type: 2}
   hexLinkPrefab: {fileID: 11445440, guid: 78b0b702600c467439e2d4e0ac719030, type: 2}
+  nextLevelDelay: 1
 --- !u!114 &11474086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -396,6 +397,7 @@ MonoBehaviour:
   - {fileID: 144004}
   disableObjects:
   - {fileID: 186830}
+  - {fileID: 0}
   messageList: []
   message: 
 --- !u!1001 &100100000

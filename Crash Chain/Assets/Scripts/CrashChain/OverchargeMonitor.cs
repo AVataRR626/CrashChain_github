@@ -6,7 +6,7 @@ public class OverchargeMonitor : MonoBehaviour
 {
     public static OverchargeMonitor instance;
 
-    public static float timeLimit = 1.65f;    
+    public float timeLimit = 1.65f;    
     public int timerTrigger = 1;
     public CrashChainDynLevelSaver levelSaver;
     public PopulationCheck popChecker;
@@ -43,7 +43,7 @@ public class OverchargeMonitor : MonoBehaviour
             {
 
                 //someone's trying to cheat! end the game now.
-                if (Input.GetMouseButtonDown(0))
+                if (Input.GetMouseButtonDown(0) && clock < timeLimit - 0.2f)
                     clock = 0;
 
                 if (!saveSwitch)

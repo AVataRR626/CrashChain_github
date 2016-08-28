@@ -351,12 +351,12 @@ public class CrashLink : MonoBehaviour
         //Default crash links are square.
         string linkMode = "Q";
 
-        //Assume Hex Crash bolts have shell converters
-        if (myCrashBolt.opMode == CrashBolt.OperationMode.ConvertShell)
+        //Assume Hex Crash bolts have core converters
+        if (myCrashBolt.opMode == CrashBolt.OperationMode.ConvertCore)
             linkMode = "H";
 
-        //Assume Triangle Crash bolts have core covnerters
-        if (myCrashBolt.opMode == CrashBolt.OperationMode.ConvertCore)
+        //Assume Triangle Crash bolts have shell covnerters
+        if (myCrashBolt.opMode == CrashBolt.OperationMode.ConvertShell)
             linkMode =  "T";
 
         //Build link type, shell and core type and grid coordinates...

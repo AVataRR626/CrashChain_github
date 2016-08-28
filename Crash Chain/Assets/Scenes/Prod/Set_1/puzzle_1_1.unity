@@ -524,7 +524,8 @@ Prefab:
       propertyPath: retryMode
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 82000010080538406, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &925079451
@@ -567,12 +568,8 @@ Prefab:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 22475288, guid: 1b5615c155e58f9409c5d125997cc8dd, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 787.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 22475288, guid: 1b5615c155e58f9409c5d125997cc8dd, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 261.95
+      value: 261.9
       objectReference: {fileID: 0}
     - target: {fileID: 22475288, guid: 1b5615c155e58f9409c5d125997cc8dd, type: 2}
       propertyPath: m_SizeDelta.x
@@ -606,9 +603,9 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 131396, guid: 1b5615c155e58f9409c5d125997cc8dd, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 22475288, guid: 1b5615c155e58f9409c5d125997cc8dd, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 787.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b5615c155e58f9409c5d125997cc8dd, type: 2}
