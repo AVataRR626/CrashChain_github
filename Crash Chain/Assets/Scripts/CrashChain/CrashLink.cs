@@ -14,6 +14,7 @@ public class CrashLink : MonoBehaviour
     //basic attributes..
     public int coreType;
     public int shellType;
+    public bool movable = true;
 
     [Header("Crash Bolt Settings")]
     //crash bolt stuff..
@@ -57,13 +58,13 @@ public class CrashLink : MonoBehaviour
     void Awake()
     {
         myTypeMaster = FindObjectOfType<TypeMaster>();
-
         ColourOutlines(transform);
     }
 
     // Use this for initialization
     void Start()
     {
+
         if (myEditor == null)
             myEditor = FindObjectOfType<CrashLinkEditor>();
 
@@ -97,7 +98,10 @@ public class CrashLink : MonoBehaviour
     {
         if(t.name == "Outline")
         {
-            t.GetComponent<SpriteRenderer>().color = myTypeMaster.outlineColour;
+            if (movable)
+                t.GetComponent<SpriteRenderer>().color = myTypeMaster.outlineColour;
+            else
+                t.GetComponent<SpriteRenderer>().color = Color.black;
         }
 
         foreach(Transform child in t)
@@ -106,12 +110,23 @@ public class CrashLink : MonoBehaviour
         }
     }
 
+    void OnDrawGizmos()
+    {
+
+        if(myTypeMaster == null)
+            myTypeMaster = FindObjectOfType<TypeMaster>();
+
+        ColourOutlines(transform);
+    }
+
     // Update is called once per frame
     void Update()
     {
         if(killClock <= 0)
             ManageCharge();
 
+
+        dragger.enabled = movable;
         ManageSpin();
         ManageKillTriggers();
     }
