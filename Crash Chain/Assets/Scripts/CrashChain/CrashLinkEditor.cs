@@ -222,6 +222,14 @@ public class CrashLinkEditor : MonoBehaviour
         }
     }
 
+    public void ToggleMovability(bool mode)
+    {
+        if(myFocus != null)
+        {
+            myFocus.movable = mode;
+        }
+    }
+
     //handle the spawning of the crash links. 0: square, 1: triangle, 2: hex
     public void SpawnCrashLink(int linkType)
     {
