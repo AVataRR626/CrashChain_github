@@ -125,7 +125,6 @@ public class PuzzleMenuGenerator : MonoBehaviour
         {
             setNumber = 1;
             PlayerPrefs.SetInt(currentSetKey, 1);
-
         }
 
         if (!customMode)
@@ -133,7 +132,7 @@ public class PuzzleMenuGenerator : MonoBehaviour
         else if (!emptyMode)
             textDisplay.text = setNumber.ToString() + " : " + customSets[setNumber - 1];
         else
-            textDisplay.text = " - NO CUSTOM PUZZLES FOUND - ";
+            textDisplay.text = "NO CUSTOM PUZZLES FOUND";
 
         if(!loopSets)
         {   
@@ -173,11 +172,11 @@ public class PuzzleMenuGenerator : MonoBehaviour
 
     void SetChange(int i)
     {
-        //Debug.Log("SET CHANGE");
-
+        
         setNumber += i;
         moveMode = true;
         direction = i;
+        
 
         //internal m enu management..
         if (setNumber < 1)
@@ -206,17 +205,10 @@ public class PuzzleMenuGenerator : MonoBehaviour
             }
         }
 
+        Debug.Log("SET CHANGE:" + i + "," + setNumber + "," + currentSetKey);
+
         //scene management
         PlayerPrefs.SetInt(currentSetKey, setNumber);
-        if (!emptyMode)
-        {
-            if(customMode)
-            { 
-                PlayerPrefs.SetString(currentSetKey, customSets[setNumber - 1]);
-                
-            }
-        }
-
     }
 
     public void GenerateButtons()
