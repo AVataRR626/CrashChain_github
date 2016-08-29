@@ -19,7 +19,8 @@ public class CrashChainDynLevelSaver : MonoBehaviour
             retryCount = PlayerPrefs.GetInt("RetryCount");
         }
 
-        PlayerPrefs.SetInt("LastMoveCount", OverchargeMonitor.instance.GetMoves());
+        if(PlayerPrefs.GetInt("LastMoveCount",-1)==-1)
+            PlayerPrefs.SetInt("LastMoveCount", OverchargeMonitor.instance.GetMoves());
     }
 
     public void ReryIncrement()
@@ -44,6 +45,7 @@ public class CrashChainDynLevelSaver : MonoBehaviour
         //save the last level config so it can be reloaded later...
         serialisedLevel = CrashChainUtil.SerialiseLevel();
         PlayerPrefs.SetString("GameLastLevel", serialisedLevel);
+        PlayerPrefs.SetInt("LastMoveCount", OverchargeMonitor.instance.GetMoves());
     }
 
     public void ResetRetry()
