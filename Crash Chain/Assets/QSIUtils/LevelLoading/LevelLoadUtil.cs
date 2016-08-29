@@ -48,7 +48,7 @@ public class LevelLoadUtil : MonoBehaviour
 
     public void LoadNextLevelI()
     {
-        Debug.Log(level);
+        //Debug.Log(level);
 
         if (level == "next")
             LoadNextLevel();

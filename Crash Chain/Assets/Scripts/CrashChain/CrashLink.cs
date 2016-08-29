@@ -386,12 +386,17 @@ public class CrashLink : MonoBehaviour
         if (myCrashBolt.opMode == CrashBolt.OperationMode.ConvertShell)
             linkMode =  "T";
 
+        
+        string movability = "M";//M is for movable;
+        if (!movable)
+            movability = "I";//I is for immovable
+
         //Build link type, shell and core type and grid coordinates...
-        result += linkMode + "|";
+        result += linkMode + "|";        
         result += shellType.ToString() + "|";
         result += coreType.ToString() + "|";
         result += smoothSnap.gridCoordinates.x.ToString() + "|";
-        result += smoothSnap.gridCoordinates.y.ToString() + "|";
+        result += smoothSnap.gridCoordinates.y.ToString() + "|";        
 
         //Now take a look at all the directions
         bool allFree = true;
@@ -434,6 +439,8 @@ public class CrashLink : MonoBehaviour
 
         //DOONE!, now go ahead and return the result..
 
+        result += "|" + movability + "|";
+
         return result;
     }
 
@@ -472,6 +479,9 @@ public class CrashLink : MonoBehaviour
 
         if (attributes[5].Contains("S"))
             south = false;
+
+        if (attributes[6].Contains("I"))
+            movable = false;
     }
 
 }
