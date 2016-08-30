@@ -89,6 +89,8 @@ public class CrashBolt : MonoBehaviour
         }
         else
         {
+            if (!cl.movable)
+                return;//don't move immovale objects
 
             //push the crash chain if it doesn't...
             SmoothSnap snapper = cl.GetComponent<SmoothSnap>();

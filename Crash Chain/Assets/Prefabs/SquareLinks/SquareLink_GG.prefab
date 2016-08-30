@@ -436,6 +436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coreType: 1
   shellType: 1
+  movable: 1
   myCrashBolt: {fileID: 11494030, guid: 35edb20cc23a4694ab129447a171ff3f, type: 2}
   boltForce: 340
   north: 1
@@ -451,11 +452,12 @@ MonoBehaviour:
   baseSpinRate: 120
   deathSpinExtension: 0
   myEditor: {fileID: 0}
-  doubleClickTime: 0.5
+  tapTime: 0.1
   touchFactor: 2.5
   charge: 0
   chargeLimit: 3.5
   graphicsRoot: {fileID: 494864}
+  holdCharge: 0
 --- !u!114 &11436076
 MonoBehaviour:
   m_ObjectHideFlags: 1

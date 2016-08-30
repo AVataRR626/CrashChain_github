@@ -323,10 +323,10 @@ public class GenUtils : MonoBehaviour {
 
     public static void SpawnList(GameObject [] list, Transform spawnPoint)
     {
-        Debug.Log("SpawnList Begin:");
+        //Debug.Log("SpawnList Begin:");
         foreach(GameObject o in list)
         {
-            Debug.Log("SpawnList:" + o.name);
+            //Debug.Log("SpawnList:" + o.name);
             Instantiate(o, spawnPoint.position, spawnPoint.rotation);
         }
     }

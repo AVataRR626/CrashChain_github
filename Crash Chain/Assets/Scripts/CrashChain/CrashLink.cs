@@ -38,7 +38,7 @@ public class CrashLink : MonoBehaviour
     [Header("System Settings")]
     //system things..
     public CrashLinkEditor myEditor;
-    public float doubleClickTime = 0.5f;
+    public float tapTime = 0.1f;
     public float touchFactor = 1;
     public float charge;
     public float chargeLimit = 2;    
@@ -56,6 +56,7 @@ public class CrashLink : MonoBehaviour
     private TypeMaster myTypeMaster;
 
     private Vector3 prevGridCoordinates;
+    public float holdCharge;
 
     void Awake()
     {
@@ -133,6 +134,10 @@ public class CrashLink : MonoBehaviour
         ManageSpin();
         ManageKillTriggers();
         MonitorMoves();
+
+        if(!Input.GetMouseButton(0))
+            if (holdCharge > 0)
+                holdCharge -= Time.deltaTime;
     }
 
     void MonitorMoves()
@@ -322,12 +327,13 @@ public class CrashLink : MonoBehaviour
 
         //double click/tap activates the spinning!
 
+        /*
         if (Time.time - lastClickTime <= doubleClickTime)
         {
-            Debug.Log("CrashLink: click time diff: " + (Time.time - lastClickTime));
+            //Debug.Log("CrashLink: click time diff: " + (Time.time - lastClickTime));
             charge = chargeLimit;
             chargeSwitch = true;
-        }
+        }*/
 
         lastClickTime = Time.time;
 
@@ -354,19 +360,37 @@ public class CrashLink : MonoBehaviour
 
     void OnMouseDown()
     {
+        lastClickTime = Time.time;
         StartDrag();
         
     }
 
-
     void OnMouseUp()
-    {   
-        chargeSwitch = false;
+    {
+
+        if (holdCharge <= tapTime)
+        {
+            if (Time.time - lastClickTime <= tapTime)
+            {
+                charge = chargeLimit;
+                chargeSwitch = true;
+            }
+            else
+            {
+                chargeSwitch = false;
+                lastClickTime = Time.time;
+            }
+        }
 
         //don't automatically dim if in edit mode...
-        if(myEditor == null)
+        if (myEditor == null)
             gameObject.BroadcastMessage("TouchDim");
 
+    }
+
+    void OnMouseDrag()
+    {
+        holdCharge += Time.deltaTime;
     }
 
     //returns the CrashLink format serialisation.

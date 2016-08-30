@@ -494,7 +494,7 @@ MonoBehaviour:
   pulseInterval: 0.1
   pulseCount: 2
   resetCLock: 4
-  startDelay: 2.75
+  startDelay: 3
 --- !u!1001 &629904493
 Prefab:
   m_ObjectHideFlags: 0
@@ -603,6 +603,16 @@ Prefab:
     - target: {fileID: 21286036, guid: 236a2796fe4284d49922a5e191c7d44b, type: 2}
       propertyPath: m_Color.b
       value: 0.9764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000011888335382, guid: 236a2796fe4284d49922a5e191c7d44b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000011279351384, guid: 236a2796fe4284d49922a5e191c7d44b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 236a2796fe4284d49922a5e191c7d44b, type: 2}
@@ -800,7 +810,7 @@ MonoBehaviour:
   pulseInterval: 0.1
   pulseCount: 2
   resetCLock: 4
-  startDelay: 2.75
+  startDelay: 2.5
 --- !u!1001 &1976393694
 Prefab:
   m_ObjectHideFlags: 0
