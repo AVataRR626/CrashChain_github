@@ -56,7 +56,7 @@ public class CrashLink : MonoBehaviour
     private TypeMaster myTypeMaster;
 
     private Vector3 prevGridCoordinates;
-    public float holdCharge;
+    public float holdCharge = 0;
 
     void Awake()
     {
@@ -390,7 +390,8 @@ public class CrashLink : MonoBehaviour
 
     void OnMouseDrag()
     {
-        holdCharge += Time.deltaTime;
+        if(holdCharge < 0.25f)
+            holdCharge += Time.deltaTime;
     }
 
     //returns the CrashLink format serialisation.

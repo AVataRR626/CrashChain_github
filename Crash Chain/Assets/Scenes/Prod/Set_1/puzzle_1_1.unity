@@ -507,7 +507,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1429548972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -591,6 +591,10 @@ Prefab:
       propertyPath: myTypeMaster
       value: 
       objectReference: {fileID: 1047395685}
+    - target: {fileID: 11471638, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: tapTime
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   m_IsPrefabParent: 0
@@ -661,11 +665,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 448640, guid: edb1d0a3a0eafe043a43f4fa700c0f3a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 789.21
+      value: 61.16
       objectReference: {fileID: 0}
     - target: {fileID: 448640, guid: edb1d0a3a0eafe043a43f4fa700c0f3a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 261.76
+      value: 47.59
       objectReference: {fileID: 0}
     - target: {fileID: 448640, guid: edb1d0a3a0eafe043a43f4fa700c0f3a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -693,11 +697,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 139522, guid: edb1d0a3a0eafe043a43f4fa700c0f3a, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 409916, guid: edb1d0a3a0eafe043a43f4fa700c0f3a, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 2.5243893
+      value: 11.922439
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: edb1d0a3a0eafe043a43f4fa700c0f3a, type: 2}

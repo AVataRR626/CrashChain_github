@@ -465,7 +465,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000011222016688
 GameObject:
   m_ObjectHideFlags: 1
@@ -573,7 +573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000011948139390
 GameObject:
   m_ObjectHideFlags: 1
@@ -654,6 +654,7 @@ GameObject:
   - 223: {fileID: 223000013469672880}
   - 114: {fileID: 114000014119263120}
   - 114: {fileID: 114000010305081132}
+  - 114: {fileID: 114000013555465530}
   m_Layer: 5
   m_Name: StandardPuzzleCanvas
   m_TagString: Untagged
@@ -714,7 +715,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4000010108480772
 Transform:
   m_ObjectHideFlags: 1
@@ -1431,6 +1432,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: 
+--- !u!114 &114000013555465530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013110714154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e9257a3e16f2c47844ab33b7523b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetKey: puzzle_4_1
+  activateList:
+  - {fileID: 1000010985441286}
+  deactivateList:
+  - {fileID: 1000011863494996}
 --- !u!114 &114000013596922736
 MonoBehaviour:
   m_ObjectHideFlags: 1
