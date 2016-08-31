@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Text.RegularExpressions;
 using System.Collections;
 
 public class CrashChainSetManager : MonoBehaviour
@@ -8,8 +9,8 @@ public class CrashChainSetManager : MonoBehaviour
 
     public string[] setList;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         setList = GetSets();
     }
@@ -59,15 +60,28 @@ public class CrashChainSetManager : MonoBehaviour
         return setListString.Contains(set);
     }
 
-    //adds set tot he setlist
+    //adds set to the setlist
     public static void AddSet(string set)
     {
         if(!SetExists(set))
         {
             string setListString = PlayerPrefs.GetString(SetListKey);
-            PlayerPrefs.SetString(CrashChainSetManager.SetListKey, setListString + ";" + set);
+
+            if(CountSets(setListString) > 0)
+                PlayerPrefs.SetString(CrashChainSetManager.SetListKey, setListString + ";" + set);
+            else
+                PlayerPrefs.SetString(CrashChainSetManager.SetListKey, set + ";");
 
         }
+    }
+
+    public static int CountSets(string set)
+    {
+        int count = 0;
+        string setListString = PlayerPrefs.GetString(SetListKey);
+        count = Regex.Match(setListString, ";").Length;
+        Debug.Log("Set Counts: " + count);
+        return count;
     }
 
     //delete a set from setlist
