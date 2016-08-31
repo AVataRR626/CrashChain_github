@@ -340,8 +340,14 @@ public class CrashLink : MonoBehaviour
         //stuff in editor mode
         if (myEditor != null)
         {
-            //notify that you are the focus
-            myEditor.myFocus = this;
+
+            if (!myEditor.myFocus == this)
+            {
+                holdCharge = 0.25f;
+
+                //notify that you are the focus
+                myEditor.myFocus = this;
+            }
 
             //defocus and deglow everything else..
             CrashLink[] allTheLinks = FindObjectsOfType<CrashLink>();
@@ -350,6 +356,8 @@ public class CrashLink : MonoBehaviour
             {
                 c.BroadcastMessage("TouchDim");
             }
+
+            
 
         }
 

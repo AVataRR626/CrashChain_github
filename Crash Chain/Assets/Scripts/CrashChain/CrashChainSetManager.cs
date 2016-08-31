@@ -6,6 +6,7 @@ public class CrashChainSetManager : MonoBehaviour
 {
     public GameObject setButtonTemplate;
     public static string SetListKey = "SetList";
+    public static char SetDelimiter = ';';
 
     public string[] setList;
 
@@ -70,7 +71,7 @@ public class CrashChainSetManager : MonoBehaviour
             if(CountSets(setListString) > 0)
                 PlayerPrefs.SetString(CrashChainSetManager.SetListKey, setListString + ";" + set);
             else
-                PlayerPrefs.SetString(CrashChainSetManager.SetListKey, set + ";");
+                PlayerPrefs.SetString(CrashChainSetManager.SetListKey, set);
 
         }
     }

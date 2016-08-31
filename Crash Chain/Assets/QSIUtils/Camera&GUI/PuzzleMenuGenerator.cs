@@ -10,9 +10,14 @@ public class PuzzleMenuGenerator : MonoBehaviour
     public int setNumber = 1;
     public int maxSet = 12;
     public bool checkLocked = true;
+
+    [Header ("Custom Set Management")]
     public bool customMode = false;
     public string customLevelLoader = "CustomLevelLoader";
-    public string setName;    
+    public string setName;
+    public string setListKey = "SetList";
+    public char setDelimiter = ';';
+    private bool emptyMode = false;
 
     //display stuff
     [Header("Display Settings")]
@@ -43,14 +48,9 @@ public class PuzzleMenuGenerator : MonoBehaviour
     private bool moveMode;
     private int direction = 1;
     Vector3 originalPos;
-    private string [] customSets;
-    private string setListKey = "SetList";
-    private char setDelimiter = ';';
-    private bool emptyMode = false;
+    private string [] customSets;    
 
     private string currentSetKey;
-
-    
 
     // Use this for initialization
     void Start ()

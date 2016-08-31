@@ -10,8 +10,7 @@ public class CrashLinkEditor : MonoBehaviour
     public string setName = "DefaultSet";
     int selectIndex;
     public InputField iptSetName;
-    public Text lblLevelNumber;
-    public Dropdown ddLevelList;
+    public Text lblLevelNumber;    
     public InputField iptLevelName;
     public CrashLink myFocus;
     public Transform highlighter;
@@ -30,11 +29,16 @@ public class CrashLinkEditor : MonoBehaviour
     int lvlMin = 0;
     int lvlMax = 11;
 
+    private string[] customSets;
+    public string setListKey = "SetList";
+
     // Use this for initialization
     void Start ()
     {
-        setName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetKey);
-        levelNumber = PlayerPrefs.GetInt(PuzzleLoader.currentCustomPuzzleNumberKey) - 1;
+        //setName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetKey);
+        levelNumber = PlayerPrefs.GetInt(PuzzleLoader.currentCustomPuzzleNumberKey) - 1;        
+        string rawCustomSetString = PlayerPrefs.GetString(setListKey, "");
+        customSets = rawCustomSetString.Split(PuzzleLoader.setDelimiter);
 
         Init();
     }
@@ -91,16 +95,6 @@ public class CrashLinkEditor : MonoBehaviour
             }
 
 
-        }
-
-        if (ddLevelList == null)
-        {
-            GameObject ll = GameObject.FindGameObjectWithTag("EditorLevelList");
-
-            if (ll != null)
-                ddLevelList = ll.GetComponent<Dropdown>();
-
-            PopulateLoadDropdown();
         }
 
 
@@ -229,6 +223,15 @@ public class CrashLinkEditor : MonoBehaviour
             myFocus.movable = mode;
         }
     }
+
+    public void ToggleMovability()
+    {
+        if (myFocus != null)
+        {
+            myFocus.movable = !myFocus.movable;
+        }
+    }
+
 
     //handle the spawning of the crash links. 0: square, 1: triangle, 2: hex
     public void SpawnCrashLink(int linkType)
@@ -361,69 +364,6 @@ public class CrashLinkEditor : MonoBehaviour
 
         PlayerPrefs.SetString("CurrentLevelEditorLevel", levelName);
         Debug.Log("Level Loaded:" + levelName);
-    }
-
-    //the dropdown callback...
-    public void LoadLevel(int index)
-    {
-        char[] delim = { ';' };
-        string[] levelList = PlayerPrefs.GetString("LevelList").Split(delim);
-
-        levelName = levelList[index];
-
-        //keep track of the last level loaded in the editor.
-        iptLevelName.text = levelName;
-        PlayerPrefs.SetString("CurrentLevelEditorLevel", levelName);
-
-        //prevent an infinite loading loop
-        if(ddLevelList != null)
-            if(selectIndex != ddLevelList.value)
-                LevelLoadUtil.ReloadLevel();
-    }
-
-    //list all the available levels in the dropdown.
-    public void PopulateLoadDropdown()
-    {
-        if (PlayerPrefs.HasKey("CurrentLevelEditorLevel"))
-            levelName = PlayerPrefs.GetString("CurrentLevelEditorLevel");
-
-        if (ddLevelList == null)
-        {
-            GameObject ll = GameObject.FindGameObjectWithTag("EditorLevelList");
-
-            if (ll != null)
-                ddLevelList = ll.GetComponent<Dropdown>();
-        }
-
-        if (ddLevelList != null)
-        {
-            ddLevelList.ClearOptions();
-
-            char[] delim = { ';' };
-            string[] levelList = PlayerPrefs.GetString("LevelList").Split(delim);
-
-            List<Dropdown.OptionData> optionList = new List<Dropdown.OptionData>();
-
-            int i = 0;
-            selectIndex = 0;
-            foreach (string level in levelList)
-            {
-                Dropdown.OptionData o = new Dropdown.OptionData(level);
-                if (level == levelName)
-                    selectIndex = i;
-                optionList.Add(o);
-                i++;
-            }
-            ddLevelList.AddOptions(optionList);
-            ddLevelList.value = selectIndex;
-        }
-
-        CameraClickMove camMover = Camera.main.GetComponent<CameraClickMove>();
-
-        if(camMover != null)
-        {
-            camMover.ResetMouseData();
-        }
     }
 
     //Loads a level based on the serialisedLevel string variable..

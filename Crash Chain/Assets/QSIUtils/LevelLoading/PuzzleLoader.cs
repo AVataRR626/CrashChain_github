@@ -23,6 +23,7 @@ public class PuzzleLoader : MonoBehaviour
     public bool locked = false;
     public Color lockTint;
 
+    public static char setDelimiter = ';';
     public static string currentSetKey = "CurrentSet";
     public static string currentCustomSetKey = "CurrentCustomSet";
     public static string currentCustomPuzzleNumberKey = "CurrentCustomPuzzleNumber";
