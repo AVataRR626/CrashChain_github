@@ -14,6 +14,7 @@ public class PopulationCheck : MonoBehaviour
     public string triggerMessage;
     public CrashChainDynLevelSaver levelSaver;
     public float triggerDelay = 0.5f;
+    public bool continuous = false;
 
     private int pop;
     private GameObject[] tagSearch;
@@ -51,8 +52,18 @@ public class PopulationCheck : MonoBehaviour
         if (pop == triggerNum && !triggerSwitch)
         {
             Invoke("Trigger", triggerDelay);
-            triggerSwitch = true;
 
+            
+            triggerSwitch = true;
+            delayClock = triggerDelay;
+
+        }
+        else if(pop != triggerNum)
+        {
+            if (continuous)
+            {
+                triggerSwitch = false;
+            }
         }
     }
 
