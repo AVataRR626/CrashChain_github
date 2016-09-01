@@ -366,6 +366,39 @@ public class CrashLink : MonoBehaviour
 
     }
 
+    public static bool CoinFlip()
+    {
+        if (Random.Range(0.0f, 1.0f) > 0.5f)
+            return true;
+
+        return false;
+    }
+
+    public void RandomiseStats()
+    {
+        RandomiseBlockers();
+        RandomiseCore();
+        RandomiseShell();
+    }
+
+    public void RandomiseBlockers()
+    {
+        north = CoinFlip();
+        east = CoinFlip();
+        west = CoinFlip();
+        south = CoinFlip();
+    }
+
+    public void RandomiseCore()
+    {
+        coreType = Random.Range(0, 3);
+    }
+
+    public void RandomiseShell()
+    {
+        shellType = Random.Range(0, 3);
+    }
+
     void OnMouseDown()
     {
         lastClickTime = Time.time;

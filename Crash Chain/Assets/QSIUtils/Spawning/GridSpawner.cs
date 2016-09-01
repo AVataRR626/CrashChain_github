@@ -10,6 +10,7 @@ public class GridSpawner : MonoBehaviour
     public float ySpace = 45;
     public float spawnTime = 0.25f;
     public GameObject[] spawnObjects;
+    public string [] spawnMessage;
     public int spawnIndex = 0;
 
 	// Use this for initialization
@@ -40,7 +41,8 @@ public class GridSpawner : MonoBehaviour
             for(int j = 0; j < colCount; j++)
             {
                 //Debug.Log(i + ";" + j + " sldkfj");
-                Instantiate(spawnObjects[spawnIndex], spawnPos, Quaternion.identity);
+                GameObject o = Instantiate(spawnObjects[spawnIndex], spawnPos, Quaternion.identity) as GameObject;
+                o.SendMessage(spawnMessage[spawnIndex], SendMessageOptions.DontRequireReceiver);
                 yield return new WaitForSeconds(waitTime);
                 spawnPos.x += xSpace;
             }
