@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Text))]
 public class CrashChainDisplayUtil : MonoBehaviour
 {
-    public enum DisplayMode {currentScore,bestScore,levelName};
+    public enum DisplayMode {currentScore,bestScore,levelName,overchargeCount,overchargeLeft};
 
     public string prefix = "";
     public DisplayMode displayMode;
@@ -36,5 +36,11 @@ public class CrashChainDisplayUtil : MonoBehaviour
 
         if (displayMode == DisplayMode.levelName)
             txt.text += PuzzleUnlocker.instance.levelName;
+
+        if (displayMode == DisplayMode.overchargeCount)
+            txt.text = CrashLink.overchargeCount.ToString();
+
+        if (displayMode == DisplayMode.overchargeLeft)
+            txt.text = OverchargeMonitor.instance.RemainingOvercharges().ToString();
     }
 }

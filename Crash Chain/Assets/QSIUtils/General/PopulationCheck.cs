@@ -11,7 +11,7 @@ public class PopulationCheck : MonoBehaviour
     public string checkTag;
     public int triggerNum;
     public GameObject []  triggerObjects;
-    public string triggerMessage;
+    public string [] triggerMessages;
     public CrashChainDynLevelSaver levelSaver;
     public float triggerDelay = 0.5f;
     public bool continuous = false;
@@ -71,10 +71,15 @@ public class PopulationCheck : MonoBehaviour
     {
         if (triggerObjects != null)
         {
+            int i = 0;
             foreach(GameObject t in triggerObjects)
             { 
                 t.SetActive(true);
-                t.SendMessage(triggerMessage, SendMessageOptions.DontRequireReceiver);
+                 
+                if(triggerMessages != null)
+                    if(triggerObjects.Length == triggerMessages.Length)
+                        t.SendMessage(triggerMessages[i], SendMessageOptions.DontRequireReceiver);
+                i++;
             }
             levelSaver.RegisterWin();
         }

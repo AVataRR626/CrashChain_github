@@ -12,11 +12,15 @@ public class GridSpawner : MonoBehaviour
     public GameObject[] spawnObjects;
     public string [] spawnMessage;
     public int spawnIndex = 0;
+    public bool spawnOnStart = true;
 
 	// Use this for initialization
 	void Start ()
     {
-	
+	    if(spawnOnStart)
+        {
+            StartCoroutine("SpawnGridTimed", spawnTime);
+        }
 	}
 	
 	// Update is called once per frame

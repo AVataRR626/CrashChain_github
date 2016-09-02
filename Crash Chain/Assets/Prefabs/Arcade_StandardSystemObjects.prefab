@@ -173,6 +173,7 @@ GameObject:
   - 224: {fileID: 224000010635990828}
   - 222: {fileID: 222000013116152590}
   - 114: {fileID: 114000012940572002}
+  - 114: {fileID: 114000012749488662}
   m_Layer: 5
   m_Name: txtTimer
   m_TagString: Untagged
@@ -195,7 +196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000011792037568
 GameObject:
   m_ObjectHideFlags: 1
@@ -277,7 +278,7 @@ GameObject:
   - 114: {fileID: 114000012836825388}
   - 114: {fileID: 114000011794929216}
   m_Layer: 5
-  m_Name: txtScore
+  m_Name: txtOverchargeCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,6 +412,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000013155388420
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000011789454464}
+  - 114: {fileID: 114000010323968182}
+  m_Layer: 0
+  m_Name: TimerBonus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000014060610044
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,6 +471,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010116387584}
+  - {fileID: 4000011789454464}
   m_Father: {fileID: 4000011612060560}
   m_RootOrder: 0
 --- !u!4 &4000011166527982
@@ -515,6 +533,19 @@ Transform:
   - {fileID: 4000012584520084}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &4000011789454464
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013155388420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000010962983584}
+  m_RootOrder: 1
 --- !u!4 &4000012170123744
 Transform:
   m_ObjectHideFlags: 1
@@ -567,6 +598,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000011612060560}
   m_RootOrder: 3
+--- !u!114 &114000010323968182
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013155388420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b5b4727c9f74e84baada98006d1af0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonusOnStart: 0
+  timerBonus: 60
 --- !u!114 &114000010392452312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -607,7 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadNextOnStart: 0
   reloadLevelOnStart: 1
-  timer: 1
+  timer: 3
   level: next
   timerSkipClick: 1
 --- !u!114 &114000010532350720
@@ -736,7 +780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLimit: 2.5
-  timerTrigger: 3
+  timerTrigger: 5
   levelSaver: {fileID: 114000010532350720}
   popChecker: {fileID: 114000012101908500}
   activateObjects:
@@ -859,9 +903,12 @@ MonoBehaviour:
   spawnTime: 0.05
   spawnObjects:
   - {fileID: 109132, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+  - {fileID: 109132, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   spawnMessage:
   - RandomiseBlockers
-  spawnIndex: 0
+  - RandomiseStats
+  spawnIndex: 1
+  spawnOnStart: 1
 --- !u!114 &114000011794929216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -874,7 +921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefix: 
-  displayMode: 0
+  displayMode: 4
 --- !u!114 &114000011910105728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1030,7 +1077,10 @@ MonoBehaviour:
   triggerNum: 0
   triggerObjects:
   - {fileID: 1000010117742010}
-  triggerMessage: SpawnGrid
+  - {fileID: 1000013155388420}
+  triggerMessages:
+  - SpawnGrid
+  - AddBonus
   levelSaver: {fileID: 114000010532350720}
   triggerDelay: 1
   continuous: 1
@@ -1118,6 +1168,25 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114000012749488662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011534552674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa78ef03b386ed04f93e9a8a893b619f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerActive: 1
+  countdownMode: 1
+  timerCharCount: 5
+  timer: 90
+  deathWatch: []
+  wakeWatch: []
+  zeroClockDeathList: []
+  zeroClockActiveateList: []
 --- !u!114 &114000012808067650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1177,7 +1246,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20.2
+  m_Text: 0
 --- !u!114 &114000012900332166
 MonoBehaviour:
   m_ObjectHideFlags: 1

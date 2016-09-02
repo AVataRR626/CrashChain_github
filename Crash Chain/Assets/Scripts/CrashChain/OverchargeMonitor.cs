@@ -115,4 +115,9 @@ public class OverchargeMonitor : MonoBehaviour
         else
             clock = timeLimit;
     }
+
+    public int RemainingOvercharges()
+    {
+        return timerTrigger - CrashLink.overchargeCount;
+    }
 }

@@ -3,18 +3,19 @@ using System.Collections;
 
 public class TimerBonus : MonoBehaviour 
 {
-	
+
+    public bool bonusOnStart = true;
 	public float timerBonus = 10;
-	
-	// Use this for initialization
-	void Start () 
+
+    QSITimer t;
+
+    // Use this for initialization
+    void Start () 
 	{
-		QSITimer t = FindObjectOfType(typeof(QSITimer)) as QSITimer;
-		
-		if(t != null)
-		{
-			t.timer += timerBonus;
-		}
+		t = FindObjectOfType(typeof(QSITimer)) as QSITimer;
+
+        if (bonusOnStart)
+            AddBonus();
 	}
 	
 	// Update is called once per frame
@@ -22,4 +23,13 @@ public class TimerBonus : MonoBehaviour
 	{
 	
 	}
+
+    void AddBonus()
+    {
+        if (t != null)
+        {
+            t.timer += timerBonus;
+        }
+
+    }
 }
