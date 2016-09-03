@@ -70,8 +70,11 @@ public class CrashLink : MonoBehaviour
 
         if (myEditor == null)
             myEditor = FindObjectOfType<CrashLinkEditor>();
-
-        overchargeCount = 0;
+         
+        //reset overcharge if you're not in arcade mode..
+        //bit hacky way of doing things, but don't care rn.
+        if(FindObjectOfType<CrashChainArcadeManager>() == null)
+            overchargeCount = 0;
 
         dragger = GetComponent<MouseDrag2D>();
 

@@ -73,13 +73,16 @@ public class PopulationCheck : MonoBehaviour
         {
             int i = 0;
             foreach(GameObject t in triggerObjects)
-            { 
-                t.SetActive(true);
+            {
+                if(t != null)
+                {  
+                    t.SetActive(true);
                  
-                if(triggerMessages != null)
-                    if(triggerObjects.Length == triggerMessages.Length)
-                        t.SendMessage(triggerMessages[i], SendMessageOptions.DontRequireReceiver);
-                i++;
+                    if(triggerMessages != null)
+                        if(triggerObjects.Length == triggerMessages.Length)
+                            t.SendMessage(triggerMessages[i], SendMessageOptions.DontRequireReceiver);
+                    i++;
+                }
             }
 
             if(levelSaver != null)
