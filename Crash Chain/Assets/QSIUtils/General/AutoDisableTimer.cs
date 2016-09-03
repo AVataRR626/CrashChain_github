@@ -10,24 +10,33 @@ using System.Collections;
 public class AutoDisableTimer : MonoBehaviour 
 {
 	public float timer;
+
+    private float clock;
 	
 	// Use this for initialization
 	void Start () 
 	{
-		//Destroy(gameObject,timer);
-	}
+        //Destroy(gameObject,timer);
+
+        Reset();
+    }
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		
-		if(timer > 0)
-		{	
-			timer -= Time.deltaTime;
+		if(clock > 0)
+		{
+            clock -= Time.deltaTime;
 		}
 		else
 		{
 			gameObject.SetActive(false);
 		}
 	}
+
+    public void Reset()
+    {
+        clock = timer;
+    }
 }
