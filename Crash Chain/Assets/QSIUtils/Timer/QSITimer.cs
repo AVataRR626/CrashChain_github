@@ -16,6 +16,7 @@ public class QSITimer : MonoBehaviour
 	public bool timerActive = true;
 	public bool countdownMode = false;
 	public int timerCharCount = 5;
+    public float maxTime = 100;
 	
 	public float timer = 0.1f;
 	
@@ -24,7 +25,7 @@ public class QSITimer : MonoBehaviour
 	
 	
 	public GameObject [] zeroClockDeathList;//the list of things to kill when the clock hits zero;
-	public GameObject [] zeroClockActiveateList;//the list of things to activate when the clock hits zero;
+	public GameObject [] zeroClockActivateList;//the list of things to activate when the clock hits zero;
 	
 	private int countdownFactor = 1;
 	TextMesh myTextMesh;
@@ -37,8 +38,8 @@ public class QSITimer : MonoBehaviour
 		myText = GetComponent<Text>();
 	}
 	
-	// Update is called once per frame
-	void Update () 
+	
+	void FixedUpdate () 
 	{
 	
 		if((myTextMesh != null || myText != null) && timerActive)
@@ -57,7 +58,10 @@ public class QSITimer : MonoBehaviour
 				
 				if(timer > 0)
 				{
-					timer += Time.deltaTime * countdownFactor;					
+                    if (timer > maxTime)
+                        timer = maxTime;
+
+					timer += Time.fixedDeltaTime * countdownFactor;
 				}				
 				else
 				{
@@ -74,14 +78,12 @@ public class QSITimer : MonoBehaviour
 					}
 
 					//activate everything in the activate list when you reach 0
-					foreach(GameObject g in zeroClockActiveateList)
+					foreach(GameObject g in zeroClockActivateList)
 					{
 						g.SetActive(true);
 					}
 				}
 				
-
-				timer += Time.deltaTime * countdownFactor;
 
 				if(myTextMesh != null)
 					myTextMesh.text = timer.ToString().Substring(0,timerCharCount);
@@ -118,6 +120,10 @@ public class QSITimer : MonoBehaviour
 
 	}
 
+    public void Pause()
+    {
+        timerActive = false;
+    }
 	
 	public void AddTimer(float newTime)
 	{

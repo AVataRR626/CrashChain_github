@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Text))]
 public class CrashChainDisplayUtil : MonoBehaviour
 {
-    public enum DisplayMode {currentScore,bestScore,levelName,overchargeCount,overchargeLeft};
+    public enum DisplayMode {currentScore,bestScore,levelName,overchargeCount,overchargeLeft,arcadeLevel};
 
     public string prefix = "";
     public DisplayMode displayMode;
@@ -42,5 +42,8 @@ public class CrashChainDisplayUtil : MonoBehaviour
 
         if (displayMode == DisplayMode.overchargeLeft)
             txt.text = OverchargeMonitor.instance.RemainingOvercharges().ToString();
+
+        if (displayMode == DisplayMode.arcadeLevel)
+            txt.text = CrashChainArcadeManager.instance.level.ToString();
     }
 }

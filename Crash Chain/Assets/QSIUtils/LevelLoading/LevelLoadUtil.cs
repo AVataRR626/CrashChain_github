@@ -28,7 +28,7 @@ public class LevelLoadUtil : MonoBehaviour
     {
         if(timerSkipClick)
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
                 timer = 0;
         }
 

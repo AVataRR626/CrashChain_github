@@ -14,10 +14,12 @@ public class OverchargeMonitor : MonoBehaviour
     public GameObject [] disableObjects;
     public GameObject [] messageList;
     public string message;
+    public bool addOverchargeLimOnReset = false;
 
     private int moveCount = 0;
     private float clock;
     private bool saveSwitch = false;
+    
 
 	// Use this for initialization
 	void Start ()
@@ -104,6 +106,11 @@ public class OverchargeMonitor : MonoBehaviour
 
         //increment retry count, player has lost...
         levelSaver.ReryIncrement();
+
+        Debug.Log("--------------RESETTING OVERCHARGE");
+
+        if (addOverchargeLimOnReset)
+            timerTrigger += RemainingOvercharges();
 
         CrashLink.overchargeCount = 0;
     }

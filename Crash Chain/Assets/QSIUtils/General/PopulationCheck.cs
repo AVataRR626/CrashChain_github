@@ -81,7 +81,10 @@ public class PopulationCheck : MonoBehaviour
                         t.SendMessage(triggerMessages[i], SendMessageOptions.DontRequireReceiver);
                 i++;
             }
-            levelSaver.RegisterWin();
+
+            if(levelSaver != null)
+                if(levelSaver.isActiveAndEnabled)
+                    levelSaver.RegisterWin();
         }
     }
 }

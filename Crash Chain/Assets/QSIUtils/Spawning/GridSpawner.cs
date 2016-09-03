@@ -12,6 +12,8 @@ public class GridSpawner : MonoBehaviour
     public GameObject[] spawnObjects;
     public string [] spawnMessage;
     public int spawnIndex = 0;
+    public int maxSpawnIndex = 0;
+    public bool randomiseSpawnIndex = true;
     public bool spawnOnStart = true;
 
 	// Use this for initialization
@@ -32,7 +34,7 @@ public class GridSpawner : MonoBehaviour
     [ContextMenu("SpawnGrid")]
     public void SpawnGrid()
     {
-        Debug.Log("SPAWNME");
+        //Debug.Log("SPAWNME");
         StartCoroutine("SpawnGridTimed", spawnTime);
     }
 
@@ -44,7 +46,12 @@ public class GridSpawner : MonoBehaviour
         {
             for(int j = 0; j < colCount; j++)
             {
-                //Debug.Log(i + ";" + j + " sldkfj");
+                
+                if(randomiseSpawnIndex)
+                {
+                    spawnIndex = Random.Range(0, maxSpawnIndex + 1);
+                }
+
                 GameObject o = Instantiate(spawnObjects[spawnIndex], spawnPos, Quaternion.identity) as GameObject;
                 o.SendMessage(spawnMessage[spawnIndex], SendMessageOptions.DontRequireReceiver);
                 yield return new WaitForSeconds(waitTime);
