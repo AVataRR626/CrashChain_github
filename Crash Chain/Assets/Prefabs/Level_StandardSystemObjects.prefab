@@ -284,9 +284,10 @@ MonoBehaviour:
   triggerNum: 0
   triggerObjects:
   - {fileID: 197276}
-  triggerMessage: 
+  triggerMessages: []
   levelSaver: {fileID: 11452704}
   triggerDelay: 0.5
+  continuous: 0
 --- !u!114 &11410312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -389,6 +390,7 @@ MonoBehaviour:
   - {fileID: 186830}
   messageList: []
   message: 
+  overchargeLimInc: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -761,7 +763,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next
+  m_Text: 'debug next
+
+    (pretend not here)'
 --- !u!114 &114000010305081132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2032,8 +2036,8 @@ RectTransform:
   m_RootOrder: 7
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -34, y: 26}
-  m_SizeDelta: {x: 75.20001, y: 40.299988}
+  m_AnchoredPosition: {x: -51.5, y: 20.3}
+  m_SizeDelta: {x: 130.8, y: 40.299988}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000014256351906
 RectTransform:
