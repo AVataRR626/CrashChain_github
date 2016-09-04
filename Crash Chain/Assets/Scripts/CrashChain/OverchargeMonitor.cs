@@ -112,7 +112,7 @@ public class OverchargeMonitor : MonoBehaviour
 
     public void ResetOvercharge()
     {
-        Debug.Log("--------------RESETTING OVERCHARGE");
+        //Debug.Log("--------------RESETTING OVERCHARGE");
 
 
         timerTrigger += overchargeLimInc;
