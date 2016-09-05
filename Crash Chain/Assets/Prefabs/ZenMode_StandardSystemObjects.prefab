@@ -685,11 +685,11 @@ MonoBehaviour:
   levelThreshold: 000000000300000006000000090000000c0000000f000000
   maxSpawnIndex: 000000000100000002000000030000000300000003000000
   levelDimensions:
-  - {x: 3, y: 4}
-  - {x: 3, y: 4}
-  - {x: 3, y: 4}
-  - {x: 3, y: 5}
-  - {x: 4, y: 5}
+  - {x: 4, y: 3}
+  - {x: 4, y: 3}
+  - {x: 4, y: 3}
+  - {x: 4, y: 4}
+  - {x: 5, y: 4}
   - {x: 5, y: 5}
   startPointPositions:
   - {x: 1.19, y: 3.18, z: 0}
@@ -1496,7 +1496,7 @@ MonoBehaviour:
   messageList:
   - {fileID: 1000013772787558}
   message: Pause
-  overchargeLimInc: 3
+  overchargeLimInc: 5
 --- !u!114 &114000013877643612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1656,8 +1656,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPoint: {fileID: 4000013718437730}
-  colCount: 3
-  rowCount: 4
+  colCount: 4
+  rowCount: 3
   xSpace: 2
   ySpace: -2
   spawnTime: 0.05

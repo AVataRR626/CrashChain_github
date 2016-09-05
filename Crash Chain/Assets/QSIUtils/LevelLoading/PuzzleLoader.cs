@@ -14,7 +14,7 @@ public class PuzzleLoader : MonoBehaviour
     [Header("Custom Mode Settings")]
     public bool customMode = false;
     public string customSetName = "";
-    public string customPrefix = "lvl";
+    //public string customPrefix = "lvl";
     public string customDelimiter = ":";
     public string customLevelLoader = "CustomLevelLoader";
 

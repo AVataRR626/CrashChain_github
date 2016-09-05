@@ -368,6 +368,25 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b20875709c05f964482496ffd58019f7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &414554943 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 197276, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+  m_PrefabInternal: {fileID: 2008131843}
+--- !u!114 &414554944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 414554943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e9257a3e16f2c47844ab33b7523b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetKey: puzzle_3_1
+  activateList: []
+  deactivateList:
+  - {fileID: 1958034187}
 --- !u!1001 &1049074280
 Prefab:
   m_ObjectHideFlags: 0
@@ -1106,6 +1125,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 66c97378667410d41bf99c06246f6fe9, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1958034187 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012529400028, guid: 121f03785b0400d46805fa1c4ff67f61,
+    type: 2}
+  m_PrefabInternal: {fileID: 2008131843}
 --- !u!1001 &1976393694
 Prefab:
   m_ObjectHideFlags: 0
@@ -1194,6 +1218,14 @@ Prefab:
     - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012529400028, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433506, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: timer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
