@@ -14,6 +14,8 @@ public class ImageFadeIn : MonoBehaviour
 
     private float [] originalAlpha = new float[3];
     private float startAlpha = 0;
+
+    private float delayClock;
     
 
 	void Start ()
@@ -21,6 +23,14 @@ public class ImageFadeIn : MonoBehaviour
         img = GetComponent<Image>();
         txt = GetComponent<Text>();
         txtmsh = GetComponent<TextMesh>();
+
+
+        Reset();
+    }
+
+    public void Reset()
+    {
+        delayClock = startDelay;
 
         if (fadeOutMode)
             startAlpha = 1;
@@ -36,19 +46,18 @@ public class ImageFadeIn : MonoBehaviour
             originalAlpha[1] = txt.color.a;
             txt.color = SetAlpha(txt.color, startAlpha);
         }
-        
-        if(txtmsh != null)
+
+        if (txtmsh != null)
         {
             originalAlpha[2] = txtmsh.color.a;
             txtmsh.color = SetAlpha(txtmsh.color, startAlpha);
         }
-
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update ()
     {
-        if (startDelay <= 0)
+        if (delayClock <= 0)
         {
             if (fadeOutMode)
                 FadeOut();
@@ -57,7 +66,7 @@ public class ImageFadeIn : MonoBehaviour
         }
         else
         {
-            startDelay -= Time.deltaTime;
+            delayClock -= Time.deltaTime;
         }
     }
 
