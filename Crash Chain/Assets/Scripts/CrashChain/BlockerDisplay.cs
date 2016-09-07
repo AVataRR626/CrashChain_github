@@ -12,22 +12,28 @@ public class BlockerDisplay : MonoBehaviour
 {
 
     public CrashLink myLink;
+    public bool arrowMode = false;
 
     private SpriteRenderer mySpr;
 
     void Awake()
     {
-        if (myLink == null)
-            myLink = transform.root.GetComponent<CrashLink>();
-
-        if(mySpr == null)
-            mySpr = GetComponent<SpriteRenderer>();
-
+        GetComponents();
         CheckDirection();
     }
 
-	// Use this for initialization
-	void Start ()
+    void GetComponents()
+    {
+        if (myLink == null)
+            myLink = transform.root.GetComponent<CrashLink>();
+
+        if (mySpr == null)
+            mySpr = GetComponent<SpriteRenderer>();
+
+    }
+
+    // Use this for initialization
+    void Start ()
     {
 
     }
@@ -40,11 +46,7 @@ public class BlockerDisplay : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        if (myLink == null)
-            myLink = transform.root.GetComponent<CrashLink>();
-
-        if (mySpr == null)
-            mySpr = GetComponent<SpriteRenderer>();
+        GetComponents();
 
         CheckDirection();
     }
@@ -60,18 +62,17 @@ public class BlockerDisplay : MonoBehaviour
             {
                 string lcname = name.ToLower();
 
-
                 if (lcname.Contains("north"))
-                    mySpr.enabled = !myLink.north;
+                    mySpr.enabled = !myLink.north ^ arrowMode;
 
                 if (lcname.Contains("east"))
-                    mySpr.enabled = !myLink.east;
+                    mySpr.enabled = !myLink.east ^ arrowMode;
 
                 if (lcname.Contains("south"))
-                    mySpr.enabled = !myLink.south;
+                    mySpr.enabled = !myLink.south ^ arrowMode;
 
                 if (lcname.Contains("west"))
-                    mySpr.enabled = !myLink.west;
+                    mySpr.enabled = !myLink.west ^ arrowMode;
 
             }
         }
