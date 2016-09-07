@@ -108,7 +108,7 @@ public class CrashLink : MonoBehaviour
             if (movable)
                 t.GetComponent<SpriteRenderer>().color = myTypeMaster.outlineColour;
             else
-                t.GetComponent<SpriteRenderer>().color = Color.black;
+                t.GetComponent<SpriteRenderer>().color = myTypeMaster.immovableColour;
         }
 
         foreach(Transform child in t)

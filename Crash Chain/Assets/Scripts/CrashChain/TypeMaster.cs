@@ -17,9 +17,10 @@ public class TypeMaster : MonoBehaviour
     public int [] typeMatch;
 
     public Color outlineColour;
+    public Color immovableColour = new Color(101,101,101,255);
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
 	    if(Instance != null)
         {
