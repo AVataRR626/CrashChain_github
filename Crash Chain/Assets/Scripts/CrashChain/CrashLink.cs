@@ -99,6 +99,8 @@ public class CrashLink : MonoBehaviour
             west = true;
             south = true;
         }
+
+        ColourOutlines(transform);
     }
 
     public void ColourOutlines(Transform t)
