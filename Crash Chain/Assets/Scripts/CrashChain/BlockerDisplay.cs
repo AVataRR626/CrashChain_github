@@ -13,13 +13,17 @@ public class BlockerDisplay : MonoBehaviour
 
     public CrashLink myLink;
     public bool arrowMode = false;
+    public Color blinkColour;
 
     private SpriteRenderer mySpr;
+    Color origColour;
 
     void Awake()
     {
         GetComponents();
         CheckDirection();
+
+        origColour = mySpr.color;
     }
 
     void GetComponents()
@@ -51,6 +55,16 @@ public class BlockerDisplay : MonoBehaviour
         CheckDirection();
     }
 
+
+    public void BlinkOn()
+    {
+        mySpr.color = blinkColour;
+    }
+
+    public void BlinkOff()
+    {
+        mySpr.color = origColour;
+    }
 
     public void CheckDirection()
     {

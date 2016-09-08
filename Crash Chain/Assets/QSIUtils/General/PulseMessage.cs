@@ -11,6 +11,7 @@ public class PulseMessage : MonoBehaviour
     public int pulseCount = 2;
     public float resetCLock = 2;
     public float startDelay = 0;
+    public float totalBlinkTime;
 
     private float pulseClock;
     private float pulseCountTracker;
@@ -25,11 +26,14 @@ public class PulseMessage : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-	
+        
 	}
 
     void Init()
     {
+        if (subject == null)
+            subject = gameObject;
+
         pulseCountTracker = pulseCount;
         PulseStart();
     }
@@ -53,7 +57,10 @@ public class PulseMessage : MonoBehaviour
             Invoke("PulseStart", pulseInterval);
         else
         {
-            Invoke("Init", resetCLock);
+            if (Time.time >= startDelay + totalBlinkTime && totalBlinkTime > 0)
+                this.enabled = false;
+            else
+                Invoke("Init", resetCLock);
         }
     }
 }

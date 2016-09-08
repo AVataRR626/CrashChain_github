@@ -7,12 +7,13 @@ public class ImageFadeIn : MonoBehaviour
     public Image img;
     public Text txt;
     public TextMesh txtmsh;
+    public SpriteRenderer spr;
     // Use this for initialization
     public float fadeInRate = 1;
     public float startDelay = 0;
     public bool fadeOutMode = false;
 
-    private float [] originalAlpha = new float[3];
+    private float [] originalAlpha = new float[4];
     private float startAlpha = 0;
 
     private float delayClock;
@@ -23,6 +24,7 @@ public class ImageFadeIn : MonoBehaviour
         img = GetComponent<Image>();
         txt = GetComponent<Text>();
         txtmsh = GetComponent<TextMesh>();
+        spr = GetComponent<SpriteRenderer>();
 
 
         Reset();
@@ -51,6 +53,12 @@ public class ImageFadeIn : MonoBehaviour
         {
             originalAlpha[2] = txtmsh.color.a;
             txtmsh.color = SetAlpha(txtmsh.color, startAlpha);
+        }
+
+        if(spr != null)
+        {
+            originalAlpha[3] = spr.color.a;
+            spr.color = SetAlpha(spr.color, startAlpha);
         }
     }
 
@@ -87,6 +95,11 @@ public class ImageFadeIn : MonoBehaviour
         {
             txtmsh.color = FadeOut(txtmsh.color, 0, fadeInRate);
         }
+
+        if(spr != null)
+        {
+            spr.color = FadeOut(spr.color, 0, fadeInRate);
+        }
     }
 
     void FadeIn()
@@ -104,6 +117,11 @@ public class ImageFadeIn : MonoBehaviour
         if (txtmsh != null)
         {
             txtmsh.color = FadeIn(txtmsh.color, originalAlpha[2], fadeInRate);
+        }
+
+        if (spr != null)
+        {
+            spr.color = FadeIn(spr.color, originalAlpha[3], fadeInRate);
         }
     }
 

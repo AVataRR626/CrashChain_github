@@ -138,6 +138,7 @@ MonoBehaviour:
   pulseCount: 2
   resetCLock: 5
   startDelay: 9
+  totalBlinkTime: 0
 --- !u!1 &94705654
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,6 +391,7 @@ MonoBehaviour:
   pulseCount: 2
   resetCLock: 5
   startDelay: 6
+  totalBlinkTime: 0
 --- !u!1001 &488879245
 Prefab:
   m_ObjectHideFlags: 0
@@ -429,18 +431,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 109132, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
-      propertyPath: m_Name
-      value: SquareLink (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 11404084, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
-      propertyPath: myTypeMaster
-      value: 
-      objectReference: {fileID: 2008131844}
     - target: {fileID: 11494268, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: myTypeMaster
       value: 
       objectReference: {fileID: 2008131844}
+    - target: {fileID: 11404084, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: myTypeMaster
+      value: 
+      objectReference: {fileID: 2008131844}
+    - target: {fileID: 109132, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: m_Name
+      value: SquareLink (3)
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   m_IsPrefabParent: 0
@@ -496,6 +498,7 @@ MonoBehaviour:
   pulseCount: 2
   resetCLock: 5
   startDelay: 7
+  totalBlinkTime: 0
 --- !u!1001 &586254917
 Prefab:
   m_ObjectHideFlags: 0
@@ -871,6 +874,7 @@ MonoBehaviour:
   pulseCount: 2
   resetCLock: 5
   startDelay: 10
+  totalBlinkTime: 0
 --- !u!1001 &1976393694
 Prefab:
   m_ObjectHideFlags: 0
