@@ -149,6 +149,9 @@ public class CrashLink : MonoBehaviour
         if(!Input.GetMouseButton(0))
             if (holdCharge > 0)
                 holdCharge -= Time.deltaTime;
+
+        if (Input.GetMouseButtonUp(0))
+            smoothSnap.SetAnchorGridCoordinatesOnPos();
     }
 
     void MonitorMoves()
