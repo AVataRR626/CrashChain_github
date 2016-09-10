@@ -24,8 +24,9 @@ public class PuzzleLoader : MonoBehaviour
     public Color lockTint;
 
     public static char setDelimiter = ';';
-    public static string currentSetKey = "CurrentSet";
-    public static string currentCustomSetKey = "CurrentCustomSet";
+    public static string currentSetNumberKey = "CurrentSetNumber";
+    public static string currentCustomSetNameKey = "CurrentCustomSetName";
+    public static string currentCustomSetNumberKey = "CurrentCustomSetNumber";
     public static string currentCustomPuzzleNumberKey = "CurrentCustomPuzzleNumber";
 
     // Use this for initialization
@@ -96,7 +97,7 @@ public class PuzzleLoader : MonoBehaviour
                 SceneManager.LoadScene(GetLevelString());
             else
             {
-                PlayerPrefs.SetString(PuzzleLoader.currentCustomSetKey,customSetName);
+                PlayerPrefs.SetString(PuzzleLoader.currentCustomSetNameKey,customSetName);
                 PlayerPrefs.SetInt(PuzzleLoader.currentCustomPuzzleNumberKey, puzzleNumber);
                 SceneManager.LoadScene(customLevelLoader);
             }

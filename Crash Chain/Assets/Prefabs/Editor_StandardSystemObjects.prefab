@@ -137,6 +137,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 411974}
+  - 114: {fileID: 114000013632982940}
   m_Layer: 0
   m_Name: Editor_StandardSystemObjects
   m_TagString: Untagged
@@ -535,7 +536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serialisedLevel: 
-  customMode: 0
+  customMode: 1
 --- !u!114 &11448348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -627,3 +628,17 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 181858}
   m_IsPrefabParent: 1
+--- !u!114 &114000013632982940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c43def68fa281649bf4a0388573c956, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customMode: 1
+  levelName: 
+  bestMoves: -1

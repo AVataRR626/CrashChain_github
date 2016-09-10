@@ -50,18 +50,19 @@ public class PuzzleMenuGenerator : MonoBehaviour
     Vector3 originalPos;
     private string [] customSets;    
 
-    private string currentSetKey;
+    private string currentSetNumberKey;
+    private string customSetName;
 
     // Use this for initialization
     void Start ()
     {
-        currentSetKey = PuzzleLoader.currentSetKey;
+        currentSetNumberKey = PuzzleLoader.currentSetNumberKey;
         originalPos = transform.position;
         autoMover = GetComponent<AutoMoveAndRotate>();
 
         if (customMode)
         {
-            currentSetKey = PuzzleLoader.currentCustomSetKey;
+            currentSetNumberKey = PuzzleLoader.currentCustomSetNumberKey;
 
             string rawCustomSetString = PlayerPrefs.GetString(setListKey,"");
 
@@ -74,7 +75,8 @@ public class PuzzleMenuGenerator : MonoBehaviour
 
             }
 
-            PlayerPrefs.SetInt(currentSetKey, setNumber);
+            //PlayerPrefs.SetInt(currentSetNumberKey, setNumber);
+
             if (customSets != null)
                 maxSet = customSets.Length;
             else
@@ -88,8 +90,8 @@ public class PuzzleMenuGenerator : MonoBehaviour
         {
             StartCoroutine("GenerateButtonsTimed", buttonGenDelay);
 
-            if(customMode)
-                PlayerPrefs.SetString(currentSetKey, customSets[setNumber - 1]);
+            if (customMode)
+                customSetName = customSets[setNumber - 1];
         }
 
     }
@@ -119,13 +121,16 @@ public class PuzzleMenuGenerator : MonoBehaviour
 
     public void DisplayUpdate()
     {
-        setNumber = PlayerPrefs.GetInt(currentSetKey);
+        setNumber = PlayerPrefs.GetInt(currentSetNumberKey);
 
         if (setNumber <= 0)
         {
             setNumber = 1;
-            PlayerPrefs.SetInt(currentSetKey, 1);
+            PlayerPrefs.SetInt(currentSetNumberKey, 1);
         }
+
+        if (setNumber > maxSet)
+            setNumber = maxSet;
 
         if (!customMode)
             textDisplay.text = prefix + setNumber.ToString();
@@ -205,10 +210,10 @@ public class PuzzleMenuGenerator : MonoBehaviour
             }
         }
 
-        Debug.Log("SET CHANGE:" + i + "," + setNumber + "," + currentSetKey);
+        Debug.Log("SET CHANGE:" + i + "," + setNumber + "," + currentSetNumberKey);
 
         //scene management
-        PlayerPrefs.SetInt(currentSetKey, setNumber);
+        PlayerPrefs.SetInt(currentSetNumberKey, setNumber);
     }
 
     public void GenerateButtons()

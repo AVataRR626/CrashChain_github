@@ -42,7 +42,7 @@ public class LevelNavigator : MonoBehaviour
         
         if(customMode)
         {   
-            customSetName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetKey);
+            customSetName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetNameKey);
             puzzleNumber = PlayerPrefs.GetInt(PuzzleLoader.currentCustomPuzzleNumberKey);
         }
 	}

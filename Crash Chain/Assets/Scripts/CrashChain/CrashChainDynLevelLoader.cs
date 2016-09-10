@@ -24,7 +24,7 @@ public class CrashChainDynLevelLoader : MonoBehaviour
         {
             if(customLevel == "")
             {
-                setName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetKey);
+                setName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetNameKey);
                 lvlNumber = PlayerPrefs.GetInt(PuzzleLoader.currentCustomPuzzleNumberKey) - 1;//index starts from 0, but puzzle numbers startt from 1
                 customLevel = setName + ":" + lvlNumber.ToString();
             }

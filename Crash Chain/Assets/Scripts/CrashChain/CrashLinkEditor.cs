@@ -39,7 +39,7 @@ public class CrashLinkEditor : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        setName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetKey);
+        setName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetNameKey);
         levelNumber = PlayerPrefs.GetInt(PuzzleLoader.currentCustomPuzzleNumberKey) - 1;        
         string rawCustomSetString = PlayerPrefs.GetString(setListKey, "");
         customSets = rawCustomSetString.Split(PuzzleLoader.setDelimiter);
@@ -49,6 +49,8 @@ public class CrashLinkEditor : MonoBehaviour
 
     public void Init()
     {
+        SetTestMode(testMode);
+
         if (iptSetName == null)
         {
             GameObject sn = GameObject.FindGameObjectWithTag("EditorSetName");
@@ -125,7 +127,15 @@ public class CrashLinkEditor : MonoBehaviour
 
     public void ToggleTestMode()
     {
-        testMode = !testMode;
+
+        SetTestMode(!testMode);
+    }
+
+    public void SetTestMode(bool t)
+    {
+        testMode = t;
+        FindObjectOfType<PopulationCheck>().enabled = t;
+        //don't check for victory if you're not in test mode...
     }
 
     /*
@@ -214,6 +224,8 @@ public class CrashLinkEditor : MonoBehaviour
 
     public void SetSetName(string newName)
     {
+        CrashChainSetManager.RenameSet(setName, newName);
+
         setName = newName;
     }
 

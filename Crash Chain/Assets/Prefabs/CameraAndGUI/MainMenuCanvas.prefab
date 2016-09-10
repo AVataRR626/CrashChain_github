@@ -91,8 +91,8 @@ GameObject:
   - 222: {fileID: 222000013899448854}
   - 114: {fileID: 114000013643285502}
   - 114: {fileID: 114000013967400780}
-  - 114: {fileID: 114000013686824698}
   - 114: {fileID: 114000013882283358}
+  - 114: {fileID: 114000012374583780}
   m_Layer: 5
   m_Name: CustomPuzzles
   m_TagString: Untagged
@@ -263,8 +263,8 @@ GameObject:
   - 222: {fileID: 222000013827102850}
   - 114: {fileID: 114000014068481560}
   - 114: {fileID: 114000013819855606}
-  - 114: {fileID: 114000010526823696}
   - 114: {fileID: 114000010243435554}
+  - 114: {fileID: 114000012330997256}
   m_Layer: 5
   m_Name: PuzzleEditor
   m_TagString: Untagged
@@ -487,6 +487,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 1.25
   fadeOutMode: 0
@@ -504,6 +505,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 2
   startDelay: 0
   fadeOutMode: 0
@@ -521,21 +523,10 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 1.25
   fadeOutMode: 0
---- !u!114 &114000010526823696
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013135531840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29f174a556213a4f8731a72dcf7c783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: 
 --- !u!114 &114000010779847736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -723,9 +714,32 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 0
   fadeOutMode: 0
+--- !u!114 &114000012330997256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013135531840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472b1954642bdf242b61f2db031d043f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlePrefix: puzzle
+  delimiter: _
+  setNumber: 3
+  puzzleNumber: 12
+  customMode: 1
+  customSetName: puzzle_3
+  customDelimiter: _
+  customLevelLoader: MenuEditorSetList
+  checkLocked: 1
+  locked: 0
+  lockTint: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 1}
 --- !u!114 &114000012349188118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -742,6 +756,28 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114000012374583780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012307906950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472b1954642bdf242b61f2db031d043f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlePrefix: puzzle
+  delimiter: _
+  setNumber: 3
+  puzzleNumber: 12
+  customMode: 1
+  customSetName: puzzle_3
+  customDelimiter: _
+  customLevelLoader: MenuCustomLevels
+  checkLocked: 1
+  locked: 0
+  lockTint: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 1}
 --- !u!114 &114000012426765328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -897,6 +933,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 0.25
   fadeOutMode: 0
@@ -914,6 +951,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 0.75
   fadeOutMode: 0
@@ -931,6 +969,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 1.5
   fadeOutMode: 0
@@ -948,6 +987,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 0.75
   fadeOutMode: 0
@@ -965,6 +1005,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 0
   fadeOutMode: 0
@@ -982,6 +1023,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 1.75
   fadeOutMode: 0
@@ -1051,6 +1093,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 0
   fadeOutMode: 0
@@ -1380,18 +1423,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000013686824698
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012307906950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29f174a556213a4f8731a72dcf7c783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: 
 --- !u!114 &114000013724701906
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1521,19 +1552,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114000010526823696}
+      - m_Target: {fileID: 114000012330997256}
         m_MethodName: LoadLevel
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MenuEditorSetList
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: RegisterWin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1581,6 +1601,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 0.5
   fadeOutMode: 0
@@ -1598,6 +1619,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 1
   fadeOutMode: 0
@@ -1615,6 +1637,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 0.5
   fadeOutMode: 0
@@ -1632,6 +1655,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 1
   fadeOutMode: 0
@@ -1674,26 +1698,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114000013686824698}
+      - m_Target: {fileID: 114000012374583780}
         m_MethodName: LoadLevel
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MenuCustomLevels
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: RegisterWin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: MenuCustomLevels
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1778,6 +1791,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 1
   startDelay: 1.5
   fadeOutMode: 0
