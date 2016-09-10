@@ -39,12 +39,12 @@ public class CrashLinkEditor : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        //setName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetKey);
+        setName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetKey);
         levelNumber = PlayerPrefs.GetInt(PuzzleLoader.currentCustomPuzzleNumberKey) - 1;        
         string rawCustomSetString = PlayerPrefs.GetString(setListKey, "");
         customSets = rawCustomSetString.Split(PuzzleLoader.setDelimiter);
 
-        Init();
+         Init();
     }
 
     public void Init()
@@ -54,11 +54,11 @@ public class CrashLinkEditor : MonoBehaviour
             GameObject sn = GameObject.FindGameObjectWithTag("EditorSetName");
 
             if (sn != null)
-            {
                 iptSetName = sn.GetComponent<InputField>();
-                iptSetName.text = setName;
-            }
         }
+
+        if(iptSetName != null)
+            iptSetName.text = setName;
 
         if (lblLevelNumber == null)
         {
@@ -67,9 +67,11 @@ public class CrashLinkEditor : MonoBehaviour
             if (ln != null)
             {
                 lblLevelNumber = ln.GetComponent<Text>();
-                lblLevelNumber.text = (levelNumber + 1).ToString();
             }
         }
+
+        if(lblLevelNumber != null)
+            lblLevelNumber.text = (levelNumber + 1).ToString();
 
         if (highlighter == null)
         {
@@ -173,7 +175,7 @@ public class CrashLinkEditor : MonoBehaviour
                )
             { 
                 Vector3 mouseDownPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mouseDownPos.z = highlighter.transform.position.z;
+                mouseDownPos.z = 0;
 
                 //if they haven't clicked on any blocks, lose focus.
                 if (blockFrameClickCount == 0)

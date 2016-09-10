@@ -314,6 +314,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce8e426267cea41a222c9834ec136c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1868620487 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 193260, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+  m_PrefabInternal: {fileID: 2008131843}
+--- !u!114 &1868620488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1868620487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8358e28c4f467124eb8851a4bb7487d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyString: CurrentCustomPuzzleNumber
+  mod: 1
 --- !u!1001 &1976393694
 Prefab:
   m_ObjectHideFlags: 0
