@@ -17,6 +17,8 @@ public class LevelNavigator : MonoBehaviour
     public string customSetName = "";
     public string customPrefix = "lvl";
     public string customDelimiter = ":";
+    public string puzzleMenuScene = "MenuCustomLevels";
+    public int maxLevelNumber = 12;
 
     public static LevelNavigator instance;
 
@@ -44,6 +46,10 @@ public class LevelNavigator : MonoBehaviour
         {   
             customSetName = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetNameKey);
             puzzleNumber = PlayerPrefs.GetInt(PuzzleLoader.currentCustomPuzzleNumberKey);
+
+            if (puzzleNumber > maxLevelNumber)
+                SceneManager.LoadScene(puzzleMenuScene);
+
         }
 	}
 	
