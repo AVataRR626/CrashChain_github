@@ -85,6 +85,12 @@ public class SmoothSnap : MonoBehaviour
         gridCoordinates.z = Mathf.Round(transform.position.z / snapSettings.z);
     }
 
+    public void SetAnchorGridCoordinatesOnPos()
+    {
+        SetGridCoordinatesOnPos();
+        anchorGridCoordinates = gridCoordinates;
+    }
+
     public void ReturnToAnchorGridCoordintes()
     {
         //Debug.Log("RETURN TO CONFLICG COORDS!");

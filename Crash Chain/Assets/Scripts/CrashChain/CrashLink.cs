@@ -61,7 +61,7 @@ public class CrashLink : MonoBehaviour
     void Awake()
     {
         myTypeMaster = FindObjectOfType<TypeMaster>();
-        ColourOutlines(transform);
+        ColourOutlines();
     }
 
     // Use this for initialization
@@ -100,6 +100,11 @@ public class CrashLink : MonoBehaviour
             south = true;
         }
 
+        ColourOutlines(transform);
+    }
+
+    public void ColourOutlines()
+    {
         ColourOutlines(transform);
     }
 
@@ -346,14 +351,16 @@ public class CrashLink : MonoBehaviour
         if (myEditor != null)
         {
 
-            if (!myEditor.myFocus == this)
-            {
-                holdCharge = 0.25f;
+            if (!myEditor.testMode)
+                holdCharge = 0.15f;
 
-                //notify that you are the focus
-                myEditor.myFocus = this;
-            }
+            myEditor.myFocus = this;
 
+            //report being clicked to the editor..
+            myEditor.blockFrameClickCount++;
+
+
+            /*
             //defocus and deglow everything else..
             CrashLink[] allTheLinks = FindObjectsOfType<CrashLink>();
 
@@ -362,12 +369,9 @@ public class CrashLink : MonoBehaviour
                 c.BroadcastMessage("TouchDim");
             }
 
-            
+            */
 
         }
-
-        //glow yourself...
-        gameObject.BroadcastMessage("TouchGlow");
 
     }
 
@@ -408,7 +412,10 @@ public class CrashLink : MonoBehaviour
     {
         lastClickTime = Time.time;
         StartDrag();
-        
+
+        //glow yourself...
+        gameObject.BroadcastMessage("TouchGlow");
+
     }
 
     void OnMouseUp()
@@ -428,10 +435,8 @@ public class CrashLink : MonoBehaviour
             }
         }
 
-        //don't automatically dim if in edit mode...
-        if (myEditor == null)
-            gameObject.BroadcastMessage("TouchDim");
 
+        gameObject.BroadcastMessage("TouchDim");
     }
 
     void OnMouseDrag()

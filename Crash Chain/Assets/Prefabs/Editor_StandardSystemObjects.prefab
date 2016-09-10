@@ -522,6 +522,7 @@ MonoBehaviour:
   - {r: 0.94509804, g: 0.8745098, b: 0.43137255, a: 1}
   typeMatch: 000000000100000002000000
   outlineColour: {r: 1, g: 1, b: 1, a: 1}
+  immovableColour: {r: 0.33823532, g: 0.33823532, b: 0.33823532, a: 1}
 --- !u!114 &11440112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -534,6 +535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serialisedLevel: 
+  customMode: 0
 --- !u!114 &11448348
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -549,6 +551,7 @@ MonoBehaviour:
   reloadLevelOnStart: 1
   timer: 1
   level: next
+  timerSkipClick: 1
 --- !u!114 &11468716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -560,6 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5811dbc1a866b9409501f69b258a0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeLimit: 1.65
   timerTrigger: 1
   levelSaver: {fileID: 0}
   popChecker: {fileID: 11491080}
@@ -569,6 +573,7 @@ MonoBehaviour:
   - {fileID: 175588}
   messageList: []
   message: 
+  overchargeLimInc: 0
 --- !u!114 &11485288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -584,6 +589,7 @@ MonoBehaviour:
   reloadLevelOnStart: 1
   timer: 1
   level: next
+  timerSkipClick: 1
 --- !u!114 &11491080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -599,9 +605,10 @@ MonoBehaviour:
   triggerNum: 0
   triggerObjects:
   - {fileID: 137422}
-  triggerMessage: 
+  triggerMessages: []
   levelSaver: {fileID: 0}
   triggerDelay: 0.5
+  continuous: 0
 --- !u!124 &12447468
 Behaviour:
   m_ObjectHideFlags: 1

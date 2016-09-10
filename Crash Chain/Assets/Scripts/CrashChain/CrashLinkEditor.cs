@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CrashLinkEditor : MonoBehaviour
 {
+    public bool testMode = false;
     public string levelName = "LevelDefault";
     public int levelNumber = 0;
     public string setName = "DefaultSet";
@@ -18,6 +19,7 @@ public class CrashLinkEditor : MonoBehaviour
     public CrashLink squareLinkPrefab;
     public CrashLink triLinkPrefab;
     public CrashLink hexLinkPrefab;
+    public Vector2 toolbarBorders = new Vector2(0.25f, 0.2f);
 
     public string serialisedLevel;
 
@@ -31,6 +33,8 @@ public class CrashLinkEditor : MonoBehaviour
 
     private string[] customSets;
     public string setListKey = "SetList";
+
+    public int blockFrameClickCount = 0;
 
     // Use this for initialization
     void Start ()
@@ -117,6 +121,11 @@ public class CrashLinkEditor : MonoBehaviour
         return "lvl:" + GetLevelName();
     }
 
+    public void ToggleTestMode()
+    {
+        testMode = !testMode;
+    }
+
     /*
     BIG NOTE:
     The assumption is that each set will have a maximum of 12 levels
@@ -149,9 +158,41 @@ public class CrashLinkEditor : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-	    if(myFocus != null && highlighter != null)
+
+        highlighter.GetComponent<SpriteRenderer>().enabled = !testMode;
+
+        
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            //Debug.Log(Input.mousePosition + ";" + Screen.height);
+            
+            //don't move behind the tool bars...
+            if(Input.mousePosition.y < (Screen.height - (Screen.height * toolbarBorders.y)) &&
+                Input.mousePosition.x > (Screen.width * toolbarBorders.x)
+               )
+            { 
+                Vector3 mouseDownPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mouseDownPos.z = highlighter.transform.position.z;
+
+                //if they haven't clicked on any blocks, lose focus.
+                if (blockFrameClickCount == 0)
+                    myFocus = null;
+
+                if(myFocus == null)
+                {
+                    highlighter.transform.position = mouseDownPos;
+                    highlighter.GetComponent<SmoothSnap>().SetAnchorGridCoordinatesOnPos();
+                    highlighter.GetComponent<SmoothSnap>().noSnapOverride = false;
+                }
+            }
+        }
+
+
+        if (myFocus != null && highlighter != null)
         {
             highlighter.transform.position = myFocus.transform.position;
+            highlighter.GetComponent<SmoothSnap>().noSnapOverride = true;
 
             if (spawnLinkSwitch)
             {
@@ -160,11 +201,14 @@ public class CrashLinkEditor : MonoBehaviour
                     myFocus.GetComponent<SmoothSnap>().ResetConflictSwitch();
                 }
                 spawnLinkSwitch = false;
+
+                highlighter.GetComponent<SmoothSnap>().snapSwitch = true;
             }
         }
 
-
-	}
+        //start a new count every frame...
+        blockFrameClickCount = 0;
+    }
 
     public void SetSetName(string newName)
     {
@@ -221,6 +265,7 @@ public class CrashLinkEditor : MonoBehaviour
         if(myFocus != null)
         {
             myFocus.movable = mode;
+            myFocus.ColourOutlines();
         }
     }
 
@@ -229,6 +274,7 @@ public class CrashLinkEditor : MonoBehaviour
         if (myFocus != null)
         {
             myFocus.movable = !myFocus.movable;
+            myFocus.ColourOutlines();
         }
     }
 
@@ -238,10 +284,9 @@ public class CrashLinkEditor : MonoBehaviour
     {
         if(spawnMarker != null)
         {
-            Vector3 plantPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            plantPos.z = 0;
-            spawnMarker.transform.position = plantPos;
-
+            //Vector3 plantPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //plantPos.z = 0;
+            //spawnMarker.transform.position = plantPos;
 
             switch (linkType)
             {
@@ -261,10 +306,13 @@ public class CrashLinkEditor : MonoBehaviour
                     break;
             }
 
+            /*
             myFocus.GetComponent<SmoothSnap>().StartDrag();
             myFocus.GetComponent<MouseDrag2D>().StartDrag();
             myFocus.GetComponent<MouseDrag2D>().TrackMouse();
             myFocus.GetComponent<CrashLink>().StartDrag();
+            */
+
             spawnLinkSwitch = true;
 
         }
