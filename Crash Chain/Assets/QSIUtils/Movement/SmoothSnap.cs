@@ -14,7 +14,7 @@ public class SmoothSnap : MonoBehaviour
     LerpToPosition mover;
     public Vector3 snapSettings = new Vector3(1, 1, 1);
     public bool noSnapOverride = false;
-   
+
     //should be private, but kept public for debugging...
     public bool snapSwitch = true;
     public bool occupancyCheck = false;
@@ -27,7 +27,7 @@ public class SmoothSnap : MonoBehaviour
     Vector3 occupiedGridSpot = new Vector3(-1,-1,-1);
     bool isFocus = false;
 
-    
+    Vector3 originalAnchor;
 
     // Use this for initialization
     void Start()
@@ -36,6 +36,7 @@ public class SmoothSnap : MonoBehaviour
 
         SetGridCoordinatesOnPos();
         anchorGridCoordinates = gridCoordinates;
+        originalAnchor = anchorGridCoordinates;
     }
 
     // Update is called once per frame

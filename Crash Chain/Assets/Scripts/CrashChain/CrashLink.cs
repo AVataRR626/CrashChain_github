@@ -141,6 +141,7 @@ public class CrashLink : MonoBehaviour
 
 
         dragger.enabled = movable;
+        smoothSnap.GetComponent<Rigidbody2D>().isKinematic = !movable;
         ManageSpin();
         ManageKillTriggers();
         MonitorMoves();

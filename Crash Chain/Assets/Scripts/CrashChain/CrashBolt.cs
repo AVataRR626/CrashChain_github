@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody2D))]
 public class CrashBolt : MonoBehaviour
 {
-    public enum OperationMode {ShellCrash,ConvertShell,ConvertCore};
+    public enum OperationMode {ShellCrash,ConvertShell,ConvertCore,TunnelCore};
 
     public OperationMode opMode;
     public int type;
@@ -21,6 +21,22 @@ public class CrashBolt : MonoBehaviour
     {
         myTypeMaster = TypeMaster.Instance;
         Destroy(gameObject, ttl);
+
+        if(opMode == OperationMode.TunnelCore)
+        {
+            IgnoreOtherCores(type);
+        }
+    }
+
+    public void IgnoreOtherCores(int targetType)
+    {
+        CrashLink[] allLinks = FindObjectsOfType<CrashLink>();
+
+        foreach(CrashLink l in allLinks)
+        {
+            if (l.coreType != targetType)
+                Physics2D.IgnoreCollision(l.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
+        }
     }
 	
     void OnCollisionEnter2D(Collision2D col)
@@ -47,6 +63,13 @@ public class CrashBolt : MonoBehaviour
             if (opMode == OperationMode.ShellCrash)
             {
                 //default shell crashing behaviour..
+                ShellCrash(cl);
+            }
+
+            if (opMode == OperationMode.TunnelCore)
+            {
+                //default shell crashing behaviour..
+                cl.shellType = type;
                 ShellCrash(cl);
             }
 
