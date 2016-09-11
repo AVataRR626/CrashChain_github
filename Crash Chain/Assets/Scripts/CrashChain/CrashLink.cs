@@ -459,7 +459,7 @@ public class CrashLink : MonoBehaviour
         string linkMode = "Q";
 
         //Assume Hex Crash bolts have core converters
-        if (myCrashBolt.opMode == CrashBolt.OperationMode.ConvertCore)
+        if (myCrashBolt.opMode == CrashBolt.OperationMode.TunnelCore)
             linkMode = "H";
 
         //Assume Triangle Crash bolts have shell covnerters
