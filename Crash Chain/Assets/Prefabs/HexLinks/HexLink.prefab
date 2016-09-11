@@ -193,7 +193,7 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121660}
   m_UseAutoMass: 0
-  m_Mass: 5
+  m_Mass: 7
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -259,8 +259,8 @@ MonoBehaviour:
   - {fileID: 120376, guid: 74633493cb7c4b14099ad3e9e2109342, type: 2}
   timeBonus: 1.5
   defaultDeathTime: 0.25
-  baseSpinRate: 1200
-  deathSpinExtension: 1
+  baseSpinRate: 360
+  deathSpinExtension: 0.1
   myEditor: {fileID: 0}
   tapTime: 0.15
   touchFactor: 2.5
