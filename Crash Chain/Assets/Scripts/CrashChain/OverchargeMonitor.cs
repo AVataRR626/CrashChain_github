@@ -102,7 +102,7 @@ public class OverchargeMonitor : MonoBehaviour
             o.SetActive(false);
 
         foreach (GameObject o in messageList)
-            o.SendMessage(message);
+            o.SendMessage(message, SendMessageOptions.DontRequireReceiver);
 
         //increment retry count, player has lost...
         levelSaver.ReryIncrement();

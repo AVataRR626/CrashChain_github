@@ -127,10 +127,10 @@ public class ImageFadeIn : MonoBehaviour
 
     public static Color FadeOut(Color c, float goalAlpha, float increment)
     {
-        Debug.Log("Fade Out:" + c.a);
+        //Debug.Log("Fade Out:" + c.a);
         if (c.a > goalAlpha)
         {
-            Debug.Log("Yup");
+            //Debug.Log("Yup");
             c.a -= increment * Time.deltaTime;
         }
 

@@ -1027,6 +1027,7 @@ MonoBehaviour:
   maxSpawnIndex: 0
   randomiseSpawnIndex: 1
   spawnOnStart: 1
+  spawnCount: 0
 --- !u!114 &114000011745755030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1274,14 +1275,10 @@ MonoBehaviour:
   triggerObjects:
   - {fileID: 1000010117742010}
   - {fileID: 1000013155388420}
-  - {fileID: 1000013263179860}
-  - {fileID: 1000010117742010}
   - {fileID: 1000012465788280}
   triggerMessages:
   - LevelUp
   - AddBonus
-  - Reset
-  - SpawnGrid
   - ResetOvercharge
   levelSaver: {fileID: 114000010532350720}
   triggerDelay: 1
@@ -1779,6 +1776,10 @@ MonoBehaviour:
   - {x: 1.19, y: 3.18, z: 0}
   - {x: -0.95, y: 3.18, z: 0}
   - {x: -0.95, y: 3.18, z: 0}
+  levelUpMsgList:
+  - {fileID: 1000013263179860}
+  levelUpMessages:
+  - Reset
 --- !u!114 &114000013192168552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1827,6 +1828,8 @@ MonoBehaviour:
   col2: {r: 1, g: 1, b: 1, a: 1}
   col1BlinkRate: 0.75
   col2BlinkRate: 0.75
+  blinkClock: 3
+  blinkForever: 1
 --- !u!114 &114000013842961256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2032,7 +2035,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -111.8, y: 100.8}
+  m_AnchoredPosition: {x: -105.8, y: 100.8}
   m_SizeDelta: {x: 332.7, y: 36.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000010784850624

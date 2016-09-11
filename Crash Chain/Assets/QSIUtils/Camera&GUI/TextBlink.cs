@@ -11,6 +11,7 @@ public class TextBlink : MonoBehaviour
 	public float col1BlinkRate;
 	public float col2BlinkRate;
     public float blinkClock = 3;
+    public bool blinkForever = false;
 
 	private Text sr;
 	private bool blinkFlag;
@@ -24,22 +25,23 @@ public class TextBlink : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-        if(blinkClock > 0)
-        { 
+        if(blinkClock > 0 || blinkForever)
+        {
+            if(blinkClock > 0)
+                blinkClock -= Time.deltaTime;
 
-		    if(sr.color == col1 || sr.color == col2)
-			    blinkFlag = !blinkFlag;
+            if (sr.color == col1 || sr.color == col2)
+                blinkFlag = !blinkFlag;
 
-		    if(blinkFlag)
-		    {
-			    sr.color = Color.Lerp (sr.color,col1,col1BlinkRate);
-		    }
-		    else
-		    {
-			    sr.color = Color.Lerp (sr.color,col2,col2BlinkRate);
-		    }
+            if (blinkFlag)
+            {
+                sr.color = Color.Lerp(sr.color, col1, col1BlinkRate);
+            }
+            else
+            {
+                sr.color = Color.Lerp(sr.color, col2, col2BlinkRate);
+            }
 
-            blinkClock -= Time.deltaTime;
         }
 
     }

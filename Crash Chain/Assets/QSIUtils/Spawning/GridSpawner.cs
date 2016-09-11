@@ -15,9 +15,10 @@ public class GridSpawner : MonoBehaviour
     public int maxSpawnIndex = 0;
     public bool randomiseSpawnIndex = true;
     public bool spawnOnStart = true;
+    public int spawnCount = 0;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
 	    if(spawnOnStart)
         {
@@ -42,25 +43,30 @@ public class GridSpawner : MonoBehaviour
     {
         Vector3 spawnPos = startPoint.position;
 
+        spawnCount = 0;
+
         for (int i = 0; i < rowCount; i++)
         {
-            for(int j = 0; j < colCount; j++)
+            for (int j = 0; j < colCount; j++)
             {
-                
-                if(randomiseSpawnIndex)
+
+                if (randomiseSpawnIndex)
                 {
                     spawnIndex = Random.Range(0, maxSpawnIndex + 1);
                 }
 
                 GameObject o = Instantiate(spawnObjects[spawnIndex], spawnPos, Quaternion.identity) as GameObject;
                 o.SendMessage(spawnMessage[spawnIndex], SendMessageOptions.DontRequireReceiver);
-                yield return new WaitForSeconds(waitTime);
                 spawnPos.x += xSpace;
+
+                spawnCount++;
+                Debug.Log("SpawnCount:" + spawnCount + " ;" + i + ";" + j);
+
+                yield return new WaitForSeconds(waitTime);
             }
             spawnPos.x = startPoint.position.x;
             spawnPos.y += ySpace;
         }
-
         
     }
 }
