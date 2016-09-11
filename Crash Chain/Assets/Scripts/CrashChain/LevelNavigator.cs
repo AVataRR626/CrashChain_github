@@ -37,9 +37,9 @@ public class LevelNavigator : MonoBehaviour
             int.TryParse(components[2], out puzzleNumber);
 
             if(setNumber > 0)
-                PlayerPrefs.SetInt("CurrentSet", setNumber);
+                PlayerPrefs.SetInt(PuzzleLoader.currentSetNumberKey, setNumber);
             else
-                PlayerPrefs.SetInt("CurrentSet", 1);
+                PlayerPrefs.SetInt(PuzzleLoader.currentSetNumberKey, 1);
         }
         
         if(customMode)

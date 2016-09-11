@@ -187,11 +187,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114000013637669904, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
-        type: 2}
-      propertyPath: m_Interactable
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a15a9a21cfdf56f4ca3770d6cd76f368, type: 2}
   m_IsPrefabParent: 0
@@ -373,7 +368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   introSequence: {fileID: 8300000, guid: 64352c4da222a40488e491b4a7f8589a, type: 3}
-  mainSequence: {fileID: 0}
+  mainSequence: {fileID: 8300000, guid: 64352c4da222a40488e491b4a7f8589a, type: 3}
   persistent: 1
 --- !u!82 &1695827823
 AudioSource:
