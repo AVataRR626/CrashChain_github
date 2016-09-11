@@ -657,7 +657,8 @@ GameObject:
   - 224: {fileID: 224000013457120658}
   - 222: {fileID: 222000013368351812}
   - 114: {fileID: 114000013231905590}
-  - 114: {fileID: 114000013908971906}
+  - 114: {fileID: 114000010870251334}
+  - 114: {fileID: 114000013422896862}
   m_Layer: 5
   m_Name: XTraMsg
   m_TagString: Untagged
@@ -835,6 +836,22 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: puzzle_12_12
+--- !u!114 &114000010870251334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012529400028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434d0c96362ad094eaf82d58632c08e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  col1: {r: 1, g: 0.8896551, b: 0, a: 1}
+  col2: {r: 0.97794116, g: 0.97794116, b: 0.97794116, a: 1}
+  col1BlinkRate: 0.75
+  col2BlinkRate: 0.75
+  blinkClock: 0.75
 --- !u!114 &114000011085489498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -949,12 +966,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197276}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1e9257a3e16f2c47844ab33b7523b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetKey: puzzle_2_1
+  targetKey: puzzle_3_1
   activateList: []
   deactivateList:
   - {fileID: 1000012529400028}
@@ -1367,7 +1384,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: arcade mode unlocked
+  m_Text: 
 --- !u!114 &114000013242676692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1442,6 +1459,24 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: try again....
+--- !u!114 &114000013422896862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012529400028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a3c51a0b8869d548828fa0564bae193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  img: {fileID: 0}
+  txt: {fileID: 0}
+  txtmsh: {fileID: 0}
+  spr: {fileID: 0}
+  fadeInRate: 1
+  startDelay: 3
+  fadeOutMode: 1
 --- !u!114 &114000013425091526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1567,21 +1602,6 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
---- !u!114 &114000013908971906
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012529400028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 434d0c96362ad094eaf82d58632c08e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  col1: {r: 1, g: 0.9724138, b: 0, a: 1}
-  col2: {r: 1, g: 1, b: 1, a: 1}
-  col1BlinkRate: 0.75
-  col2BlinkRate: 0.75
 --- !u!114 &114000014003591200
 MonoBehaviour:
   m_ObjectHideFlags: 1

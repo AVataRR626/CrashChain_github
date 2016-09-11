@@ -185,6 +185,7 @@ MonoBehaviour:
   img: {fileID: 0}
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
+  spr: {fileID: 0}
   fadeInRate: 0.25
   startDelay: 0
   fadeOutMode: 0
@@ -285,6 +286,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21288794, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000012427656436, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -561,6 +567,11 @@ Prefab:
       propertyPath: myTypeMaster
       value: 
       objectReference: {fileID: 2008131844}
+    - target: {fileID: 212000012427656436, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   m_IsPrefabParent: 0
@@ -683,6 +694,11 @@ Prefab:
       propertyPath: myTypeMaster
       value: 
       objectReference: {fileID: 2008131844}
+    - target: {fileID: 212000012427656436, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   m_IsPrefabParent: 0
@@ -805,6 +821,11 @@ Prefab:
       propertyPath: myTypeMaster
       value: 
       objectReference: {fileID: 2008131844}
+    - target: {fileID: 212000012427656436, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   m_IsPrefabParent: 0

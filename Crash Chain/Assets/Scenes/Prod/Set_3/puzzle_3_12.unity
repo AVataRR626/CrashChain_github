@@ -850,7 +850,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11433506, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
       propertyPath: timer
-      value: 3
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 114000011745876252, guid: 121f03785b0400d46805fa1c4ff67f61,
         type: 2}
@@ -862,7 +862,22 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114000013231905590, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: m_Text
+      value: arcade mode unlocked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010870251334, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: blinkClock
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 197276, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114000013908971906, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1444370680
