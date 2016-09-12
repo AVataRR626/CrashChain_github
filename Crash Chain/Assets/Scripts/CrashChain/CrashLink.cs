@@ -425,7 +425,8 @@ public class CrashLink : MonoBehaviour
     void OnMouseUp()
     {
 
-        if (holdCharge <= tapTime)
+        //immovable blocks can't be tapped
+        if (holdCharge <= tapTime && movable)
         {
             if (Time.time - lastClickTime <= tapTime)
             {
