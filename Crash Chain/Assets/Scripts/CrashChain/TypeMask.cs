@@ -62,12 +62,19 @@ public class TypeMask : MonoBehaviour
             type = myCrashBolt.type;
         }
 
-        Color col = myTypeMaster.typeColours[type];
+        if (myTypeMaster != null)
+        {
+            Color col = myTypeMaster.typeColours[type];
 
-        if (touchSwitch)
-            col += touchColourAdd;
+            if (touchSwitch)
+                col += touchColourAdd;
 
-        spr.color = col;
+            spr.color = col;
+        }
+        else
+        {
+            myTypeMaster = FindObjectOfType<TypeMaster>();
+        }
 	}
 
     void TouchGlow()

@@ -15,6 +15,7 @@ public class CrashLink : MonoBehaviour
     public int coreType;
     public int shellType;
     public bool movable = true;
+    public bool tappable = true;
 
     [Header("Crash Bolt Settings")]
     //crash bolt stuff..
@@ -112,10 +113,21 @@ public class CrashLink : MonoBehaviour
     {
         if(t.name == "Outline")
         {
-            if (movable)
-                t.GetComponent<SpriteRenderer>().color = myTypeMaster.outlineColour;
-            else
-                t.GetComponent<SpriteRenderer>().color = myTypeMaster.immovableColour;
+            if(t.parent.name == "Shell")
+            { 
+                if (movable)
+                    t.GetComponent<SpriteRenderer>().color = myTypeMaster.outlineColour;
+                else
+                    t.GetComponent<SpriteRenderer>().color = myTypeMaster.immovableColour;
+            }
+
+            if (t.parent.name == "Core")
+            {
+                if (tappable)
+                    t.GetComponent<SpriteRenderer>().color = myTypeMaster.outlineColour;
+                else
+                    t.GetComponent<SpriteRenderer>().color = myTypeMaster.immovableColour;
+            }
         }
 
         foreach(Transform child in t)
@@ -152,6 +164,8 @@ public class CrashLink : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
             smoothSnap.SetAnchorGridCoordinatesOnPos();
+
+        ColourOutlines(transform);
     }
 
     void MonitorMoves()
@@ -387,11 +401,28 @@ public class CrashLink : MonoBehaviour
         return false;
     }
 
-    public void RandomiseStats()
+    public void RandomiseBasicStats()
     {
         RandomiseBlockers();
         RandomiseCore();
         RandomiseShell();
+    }
+
+    public void RandomiseStats()
+    {
+        RandomiseBasicStats();
+        RandomiseMovability();
+        RandomiseTapability();
+    }
+
+    public void RandomiseMovability()
+    {
+        movable = CoinFlip();
+    }
+
+    public void RandomiseTapability()
+    {
+        tappable = CoinFlip();
     }
 
     public void RandomiseBlockers()
@@ -426,7 +457,7 @@ public class CrashLink : MonoBehaviour
     {
 
         //immovable blocks can't be tapped
-        if (holdCharge <= tapTime && movable)
+        if (holdCharge <= tapTime && tappable)
         {
             if (Time.time - lastClickTime <= tapTime)
             {
@@ -471,6 +502,10 @@ public class CrashLink : MonoBehaviour
         string movability = "M";//M is for movable;
         if (!movable)
             movability = "I";//I is for immovable
+
+        string tapability = "B";//B is for tappable
+        if (!tappable)
+            tapability = "U";//U is for untappable
 
         //Build link type, shell and core type and grid coordinates...
         result += linkMode + "|";        
@@ -518,9 +553,11 @@ public class CrashLink : MonoBehaviour
         if (allFree)
             result += "F";
 
+        result += "|";
         //DOONE!, now go ahead and return the result..
 
-        result += "|" + movability + "|";
+        result += movability + "|";
+        result += tapability + "|";
 
         return result;
     }
@@ -563,6 +600,9 @@ public class CrashLink : MonoBehaviour
 
         if (attributes[6].Contains("I"))
             movable = false;
+
+        if (attributes[7].Contains("U"))
+            tappable = false;
     }
 
 }

@@ -247,6 +247,7 @@ MonoBehaviour:
   coreType: 2
   shellType: 2
   movable: 1
+  tappable: 1
   myCrashBolt: {fileID: 11494030, guid: 5e25010789cdbec4691f0e2a9f1716df, type: 2}
   boltForce: 200
   north: 1
@@ -259,7 +260,7 @@ MonoBehaviour:
   - {fileID: 120376, guid: 74633493cb7c4b14099ad3e9e2109342, type: 2}
   timeBonus: 1.5
   defaultDeathTime: 0.25
-  baseSpinRate: 360
+  baseSpinRate: 80
   deathSpinExtension: 0.1
   myEditor: {fileID: 0}
   tapTime: 0.15

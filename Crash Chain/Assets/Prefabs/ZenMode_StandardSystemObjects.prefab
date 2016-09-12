@@ -1715,7 +1715,7 @@ MonoBehaviour:
   - {r: 0.94509804, g: 0.8745098, b: 0.43137255, a: 1}
   typeMatch: 000000000100000002000000
   outlineColour: {r: 1, g: 1, b: 1, a: 1}
-  immovableColour: {r: 101, g: 101, b: 101, a: 255}
+  immovableColour: {r: 0.5411765, g: 0.5411765, b: 0.5411765, a: 1}
 --- !u!114 &114000014047245118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1741,9 +1741,9 @@ MonoBehaviour:
   - {fileID: 121660, guid: 78b0b702600c467439e2d4e0ac719030, type: 2}
   spawnMessage:
   - RandomiseBlockers
-  - RandomiseStats
-  - RandomiseStats
-  - RandomiseStats
+  - RandomiseBasicStats
+  - RandomiseBasicStats
+  - RandomiseBasicStats
   - RandomiseStats
   spawnIndex: 0
   maxSpawnIndex: 0
