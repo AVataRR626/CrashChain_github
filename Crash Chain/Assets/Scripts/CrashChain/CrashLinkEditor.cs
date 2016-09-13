@@ -164,6 +164,7 @@ public class CrashLinkEditor : MonoBehaviour
             LoadLevel(levelName);
 
         Debug.Log("SavedLevel:" + levelName);
+        PlayerPrefs.SetInt(PuzzleLoader.currentCustomPuzzleNumberKey, levelNumber + 1);
 
     }
 
@@ -288,6 +289,24 @@ public class CrashLinkEditor : MonoBehaviour
         if (myFocus != null)
         {
             myFocus.movable = !myFocus.movable;
+            myFocus.ColourOutlines();
+        }
+    }
+
+    public void ToggleTapability(bool mode)
+    {
+        if (myFocus != null)
+        {
+            myFocus.tappable = mode;
+            myFocus.ColourOutlines();
+        }
+    }
+
+    public void ToggleTappability()
+    {
+        if (myFocus != null)
+        {
+            myFocus.tappable = !myFocus.tappable;
             myFocus.ColourOutlines();
         }
     }
@@ -425,6 +444,9 @@ public class CrashLinkEditor : MonoBehaviour
         DeserialiseLevel(serialisedLevel);
 
         PlayerPrefs.SetString("CurrentLevelEditorLevel", levelName);
+
+        myFocus = FindObjectOfType<CrashLink>();
+
         Debug.Log("Level Loaded:" + levelName);
     }
 

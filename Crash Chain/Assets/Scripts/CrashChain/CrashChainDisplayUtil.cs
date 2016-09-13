@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Text))]
 public class CrashChainDisplayUtil : MonoBehaviour
 {
-    public enum DisplayMode {currentScore,bestScore,levelName,overchargeCount,overchargeLeft,arcadeLevel};
+    public enum DisplayMode {currentScore,bestScore,levelName,overchargeCount,overchargeLeft,arcadeLevel,puzzleButtonLevel,puzzleButtonBestScore};
 
     public string prefix = "";
     public DisplayMode displayMode;
@@ -45,5 +45,51 @@ public class CrashChainDisplayUtil : MonoBehaviour
 
         if (displayMode == DisplayMode.arcadeLevel)
             txt.text = CrashChainArcadeManager.instance.level.ToString();
+
+        if (displayMode == DisplayMode.puzzleButtonLevel)
+        {
+
+            PuzzleLoader myPl = GetPuzzleLoader();
+
+            if(myPl != null)
+                txt.text = myPl.puzzleNumber.ToString();
+        }
+
+        if (displayMode == DisplayMode.puzzleButtonBestScore)
+        {
+
+            PuzzleLoader myPl = GetPuzzleLoader();
+
+            if (myPl != null)
+            { 
+                string levelName = myPl.GetLevelString();
+
+                int bestScore = PlayerPrefs.GetInt(levelName, -1);
+
+                if(bestScore >= 0)
+                {
+                    txt.text = bestScore.ToString();
+                }
+            }
+        }
+    }
+
+    //get the first PuzzleLoader you find going up your tree...
+    PuzzleLoader GetPuzzleLoader()
+    {
+        PuzzleLoader myPl = GetComponent<PuzzleLoader>();
+        Transform t = transform;
+
+        while(myPl == null && t.parent != null)
+        {
+            myPl = t.GetComponent<PuzzleLoader>();
+
+            if (myPl != null)
+                return myPl;
+
+            t = t.parent;
+        }
+
+        return null;
     }
 }

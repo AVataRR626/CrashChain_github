@@ -268,12 +268,14 @@ public class PuzzleMenuGenerator : MonoBehaviour
                         pl.checkLocked = false;
                     }
 
+                    /*
                     Transform label = pl.transform.FindChild("Text");
 
                     if (label != null)
                     {
                         label.GetComponent<Text>().text = puzzleNumber.ToString();
                     }
+                    */
                 }
 
                 spawnPos.x += xDistance;
