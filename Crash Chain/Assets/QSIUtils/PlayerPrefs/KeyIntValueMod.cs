@@ -5,13 +5,18 @@ public class KeyIntValueMod : MonoBehaviour
 {
     public string keyString;
     public int mod;
+    public bool hardSet = false;
 
     private int val;
 
 	// Use this for initialization
 	void Start ()
     {
-        SetMod();
+        if (!hardSet)
+            SetMod();
+        else
+            HardSet();
+            
     }
 
     public void SetMod()
@@ -21,5 +26,11 @@ public class KeyIntValueMod : MonoBehaviour
         val += mod;
 
         PlayerPrefs.SetInt(keyString, val);
+    }
+
+    public void HardSet()
+    {
+
+        PlayerPrefs.SetInt(keyString, mod);
     }
 }
