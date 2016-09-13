@@ -27,7 +27,9 @@ public class MouseDrag2D : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             dragMode = false;
-            CameraClickMove.Instance.pauseMove = false;
+
+            if(CameraClickMove.Instance != null)
+                CameraClickMove.Instance.pauseMove = false;
         }
     }
 
@@ -54,7 +56,9 @@ public class MouseDrag2D : MonoBehaviour
         }
 
         dragMode = true;
-        CameraClickMove.Instance.pauseMove = true;
+
+        if(CameraClickMove.Instance != null)
+            CameraClickMove.Instance.pauseMove = true;
 
     }
 
@@ -84,7 +88,9 @@ public class MouseDrag2D : MonoBehaviour
         }
 
         dragMode = false;
-        CameraClickMove.Instance.pauseMove = false;
+
+        if(CameraClickMove.Instance !=  null)
+            CameraClickMove.Instance.pauseMove = false;
 
 
         //Debug.Log("MouseDrag2D:OnMouseUp");
