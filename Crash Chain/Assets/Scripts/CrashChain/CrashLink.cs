@@ -29,12 +29,12 @@ public class CrashLink : MonoBehaviour
 
     [Header("Overcharge Behaviours")]
     public GameObject[] deathSpawnList;
-    public GameObject[] overchargeSpawnList;    
+    public GameObject[] overchargeSpawnList;
     public float timeBonus = 0.65f;//extra time player gets before losing
     public float defaultDeathTime = 0.25f;
     public float baseSpinRate = 30;
     public float deathSpinExtension = 0;//extra spin time this chain's overcharge gives
-                                    //to other blocks..
+                                        //to other blocks..
 
     [Header("System Settings")]
     //system things..
@@ -42,7 +42,7 @@ public class CrashLink : MonoBehaviour
     public float tapTime = 0.1f;
     public float touchFactor = 1;
     public float charge;
-    public float chargeLimit = 2;    
+    public float chargeLimit = 2;
     public Transform graphicsRoot;
 
     private LerpToPosition mover;
@@ -71,15 +71,15 @@ public class CrashLink : MonoBehaviour
 
         if (myEditor == null)
             myEditor = FindObjectOfType<CrashLinkEditor>();
-         
+
         //reset overcharge if you're not in arcade mode..
         //bit hacky way of doing things, but don't care rn.
-        if(FindObjectOfType<CrashChainArcadeManager>() == null)
+        if (FindObjectOfType<CrashChainArcadeManager>() == null)
             overchargeCount = 0;
 
         dragger = GetComponent<MouseDrag2D>();
 
-        if(graphicsRoot == null)
+        if (graphicsRoot == null)
         {
             graphicsRoot = transform.Find("Graphics");
         }
@@ -91,9 +91,9 @@ public class CrashLink : MonoBehaviour
 
         myTypeMaster = FindObjectOfType<TypeMaster>();
 
-        
+
         //Don't allow non-square CrashLinks to have blocked directions.
-        if(myCrashBolt.type != 0)
+        if (myCrashBolt.type != 0)
         {
             north = true;
             east = true;
@@ -111,10 +111,10 @@ public class CrashLink : MonoBehaviour
 
     public void ColourOutlines(Transform t)
     {
-        if(t.name == "Outline")
+        if (t.name == "Outline")
         {
-            if(t.parent.name == "Shell")
-            { 
+            if (t.parent.name == "Shell")
+            {
                 if (movable)
                     t.GetComponent<SpriteRenderer>().color = myTypeMaster.outlineColour;
                 else
@@ -130,7 +130,7 @@ public class CrashLink : MonoBehaviour
             }
         }
 
-        foreach(Transform child in t)
+        foreach (Transform child in t)
         {
             ColourOutlines(child);
         }
@@ -139,7 +139,7 @@ public class CrashLink : MonoBehaviour
     void OnDrawGizmos()
     {
 
-        if(myTypeMaster == null)
+        if (myTypeMaster == null)
             myTypeMaster = FindObjectOfType<TypeMaster>();
 
         ColourOutlines(transform);
@@ -148,7 +148,7 @@ public class CrashLink : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(killClock <= 0)
+        if (killClock <= 0)
             ManageCharge();
 
 
@@ -158,7 +158,7 @@ public class CrashLink : MonoBehaviour
         ManageKillTriggers();
         MonitorMoves();
 
-        if(!Input.GetMouseButton(0))
+        if (!Input.GetMouseButton(0))
             if (holdCharge > 0)
                 holdCharge -= Time.deltaTime;
 
@@ -190,7 +190,7 @@ public class CrashLink : MonoBehaviour
         killClock = t;
         charge = chargeLimit;
 
-        if(deathSpinExtension > 0)
+        if (deathSpinExtension > 0)
             ExtendOtherDeathTimes();
     }
 
@@ -198,9 +198,9 @@ public class CrashLink : MonoBehaviour
     {
         CrashLink[] links = FindObjectsOfType<CrashLink>();
 
-        foreach(CrashLink l in links)
+        foreach (CrashLink l in links)
         {
-            if(l != this)
+            if (l != this)
             {
                 l.DeathSpinExtend(deathSpinExtension);
             }
@@ -209,10 +209,10 @@ public class CrashLink : MonoBehaviour
 
     public void DeathSpinExtend(float t)
     {
-        if(killClock > 0)
+        if (killClock > 0)
             killClock += t;
     }
-        
+
     public void SpawnCrashBolt(Vector2 force)
     {
         CrashBolt c;
@@ -223,7 +223,7 @@ public class CrashLink : MonoBehaviour
 
     void ManageKillTriggers()
     {
-        if(killClock != -1)
+        if (killClock != -1)
         {
             if (killClock >= 0)
             {
@@ -234,8 +234,8 @@ public class CrashLink : MonoBehaviour
                 //launch the crash bolts
                 Vector2 force;
                 if (north)
-                {   
-                    force = new Vector2(0, boltForce);                    
+                {
+                    force = new Vector2(0, boltForce);
                     SpawnCrashBolt(force);
                 }
 
@@ -247,7 +247,7 @@ public class CrashLink : MonoBehaviour
 
                 if (east)
                 {
-                    force = new Vector2(boltForce,0);
+                    force = new Vector2(boltForce, 0);
                     SpawnCrashBolt(force);
                 }
 
@@ -302,7 +302,7 @@ public class CrashLink : MonoBehaviour
         {
             rotationRate = baseSpinRate * charge * charge;
 
-            if(graphicsRoot != null)
+            if (graphicsRoot != null)
                 graphicsRoot.transform.Rotate(0, 0, rotationRate * Time.deltaTime);
         }
         else
@@ -344,10 +344,10 @@ public class CrashLink : MonoBehaviour
 
         //GetComponent<MouseDrag2D>().StartDrag();
 
-       
-        mouseDownGrid = new Vector3(0,0,0);
 
-        if(smoothSnap == null)
+        mouseDownGrid = new Vector3(0, 0, 0);
+
+        if (smoothSnap == null)
             smoothSnap = GetComponent<SmoothSnap>();
 
         mouseDownGrid = smoothSnap.gridCoordinates;
@@ -401,6 +401,21 @@ public class CrashLink : MonoBehaviour
         return false;
     }
 
+    public void RandomiseBasicStatsEZ1()
+    {
+        RandomiseBlockers();
+        RandomiseCore(2);
+        RandomiseShell(2);
+    }
+
+    public void RandomiseBasicStatsEZ2()
+    {
+        RandomiseBlockers();
+        RandomiseCore(3);
+        RandomiseShell(2);
+    }
+
+
     public void RandomiseBasicStats()
     {
         RandomiseBlockers();
@@ -435,12 +450,22 @@ public class CrashLink : MonoBehaviour
 
     public void RandomiseCore()
     {
-        coreType = Random.Range(0, 3);
+        RandomiseCore(3);
     }
 
     public void RandomiseShell()
     {
-        shellType = Random.Range(0, 3);
+        RandomiseShell(3);
+    }
+
+    public void RandomiseCore(int max)
+    {
+        coreType = Random.Range(0, max);
+    }
+
+    public void RandomiseShell(int max)
+    {
+        shellType = Random.Range(0, max);
     }
 
     void OnMouseDown()

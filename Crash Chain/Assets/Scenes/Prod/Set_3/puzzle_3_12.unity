@@ -848,10 +848,6 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11433506, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
-      propertyPath: timer
-      value: 4.5
-      objectReference: {fileID: 0}
     - target: {fileID: 114000011745876252, guid: 121f03785b0400d46805fa1c4ff67f61,
         type: 2}
       propertyPath: targetKey
@@ -875,6 +871,24 @@ Prefab:
     - target: {fileID: 197276, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433506, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: timerSkipClick
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013342056162, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ArcadeMode
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011054273164, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: m_Text
+      value: play arcade mode
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433506, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: timer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000013908971906, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
