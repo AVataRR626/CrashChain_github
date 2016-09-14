@@ -249,7 +249,7 @@ MonoBehaviour:
   movable: 1
   tappable: 1
   myCrashBolt: {fileID: 11494030, guid: 5e25010789cdbec4691f0e2a9f1716df, type: 2}
-  boltForce: 200
+  boltForce: 220
   north: 1
   east: 1
   south: 1
@@ -268,6 +268,7 @@ MonoBehaviour:
   charge: 0
   chargeLimit: 3.5
   graphicsRoot: {fileID: 0}
+  colliderActivateDelay: 0.25
   holdCharge: 0
 --- !u!114 &11457380
 MonoBehaviour:

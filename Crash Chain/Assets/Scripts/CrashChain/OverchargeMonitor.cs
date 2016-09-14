@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 public class OverchargeMonitor : MonoBehaviour
 {
     public static OverchargeMonitor instance;
+    public static string crashBoltTag = "CrashBolt";
 
     public float timeLimit = 1.65f;    
     public int timerTrigger = 1;
     public CrashChainDynLevelSaver levelSaver;
     public PopulationCheck popChecker;
+    
     public GameObject [] activateObjects;
     public GameObject [] disableObjects;
     public GameObject [] messageList;
@@ -35,6 +37,13 @@ public class OverchargeMonitor : MonoBehaviour
         clock = timeLimit;
     }
 
+    public int GetCrashBoltCount()
+    {
+        GameObject[] crashBolts = GameObject.FindGameObjectsWithTag(crashBoltTag);
+
+        return crashBolts.Length;
+    }
+
 	
 	// Update is called once per frame
 	void Update ()
@@ -55,7 +64,8 @@ public class OverchargeMonitor : MonoBehaviour
                     saveSwitch = true;
                 }
 
-                clock -= Time.deltaTime;
+                if(GetCrashBoltCount() <= 0)
+                    clock -= Time.deltaTime;
             }
             else
             {

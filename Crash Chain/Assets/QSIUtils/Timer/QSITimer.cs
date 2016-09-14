@@ -19,6 +19,9 @@ public class QSITimer : MonoBehaviour
     public float maxTime = 100;
 	
 	public float timer = 0.1f;
+
+    public GameObject timeWarningObject;
+    public float timeWarnTime = 10;
 	
 	public GameObject [] deathWatch;//stops the clock whenever any one in this list dies
 	public GameObject [] wakeWatch;//stops the clock whenever any one in this is awake
@@ -36,6 +39,8 @@ public class QSITimer : MonoBehaviour
 	{
 		myTextMesh = GetComponent<TextMesh>();
 		myText = GetComponent<Text>();
+
+        
 	}
 	
 	
@@ -103,7 +108,22 @@ public class QSITimer : MonoBehaviour
             }
 		}
 
+        //warn the player if they're running outuut
+        if(timeWarningObject != null)
+        {
+            if(timer <= timeWarnTime)
+            {
+                if(!timeWarningObject.activeSelf)
+                {
+                    timeWarningObject.SetActive(true);
+                }
+            }
+            else if(timeWarningObject.activeSelf)
+            {
+                timeWarningObject.SetActive(false);
+            }
 
+        }
 
         if(deathWatch != null)
             for (int i = 0; i < deathWatch.Length; i++)

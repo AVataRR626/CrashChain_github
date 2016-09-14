@@ -153,6 +153,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 224000011954170014}
   - 114: {fileID: 114000011745876252}
+  - 114: {fileID: 114000011737170276}
   m_Layer: 0
   m_Name: VictoryTree
   m_TagString: Untagged
@@ -318,7 +319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadNextOnStart: 1
   reloadLevelOnStart: 0
-  timer: 2
+  timer: 3
   level: next
   timerSkipClick: 1
 --- !u!114 &11452704
@@ -382,7 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5811dbc1a866b9409501f69b258a0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLimit: 2.5
+  timeLimit: 0.5
   timerTrigger: 1
   levelSaver: {fileID: 11452704}
   popChecker: {fileID: 11402328}
@@ -1184,6 +1185,21 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000011737170276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e9257a3e16f2c47844ab33b7523b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetKey: puzzle_2_1
+  activateList: []
+  deactivateList:
+  - {fileID: 1000012529400028}
 --- !u!114 &114000011745876252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1690,7 +1706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: arcade mode unlocked
+  m_Text: zen mode unlocked
 --- !u!114 &114000013242676692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2470,17 +2486,17 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011863494996}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.37512654, y: 0.37512663, z: 0.37512657}
+  m_LocalScale: {x: 0.5626132, y: 0.5626132, z: 0.5626132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 224000013534982290}
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -18.899963}
-  m_SizeDelta: {x: 200, y: 36.78}
+  m_AnchoredPosition: {x: 0, y: -19}
+  m_SizeDelta: {x: 181.64, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013457120658
 RectTransform:
@@ -2588,7 +2604,7 @@ RectTransform:
   m_GameObject: {fileID: 1000010985441286}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3480963, y: 1.3480963, z: 1.3480963}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224000011458502062}
@@ -2596,9 +2612,9 @@ RectTransform:
   - {fileID: 224000012324225196}
   m_Father: {fileID: 224000013534982290}
   m_RootOrder: 3
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -260.1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013994723294
