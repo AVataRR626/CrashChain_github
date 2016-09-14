@@ -67,7 +67,7 @@ public class QSITimer : MonoBehaviour
 				{
 					if(countdownMode)
 					{
-						timer = 0;
+						timer = 0.00f;
 						timerActive = false;
 					}
 					
@@ -83,42 +83,51 @@ public class QSITimer : MonoBehaviour
 						g.SetActive(true);
 					}
 				}
-				
 
-				if(myTextMesh != null)
-					myTextMesh.text = timer.ToString().Substring(0,timerCharCount);
 
-				if(myText != null)
-					myText.text = timer.ToString().Substring(0,timerCharCount);
-			}
+                //keep this in the try catch block in case we run out of digits...
+                if (myTextMesh != null)
+                    myTextMesh.text = timer.ToString().Substring(0, timerCharCount);
+
+                if (myText != null)
+                    myText.text = timer.ToString().Substring(0, timerCharCount);
+
+            }
 			catch
 			{
-				
-			}
-		}
-		
-		for(int i = 0; i < deathWatch.Length; i++)
-		{
-			if(deathWatch[i] == null)
-			{
-				timerActive = false;
-				i = deathWatch.Length;
-			}
-		}
-		
-		for(int i = 0; i < wakeWatch.Length; i++)
-		{
-			if(wakeWatch[i] != null)
-			{
-				if(wakeWatch[i].activeSelf)
-				{
-					timerActive = false;
-					i = wakeWatch.Length;
-				}
-			}
+                if (myTextMesh != null)
+                    myTextMesh.text = "0";
+
+                if (myText != null)
+                    myText.text = "0";
+            }
 		}
 
-	}
+
+
+        if(deathWatch != null)
+            for (int i = 0; i < deathWatch.Length; i++)
+		    {
+			    if(deathWatch[i] == null)
+			    {
+				    timerActive = false;
+				    i = deathWatch.Length;
+			    }
+		    }
+		
+        if(wakeWatch != null)
+		    for(int i = 0; i < wakeWatch.Length; i++)
+		    {
+			    if(wakeWatch[i] != null)
+			    {
+				    if(wakeWatch[i].activeSelf)
+				    {
+					    timerActive = false;
+					    i = wakeWatch.Length;
+				    }
+			    }
+		    }
+    }
 
     public void Pause()
     {

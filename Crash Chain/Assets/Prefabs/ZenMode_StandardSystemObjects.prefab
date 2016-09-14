@@ -703,7 +703,7 @@ MonoBehaviour:
   levelThreshold: 000000000300000006000000090000000c0000000f000000
   maxSpawnIndex: 000000000100000002000000030000000300000003000000
   levelDimensions:
-  - {x: 4, y: 1}
+  - {x: 4, y: 2}
   - {x: 4, y: 2}
   - {x: 4, y: 3}
   - {x: 4, y: 4}
@@ -1729,7 +1729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 4000013718437730}
   colCount: 4
-  rowCount: 1
+  rowCount: 2
   xSpace: 2
   ySpace: -2
   spawnTime: 0.25
@@ -1750,6 +1750,7 @@ MonoBehaviour:
   randomiseSpawnIndex: 1
   spawnOnStart: 1
   spawnCount: 0
+  randomPos: 0
 --- !u!114 &114000014107706302
 MonoBehaviour:
   m_ObjectHideFlags: 1

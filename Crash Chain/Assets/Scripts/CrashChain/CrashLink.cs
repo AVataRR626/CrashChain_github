@@ -44,6 +44,7 @@ public class CrashLink : MonoBehaviour
     public float charge;
     public float chargeLimit = 2;
     public Transform graphicsRoot;
+    public float colliderActivateDelay = 0.25f;
 
     private LerpToPosition mover;
     private MouseDrag2D dragger;
@@ -102,6 +103,9 @@ public class CrashLink : MonoBehaviour
         }
 
         ColourOutlines(transform);
+
+        if (colliderActivateDelay > 0)
+            GetComponent<Collider2D>().enabled = false;
     }
 
     public void ColourOutlines()
@@ -166,6 +170,11 @@ public class CrashLink : MonoBehaviour
             smoothSnap.SetAnchorGridCoordinatesOnPos();
 
         ColourOutlines(transform);
+
+        if (colliderActivateDelay > 0)
+            colliderActivateDelay -= Time.deltaTime;
+        else if (!GetComponent<Collider2D>().enabled)
+            GetComponent<Collider2D>().enabled = true;
     }
 
     void MonitorMoves()

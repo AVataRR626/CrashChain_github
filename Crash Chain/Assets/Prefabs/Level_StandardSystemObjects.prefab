@@ -785,6 +785,8 @@ GameObject:
   - 224: {fileID: 224000013461580378}
   - 222: {fileID: 222000012437218942}
   - 114: {fileID: 114000013023355070}
+  - 114: {fileID: 114000012684290166}
+  - 114: {fileID: 114000010918066114}
   m_Layer: 5
   m_Name: Text (2)
   m_TagString: Untagged
@@ -935,8 +937,22 @@ MonoBehaviour:
   col2: {r: 1, g: 1, b: 0, a: 1}
   col1BlinkRate: 0.75
   col2BlinkRate: 0.75
-  blinkClock: 1
+  blinkClock: 1.4
   blinkForever: 0
+--- !u!114 &114000010918066114
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013796614994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8358e28c4f467124eb8851a4bb7487d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyString: CurrentSetNumber
+  mod: 4
+  hardSet: 1
 --- !u!114 &114000011054273164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -969,7 +985,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: play zen mode
+  m_Text: play arcade mode
 --- !u!114 &114000011085489498
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1330,6 +1346,20 @@ MonoBehaviour:
   customDelimiter: ':'
   puzzleMenuScene: MenuCustomLevels
   maxLevelNumber: 12
+--- !u!114 &114000012684290166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013796614994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8358e28c4f467124eb8851a4bb7487d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyString: puzzle_4_1
+  mod: -1
+  hardSet: 1
 --- !u!114 &114000012784581428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1660,7 +1690,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: zen mode unlocked
+  m_Text: arcade mode unlocked
 --- !u!114 &114000013242676692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1782,7 +1812,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: ZenMode
+          m_StringArgument: ArcadeMode
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 11452704}
@@ -1891,7 +1921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e9257a3e16f2c47844ab33b7523b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetKey: puzzle_5_2
+  targetKey: puzzle_4_7
   activateList:
   - {fileID: 1000010985441286}
   deactivateList:

@@ -181,6 +181,46 @@ Prefab:
       propertyPath: type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11471660, guid: 047dd4659c123624e924510087f30691, type: 2}
+      propertyPath: movable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21231048, guid: 047dd4659c123624e924510087f30691, type: 2}
+      propertyPath: m_Color.r
+      value: 0.41911763
+      objectReference: {fileID: 0}
+    - target: {fileID: 21231048, guid: 047dd4659c123624e924510087f30691, type: 2}
+      propertyPath: m_Color.g
+      value: 0.2033953
+      objectReference: {fileID: 0}
+    - target: {fileID: 21231048, guid: 047dd4659c123624e924510087f30691, type: 2}
+      propertyPath: m_Color.b
+      value: 0.2033953
+      objectReference: {fileID: 0}
+    - target: {fileID: 21231048, guid: 047dd4659c123624e924510087f30691, type: 2}
+      propertyPath: m_Color.a
+      value: 0.503
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471660, guid: 047dd4659c123624e924510087f30691, type: 2}
+      propertyPath: tappable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21207892, guid: 047dd4659c123624e924510087f30691, type: 2}
+      propertyPath: m_Color.r
+      value: 0.41911763
+      objectReference: {fileID: 0}
+    - target: {fileID: 21207892, guid: 047dd4659c123624e924510087f30691, type: 2}
+      propertyPath: m_Color.g
+      value: 0.2033953
+      objectReference: {fileID: 0}
+    - target: {fileID: 21207892, guid: 047dd4659c123624e924510087f30691, type: 2}
+      propertyPath: m_Color.b
+      value: 0.2033953
+      objectReference: {fileID: 0}
+    - target: {fileID: 21207892, guid: 047dd4659c123624e924510087f30691, type: 2}
+      propertyPath: m_Color.a
+      value: 0.503
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 047dd4659c123624e924510087f30691, type: 2}
   m_IsPrefabParent: 0
@@ -898,6 +938,26 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11471638, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: movable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21214850, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: m_Color.r
+      value: 0.41911763
+      objectReference: {fileID: 0}
+    - target: {fileID: 21214850, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: m_Color.g
+      value: 0.2033953
+      objectReference: {fileID: 0}
+    - target: {fileID: 21214850, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: m_Color.b
+      value: 0.2033953
+      objectReference: {fileID: 0}
+    - target: {fileID: 21214850, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: m_Color.a
+      value: 0.503
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   m_IsPrefabParent: 0
@@ -1089,6 +1149,36 @@ Prefab:
     - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011745876252, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: targetKey
+      value: puzzle_5_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012684290166, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: keyString
+      value: puzzle_5_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010918066114, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: mod
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013231905590, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: m_Text
+      value: custom puzzles unlocked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013342056162, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: MenuCustomLevels
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011054273164, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: m_Text
+      value: play custom puzzles
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}

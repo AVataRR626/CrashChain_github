@@ -1116,6 +1116,31 @@ Prefab:
       propertyPath: targetKey
       value: puzzle_3_1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010918066114, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: mod
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012684290166, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: keyString
+      value: puzzle_3_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013231905590, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: m_Text
+      value: arcade mode unlocked
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011054273164, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: m_Text
+      value: play arcade mode
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013342056162, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: ArcadeMode
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
   m_IsPrefabParent: 0
@@ -1125,39 +1150,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2008131843}
   m_Script: {fileID: 11500000, guid: d017ebcbd77ac8140aa8f50e23a8e2ad, type: 3}
---- !u!1 &2008131845 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000013796614994, guid: 121f03785b0400d46805fa1c4ff67f61,
-    type: 2}
-  m_PrefabInternal: {fileID: 2008131843}
---- !u!114 &2008131846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2008131845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8358e28c4f467124eb8851a4bb7487d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyString: CurrentSetNumber
-  mod: 3
-  hardSet: 1
---- !u!114 &2008131847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2008131845}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8358e28c4f467124eb8851a4bb7487d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyString: puzzle_3_1
-  mod: -1
-  hardSet: 1
 --- !u!1001 &2019981253
 Prefab:
   m_ObjectHideFlags: 0
