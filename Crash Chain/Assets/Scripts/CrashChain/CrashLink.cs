@@ -13,9 +13,11 @@ public class CrashLink : MonoBehaviour
     [Header("Basic Attributes")]
     //basic attributes..
     public int coreType;
-    public int shellType;
-    public bool movable = true;
+    public int shellType;    
     public bool tappable = true;
+    public bool verticalDrag = true;
+    public bool horizontalDrag = true;
+    public bool movable = true;
 
     [Header("Crash Bolt Settings")]
     //crash bolt stuff..
@@ -106,6 +108,7 @@ public class CrashLink : MonoBehaviour
 
         if (colliderActivateDelay > 0)
             GetComponent<Collider2D>().enabled = false;
+
     }
 
     public void ColourOutlines()
@@ -169,12 +172,23 @@ public class CrashLink : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
             smoothSnap.SetAnchorGridCoordinatesOnPos();
 
-        ColourOutlines(transform);
+        
 
         if (colliderActivateDelay > 0)
             colliderActivateDelay -= Time.deltaTime;
         else if (!GetComponent<Collider2D>().enabled)
             GetComponent<Collider2D>().enabled = true;
+
+
+        if (!verticalDrag && !horizontalDrag)
+            movable = false;
+        else
+            movable = true;
+
+        dragger.horizontalBlock = !verticalDrag;
+        dragger.verticalBlock = !horizontalDrag;
+
+        ColourOutlines();
     }
 
     void MonitorMoves()
@@ -350,7 +364,7 @@ public class CrashLink : MonoBehaviour
 
     public void StartDrag()
     {
-
+        dragger.startingPos = transform.position;
         //GetComponent<MouseDrag2D>().StartDrag();
 
 
@@ -530,12 +544,28 @@ public class CrashLink : MonoBehaviour
 
         //Assume Triangle Crash bolts have shell covnerters
         if (myCrashBolt.opMode == CrashBolt.OperationMode.ConvertShell)
-            linkMode =  "T";
+            linkMode = "T";
 
-        
+
         string movability = "M";//M is for movable;
         if (!movable)
             movability = "I";//I is for immovable
+        else
+        {
+            if(horizontalDrag && verticalDrag)
+            {
+                movability = "M";
+            }
+            else if(horizontalDrag)
+            {
+                movability = "Z";
+            }
+            else if(verticalDrag)
+            {
+                movability = "V";
+            }
+
+        }
 
         string tapability = "B";//B is for tappable
         if (!tappable)
@@ -634,6 +664,18 @@ public class CrashLink : MonoBehaviour
 
         if (attributes[6].Contains("I"))
             movable = false;
+
+        if (attributes[6].Contains("Z"))
+        {
+            horizontalDrag = true;
+            verticalDrag = false;
+        }
+
+        if (attributes[6].Contains("V"))
+        {
+            verticalDrag = true;
+            horizontalDrag = false;
+        }
 
         if (attributes[7].Contains("U"))
             tappable = false;

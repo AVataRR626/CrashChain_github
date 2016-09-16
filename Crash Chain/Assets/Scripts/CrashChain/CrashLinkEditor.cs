@@ -293,6 +293,42 @@ public class CrashLinkEditor : MonoBehaviour
         }
     }
 
+    public void ToggleHorizontalDrag(bool mode)
+    {
+        if (myFocus != null)
+        {
+            myFocus.horizontalDrag = mode;
+            myFocus.ColourOutlines();
+        }
+    }
+
+    public void ToggleHorizontalDrag()
+    {
+        if (myFocus != null)
+        {
+            myFocus.horizontalDrag = !myFocus.horizontalDrag;
+            myFocus.ColourOutlines();
+        }
+    }
+
+    public void ToggleVerticalDrag(bool mode)
+    {
+        if (myFocus != null)
+        {
+            myFocus.horizontalDrag = mode;
+            myFocus.ColourOutlines();
+        }
+    }
+
+    public void ToggleVerticalDrag()
+    {
+        if (myFocus != null)
+        {
+            myFocus.verticalDrag = !myFocus.verticalDrag;
+            myFocus.ColourOutlines();
+        }
+    }
+
     public void ToggleTapability(bool mode)
     {
         if (myFocus != null)

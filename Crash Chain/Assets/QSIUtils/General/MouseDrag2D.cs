@@ -3,7 +3,11 @@ using System.Collections;
 
 public class MouseDrag2D : MonoBehaviour
 {
-    private Vector3 startingPos;
+    public bool verticalBlock = false;
+    public bool horizontalBlock = false;
+
+    public Vector3 startingPos;
+
     private Vector3 offset;
 
     private Rigidbody2D rb2d;
@@ -99,8 +103,19 @@ public class MouseDrag2D : MonoBehaviour
     public void TrackMouse()
     {
         Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (horizontalBlock)
+            newPos.y = startingPos.y + offset.y;
+        
+        if (verticalBlock)
+            newPos.x = startingPos.x + offset.x;
+
         newPos -= offset;
+
         newPos.z = startingPos.z;
+
+        
+
         transform.position = newPos;
 
         //Debug.Log("MouseDrag2D: TrackMouse(): " + newPos + " | " + Input.mousePosition + " | " + offset);
