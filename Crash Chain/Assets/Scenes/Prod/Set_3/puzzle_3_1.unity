@@ -390,7 +390,7 @@ MonoBehaviour:
   pulseInterval: 0.1
   pulseCount: 2
   resetCLock: 5
-  startDelay: 4
+  startDelay: 2
   totalBlinkTime: 0
 --- !u!1 &576646411
 GameObject:
@@ -439,7 +439,7 @@ MonoBehaviour:
   pulseInterval: 0.1
   pulseCount: 2
   resetCLock: 5
-  startDelay: 5
+  startDelay: 3
   totalBlinkTime: 0
 --- !u!1001 &629904493
 Prefab:
@@ -790,6 +790,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458758, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: retryMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
