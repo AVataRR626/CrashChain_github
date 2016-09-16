@@ -231,8 +231,8 @@ public class SmoothSnap : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D col)
     {
-
-        Debug.Log("COLLISON EXIT!");
+        //SetGridCoordinatesOnPos();
+        //Debug.Log("COLLISON EXIT!");
 
     }
 

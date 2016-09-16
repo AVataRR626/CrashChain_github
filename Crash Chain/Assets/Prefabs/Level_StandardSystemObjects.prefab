@@ -153,7 +153,6 @@ GameObject:
   m_Component:
   - 224: {fileID: 224000011954170014}
   - 114: {fileID: 114000011745876252}
-  - 114: {fileID: 114000011737170276}
   m_Layer: 0
   m_Name: VictoryTree
   m_TagString: Untagged
@@ -1185,21 +1184,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114000011737170276
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197276}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1e9257a3e16f2c47844ab33b7523b69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetKey: puzzle_2_1
-  activateList: []
-  deactivateList:
-  - {fileID: 1000012529400028}
 --- !u!114 &114000011745876252
 MonoBehaviour:
   m_ObjectHideFlags: 1
