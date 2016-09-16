@@ -147,4 +147,21 @@ public class CrashChainSetManager : MonoBehaviour
 
         }
     }
+
+    public static string GetSetString(string set)
+    {
+        string result = "";
+
+        for (int i = 0; i < 12; i++)
+        {
+            result += PlayerPrefs.GetString("lvl:" + set + ":" + i.ToString());
+
+            if(i <11)
+                result += CrashChainSetManager.SetDelimiter;
+
+        }
+
+        return result;
+
+    }
 }
