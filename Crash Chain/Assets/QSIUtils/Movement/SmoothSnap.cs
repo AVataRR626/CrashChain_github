@@ -14,6 +14,9 @@ public class SmoothSnap : MonoBehaviour
     LerpToPosition mover;
     public Vector3 snapSettings = new Vector3(1, 1, 1);
     public bool noSnapOverride = false;
+    public bool verticalLock = false;
+    public bool horizontalLock = false;
+    public Vector3 lockAnchor;
 
     //should be private, but kept public for debugging...
     public bool snapSwitch = true;
@@ -29,6 +32,35 @@ public class SmoothSnap : MonoBehaviour
 
     Vector3 originalAnchor;
 
+    public bool VerticalLock
+    {
+        get
+        {
+            return verticalLock;
+        }
+
+        set
+        {
+            
+            lockAnchor = gridCoordinates;
+            verticalLock = value;
+        }
+    }
+
+    public bool HorizontalLock
+    {
+        get
+        {
+            return horizontalLock;
+        }
+
+        set
+        {   
+            lockAnchor = gridCoordinates;
+            horizontalLock = value;
+        }
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -37,6 +69,8 @@ public class SmoothSnap : MonoBehaviour
         SetGridCoordinatesOnPos();
         anchorGridCoordinates = gridCoordinates;
         originalAnchor = anchorGridCoordinates;
+        lockAnchor = originalAnchor;
+
     }
 
     // Update is called once per frame
@@ -70,6 +104,12 @@ public class SmoothSnap : MonoBehaviour
                 isFocus = false;
             }
         }
+
+        if (horizontalLock)
+            gridCoordinates.x = lockAnchor.x;
+
+        if (verticalLock)
+            gridCoordinates.y = lockAnchor.y;
 
 
         if (transform.position != snapCoords && snapSwitch)
@@ -171,63 +211,172 @@ public class SmoothSnap : MonoBehaviour
         gridOccupation[(int)gc.x, (int)gc.y, (int)gc.z] = s;
     }
 
+    public float DistanceToXGridCoordinates()
+    {
+        return Mathf.Abs(transform.position.x - snapCoords.x);
+    }
+
+    public float DistanceToYGridCoordinates()
+    {
+        return Mathf.Abs(transform.position.y - snapCoords.y);
+    }
+
     void OnCollisionStay2D(Collision2D col)
     {
-       
         SmoothSnap ss = col.gameObject.GetComponent<SmoothSnap>();
 
-        //don't try to occupy the same grid spot
-        if(ss != null)
+        //HandleConflictA(ss);
+        if (ss != null)
         {
-            //Debug.Log("COLLISION BETWEEN SMOOTH SNAPS!!");
-            
-            if (ss.gridCoordinates == gridCoordinates)
+            if (!ss.horizontalLock && !horizontalLock && !ss.verticalLock && !ss.horizontalLock)
             {
-                if (!conflictLeftPush)
+                HandleConflictB(ss);
+            }
+            else
+            {
+                HandleAxisLockedConflict(ss);
+            }
+        }
+    }
+
+    public void HandleAxisLockedConflict(SmoothSnap ss)
+    {
+        if(ss.gridCoordinates == gridCoordinates)
+        { 
+            if(horizontalLock == ss.horizontalLock && verticalLock == ss.verticalLock)
+            {
+                //if you've got the same axis locks, act as if you have no locks...
+                HandleConflictB(ss);
+            }
+            else
+            {
+                //otherwise, yeild to the one with the lock on the axis...
+                //Debug.Log("---------------------- axis lock conflict`");
+
+                if(ss.horizontalLock)
                 {
-                    //prioritise grid spots based on world coordinates.
-                    if (ss.transform.position.x < transform.position.x)
+                    if(transform.position.x > ss.transform.position.x)
                     {
-                        //horizontal diference taken into account first..
                         gridCoordinates.x += 1;
                     }
-                }
-                else
-                {
-                    //prioritise grid spots based on world coordinates.
-                    if (ss.transform.position.x > transform.position.x)
+                    else
                     {
-                        //horizontal diference taken into account first..
                         gridCoordinates.x -= 1;
                     }
                 }
 
-                if (ss.transform.position.x == transform.position.x)
+                if (ss.verticalLock)
                 {
-                    //if no horizontal difference, look at vertical differnces..
-
-                    if(conflictDownPush)
-                    { 
-                        if (ss.transform.position.y > transform.position.y)
-                            gridCoordinates.y -= 1;
+                    if (transform.position.y > ss.transform.position.y)
+                    {
+                        gridCoordinates.y += 1;
                     }
                     else
                     {
-                        if (ss.transform.position.y < transform.position.y)
-                            gridCoordinates.y += 1;
+                        gridCoordinates.y -= 1;
+                    }
+                }
+
+                anchorGridCoordinates = gridCoordinates;
+                conflictSwitch = true;
+            }
+        }
+    }
+
+    public void HandleConflictB(SmoothSnap ss)
+    {
+        if (ss != null)
+        {
+            if (ss.gridCoordinates == gridCoordinates)
+            {
+                //closest to grid coordinates is the priority
+                if(ss.DistanceToXGridCoordinates() < DistanceToXGridCoordinates())
+                {
+                    if(transform.position.x < ss.transform.position.x)
+                    {
+                        gridCoordinates.x -= 1;
+                    }
+                    else
+                    {
+                        gridCoordinates.x += 1;
+                    }
+                }
+                else if(ss.DistanceToYGridCoordinates() < DistanceToYGridCoordinates())
+                {
+                    if (transform.position.y < ss.transform.position.y)
+                    {
+                        gridCoordinates.y += 1;
+                    }
+                    else
+                    {
+                        gridCoordinates.y -= 1;
                     }
                 }
 
                 //yield
                 anchorGridCoordinates = gridCoordinates;
-
-                if (isFocus)
-                    focusConflictSwitch = true;
-
                 conflictSwitch = true;
             }
         }
     }
+
+    public void HandleConflictA(SmoothSnap ss)
+    {
+        //don't try to occupy the same grid spot
+        if (ss != null)
+        {
+            //Debug.Log("COLLISION BETWEEN SMOOTH SNAPS!!");
+            if (!ss.horizontalLock && !ss.verticalLock && !verticalLock && !horizontalLock)
+            {
+                if (ss.gridCoordinates == gridCoordinates)
+                {
+                    if (!conflictLeftPush)
+                    {
+                        //prioritise grid spots based on world coordinates.
+                        if (ss.transform.position.x < transform.position.x)
+                        {
+                            //horizontal diference taken into account first..
+                            gridCoordinates.x += 1;
+                        }
+                    }
+                    else
+                    {
+                        //prioritise grid spots based on world coordinates.
+                        if (ss.transform.position.x > transform.position.x)
+                        {
+                            //horizontal diference taken into account first..
+                            gridCoordinates.x -= 1;
+                        }
+                    }
+
+                    if (ss.transform.position.x == transform.position.x)
+                    {
+                        //if no horizontal difference, look at vertical differnces..
+                        if (conflictDownPush)
+                        {
+                            if (ss.transform.position.y > transform.position.y)
+                                gridCoordinates.y -= 1;
+                        }
+                        else
+                        {
+                            if (ss.transform.position.y < transform.position.y)
+                                gridCoordinates.y += 1;
+                        }
+                    }
+
+                    //yield
+                    anchorGridCoordinates = gridCoordinates;
+
+                    if (isFocus)
+                        focusConflictSwitch = true;
+
+                    conflictSwitch = true;
+                }
+
+            }
+        }
+    }
+
 
     void OnCollisionExit2D(Collision2D col)
     {

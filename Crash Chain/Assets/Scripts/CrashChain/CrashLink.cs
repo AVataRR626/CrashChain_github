@@ -19,6 +19,34 @@ public class CrashLink : MonoBehaviour
     public bool horizontalDrag = true;
     public bool movable = true;
 
+    public bool HorizontalDrag
+    {
+        get
+        {
+            return horizontalDrag;
+        }
+
+        set
+        {
+            horizontalDrag = value;
+            SyncAxisLocks();
+        }
+    }
+
+    public bool VerticalDrag
+    {
+        get
+        {
+            return verticalDrag;
+        }
+
+        set
+        {
+            verticalDrag = value;
+            SyncAxisLocks();
+        }
+    }
+
     [Header("Crash Bolt Settings")]
     //crash bolt stuff..
     public CrashBolt myCrashBolt;
@@ -96,6 +124,7 @@ public class CrashLink : MonoBehaviour
 
 
         //Don't allow non-square CrashLinks to have blocked directions.
+        //Or restricted axes
         if (myCrashBolt.type != 0)
         {
             north = true;
@@ -109,6 +138,22 @@ public class CrashLink : MonoBehaviour
         if (colliderActivateDelay > 0)
             GetComponent<Collider2D>().enabled = false;
 
+        Invoke("SetDraggerStarPos", 0.5f);
+        SyncAxisLocks();
+    }
+
+    public void SyncAxisLocks()
+    {
+        Debug.Log("AXIS LOCK SYNC!");
+        dragger.horizontalBlock = !verticalDrag;
+        dragger.verticalBlock = !horizontalDrag;
+        smoothSnap.VerticalLock = !verticalDrag;
+        smoothSnap.HorizontalLock = !horizontalDrag;
+    }
+
+    public void SetDraggerStarPos()
+    {
+        dragger.startingPos = transform.position;
     }
 
     public void ColourOutlines()
@@ -184,9 +229,6 @@ public class CrashLink : MonoBehaviour
             movable = false;
         else
             movable = true;
-
-        dragger.horizontalBlock = !verticalDrag;
-        dragger.verticalBlock = !horizontalDrag;
 
         ColourOutlines();
     }
@@ -364,9 +406,9 @@ public class CrashLink : MonoBehaviour
 
     public void StartDrag()
     {
-        dragger.startingPos = transform.position;
-        //GetComponent<MouseDrag2D>().StartDrag();
 
+        //GetComponent<MouseDrag2D>().StartDrag();
+        SetDraggerStarPos();
 
         mouseDownGrid = new Vector3(0, 0, 0);
 
@@ -525,8 +567,11 @@ public class CrashLink : MonoBehaviour
 
     void OnMouseDrag()
     {
-        if(holdCharge < 0.25f)
+        if (holdCharge < 0.25f)
+        {
             holdCharge += Time.deltaTime;
+            //Debug.Log("--------------------- hold charge");
+        }
     }
 
     //returns the CrashLink format serialisation.

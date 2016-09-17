@@ -88,7 +88,7 @@ public class BlockerDisplay : MonoBehaviour
                 if (lcname.Contains("west"))
                     mySpr.enabled = !myLink.west ^ arrowMode;
 
-                if (myLink.movable)
+                //if (myLink.movable)
                 {
                     if (lcname.Contains("horizontal"))
                         mySpr.enabled = !myLink.horizontalDrag;
@@ -96,12 +96,6 @@ public class BlockerDisplay : MonoBehaviour
                     if (lcname.Contains("vertical"))
                         mySpr.enabled = !myLink.verticalDrag;
 
-                }
-                else
-                {
-                    //don't interfere with the outline graphics
-                    if (lcname.Contains("horizontal") || lcname.Contains("vertical"))
-                        mySpr.enabled = false;
                 }
                 
             }

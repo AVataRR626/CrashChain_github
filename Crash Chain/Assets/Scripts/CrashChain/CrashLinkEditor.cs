@@ -297,7 +297,7 @@ public class CrashLinkEditor : MonoBehaviour
     {
         if (myFocus != null)
         {
-            myFocus.horizontalDrag = mode;
+            myFocus.HorizontalDrag = mode;
             myFocus.ColourOutlines();
         }
     }
@@ -306,7 +306,7 @@ public class CrashLinkEditor : MonoBehaviour
     {
         if (myFocus != null)
         {
-            myFocus.horizontalDrag = !myFocus.horizontalDrag;
+            myFocus.HorizontalDrag = !myFocus.HorizontalDrag;
             myFocus.ColourOutlines();
         }
     }
@@ -315,7 +315,7 @@ public class CrashLinkEditor : MonoBehaviour
     {
         if (myFocus != null)
         {
-            myFocus.horizontalDrag = mode;
+            myFocus.VerticalDrag = mode;
             myFocus.ColourOutlines();
         }
     }
@@ -324,7 +324,7 @@ public class CrashLinkEditor : MonoBehaviour
     {
         if (myFocus != null)
         {
-            myFocus.verticalDrag = !myFocus.verticalDrag;
+            myFocus.VerticalDrag = !myFocus.VerticalDrag;
             myFocus.ColourOutlines();
         }
     }
