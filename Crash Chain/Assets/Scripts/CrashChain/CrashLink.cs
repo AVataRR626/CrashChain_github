@@ -94,6 +94,12 @@ public class CrashLink : MonoBehaviour
     {
         myTypeMaster = FindObjectOfType<TypeMaster>();
         ColourOutlines();
+
+        if(!movable)
+        {
+            horizontalDrag = false;
+            verticalDrag = false;
+        }
     }
 
     // Use this for initialization
@@ -137,6 +143,12 @@ public class CrashLink : MonoBehaviour
 
         if (colliderActivateDelay > 0)
             GetComponent<Collider2D>().enabled = false;
+
+        if (!movable)
+        {
+            horizontalDrag = false;
+            verticalDrag = false;
+        }
 
         Invoke("SetDraggerStarPos", 0.5f);
         SyncAxisLocks();
@@ -195,6 +207,11 @@ public class CrashLink : MonoBehaviour
             myTypeMaster = FindObjectOfType<TypeMaster>();
 
         ColourOutlines(transform);
+
+        if (!verticalDrag && !horizontalDrag)
+            movable = false;
+        else
+            movable = true;
     }
 
     // Update is called once per frame
@@ -497,7 +514,8 @@ public class CrashLink : MonoBehaviour
 
     public void RandomiseMovability()
     {
-        movable = CoinFlip();
+        horizontalDrag = CoinFlip();
+        verticalDrag = CoinFlip();
     }
 
     public void RandomiseTapability()
