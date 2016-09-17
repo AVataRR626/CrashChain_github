@@ -718,15 +718,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
-  levelThreshold: 00000000020000000400000006000000070000000a000000
-  maxSpawnIndex: 000000000100000002000000030000000300000003000000
+  levelThreshold: 00000000020000000400000006000000070000000a0000000d000000
+  maxSpawnIndex: 00000000010000000200000003000000040000000500000006000000
   levelDimensions:
+  - {x: 4, y: 2}
+  - {x: 4, y: 2}
+  - {x: 4, y: 2}
   - {x: 4, y: 3}
-  - {x: 4, y: 3}
-  - {x: 4, y: 3}
-  - {x: 4, y: 4}
-  - {x: 5, y: 4}
-  - {x: 5, y: 5}
+  - {x: 5, y: 3}
+  - {x: 6, y: 3}
+  - {x: 6, y: 4}
   startPointPositions:
   - {x: 1.19, y: 3.18, z: 0}
   - {x: 1.19, y: 3.18, z: 0}
@@ -734,8 +735,9 @@ MonoBehaviour:
   - {x: 1.19, y: 3.18, z: 0}
   - {x: -0.95, y: 3.18, z: 0}
   - {x: -0.95, y: 3.18, z: 0}
+  - {x: -0.95, y: 3.18, z: 0}
   levelUpMsgList:
-  - {fileID: 0}
+  - {fileID: 1000013263179860, guid: fadf37d3ac734e3438fd5a554e215daf, type: 2}
   levelUpMessages:
   - Reset
 --- !u!114 &114000010209864206
@@ -1793,22 +1795,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50535daf3c380ce408cbaf874ab6411b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPoint: {fileID: 4000013718437730}
+  startPoint: {fileID: 4000010116387584, guid: fadf37d3ac734e3438fd5a554e215daf, type: 2}
   colCount: 4
-  rowCount: 2
+  rowCount: 1
   xSpace: 2
   ySpace: -2
-  spawnTime: 0.25
+  spawnTime: 0.05
   spawnObjects:
   - {fileID: 109132, guid: 7702c8e69cc647947bef7d977a0aa6ff, type: 2}
   - {fileID: 109132, guid: 7702c8e69cc647947bef7d977a0aa6ff, type: 2}
   - {fileID: 109132, guid: 7702c8e69cc647947bef7d977a0aa6ff, type: 2}
+  - {fileID: 109132, guid: 7702c8e69cc647947bef7d977a0aa6ff, type: 2}
+  - {fileID: 109132, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   - {fileID: 163210, guid: 047dd4659c123624e924510087f30691, type: 2}
   - {fileID: 121660, guid: 78b0b702600c467439e2d4e0ac719030, type: 2}
   spawnMessage:
   - RandomiseBlockers
   - RandomiseBasicStatsEZ1
   - RandomiseBasicStatsEZ2
+  - RandomiseBasicStats
+  - RandomiseStats
   - RandomiseStats
   - RandomiseStats
   spawnIndex: 0

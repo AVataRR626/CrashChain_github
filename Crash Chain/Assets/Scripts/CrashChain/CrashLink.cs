@@ -115,6 +115,7 @@ public class CrashLink : MonoBehaviour
             overchargeCount = 0;
 
         dragger = GetComponent<MouseDrag2D>();
+        mover = GetComponent<LerpToPosition>();
 
         if (graphicsRoot == null)
         {
@@ -157,6 +158,13 @@ public class CrashLink : MonoBehaviour
     public void SyncAxisLocks()
     {
         Debug.Log("AXIS LOCK SYNC!");
+
+        if (dragger == null)
+            dragger = GetComponent<MouseDrag2D>();
+
+        if (smoothSnap == null)
+            smoothSnap = GetComponent<SmoothSnap>();
+
         dragger.horizontalBlock = !verticalDrag;
         dragger.verticalBlock = !horizontalDrag;
         smoothSnap.VerticalLock = !verticalDrag;
@@ -495,6 +503,7 @@ public class CrashLink : MonoBehaviour
         RandomiseBlockers();
         RandomiseCore(3);
         RandomiseShell(2);
+        RandomiseTapability();
     }
 
 
@@ -503,19 +512,22 @@ public class CrashLink : MonoBehaviour
         RandomiseBlockers();
         RandomiseCore();
         RandomiseShell();
+        RandomiseTapability();
     }
 
     public void RandomiseStats()
     {
+        Debug.Log("SDSDLFKJSDLKJF");
         RandomiseBasicStats();
         RandomiseMovability();
-        RandomiseTapability();
+        
     }
 
     public void RandomiseMovability()
     {
         horizontalDrag = CoinFlip();
         verticalDrag = CoinFlip();
+        SyncAxisLocks();
     }
 
     public void RandomiseTapability()

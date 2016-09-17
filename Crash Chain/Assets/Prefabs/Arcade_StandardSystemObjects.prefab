@@ -567,7 +567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000013606139548
 GameObject:
   m_ObjectHideFlags: 1
@@ -646,7 +646,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010354069512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.768, y: 2.983, z: 0}
+  m_LocalPosition: {x: -0.95, y: 3.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startPoint: {fileID: 4000010116387584}
   colCount: 4
-  rowCount: 2
+  rowCount: 1
   xSpace: 2
   ySpace: -2
   spawnTime: 0.05
@@ -1156,6 +1156,8 @@ MonoBehaviour:
   - {fileID: 109132, guid: 7702c8e69cc647947bef7d977a0aa6ff, type: 2}
   - {fileID: 109132, guid: 7702c8e69cc647947bef7d977a0aa6ff, type: 2}
   - {fileID: 109132, guid: 7702c8e69cc647947bef7d977a0aa6ff, type: 2}
+  - {fileID: 109132, guid: 7702c8e69cc647947bef7d977a0aa6ff, type: 2}
+  - {fileID: 109132, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   - {fileID: 163210, guid: 047dd4659c123624e924510087f30691, type: 2}
   - {fileID: 121660, guid: 78b0b702600c467439e2d4e0ac719030, type: 2}
   spawnMessage:
@@ -1163,6 +1165,8 @@ MonoBehaviour:
   - RandomiseBasicStatsEZ1
   - RandomiseBasicStatsEZ2
   - RandomiseBasicStats
+  - RandomiseStats
+  - RandomiseStats
   - RandomiseStats
   spawnIndex: 0
   maxSpawnIndex: 0
@@ -1981,16 +1985,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
-  levelThreshold: 00000000020000000400000006000000070000000a000000
-  maxSpawnIndex: 000000000100000002000000030000000300000003000000
+  levelThreshold: 00000000020000000400000006000000070000000a0000000c000000
+  maxSpawnIndex: 00000000010000000200000003000000040000000500000006000000
   levelDimensions:
+  - {x: 4, y: 1}
+  - {x: 4, y: 2}
+  - {x: 4, y: 2}
   - {x: 4, y: 3}
   - {x: 4, y: 3}
-  - {x: 4, y: 3}
-  - {x: 4, y: 4}
+  - {x: 5, y: 3}
   - {x: 5, y: 4}
-  - {x: 5, y: 5}
   startPointPositions:
+  - {x: 1.19, y: 3.18, z: 0}
   - {x: 1.19, y: 3.18, z: 0}
   - {x: 1.19, y: 3.18, z: 0}
   - {x: 1.19, y: 3.18, z: 0}
