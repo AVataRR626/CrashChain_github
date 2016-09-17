@@ -305,11 +305,11 @@ public class SmoothSnap : MonoBehaviour
                 {
                     if (transform.position.y < ss.transform.position.y)
                     {
-                        gridCoordinates.y += 1;
+                        gridCoordinates.y -= 1;
                     }
                     else
                     {
-                        gridCoordinates.y -= 1;
+                        gridCoordinates.y += 1;
                     }
                 }
 
