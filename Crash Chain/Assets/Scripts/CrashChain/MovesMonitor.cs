@@ -26,7 +26,7 @@ public class MovesMonitor : MonoBehaviour
     {
         if(!unlimitedMoves && !triggerSwitch)
         { 
-	        if(moveLimit < 0)
+	        if(ocm.GetMoves() > moveLimit)
             {
                 GenUtils.SetActiveObjects(ref triggerObjects, true);
                 triggerSwitch = true;
