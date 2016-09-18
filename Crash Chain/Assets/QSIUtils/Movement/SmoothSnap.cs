@@ -36,6 +36,7 @@ public class SmoothSnap : MonoBehaviour
 
     MouseDrag2D dragger;
     float resetDraggerLimitsClock = 2;
+    SmoothSnap lastConflictSS;
 
     public bool VerticalLock
     {
@@ -103,12 +104,36 @@ public class SmoothSnap : MonoBehaviour
             }
         }
 
+
+
+        EnforceAxisLocks();
+
+        if (transform.position != snapCoords && snapSwitch)
+            Snap();
+
+        mover.moveSwitch = snapSwitch;
+
+        SetGridCoordinatesOnPos();
+
+        if (lastConflictSS != null)
+        {
+            if (gridCoordinates.x != lastConflictSS.gridCoordinates.x && 
+                  gridCoordinates.y != lastConflictSS.gridCoordinates.y)
+            {
+                ResetDraggerLimits();
+                lastConflictSS = null;
+            }
+        }
+    }
+
+    public void EnforceAxisLocks()
+    {
         //horizontal lock means the horizontal axis can't be moved
         if (horizontalLock)
         {
             anchorGridCoordinates.x = lockAnchor.x;
 
-            if(gridCoordinates.x != anchorGridCoordinates.x)
+            if (gridCoordinates.x != anchorGridCoordinates.x)
                 snapSwitch = true;
         }
 
@@ -120,14 +145,6 @@ public class SmoothSnap : MonoBehaviour
             if (gridCoordinates.y != anchorGridCoordinates.y)
                 snapSwitch = true;
         }
-
-
-        if (transform.position != snapCoords && snapSwitch)
-            Snap();
-
-        mover.moveSwitch = snapSwitch;
-
-        SetGridCoordinatesOnPos();
     }
 
     public void SetGridCoordinatesOnPos()
@@ -244,6 +261,8 @@ public class SmoothSnap : MonoBehaviour
         //HandleConflictA(ss);
         if (ss != null)
         {
+            lastConflictSS = ss;
+
             if (!ss.horizontalLock && !horizontalLock && !ss.verticalLock && !ss.horizontalLock)
             {
                 HandleConflictB(ss);

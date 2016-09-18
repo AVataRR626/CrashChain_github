@@ -73,6 +73,7 @@ public class MouseDrag2D : MonoBehaviour
             pos.y = minY;
 
         transform.position = pos;
+        //CalculateOffset();
     }
 
     public void PauseTracking(float time)
