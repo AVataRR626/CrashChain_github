@@ -183,7 +183,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 52.22
+      value: 48.21
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -355,6 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf572a4206cc0542acc3eaaf36a973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableTracking: 0
   verticalBlock: 0
   horizontalBlock: 0
   startingPos: {x: 0, y: 0, z: 0}
@@ -788,7 +789,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 109132, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_Name
@@ -837,6 +838,28 @@ Prefab:
     - target: {fileID: 212000012427656436, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471638, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: verticalDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000011636917996, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000013852384202, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418352, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: borderWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418352, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: borderHeight
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1126,7 +1149,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11494268, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: myTypeMaster

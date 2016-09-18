@@ -87,7 +87,7 @@ public class CrashLink : MonoBehaviour
     private Quaternion initialGraphicsRotation;
     private TypeMaster myTypeMaster;
 
-    private Vector3 prevGridCoordinates;
+    private Vector3 prevAnchorGridCoordinates;
     public float holdCharge = 0;
 
     void Awake()
@@ -125,7 +125,7 @@ public class CrashLink : MonoBehaviour
         initialGraphicsRotation = graphicsRoot.rotation;
 
         smoothSnap = GetComponent<SmoothSnap>();
-        prevGridCoordinates = smoothSnap.gridCoordinates;
+        prevAnchorGridCoordinates = smoothSnap.gridCoordinates;
 
         myTypeMaster = FindObjectOfType<TypeMaster>();
 
@@ -165,8 +165,8 @@ public class CrashLink : MonoBehaviour
         if (smoothSnap == null)
             smoothSnap = GetComponent<SmoothSnap>();
 
-        dragger.horizontalBlock = !verticalDrag;
-        dragger.verticalBlock = !horizontalDrag;
+        dragger.horizontalBlock = !horizontalDrag;
+        dragger.verticalBlock = !verticalDrag;
         smoothSnap.VerticalLock = !verticalDrag;
         smoothSnap.HorizontalLock = !horizontalDrag;
     }
@@ -260,10 +260,10 @@ public class CrashLink : MonoBehaviour
 
     void MonitorMoves()
     {
-        if (prevGridCoordinates != smoothSnap.gridCoordinates)
+        if (prevAnchorGridCoordinates != smoothSnap.anchorGridCoordinates)
             OverchargeMonitor.instance.AddMove();
 
-        prevGridCoordinates = smoothSnap.gridCoordinates;
+        prevAnchorGridCoordinates = smoothSnap.anchorGridCoordinates;
     }
 
     public void Kill()
@@ -593,6 +593,7 @@ public class CrashLink : MonoBehaviour
 
 
         gameObject.BroadcastMessage("TouchDim");
+        SyncAxisLocks();
     }
 
     void OnMouseDrag()

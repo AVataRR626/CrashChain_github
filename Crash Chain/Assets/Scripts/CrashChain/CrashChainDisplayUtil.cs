@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Text))]
 public class CrashChainDisplayUtil : MonoBehaviour
 {
-    public enum DisplayMode {currentScore,bestScore,levelName,overchargeCount,overchargeLeft,arcadeLevel,puzzleButtonLevel,puzzleButtonBestScore};
+    public enum DisplayMode {currentScore,bestScore,levelName,overchargeCount,overchargeLeft,arcadeLevel,puzzleButtonLevel,puzzleButtonBestScore,movesLeft};
 
     public string prefix = "";
     public DisplayMode displayMode;
@@ -71,6 +71,11 @@ public class CrashChainDisplayUtil : MonoBehaviour
                     txt.text = bestScore.ToString();
                 }
             }
+        }
+
+        if(displayMode == DisplayMode.movesLeft)
+        {
+            txt.text = MovesMonitor.instance.GetMovesLeft().ToString();
         }
     }
 

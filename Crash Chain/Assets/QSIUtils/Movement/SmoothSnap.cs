@@ -7,11 +7,10 @@ public class SmoothSnap : MonoBehaviour
     public static SmoothSnap [,,] gridOccupation = new SmoothSnap[200,200,200];
     public static SmoothSnap[,,] desiredGridOccupation = new SmoothSnap[200, 200, 200];
     public static Vector3 nullGridCoords = new Vector3(-1, -1, -1);
-    public static bool conflictLeftPush = true;//yield and go left...
-    public static bool conflictDownPush = true;//yield and go down...
     public static bool focusConflictSwitch = false;
 
     LerpToPosition mover;
+
     public Vector3 snapSettings = new Vector3(1, 1, 1);
     public bool noSnapOverride = false;
     public bool verticalLock = false;
@@ -22,6 +21,8 @@ public class SmoothSnap : MonoBehaviour
     public bool snapSwitch = true;
     public bool occupancyCheck = false;
     public bool conflictSwitch = false;
+    public float borderHeight = 0.75f;
+    public float borderWidth = 0.75f;
 
     public Vector3 gridCoordinates;
     public Vector3 anchorGridCoordinates;
@@ -31,6 +32,8 @@ public class SmoothSnap : MonoBehaviour
     bool isFocus = false;
 
     Vector3 originalAnchor;
+
+    MouseDrag2D dragger;
 
     public bool VerticalLock
     {
@@ -65,12 +68,12 @@ public class SmoothSnap : MonoBehaviour
     void Start()
     {
         mover = GetComponent<LerpToPosition>();
+        dragger = GetComponent<MouseDrag2D>();
 
         SetGridCoordinatesOnPos();
         anchorGridCoordinates = gridCoordinates;
         originalAnchor = anchorGridCoordinates;
         lockAnchor = originalAnchor;
-
     }
 
     // Update is called once per frame
@@ -87,35 +90,38 @@ public class SmoothSnap : MonoBehaviour
         if (snapSwitch)
         {
             //SetGridCoordinates();
-            if (!isFocus)
+            if(isFocus)
             {
-                if(!focusConflictSwitch)
-                    ReturnToAnchorGridCoordintes();
-            }
-            else
-            {
-                SetGridCoordinatesOnPos();
-
-                //handle conflict pushing handlers...
-                conflictLeftPush = (anchorGridCoordinates.x > gridCoordinates.x);
-                conflictDownPush = !(anchorGridCoordinates.y > gridCoordinates.y);
-                
                 anchorGridCoordinates = gridCoordinates;
                 isFocus = false;
             }
         }
 
+        //horizontal lock means the horizontal axis can't be moved
         if (horizontalLock)
-            gridCoordinates.x = lockAnchor.x;
+        {
+            anchorGridCoordinates.x = lockAnchor.x;
 
+            if(gridCoordinates.x != anchorGridCoordinates.x)
+                snapSwitch = true;
+        }
+
+        //vertical lock means the vertical axis can't be moved
         if (verticalLock)
-            gridCoordinates.y = lockAnchor.y;
+        {
+            anchorGridCoordinates.y = lockAnchor.y;
+
+            if (gridCoordinates.y != anchorGridCoordinates.y)
+                snapSwitch = true;
+        }
 
 
         if (transform.position != snapCoords && snapSwitch)
             Snap();
 
         mover.moveSwitch = snapSwitch;
+
+        SetGridCoordinatesOnPos();
 
     }
 
@@ -188,7 +194,6 @@ public class SmoothSnap : MonoBehaviour
         snapCoords.y = gc.y * snapSettings.y;
         snapCoords.z = gc.z * snapSettings.z;
 
-
         mover.destination = snapCoords;
         mover.moveSwitch = true;
     }
@@ -198,7 +203,7 @@ public class SmoothSnap : MonoBehaviour
     {
         //Debug.Log("Snapping");
 
-        ManualSnap(gridCoordinates);
+        ManualSnap(anchorGridCoordinates);
     }
 
     public SmoothSnap GetOccupier(Vector3 gc)
@@ -221,6 +226,11 @@ public class SmoothSnap : MonoBehaviour
         return Mathf.Abs(transform.position.y - snapCoords.y);
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {   
+        OnCollisionStay2D(col);
+    }
+
     void OnCollisionStay2D(Collision2D col)
     {
         SmoothSnap ss = col.gameObject.GetComponent<SmoothSnap>();
@@ -241,148 +251,90 @@ public class SmoothSnap : MonoBehaviour
 
     public void HandleAxisLockedConflict(SmoothSnap ss)
     {
-        if(ss.gridCoordinates == gridCoordinates)
-        { 
-            if(horizontalLock == ss.horizontalLock && verticalLock == ss.verticalLock)
+
+        if ((horizontalLock == ss.horizontalLock && verticalLock == ss.verticalLock))
+        {
+            //if you've got the same axis locks, act as if you have no locks...
+            if (ss.gridCoordinates == gridCoordinates)
             {
-                //if you've got the same axis locks, act as if you have no locks...
                 HandleConflictB(ss);
             }
-            else
-            {
-                //otherwise, yeild to the one with the lock on the axis...
-                //Debug.Log("---------------------- axis lock conflict`");
+        }
+        else
+        {
+            HandleConflictB(ss);
 
+            if (dragger != null)
+            {
                 if(ss.horizontalLock)
                 {
-                    if(transform.position.x > ss.transform.position.x)
+                    if (Mathf.Abs(transform.position.x - ss.transform.position.x) > borderWidth * 2)
                     {
-                        gridCoordinates.x += 1;
-                    }
-                    else
-                    {
-                        gridCoordinates.x -= 1;
+                        dragger.horizontalBlock = true;
                     }
                 }
 
-                if (ss.verticalLock)
+
+                if(ss.verticalLock)
                 {
-                    if (transform.position.y > ss.transform.position.y)
-                    {
-                        gridCoordinates.y += 1;
-                    }
-                    else
-                    {
-                        gridCoordinates.y -= 1;
+                    if(Mathf.Abs(transform.position.y - ss.transform.position.y) > borderHeight*2)
+                    {   
+                        dragger.verticalBlock = true;
                     }
                 }
-
-                anchorGridCoordinates = gridCoordinates;
-                conflictSwitch = true;
             }
-        }
+
+            conflictSwitch = true;
+        } 
     }
 
     public void HandleConflictB(SmoothSnap ss)
     {
         if (ss != null)
         {
-            if (ss.gridCoordinates == gridCoordinates)
+            if (ss.anchorGridCoordinates == anchorGridCoordinates)
             {
                 //closest to grid coordinates is the priority
                 if(ss.DistanceToXGridCoordinates() < DistanceToXGridCoordinates())
                 {
                     if(transform.position.x < ss.transform.position.x)
                     {
-                        gridCoordinates.x -= 1;
+                        anchorGridCoordinates.x -= 1;
                     }
                     else
                     {
-                        gridCoordinates.x += 1;
+                        anchorGridCoordinates.x += 1;
                     }
                 }
                 else if(ss.DistanceToYGridCoordinates() < DistanceToYGridCoordinates())
                 {
                     if (transform.position.y < ss.transform.position.y)
                     {
-                        gridCoordinates.y -= 1;
+                        anchorGridCoordinates.y -= 1;
                     }
                     else
                     {
-                        gridCoordinates.y += 1;
+                        anchorGridCoordinates.y += 1;
                     }
                 }
 
-                //yield
-                anchorGridCoordinates = gridCoordinates;
+                //yield                
                 conflictSwitch = true;
             }
         }
     }
-
-    public void HandleConflictA(SmoothSnap ss)
-    {
-        //don't try to occupy the same grid spot
-        if (ss != null)
-        {
-            //Debug.Log("COLLISION BETWEEN SMOOTH SNAPS!!");
-            if (!ss.horizontalLock && !ss.verticalLock && !verticalLock && !horizontalLock)
-            {
-                if (ss.gridCoordinates == gridCoordinates)
-                {
-                    if (!conflictLeftPush)
-                    {
-                        //prioritise grid spots based on world coordinates.
-                        if (ss.transform.position.x < transform.position.x)
-                        {
-                            //horizontal diference taken into account first..
-                            gridCoordinates.x += 1;
-                        }
-                    }
-                    else
-                    {
-                        //prioritise grid spots based on world coordinates.
-                        if (ss.transform.position.x > transform.position.x)
-                        {
-                            //horizontal diference taken into account first..
-                            gridCoordinates.x -= 1;
-                        }
-                    }
-
-                    if (ss.transform.position.x == transform.position.x)
-                    {
-                        //if no horizontal difference, look at vertical differnces..
-                        if (conflictDownPush)
-                        {
-                            if (ss.transform.position.y > transform.position.y)
-                                gridCoordinates.y -= 1;
-                        }
-                        else
-                        {
-                            if (ss.transform.position.y < transform.position.y)
-                                gridCoordinates.y += 1;
-                        }
-                    }
-
-                    //yield
-                    anchorGridCoordinates = gridCoordinates;
-
-                    if (isFocus)
-                        focusConflictSwitch = true;
-
-                    conflictSwitch = true;
-                }
-
-            }
-        }
-    }
-
 
     void OnCollisionExit2D(Collision2D col)
     {
         //SetGridCoordinatesOnPos();
         //Debug.Log("COLLISON EXIT!");
 
+        
+        if(!verticalLock)
+            dragger.verticalBlock = false;
+
+        if (!horizontalLock)
+            dragger.horizontalBlock = false;
     }
 
     public void StartDrag()
@@ -401,6 +353,7 @@ public class SmoothSnap : MonoBehaviour
         //disable any custom snapping when you release the mouse over it;
         conflictSwitch = false;
         focusConflictSwitch = false;
+        SetAnchorGridCoordinatesOnPos();
         //ReturnToConflictGridCoords();
 
         Debug.Log("SMOOTHSNAP_ResetConflictSwitch");

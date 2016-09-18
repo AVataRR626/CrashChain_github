@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MouseDrag2D : MonoBehaviour
 {
+    public bool disableTracking = false;
     public bool verticalBlock = false;
     public bool horizontalBlock = false;
 
@@ -13,8 +14,17 @@ public class MouseDrag2D : MonoBehaviour
     private Rigidbody2D rb2d;
     private bool dragMode = false;
     private bool hadRigidbody = false;
-	// Use this for initialization
-	void Start ()
+
+    public bool DragMode
+    {
+        get
+        {
+            return dragMode;
+        }
+    }
+
+    // Use this for initialization
+    void Start ()
     {
         startingPos = transform.position;
 
@@ -25,7 +35,7 @@ public class MouseDrag2D : MonoBehaviour
 
     void Update()
     {
-        if (dragMode)
+        if (dragMode && !disableTracking)
             TrackMouse();
 
         if (Input.GetMouseButtonUp(0))
@@ -37,12 +47,48 @@ public class MouseDrag2D : MonoBehaviour
         }
     }
 
-    public bool DragMode
+    public void PauseTracking(float time)
     {
-        get
-        {
-            return dragMode;
-        }
+        disableTracking = true;
+        dragMode = false;
+        Invoke("EnableTracking", time);
+    }
+
+    public void EnableTracking()
+    {
+        disableTracking = false;
+    }
+
+    public void PauseTrackingHorizontal()
+    {
+        horizontalBlock = true;
+    }
+
+    public void PauseTrackingHorizontal(float time)
+    {
+        horizontalBlock = true;
+        Invoke("EnableTrackingHorizontal", time);
+    }
+
+    public void EnableTrackingHorizontal()
+    {
+        horizontalBlock = false;
+    }
+
+    public void PauseTrackingVertical()
+    {
+        verticalBlock = true;
+    }
+
+    public void PauseTrackingVertical(float time)
+    {   
+        verticalBlock = true;
+        Invoke("EnableTrackingVertical", time);
+    }
+
+    public void EnableTrackingVertical()
+    {
+        verticalBlock = false;
     }
 
     public void StartDrag()
@@ -69,7 +115,6 @@ public class MouseDrag2D : MonoBehaviour
     void OnMouseDown()
     {
         StartDrag();
-
         TrackMouse();
     }
 
@@ -104,14 +149,13 @@ public class MouseDrag2D : MonoBehaviour
     {
         Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        if (horizontalBlock)
-            newPos.y = startingPos.y + offset.y;
-        
         if (verticalBlock)
-            newPos.x = startingPos.x + offset.x;
+            newPos.y = transform.position.y + offset.y;
+        
+        if (horizontalBlock)
+            newPos.x = transform.position.x + offset.x;
 
         newPos -= offset;
-
         newPos.z = startingPos.z;
 
         

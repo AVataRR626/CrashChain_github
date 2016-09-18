@@ -8,7 +8,7 @@ public class OverchargeMonitor : MonoBehaviour
     public static string crashBoltTag = "CrashBolt";
 
     public float timeLimit = 1.65f;    
-    public int timerTrigger = 1;
+    public int timerTrigger = 1;    
     public CrashChainDynLevelSaver levelSaver;
     public PopulationCheck popChecker;
     

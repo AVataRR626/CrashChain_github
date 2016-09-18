@@ -222,9 +222,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapSettings: {x: 2, y: 2, z: 1}
   noSnapOverride: 0
+  verticalLock: 0
+  horizontalLock: 0
+  lockAnchor: {x: 0, y: 0, z: 0}
   snapSwitch: 1
   occupancyCheck: 0
   conflictSwitch: 0
+  borderHeight: 0.75
+  borderWidth: 0.75
   gridCoordinates: {x: 29, y: 47, z: 0}
   anchorGridCoordinates: {x: 29, y: 47, z: 0}
 --- !u!114 &11429768
@@ -250,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf572a4206cc0542acc3eaaf36a973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableTracking: 0
   verticalBlock: 0
   horizontalBlock: 0
   startingPos: {x: 0, y: 0, z: 0}
