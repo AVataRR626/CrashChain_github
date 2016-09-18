@@ -431,8 +431,6 @@ public class CrashLink : MonoBehaviour
 
     public void StartDrag()
     {
-
-        //GetComponent<MouseDrag2D>().StartDrag();
         SetDraggerStarPos();
 
         mouseDownGrid = new Vector3(0, 0, 0);
@@ -443,9 +441,8 @@ public class CrashLink : MonoBehaviour
         mouseDownGrid = smoothSnap.gridCoordinates;
 
 
-        //double click/tap activates the spinning!
-
         /*
+         * //double click/tap activates the spinning!
         if (Time.time - lastClickTime <= doubleClickTime)
         {
             //Debug.Log("CrashLink: click time diff: " + (Time.time - lastClickTime));
@@ -466,19 +463,6 @@ public class CrashLink : MonoBehaviour
 
             //report being clicked to the editor..
             myEditor.blockFrameClickCount++;
-
-
-            /*
-            //defocus and deglow everything else..
-            CrashLink[] allTheLinks = FindObjectsOfType<CrashLink>();
-
-            foreach (CrashLink c in allTheLinks)
-            {
-                c.BroadcastMessage("TouchDim");
-            }
-
-            */
-
         }
 
     }
@@ -516,8 +500,7 @@ public class CrashLink : MonoBehaviour
     }
 
     public void RandomiseStats()
-    {
-        Debug.Log("SDSDLFKJSDLKJF");
+    {   
         RandomiseBasicStats();
         RandomiseMovability();
         

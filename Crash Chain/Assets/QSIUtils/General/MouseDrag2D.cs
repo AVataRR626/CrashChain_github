@@ -3,17 +3,24 @@ using System.Collections;
 
 public class MouseDrag2D : MonoBehaviour
 {
+    public static Vector3 MousePosition;
+
+    [Header("Tracking Parameters")]
     public bool disableTracking = false;
     public bool verticalBlock = false;
     public bool horizontalBlock = false;
-
     public Vector3 startingPos;
-
     private Vector3 offset;
+
+    [Header("Travel Limits")]
+    public float maxY =1000;
+    public float minY = -1000;
+    public float maxX = 1000;
+    public float minX = -1000;
 
     private Rigidbody2D rb2d;
     private bool dragMode = false;
-    private bool hadRigidbody = false;
+    private bool hasRigidBody = false;
 
     public bool DragMode
     {
@@ -30,7 +37,7 @@ public class MouseDrag2D : MonoBehaviour
 
         rb2d = GetComponent<Rigidbody2D>();
 
-        hadRigidbody = (rb2d != null);
+        hasRigidBody = (rb2d != null);
 	}
 
     void Update()
@@ -45,12 +52,32 @@ public class MouseDrag2D : MonoBehaviour
             if(CameraClickMove.Instance != null)
                 CameraClickMove.Instance.pauseMove = false;
         }
+
+        EnforceLimits();
+    }
+
+    public void EnforceLimits()
+    {
+        Vector3 pos = transform.position;
+
+        if (pos.x > maxX)
+            pos.x = maxX;
+
+        if (pos.x < minX)
+            pos.x = minX;
+
+        if (pos.y > maxY)
+            pos.y = maxY;
+
+        if (pos.y < minY)
+            pos.y = minY;
+
+        transform.position = pos;
     }
 
     public void PauseTracking(float time)
     {
-        disableTracking = true;
-        dragMode = false;
+        OnMouseUp();
         Invoke("EnableTracking", time);
     }
 
@@ -91,17 +118,27 @@ public class MouseDrag2D : MonoBehaviour
         verticalBlock = false;
     }
 
-    public void StartDrag()
+    public void CalculateOffset()
     {
         Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         offset = newPos - transform.position;
+    }
 
+    public void DisableDrag()
+    {
+        dragMode = false;
+    }
 
-        if (hadRigidbody)
+    public void StartDrag()
+    {
+
+        CalculateOffset();
+
+        if (hasRigidBody)
         {
             if (rb2d != null)
             {
-                rb2d.isKinematic = true;
+                //rb2d.isKinematic = true;
             }
         }
 
@@ -127,7 +164,7 @@ public class MouseDrag2D : MonoBehaviour
 
     void OnMouseUp()
     {
-        if(hadRigidbody)
+        if(hasRigidBody)
         { 
             if (rb2d != null)
             {
@@ -141,29 +178,21 @@ public class MouseDrag2D : MonoBehaviour
         if(CameraClickMove.Instance !=  null)
             CameraClickMove.Instance.pauseMove = false;
 
-
-        //Debug.Log("MouseDrag2D:OnMouseUp");
     }
 
     public void TrackMouse()
     {
-        Vector3 newPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        MousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (verticalBlock)
-            newPos.y = transform.position.y + offset.y;
-        
+            MousePosition.y = transform.position.y + offset.y;
+
         if (horizontalBlock)
-            newPos.x = transform.position.x + offset.x;
+            MousePosition.x = transform.position.x + offset.x;
 
-        newPos -= offset;
-        newPos.z = startingPos.z;
+        MousePosition -= offset;
+        MousePosition.z = startingPos.z;
 
-        
-
-        transform.position = newPos;
-
-        //Debug.Log("MouseDrag2D: TrackMouse(): " + newPos + " | " + Input.mousePosition + " | " + offset);
+        transform.position = MousePosition;
     }
-
-
 }

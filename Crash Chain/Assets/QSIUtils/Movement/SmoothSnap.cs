@@ -13,6 +13,7 @@ public class SmoothSnap : MonoBehaviour
 
     public Vector3 snapSettings = new Vector3(1, 1, 1);
     public bool noSnapOverride = false;
+    public bool forceSnap = false;
     public bool verticalLock = false;
     public bool horizontalLock = false;
     public Vector3 lockAnchor;
@@ -34,6 +35,7 @@ public class SmoothSnap : MonoBehaviour
     Vector3 originalAnchor;
 
     MouseDrag2D dragger;
+    float resetDraggerLimitsClock = 2;
 
     public bool VerticalLock
     {
@@ -87,6 +89,10 @@ public class SmoothSnap : MonoBehaviour
             snapSwitch = true;            
         }
 
+        if (forceSnap)
+            snapSwitch = true;
+        
+
         if (snapSwitch)
         {
             //SetGridCoordinates();
@@ -122,7 +128,6 @@ public class SmoothSnap : MonoBehaviour
         mover.moveSwitch = snapSwitch;
 
         SetGridCoordinatesOnPos();
-
     }
 
     public void SetGridCoordinatesOnPos()
@@ -226,10 +231,11 @@ public class SmoothSnap : MonoBehaviour
         return Mathf.Abs(transform.position.y - snapCoords.y);
     }
 
+    /*
     void OnCollisionEnter2D(Collision2D col)
     {   
-        OnCollisionStay2D(col);
-    }
+        //OnCollisionStay2D(col);
+    }*/
 
     void OnCollisionStay2D(Collision2D col)
     {
@@ -247,6 +253,15 @@ public class SmoothSnap : MonoBehaviour
                 HandleAxisLockedConflict(ss);
             }
         }
+        
+    }
+
+    public void ResetDraggerLimits()
+    {
+        dragger.minX = -1000;
+        dragger.minY = -1000;
+        dragger.maxX = 1000;
+        dragger.maxY = 1000;
     }
 
     public void HandleAxisLockedConflict(SmoothSnap ss)
@@ -264,27 +279,54 @@ public class SmoothSnap : MonoBehaviour
         {
             HandleConflictB(ss);
 
-            if (dragger != null)
-            {
-                if(ss.horizontalLock)
-                {
-                    if (Mathf.Abs(transform.position.x - ss.transform.position.x) > borderWidth * 2)
-                    {
-                        dragger.horizontalBlock = true;
-                    }
-                }
+            bool isAbove = transform.position.y > ss.transform.position.y;
+            bool isOnRight = transform.position.x > ss.transform.position.x;
+            bool sideConflict = Mathf.Abs(transform.position.x - ss.transform.position.x) > borderHeight * 2.1;
+            bool topBottomConflict = Mathf.Abs(transform.position.y - ss.transform.position.y) > borderHeight * 2;
 
+            if (dragger != null && (ss.horizontalLock ^ ss.verticalLock))
+            {
+                if (ss.horizontalLock)
+                {                    
+                    if (sideConflict)
+                    {
+                        
+                        //dragger.horizontalBlock = true;
+
+                        if(isOnRight)
+                        {
+                            dragger.minX = transform.position.x + 0.1f;
+                        }
+                        else
+                        {
+                            dragger.maxX = transform.position.x - 0.1f;
+                        }                        
+                        forceSnap = true;
+                    }
+
+                }
 
                 if(ss.verticalLock)
                 {
-                    if(Mathf.Abs(transform.position.y - ss.transform.position.y) > borderHeight*2)
-                    {   
-                        dragger.verticalBlock = true;
+                    if(topBottomConflict)
+                    {
+                        if(isAbove)
+                        {
+                            dragger.minY = transform.position.y + 0.1f;
+                        }
+                        else
+                        {
+                            dragger.maxY = transform.position.y - 0.1f;
+                        }
+                        forceSnap = true;
                     }
                 }
-            }
 
-            conflictSwitch = true;
+                if(sideConflict || topBottomConflict)
+                {
+                    conflictSwitch = true;
+                }                
+            }
         } 
     }
 
@@ -328,7 +370,7 @@ public class SmoothSnap : MonoBehaviour
     {
         //SetGridCoordinatesOnPos();
         //Debug.Log("COLLISON EXIT!");
-
+        forceSnap = false;
         
         if(!verticalLock)
             dragger.verticalBlock = false;
@@ -355,7 +397,7 @@ public class SmoothSnap : MonoBehaviour
         focusConflictSwitch = false;
         SetAnchorGridCoordinatesOnPos();
         //ReturnToConflictGridCoords();
-
+        ResetDraggerLimits();        
         Debug.Log("SMOOTHSNAP_ResetConflictSwitch");
     }
 
