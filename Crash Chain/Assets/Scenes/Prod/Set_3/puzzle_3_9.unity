@@ -861,6 +861,7 @@ GameObject:
   - 114: {fileID: 1112817111}
   - 114: {fileID: 1112817110}
   - 212: {fileID: 1112817113}
+  - 114: {fileID: 1112817114}
   m_Layer: 5
   m_Name: txtScore (1)
   m_TagString: Untagged
@@ -877,14 +878,14 @@ RectTransform:
   m_GameObject: {fileID: 1112817108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39979672, y: 0.39979684, z: 0.39979675}
+  m_LocalScale: {x: 0.41652712, y: 0.41652733, z: 0.41652724}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 2008131844}
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 135.6, y: 95.4}
+  m_AnchoredPosition: {x: 142.3, y: 96.3}
   m_SizeDelta: {x: 635.93, y: 111.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1112817110
@@ -979,6 +980,23 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &1112817114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1112817108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 434d0c96362ad094eaf82d58632c08e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  col1: {r: 1, g: 1, b: 1, a: 1}
+  col2: {r: 1, g: 1, b: 0, a: 1}
+  col1BlinkRate: 0.75
+  col2BlinkRate: 0.75
+  blinkClock: 2
+  blinkForever: 0
 --- !u!1001 &1182116211
 Prefab:
   m_ObjectHideFlags: 0

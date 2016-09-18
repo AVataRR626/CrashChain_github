@@ -75,6 +75,7 @@ public class CrashLink : MonoBehaviour
     public float chargeLimit = 2;
     public Transform graphicsRoot;
     public float colliderActivateDelay = 0.25f;
+    public string bitSerialisation;
 
     private LerpToPosition mover;
     private MouseDrag2D dragger;
@@ -683,6 +684,68 @@ public class CrashLink : MonoBehaviour
         result += tapability + "|";
 
         return result;
+    }
+
+    [ContextMenu("BitSerialise")]
+    public string BitSerialise()
+    {
+        byte primaryInfo = 0;//type,shell,core,hrestrict,vrestrict
+        byte launchStats = 0;//tappable, north, east, west, south
+        byte xGrid = 0;//xgrid coordinate
+        byte yGrid = 0;//ygrid coordinate
+
+        //convert the first part...
+        byte type = (byte)LinkType(); //0000 00xx
+        byte core = (byte)(coreType << 2); //0000 xx00
+        byte shell = (byte)(shellType << 4); //00xx 0000
+        byte h = (byte)((horizontalDrag ? 1 : 0) << 6);//0x00 0000
+        byte v = (byte)((verticalDrag ? 1 : 0) << 7);//x000 0000
+        primaryInfo = (byte)(type | core | shell | h | v);
+
+        //now the second part!!
+        byte t = (byte)(tappable ? 1 : 0);//0000 000x
+        byte n = (byte)((north ? 1 : 0) << 1);//0000 00x0
+        byte e = (byte)((east ? 1 : 0) << 2);//0000 0x00
+        byte w = (byte)((north ? 1 : 0) << 3);//0000 x000
+        byte s = (byte)((north ? 1 : 0) << 4);//000x 0000
+        launchStats = (byte)(t | n | e | w | s);
+
+        //now store the grid coordinates
+        xGrid = (byte)smoothSnap.gridCoordinates.x;
+        yGrid = (byte)smoothSnap.gridCoordinates.y;
+
+        //truncate coordinate data into the remaining 3 bits of launchStats
+        byte xP1 = (byte)((int)smoothSnap.gridCoordinates.x << 5);//xxx0 000 (the last part of launchStats)
+        launchStats = (byte)(launchStats | xP1);
+        byte xP2 = (byte)((int)smoothSnap.gridCoordinates.x >> 3);//0000 0xxx     0000 0111 
+        yGrid = (byte) (yGrid << 3);//xxxx x000
+        byte yGridXPart = (byte)(yGrid | xP2);
+
+        char p1 = (char)primaryInfo;
+        char p2 = (char)launchStats;
+        char p3 = (char)yGridXPart;
+
+        string result = p1+""+p2+""+p3;
+        Debug.Log("----------- " + primaryInfo + ", " + launchStats + ", " + yGridXPart);
+        bitSerialisation = result;
+        return result;
+    }
+
+    public int LinkType()
+    {
+        //regular square link
+        if (myCrashBolt.opMode == CrashBolt.OperationMode.ShellCrash)
+            return 0;
+
+        //triangle link
+        if (myCrashBolt.opMode == CrashBolt.OperationMode.ConvertShell)
+            return 1;
+
+        //hex link
+        if (myCrashBolt.opMode == CrashBolt.OperationMode.TunnelCore)
+            return 2;
+
+        return -1;
     }
 
     //applies serialised settings based on CrashLink formatting.    
