@@ -103,7 +103,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 46.27
+      value: 47.47
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -188,11 +188,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 53.56
+      value: 53.8
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 52.41
+      value: 51.45
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -315,11 +315,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 49.5
+      value: 49.74
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 52.41
+      value: 51.45
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -446,7 +446,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 46.27
+      value: 47.47
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -519,11 +519,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 45.49
+      value: 45.73
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 52.41
+      value: 51.45
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -650,7 +650,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 46.27
+      value: 47.47
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -885,7 +885,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 142.3, y: 96.3}
+  m_AnchoredPosition: {x: 12.7, y: 93}
   m_SizeDelta: {x: 635.93, y: 111.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1112817110
@@ -933,13 +933,15 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 101
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: ^ now tracking moves
+    m_LineSpacing: 0.5
+  m_Text: '^
+
+    now tracking moves'
 --- !u!222 &1112817112
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -991,12 +993,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434d0c96362ad094eaf82d58632c08e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  col1: {r: 1, g: 1, b: 1, a: 1}
-  col2: {r: 1, g: 1, b: 0, a: 1}
+  col1: {r: 0, g: 1, b: 1, a: 1}
+  col2: {r: 1, g: 1, b: 1, a: 1}
   col1BlinkRate: 0.75
   col2BlinkRate: 0.75
   blinkClock: 2
   blinkForever: 0
+--- !u!1 &1130728580 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013110714154, guid: 121f03785b0400d46805fa1c4ff67f61,
+    type: 2}
+  m_PrefabInternal: {fileID: 2008131843}
+--- !u!114 &1130728581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1130728580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e9257a3e16f2c47844ab33b7523b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetKey: puzzle_3_10
+  activateList: []
+  deactivateList:
+  - {fileID: 1112817108}
 --- !u!1001 &1182116211
 Prefab:
   m_ObjectHideFlags: 0
