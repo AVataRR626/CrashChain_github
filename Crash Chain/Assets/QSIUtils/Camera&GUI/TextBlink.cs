@@ -43,6 +43,11 @@ public class TextBlink : MonoBehaviour
             }
 
         }
+        else
+        {
+            sr.color = col1;
+            enabled = false;
+        }
 
     }
 }
