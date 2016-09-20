@@ -6,6 +6,7 @@ public class KeyIntValueMod : MonoBehaviour
     public string keyString;
     public int mod;
     public bool hardSet = false;
+    public bool deleteKey = false;
 
     private int val;
 
@@ -17,6 +18,11 @@ public class KeyIntValueMod : MonoBehaviour
         else
             HardSet();
             
+    }
+
+    public void DeleteKey()
+    {
+        PlayerPrefs.DeleteKey(keyString);
     }
 
     public void SetMod()

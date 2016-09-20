@@ -214,6 +214,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf572a4206cc0542acc3eaaf36a973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableTracking: 0
+  verticalBlock: 0
+  horizontalBlock: 0
+  startingPos: {x: 0, y: 0, z: 0}
+  maxY: 1000
+  minY: -1000
+  maxX: 1000
+  minX: -1000
 --- !u!212 &389885392
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -716,7 +724,7 @@ Prefab:
     - target: {fileID: 212000012684240250, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114000013199301806, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
@@ -736,7 +744,7 @@ Prefab:
     - target: {fileID: 114000010222257506, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: totalBlinkTime
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 114000011163886128, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
@@ -779,6 +787,41 @@ Prefab:
     - target: {fileID: 11471638, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: west
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000012947760738, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010794048128, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.r
+      value: 0.38039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010794048128, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.g
+      value: 0.38039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010794048128, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.b
+      value: 0.38039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010222257506, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010222257506, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: resetCLock
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010222257506, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: startDelay
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
@@ -1017,22 +1060,22 @@ Prefab:
     - target: {fileID: 114000011163886128, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: blinkColour.r
-      value: 1
+      value: 0.38235295
       objectReference: {fileID: 0}
     - target: {fileID: 114000011163886128, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: blinkColour.g
-      value: 1
+      value: 0.38235295
       objectReference: {fileID: 0}
     - target: {fileID: 114000011163886128, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: blinkColour.b
-      value: 1
+      value: 0.38235295
       objectReference: {fileID: 0}
     - target: {fileID: 114000013199301806, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: resetCLock
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 212000010719966826, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
@@ -1129,6 +1172,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 407446, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11458758, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: retryMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
