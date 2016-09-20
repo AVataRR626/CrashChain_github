@@ -90,6 +90,7 @@ public class CrashLink : MonoBehaviour
 
     private Vector3 prevAnchorGridCoordinates;
     public float holdCharge = 0;
+    public Vector3 prevPos;
 
     void Awake()
     {
@@ -257,6 +258,8 @@ public class CrashLink : MonoBehaviour
             movable = true;
 
         ColourOutlines();
+
+        prevPos = transform.position;
     }
 
     void MonitorMoves()
@@ -554,11 +557,11 @@ public class CrashLink : MonoBehaviour
 
         //glow yourself...
         gameObject.BroadcastMessage("TouchGlow");
-
     }
 
     void OnMouseUp()
     {
+
 
         //immovable blocks can't be tapped
         if (holdCharge <= tapTime && tappable)
