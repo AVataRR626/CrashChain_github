@@ -305,9 +305,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf572a4206cc0542acc3eaaf36a973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableTracking: 0
   verticalBlock: 0
   horizontalBlock: 0
   startingPos: {x: 0, y: 0, z: 0}
+  maxY: 1000
+  minY: -1000
+  maxX: 1000
+  minX: -1000
 --- !u!212 &389885392
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -648,7 +653,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 47.84
+      value: 47.46
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y

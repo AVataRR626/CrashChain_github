@@ -17,6 +17,9 @@ public class KeyIntValueMod : MonoBehaviour
             SetMod();
         else
             HardSet();
+
+        if (deleteKey)
+            DeleteKey();
             
     }
 
