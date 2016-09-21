@@ -74,6 +74,7 @@ public class CrashChainDynLevelSaver : MonoBehaviour
             PlayerPrefs.SetInt(lName, score);
             PuzzleUnlocker.instance.bestMoves = score;
         }
-        Debug.Log("-----------saving score:" + score + "," + bestScore + "," + lName);
+
+        //Debug.Log("-----------saving score:" + score + "," + bestScore + "," + lName);
     }
 }
