@@ -75,7 +75,7 @@ public class CrashLink : MonoBehaviour
     public float chargeLimit = 2;
     public Transform graphicsRoot;
     public float colliderActivateDelay = 0.25f;
-    public string bitSerialisation;
+    public int [] bitSerialisation;
 
     private LerpToPosition mover;
     private MouseDrag2D dragger;
@@ -709,29 +709,96 @@ public class CrashLink : MonoBehaviour
         byte t = (byte)(tappable ? 1 : 0);//0000 000x
         byte n = (byte)((north ? 1 : 0) << 1);//0000 00x0
         byte e = (byte)((east ? 1 : 0) << 2);//0000 0x00
-        byte w = (byte)((north ? 1 : 0) << 3);//0000 x000
-        byte s = (byte)((north ? 1 : 0) << 4);//000x 0000
+        byte w = (byte)((west ? 1 : 0) << 3);//0000 x000
+        byte s = (byte)((south ? 1 : 0) << 4);//000x 0000
         launchStats = (byte)(t | n | e | w | s);
 
         //now store the grid coordinates
         xGrid = (byte)smoothSnap.gridCoordinates.x;
         yGrid = (byte)smoothSnap.gridCoordinates.y;
 
+        /*
         //truncate coordinate data into the remaining 3 bits of launchStats
         byte xP1 = (byte)((int)smoothSnap.gridCoordinates.x << 5);//xxx0 000 (the last part of launchStats)
         launchStats = (byte)(launchStats | xP1);
         byte xP2 = (byte)((int)smoothSnap.gridCoordinates.x >> 3);//0000 0xxx     0000 0111 
         yGrid = (byte) (yGrid << 3);//xxxx x000
         byte yGridXPart = (byte)(yGrid | xP2);
+        */
 
-        char p1 = (char)primaryInfo;
-        char p2 = (char)launchStats;
-        char p3 = (char)yGridXPart;
+        char[] resultArr = new char[4];
 
-        string result = p1+""+p2+""+p3;
-        Debug.Log("----------- " + primaryInfo + ", " + launchStats + ", " + yGridXPart);
-        bitSerialisation = result;
+        resultArr[0] = (char)primaryInfo;
+        resultArr[1] = (char)launchStats;
+        //char p3 = (char)yGridXPart;
+        resultArr[2] = (char)xGrid;
+        resultArr[3] = (char)yGrid;
+
+        string result = new string(resultArr);
+
+        Debug.Log("----------- " + primaryInfo + ", " + launchStats + ", " + xGrid + ", " + yGrid);
+
+        bitSerialisation = new int[4];
+        
+
+        for(int i = 0; i < bitSerialisation.Length; i++)
+        {
+            bitSerialisation[i] = (int)resultArr[i];
+        }
+
         return result;
+    }
+
+    [ContextMenu("BitDeserialise")]
+    public void BitDeserialise()
+    {
+        BitDeserialise(bitSerialisation);
+    }
+
+    public void BitDeserialise(int [] parts)
+    {
+        //extract info from the first part
+        byte typeMask = 3;
+        byte coreMask = 12;
+        byte shellMask = 48;
+        byte hMask = 64;
+        byte vMask = 128;
+
+        byte type = (byte)((byte)parts[0] & typeMask);
+        byte core = (byte)((byte)parts[0] & coreMask);
+        byte shell = (byte)((byte)parts[0] & shellMask);
+        byte h = (byte)((byte)parts[0] & hMask);
+        byte v = (byte)((byte)parts[0] & vMask);
+
+        shellType = (int)(shell>>4);
+        coreType = (int)(core>>2);
+        horizontalDrag = (h >= 1) ? true : false;
+        verticalDrag = (v >= 1) ? true : false;
+
+        //extract info from the second part..
+        byte tappableMask = 1;
+        byte northMask = 2;
+        byte eastMask = 4;
+        byte westMask = 8;
+        byte southMask = 16;
+
+        byte tp = (byte)(parts[1] & tappableMask); 
+        byte n = (byte)(parts[1] & northMask);
+        byte e = (byte)(parts[1] & eastMask);
+        byte w = (byte)(parts[1] & westMask);
+        byte s = (byte)(parts[1] & southMask);
+
+        Debug.Log("p1: "+ (int)parts[1]);
+
+        tappable = (tp >= 1) ? true : false;
+        north = (n >= 1) ? true : false;
+        east = (e >= 1) ? true : false;
+        west = (w >= 1) ? true : false;
+        south = (s >= 1) ? true : false;
+
+        //and also apply coordinates
+        smoothSnap.anchorGridCoordinates.x = parts[3];
+        smoothSnap.anchorGridCoordinates.y = parts[4];
     }
 
     public int LinkType()
