@@ -59,6 +59,9 @@ public class MovesMonitor : MonoBehaviour
         }
         else
         {
+            foreach (GameObject o in warningObjects)
+                o.SetActive(false);
+
             warningSwitch = false;
         }
     }
