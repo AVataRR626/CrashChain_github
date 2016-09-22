@@ -24,6 +24,31 @@ public class CrashChainUtil : MonoBehaviour {
         }
     }
 
+    public static string BitSerialiseLevel()
+    {
+        Vector3 camPos = Camera.main.transform.position;
+        float zoom = Camera.main.orthographicSize;
+
+        string serialisedLevel = camPos.x + "|" + camPos.y + "|" + camPos.z + "|" + zoom + ";";
+
+        //get all the crash links and serialise them..
+        CrashLink[] allTheLinks = FindObjectsOfType<CrashLink>();
+
+        foreach (CrashLink l in allTheLinks)
+        {
+            serialisedLevel += l.BitSerialise();
+        }
+        return serialisedLevel;
+    }
+
+    public static void BitDeserialiseLevel(string serialisedLevel, Transform spawnMarker, CrashLink squareLinkPrefab, CrashLink triLinkPrefab, CrashLink hexLinkPrefab)
+    {
+
+        char[] delim = { ';' };
+        string[] components = serialisedLevel.Split(delim);
+
+    }
+
     public static string SerialiseLevel()
     {
 

@@ -392,11 +392,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 451868, guid: 78b0b702600c467439e2d4e0ac719030, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 39.831112
+      value: 37.2
       objectReference: {fileID: 0}
     - target: {fileID: 451868, guid: 78b0b702600c467439e2d4e0ac719030, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 52.020275
+      value: 52.2
       objectReference: {fileID: 0}
     - target: {fileID: 451868, guid: 78b0b702600c467439e2d4e0ac719030, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5561,12 +5561,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapSettings: {x: 2, y: 2, z: 2}
   noSnapOverride: 0
+  forceSnap: 0
   verticalLock: 0
   horizontalLock: 0
   lockAnchor: {x: 0, y: 0, z: 0}
   snapSwitch: 1
   occupancyCheck: 0
   conflictSwitch: 0
+  borderHeight: 0.75
+  borderWidth: 0.75
   gridCoordinates: {x: 0, y: 0, z: 0}
   anchorGridCoordinates: {x: 0, y: 0, z: 0}
 --- !u!114 &1537768039

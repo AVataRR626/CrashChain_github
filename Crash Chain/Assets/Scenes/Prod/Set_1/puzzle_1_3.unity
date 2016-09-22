@@ -387,6 +387,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf572a4206cc0542acc3eaaf36a973b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableTracking: 0
+  verticalBlock: 0
+  horizontalBlock: 0
+  startingPos: {x: 0, y: 0, z: 0}
+  maxY: 1000
+  minY: -1000
+  maxX: 1000
+  minX: -1000
 --- !u!212 &389885392
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -909,6 +917,10 @@ Prefab:
       propertyPath: disableObjects.Array.data[1]
       value: 
       objectReference: {fileID: 52421370}
+    - target: {fileID: 11458758, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
+      propertyPath: retryMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
   m_IsPrefabParent: 0
