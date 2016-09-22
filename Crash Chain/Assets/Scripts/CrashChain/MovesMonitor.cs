@@ -7,11 +7,16 @@ public class MovesMonitor : MonoBehaviour
 
     public bool unlimitedMoves = false;
     public int moveLimit = 3;
+    public int warningTrigger = 2;
     public int moveLimitInc = 3;
     public GameObject [] triggerObjects;
 
+    public GameObject[] warningObjects;
+    public string[] warningMessages;
+
     OverchargeMonitor ocm;
     bool triggerSwitch = false;
+    bool warningSwitch = false;
 
     // Use this for initialization
     void Start ()
@@ -31,6 +36,30 @@ public class MovesMonitor : MonoBehaviour
                 GenUtils.SetActiveObjects(ref triggerObjects, true);
                 triggerSwitch = true;
             }
+        }
+
+        ManageWarnings();
+    }
+
+    public void ManageWarnings()
+    {
+        if (GetMovesLeft() <= warningTrigger)
+        {
+            int i = 0;
+            if (!warningSwitch)
+            {
+                foreach (GameObject o in warningObjects)
+                {
+                    o.SetActive(true);
+                    o.SendMessage(warningMessages[i], SendMessageOptions.DontRequireReceiver);
+                    i++;
+                }
+                warningSwitch = true;
+            }
+        }
+        else
+        {
+            warningSwitch = false;
         }
     }
 

@@ -18,10 +18,14 @@ public class OverchargeMonitor : MonoBehaviour
     public string message;
     public int overchargeLimInc = 0;
 
+    public int warningTrigger = 2;
+    public GameObject [] warningObjects;
+    public string [] warningMessages;
+
     private int moveCount = 0;
     private float clock;
     private bool saveSwitch = false;
-    
+    private bool warningSwitch = false;
 
 	// Use this for initialization
 	void Start ()
@@ -76,7 +80,34 @@ public class OverchargeMonitor : MonoBehaviour
         {
             Trigger();
         }
-	}
+
+        ManageWarnings();
+    }
+
+    public void ManageWarnings()
+    {
+        if(RemainingOvercharges() <= warningTrigger)
+        {
+            int i = 0;
+            if(!warningSwitch)
+            {
+                foreach(GameObject o in warningObjects)
+                {
+                    o.SetActive(true);
+                    o.SendMessage(warningMessages[i],SendMessageOptions.DontRequireReceiver);
+                    i++;
+                }
+                warningSwitch = true;
+            }
+        }
+        else
+        {
+            foreach (GameObject o in warningObjects)
+                o.SetActive(false);
+
+            warningSwitch = false;
+        }
+    }
 
     public int GetMoves()
     {
