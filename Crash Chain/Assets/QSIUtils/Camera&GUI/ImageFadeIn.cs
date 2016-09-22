@@ -80,7 +80,7 @@ public class ImageFadeIn : MonoBehaviour
 
     void FadeOut()
     {
-        Debug.Log("Fade Out:");
+        //Debug.Log("Fade Out:");
         if (img != null)
         {
             img.color = FadeOut(img.color, 0, fadeInRate);

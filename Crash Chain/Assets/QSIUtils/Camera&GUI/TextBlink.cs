@@ -10,17 +10,27 @@ public class TextBlink : MonoBehaviour
 	public Color col2;
 	public float col1BlinkRate;
 	public float col2BlinkRate;
-    public float blinkClock = 3;
+    public float blinkTime = 3;
+    
     public bool blinkForever = false;
 
 	private Text sr;
 	private bool blinkFlag;
-	// Use this for initialization
-	void Start () 
+    public float blinkClock;
+    // Use this for initialization
+    void Start () 
 	{
-		sr = GetComponent<Text>();
-		sr.color = col1;
-	}
+		
+        Reset();
+    }
+
+    public void Reset()
+    {
+        sr = GetComponent<Text>();
+        Debug.Log("TextBlink: Reset");
+        sr.color = col1;
+        blinkClock = blinkTime;
+    }
 	
 	// Update is called once per frame
 	void Update () 

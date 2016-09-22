@@ -474,7 +474,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: version 0.88.5 alpha
+  m_Text: version 0.89.0 alpha
 --- !u!222 &1050030333
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -876,6 +876,11 @@ Prefab:
         type: 2}
       propertyPath: customSetName
       value: puzzle_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012607717614, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: m_Text
+      value: store
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a15a9a21cfdf56f4ca3770d6cd76f368, type: 2}

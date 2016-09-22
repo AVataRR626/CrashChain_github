@@ -7,6 +7,7 @@ public class OverchargeMonitor : MonoBehaviour
     public static OverchargeMonitor instance;
     public static string crashBoltTag = "CrashBolt";
 
+    [Header("Trigger Settings")]
     public float timeLimit = 1.65f;    
     public int timerTrigger = 1;    
     public CrashChainDynLevelSaver levelSaver;
@@ -18,9 +19,11 @@ public class OverchargeMonitor : MonoBehaviour
     public string message;
     public int overchargeLimInc = 0;
 
+    [Header("Warning Settings")]
     public int warningTrigger = 2;
-    public GameObject [] warningObjects;
+    public GameObject [] warningObjects;    
     public string [] warningMessages;
+    public GameObject[] warningDisableList;
 
     private int moveCount = 0;
     private float clock;
@@ -97,6 +100,11 @@ public class OverchargeMonitor : MonoBehaviour
                     o.SendMessage(warningMessages[i],SendMessageOptions.DontRequireReceiver);
                     i++;
                 }
+
+                foreach(GameObject o in warningDisableList)
+                {
+                    o.SetActive(false);
+                }
                 warningSwitch = true;
             }
         }
@@ -172,6 +180,11 @@ public class OverchargeMonitor : MonoBehaviour
 
     public int RemainingOvercharges()
     {
-        return timerTrigger - CrashLink.overchargeCount;
+        int result = timerTrigger - CrashLink.overchargeCount;
+
+        if(result > 0)
+            return result;
+
+        return 0;
     }
 }

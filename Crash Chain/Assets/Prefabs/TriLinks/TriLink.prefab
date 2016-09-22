@@ -216,7 +216,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.95
+  m_Radius: 0.77
 --- !u!114 &11401926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,6 +311,7 @@ MonoBehaviour:
   colliderActivateDelay: 0.25
   bitSerialisation: 
   holdCharge: 0
+  prevPos: {x: 0, y: 0, z: 0}
 --- !u!114 &11481196
 MonoBehaviour:
   m_ObjectHideFlags: 1
