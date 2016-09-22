@@ -76,6 +76,7 @@ public class CrashLink : MonoBehaviour
     public Transform graphicsRoot;
     public float colliderActivateDelay = 0.25f;
     public int [] bitSerialisation;
+    public string bitStringEncoding;
 
     private LerpToPosition mover;
     private MouseDrag2D dragger;
@@ -724,13 +725,14 @@ public class CrashLink : MonoBehaviour
         byte xP2 = (byte)((int)smoothSnap.gridCoordinates.x >> 3);//0000 0xxx     0000 0111 
         yGrid = (byte) (yGrid << 3);//xxxx x000
         byte yGridXPart = (byte)(yGrid | xP2);
+        char p3 = (char)yGridXPart;
         */
 
         char[] resultArr = new char[4];
 
         resultArr[0] = (char)primaryInfo;
         resultArr[1] = (char)launchStats;
-        //char p3 = (char)yGridXPart;
+       
         resultArr[2] = (char)xGrid;
         resultArr[3] = (char)yGrid;
 
@@ -746,13 +748,30 @@ public class CrashLink : MonoBehaviour
             bitSerialisation[i] = (int)resultArr[i];
         }
 
+        bitStringEncoding = result;
+
         return result;
     }
 
     [ContextMenu("BitDeserialise")]
     public void BitDeserialise()
     {
-        BitDeserialise(bitSerialisation);
+        //BitDeserialise(bitSerialisation);
+        BitDeserialise(bitStringEncoding);
+    }
+
+
+    public void BitDeserialise(string encoding)
+    {
+        char [] charArr = encoding.ToCharArray();
+        int [] intParts = new int[4];
+
+        for(int i = 0; i < intParts.Length; i++)
+        {
+            intParts[i] = (int)charArr[i];
+        }
+
+        BitDeserialise(intParts);
     }
 
     public void BitDeserialise(int [] parts)
@@ -788,7 +807,7 @@ public class CrashLink : MonoBehaviour
         byte w = (byte)(parts[1] & westMask);
         byte s = (byte)(parts[1] & southMask);
 
-        Debug.Log("p1: "+ (int)parts[1]);
+        //Debug.Log("p1: "+ (int)parts[1]);
 
         tappable = (tp >= 1) ? true : false;
         north = (n >= 1) ? true : false;
@@ -797,8 +816,9 @@ public class CrashLink : MonoBehaviour
         south = (s >= 1) ? true : false;
 
         //and also apply coordinates
-        smoothSnap.anchorGridCoordinates.x = parts[3];
-        smoothSnap.anchorGridCoordinates.y = parts[4];
+        smoothSnap.gridCoordinates.x = (int)parts[2];
+        smoothSnap.gridCoordinates.y = (int)parts[3];
+        smoothSnap.InstantSnap();
     }
 
     public int LinkType()
