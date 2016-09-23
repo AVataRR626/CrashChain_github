@@ -46,7 +46,9 @@ public class CrashLinkEditor : MonoBehaviour
         string rawCustomSetString = PlayerPrefs.GetString(setListKey, "");
         customSets = rawCustomSetString.Split(PuzzleLoader.setDelimiter);
 
-         Init();
+        Init();
+
+        //lblLevelNumber.text = (levelNumber + 1).ToString();
     }
 
     public void Init()

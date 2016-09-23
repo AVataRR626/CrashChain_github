@@ -718,36 +718,38 @@ public class CrashLink : MonoBehaviour
         xGrid = (byte)smoothSnap.gridCoordinates.x;
         yGrid = (byte)smoothSnap.gridCoordinates.y;
 
-        /*
+        
         //truncate coordinate data into the remaining 3 bits of launchStats
-        byte xP1 = (byte)((int)smoothSnap.gridCoordinates.x << 5);//xxx0 000 (the last part of launchStats)
+        byte xP1 = (byte)(xGrid << 5);//xxx0 0000 (the last part of launchStats)
         launchStats = (byte)(launchStats | xP1);
-        byte xP2 = (byte)((int)smoothSnap.gridCoordinates.x >> 3);//0000 0xxx     0000 0111 
+
+        //store the rest along with the yGrid parts..
+        byte xP2 = (byte)(xGrid >> 3);//0000 0xxx     0000 0111 
         yGrid = (byte) (yGrid << 3);//xxxx x000
+
         byte yGridXPart = (byte)(yGrid | xP2);
-        char p3 = (char)yGridXPart;
-        */
+        
 
-        char[] resultArr = new char[4];
-
+        char[] resultArr = new char[3];
         resultArr[0] = (char)primaryInfo;
         resultArr[1] = (char)launchStats;
+        resultArr[2] = (char)yGridXPart;
        
-        resultArr[2] = (char)xGrid;
-        resultArr[3] = (char)yGrid;
+        //resultArr[2] = (char)xGrid;
+        //resultArr[3] = (char)yGrid;
 
-        string result = new string(resultArr);
-
-        Debug.Log("----------- " + primaryInfo + ", " + launchStats + ", " + xGrid + ", " + yGrid);
-
-        bitSerialisation = new int[4];
         
+
+        Debug.Log("----------- " + primaryInfo + ", " + launchStats + ", " + (int)resultArr[2] + ", " + xGrid + ", " + yGrid);
+
+        bitSerialisation = new int[resultArr.Length];
 
         for(int i = 0; i < bitSerialisation.Length; i++)
         {
             bitSerialisation[i] = (int)resultArr[i];
         }
 
+        string result = new string(resultArr);
         bitStringEncoding = result;
 
         return result;
@@ -764,7 +766,7 @@ public class CrashLink : MonoBehaviour
     public void BitDeserialise(string encoding)
     {
         char [] charArr = encoding.ToCharArray();
-        int [] intParts = new int[4];
+        int [] intParts = new int[3];
 
         for(int i = 0; i < intParts.Length; i++)
         {
@@ -819,9 +821,21 @@ public class CrashLink : MonoBehaviour
         if (smoothSnap == null)
             smoothSnap = GetComponent<SmoothSnap>();
 
-        smoothSnap.gridCoordinates.x = (int)parts[2];
-        smoothSnap.gridCoordinates.y = (int)parts[3];
+        byte xP1Mask = 224;
+        byte xP2Mask = 7;
+        byte yMask = 248;
+
+        byte xp1 = (byte)(parts[1] & xP1Mask);
+        byte xp2 = (byte)(parts[2] & xP2Mask);
+        byte x = (byte)((xp1 >> 5) | (xp2 << 3));
+        byte y = (byte)((parts[2] & yMask)>>3);
+        smoothSnap.gridCoordinates.x = (int)x;
+        smoothSnap.gridCoordinates.y = (int)y;
         smoothSnap.InstantSnap();
+
+        //smoothSnap.gridCoordinates.x = (int)parts[2];
+        //smoothSnap.gridCoordinates.y = (int)parts[3];
+        //smoothSnap.InstantSnap();
     }
 
     public int LinkType()

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class CrashChainUtil : MonoBehaviour {
 
@@ -28,10 +29,13 @@ public class CrashChainUtil : MonoBehaviour {
     {
         Vector3 camPos = Camera.main.transform.position;
         float zoom = Camera.main.orthographicSize;
+                
+        string xCam = new string(CharByteConvert(camPos.x));
+        string yCam = new string(CharByteConvert(camPos.y));
+        string zCam = new string(CharByteConvert(camPos.z));
+        string zm = new string(CharByteConvert(zoom));
 
-        char delim = (char)255;//11111111
-
-        string serialisedLevel = camPos.x + "|" + camPos.y + "|" + camPos.z + "|" + zoom + delim;
+        string serialisedLevel = xCam + yCam + zm;
 
         //get all the crash links and serialise them..
         CrashLink[] allTheLinks = FindObjectsOfType<CrashLink>();
@@ -43,17 +47,49 @@ public class CrashChainUtil : MonoBehaviour {
         return serialisedLevel;
     }
 
+    //Adapted from: https://msdn.microsoft.com/en-us/library/yhwsaf3w(v=vs.110).aspx
+    //Convert a float into a char array based on its bit representation...
+    public static char[] CharByteConvert(float argument)
+    {
+        byte [] byteArr = BitConverter.GetBytes(argument);
+
+        char[] result = new char[byteArr.Length];
+
+        for(int i = 0; i < result.Length; i++)
+        {
+            result[i] = (char)byteArr[i];
+        }
+
+        return result;
+    }
+
     public static void BitDeserialiseLevel(string serialisedLevel, Transform spawnMarker, CrashLink squareLinkPrefab, CrashLink triLinkPrefab, CrashLink hexLinkPrefab)
     {
-        //split the components...
-        char[] delim = { (char)255};
-        string[] components = serialisedLevel.Split(delim);
+        char[] levelBits = serialisedLevel.ToCharArray();       
 
-        //set the camera
-        string[] camAttrs;
-        char[] localDelim = { '|' };
-        camAttrs = components[0].Split(localDelim);
+        //reconstruct the float values from the bytes
+        float[] camResults = new float[3];
+        for(int i = 0; i < 3; i++)
+        {
+            byte[] accumulator = new byte[4];
+            for(int j = 0; j < 4; j++)
+            {
+                accumulator[j] = (byte)levelBits[i * 4 + j];
+            }
+            camResults[i] = BitConverter.ToSingle(accumulator,0);
+        }
 
+        Vector3 camPos = new Vector3(0, 0, -1);
+
+        camPos.x = camResults[0];
+        camPos.y = camResults[1];
+        //camPos.z = camResults[2];
+
+
+        Camera.main.transform.position = camPos;
+        Camera.main.orthographicSize = camResults[2];
+
+        /*
         Vector3 camPos = new Vector3(0, 0, 0);
 
         camPos.x = float.Parse(camAttrs[0]);
@@ -62,20 +98,20 @@ public class CrashChainUtil : MonoBehaviour {
 
 
         Camera.main.transform.position = camPos;
-
         Camera.main.orthographicSize = float.Parse(camAttrs[3]);
+        */
 
         //okay, now onto the pieces..
-        char[] puzzlePieces = components[1].ToCharArray();
+        //char[] puzzlePieces = components[1].ToCharArray();
 
-        for(int i = 0; i < puzzlePieces.Length; i+=4)
+        for(int i = 12; i < levelBits.Length; i+=3)
         {
             //put the encoding in the right format for consumption..
-            int[] parts = new int[4];
+            int[] parts = new int[3];
 
-            for(int j = 0; j < 4; j++)
+            for(int j = 0; j < 3; j++)
             {
-                parts[j] = puzzlePieces[i + j];
+                parts[j] = levelBits[i + j];
             }
 
             //recover the type and spawn the right one

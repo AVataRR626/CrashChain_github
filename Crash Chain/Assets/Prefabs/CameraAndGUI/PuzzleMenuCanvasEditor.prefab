@@ -1529,11 +1529,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e74289400d468324da843877eb141c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exportText: {fileID: 114000011766536328}
-  currentCustomSet: 
-  qrController: {fileID: 114000011059452796}
-  qrCodeImage: {fileID: 114000010284021556}
   setString: 
+  currentCustomSet: 
+  exportText: {fileID: 114000011766536328}
+  qrEncodeController: {fileID: 114000011059452796}
+  qrCodeImage: {fileID: 114000010284021556}
+  e_qrController: {fileID: 0}
+  UiText: {fileID: 0}
+  resetBtn: {fileID: 0}
+  scanLineObj: {fileID: 0}
 --- !u!114 &114000011399029998
 MonoBehaviour:
   m_ObjectHideFlags: 1

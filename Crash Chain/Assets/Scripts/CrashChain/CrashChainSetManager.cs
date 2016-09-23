@@ -154,8 +154,10 @@ public class CrashChainSetManager : MonoBehaviour
 
         for (int i = 0; i < 12; i++)
         {
+            //get set data from internal storage...
             result += PlayerPrefs.GetString("lvl:" + set + ":" + i.ToString());
 
+            //separate each set with a delimiter
             if(i <11)
                 result += CrashChainSetManager.SetDelimiter;
 

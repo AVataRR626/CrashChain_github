@@ -277,6 +277,9 @@ public class SmoothSnap : MonoBehaviour
 
     public void ResetDraggerLimits()
     {
+        if (dragger == null)
+            dragger = GetComponent<MouseDrag2D>();
+
         dragger.minX = -1000;
         dragger.minY = -1000;
         dragger.maxX = 1000;
