@@ -29,7 +29,9 @@ public class CrashChainUtil : MonoBehaviour {
         Vector3 camPos = Camera.main.transform.position;
         float zoom = Camera.main.orthographicSize;
 
-        string serialisedLevel = camPos.x + "|" + camPos.y + "|" + camPos.z + "|" + zoom + ";";
+        char delim = (char)255;//11111111
+
+        string serialisedLevel = camPos.x + "|" + camPos.y + "|" + camPos.z + "|" + zoom + delim;
 
         //get all the crash links and serialise them..
         CrashLink[] allTheLinks = FindObjectsOfType<CrashLink>();
@@ -44,7 +46,7 @@ public class CrashChainUtil : MonoBehaviour {
     public static void BitDeserialiseLevel(string serialisedLevel, Transform spawnMarker, CrashLink squareLinkPrefab, CrashLink triLinkPrefab, CrashLink hexLinkPrefab)
     {
         //split the components...
-        char[] delim = { ';' };
+        char[] delim = { (char)255};
         string[] components = serialisedLevel.Split(delim);
 
         //set the camera

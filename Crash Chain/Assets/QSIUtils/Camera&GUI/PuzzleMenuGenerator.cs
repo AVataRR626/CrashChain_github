@@ -91,7 +91,10 @@ public class PuzzleMenuGenerator : MonoBehaviour
             StartCoroutine("GenerateButtonsTimed", buttonGenDelay);
 
             if (customMode)
+            {
                 customSetName = customSets[setNumber - 1];
+                PlayerPrefs.SetString(PuzzleLoader.currentCustomSetNameKey, customSets[setNumber - 1]);
+            }
         }
 
     }
@@ -214,6 +217,7 @@ public class PuzzleMenuGenerator : MonoBehaviour
 
         //scene management
         PlayerPrefs.SetInt(currentSetNumberKey, setNumber);
+        PlayerPrefs.SetString(PuzzleLoader.currentCustomSetNameKey, customSets[setNumber - 1]);
     }
 
     public void GenerateButtons()

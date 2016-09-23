@@ -6,7 +6,7 @@ public class CrashChainSetManager : MonoBehaviour
 {
     public GameObject setButtonTemplate;
     public static string SetListKey = "SetList";
-    public static char SetDelimiter = ';';
+    public static char SetDelimiter = (char)127;//01111111
 
     public PuzzleMenuGenerator myGenerator;
     public string[] setList;
