@@ -49,6 +49,7 @@ public class CrashChainImportExportManager : MonoBehaviour
 
     public string CompressCustomSetString()
     {
+        currentCustomSet = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetNameKey);
         setString = PlayerPrefs.GetString(currentCustomSet);
 
         byte[] compByte = Zip(currentCustomSet);
@@ -67,10 +68,9 @@ public class CrashChainImportExportManager : MonoBehaviour
     }
 
     public void GenerateQR()
-    {
-        //currentCustomSetString = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetNameKey);
+    {   
         CompressCustomSetString();
-        setString = CrashChainSetManager.GetSetString(currentCustomSet);
+        
         Debug.Log(compressedSetString.Length + ";" + setString.Length);
 
         if (qrEncodeController != null)
