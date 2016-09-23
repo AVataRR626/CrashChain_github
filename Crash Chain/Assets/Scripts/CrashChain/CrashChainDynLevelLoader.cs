@@ -64,7 +64,7 @@ public class CrashChainDynLevelLoader : MonoBehaviour
         string levelString = "lvl:" + customLevel;
         Debug.Log("Handling Custom Load: " + levelString);
         serialisedLevel = PlayerPrefs.GetString(levelString);        
-        CrashChainUtil.DeserialiseLevel(serialisedLevel, transform, squareLinkPrefab, triLinkPrefab, hexLinkPrefab);
+        CrashChainUtil.BitDeserialiseLevel(serialisedLevel, transform, squareLinkPrefab, triLinkPrefab, hexLinkPrefab);
     }
 
     void HandleRetry()

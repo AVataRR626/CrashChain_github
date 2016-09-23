@@ -43,9 +43,64 @@ public class CrashChainUtil : MonoBehaviour {
 
     public static void BitDeserialiseLevel(string serialisedLevel, Transform spawnMarker, CrashLink squareLinkPrefab, CrashLink triLinkPrefab, CrashLink hexLinkPrefab)
     {
-
+        //split the components...
         char[] delim = { ';' };
         string[] components = serialisedLevel.Split(delim);
+
+        //set the camera
+        string[] camAttrs;
+        char[] localDelim = { '|' };
+        camAttrs = components[0].Split(localDelim);
+
+        Vector3 camPos = new Vector3(0, 0, 0);
+
+        camPos.x = float.Parse(camAttrs[0]);
+        camPos.y = float.Parse(camAttrs[1]);
+        camPos.z = float.Parse(camAttrs[2]);
+
+
+        Camera.main.transform.position = camPos;
+
+        Camera.main.orthographicSize = float.Parse(camAttrs[3]);
+
+        //okay, now onto the pieces..
+        char[] puzzlePieces = components[1].ToCharArray();
+
+        for(int i = 0; i < puzzlePieces.Length; i+=4)
+        {
+            //put the encoding in the right format for consumption..
+            int[] parts = new int[4];
+
+            for(int j = 0; j < 4; j++)
+            {
+                parts[j] = puzzlePieces[i + j];
+            }
+
+            //recover the type and spawn the right one
+            int type = (int)parts[0] & 3;
+            CrashLink newLink = null;
+            switch(type)
+            {
+                case 0:
+                    newLink = Instantiate(squareLinkPrefab, spawnMarker.position, Quaternion.identity) as CrashLink;
+                    break;
+
+                case 1:
+                    newLink = Instantiate(triLinkPrefab, spawnMarker.position, Quaternion.identity) as CrashLink;
+                    break;
+
+                case 2:
+                    newLink = Instantiate(hexLinkPrefab, spawnMarker.position, Quaternion.identity) as CrashLink;
+                    break;
+
+                default:
+                    newLink = Instantiate(squareLinkPrefab, spawnMarker.position, Quaternion.identity) as CrashLink;
+                    break;
+            }
+
+            //get the rest of the info! (plzwork)
+            newLink.BitDeserialise(parts);
+        }
 
     }
 

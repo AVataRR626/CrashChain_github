@@ -816,6 +816,9 @@ public class CrashLink : MonoBehaviour
         south = (s >= 1) ? true : false;
 
         //and also apply coordinates
+        if (smoothSnap == null)
+            smoothSnap = GetComponent<SmoothSnap>();
+
         smoothSnap.gridCoordinates.x = (int)parts[2];
         smoothSnap.gridCoordinates.y = (int)parts[3];
         smoothSnap.InstantSnap();

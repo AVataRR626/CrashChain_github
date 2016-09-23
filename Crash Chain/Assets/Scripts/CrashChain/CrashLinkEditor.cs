@@ -20,6 +20,8 @@ public class CrashLinkEditor : MonoBehaviour
     public CrashLink triLinkPrefab;
     public CrashLink hexLinkPrefab;
     public Vector2 toolbarBorders = new Vector2(0.25f, 0.2f);
+    public GameObject linkMutatorTree;
+    public GameObject blockerModTree;
 
     public string serialisedLevel;
 
@@ -217,7 +219,12 @@ public class CrashLinkEditor : MonoBehaviour
 
                 highlighter.GetComponent<SmoothSnap>().snapSwitch = true;
             }
+
+            blockerModTree.SetActive(myFocus.LinkType() == 0);
         }
+
+        linkMutatorTree.SetActive(myFocus != null);
+
 
         //start a new count every frame...
         blockFrameClickCount = 0;
@@ -458,7 +465,8 @@ public class CrashLinkEditor : MonoBehaviour
         */
 
         //prep the serialisation string..
-        serialisedLevel = CrashChainUtil.SerialiseLevel();
+        //serialisedLevel = CrashChainUtil.SerialiseLevel();
+        serialisedLevel = CrashChainUtil.BitSerialiseLevel();
 
         return serialisedLevel;
     }
@@ -491,7 +499,8 @@ public class CrashLinkEditor : MonoBehaviour
     {
         //first clear the level...
         ClearLevel();
-        CrashChainUtil.DeserialiseLevel(serialisedLevel, spawnMarker, squareLinkPrefab, triLinkPrefab, hexLinkPrefab);
+        //CrashChainUtil.DeserialiseLevel(serialisedLevel, spawnMarker, squareLinkPrefab, triLinkPrefab, hexLinkPrefab);
+        CrashChainUtil.BitDeserialiseLevel(serialisedLevel, spawnMarker, squareLinkPrefab, triLinkPrefab, hexLinkPrefab);
     }
 
     public void ClearLevel()
