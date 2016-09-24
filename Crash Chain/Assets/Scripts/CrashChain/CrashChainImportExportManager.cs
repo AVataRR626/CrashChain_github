@@ -116,6 +116,10 @@ public class CrashChainImportExportManager : MonoBehaviour
         {
             qrCodeImage.texture = tex;
             debugTxt.text = compressedSetString.Length + ";" + setString.Length;
+
+            string[] levels = setString.Split(CrashChainSetManager.LevelDelimiter);
+
+            debugTxt.text += ";" + levels.Length;
         }
         else
         {
