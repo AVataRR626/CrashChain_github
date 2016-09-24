@@ -217,7 +217,9 @@ public class PuzzleMenuGenerator : MonoBehaviour
 
         //scene management
         PlayerPrefs.SetInt(currentSetNumberKey, setNumber);
-        PlayerPrefs.SetString(PuzzleLoader.currentCustomSetNameKey, customSets[setNumber - 1]);
+
+        if(customMode)
+            PlayerPrefs.SetString(PuzzleLoader.currentCustomSetNameKey, customSets[setNumber - 1]);
     }
 
     public void GenerateButtons()
