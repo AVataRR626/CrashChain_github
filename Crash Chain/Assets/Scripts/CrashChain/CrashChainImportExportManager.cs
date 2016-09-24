@@ -19,11 +19,12 @@ public class CrashChainImportExportManager : MonoBehaviour
 
     [Header("Import Settings")]
     public QRCodeDecodeController e_qrController;
-
     public Text UiText;
     public GameObject resetBtn;
     public GameObject scanLineObj;
 
+    [Header("Debug")]
+    public Text debugTxt;
 
     // Use this for initialization
     void Start ()
@@ -47,12 +48,28 @@ public class CrashChainImportExportManager : MonoBehaviour
 	
 	}
 
+    public void ImportButton()
+    {
+        string newSetName = "ImportedSet_" + System.DateTime.Now.ToString("yymmddHHmmss");
+
+        if (CrashChainSetManager.ValidSetString(setString))
+        {
+            CrashChainSetManager.ImportSet(setString, newSetName);
+        }
+        else
+        {
+            UiText.text = "Invalid Set Data";
+        }
+    }
+
     public string CompressCustomSetString()
     {
         currentCustomSet = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetNameKey);
-        setString = PlayerPrefs.GetString(currentCustomSet);
+        setString = CrashChainSetManager.GetSetString(currentCustomSet);
 
-        byte[] compByte = Zip(currentCustomSet);
+        Debug.Log(currentCustomSet + ";" + setString.Length);
+
+        byte[] compByte = Zip(setString);
 
         char[] compChar = new char[compByte.Length];
 
@@ -65,6 +82,19 @@ public class CrashChainImportExportManager : MonoBehaviour
         compressedSetString = compString;
 
         return compString;
+    }
+
+    public string DecompressCustomSetString()
+    {
+        char [] compChar = compressedSetString.ToCharArray();
+        byte [] compByte = new byte[compChar.Length];
+
+        for(int i = 0; i < compByte.Length; i++)
+        {
+            compByte[i] = (byte) compChar[i];
+        }
+
+        return Unzip(compByte);
     }
 
     public void GenerateQR()
@@ -85,6 +115,7 @@ public class CrashChainImportExportManager : MonoBehaviour
         if (tex != null && tex != null)
         {
             qrCodeImage.texture = tex;
+            debugTxt.text = compressedSetString.Length + ";" + setString.Length;
         }
         else
         {
@@ -94,7 +125,14 @@ public class CrashChainImportExportManager : MonoBehaviour
 
     void qrScanFinished(string dataText)
     {
-        UiText.text = dataText;
+        //UiText.text = dataText;
+        UiText.text = dataText.Length.ToString();
+
+        compressedSetString = dataText;
+        setString = DecompressCustomSetString();
+
+        Debug.Log(compressedSetString.Length + ";" + setString.Length);
+
         if (resetBtn != null)
         {
             resetBtn.SetActive(true);
@@ -103,6 +141,38 @@ public class CrashChainImportExportManager : MonoBehaviour
         if (scanLineObj != null)
         {
             scanLineObj.SetActive(false);
+        }
+
+        if (!CrashChainSetManager.ValidSetString(setString))
+        {
+            UiText.text = "Invalid Set Data";
+        }
+        else
+        {
+            UiText.text = "Scan successful!! Ready to import.";
+        }
+    }
+
+    public void Reset()
+    {
+        if (e_qrController != null)
+        {
+            e_qrController.Reset();
+        }
+
+        if (UiText != null)
+        {
+            UiText.text = "";
+        }
+
+        if (resetBtn != null)
+        {
+            resetBtn.SetActive(false);
+        }
+
+        if (scanLineObj != null)
+        {
+            scanLineObj.SetActive(true);
         }
     }
 

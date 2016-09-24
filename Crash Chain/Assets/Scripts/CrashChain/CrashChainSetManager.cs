@@ -6,7 +6,7 @@ public class CrashChainSetManager : MonoBehaviour
 {
     public GameObject setButtonTemplate;
     public static string SetListKey = "SetList";
-    public static char SetDelimiter = (char)127;//01111111
+    public static char LevelDelimiter = (char)255;//1111 1111
 
     public PuzzleMenuGenerator myGenerator;
     public string[] setList;
@@ -24,10 +24,23 @@ public class CrashChainSetManager : MonoBehaviour
 
     }
 
+    public void ImportButton()
+    {
+        string newSetName = "ImportedSet_" + System.DateTime.Now.ToString("yymmddHHmmss");
+
+        AddSetButton(newSetName);
+    }
+
     public void NewSetButton()
+    { 
+        string newSetName = "NewSet_" + System.DateTime.Now.ToString("yymmddHHmmss");
+
+        AddSetButton(newSetName);
+    }
+
+    public void AddSetButton(string newSetName)
     {
         int endNum = setList.Length + 1;
-        string newSetName = "NewSet_" + endNum;
 
         AddSet(newSetName);
         PlayerPrefs.SetString(PuzzleLoader.currentCustomSetNameKey, newSetName);
@@ -157,13 +170,43 @@ public class CrashChainSetManager : MonoBehaviour
             //get set data from internal storage...
             result += PlayerPrefs.GetString("lvl:" + set + ":" + i.ToString());
 
+            //Debug.Log("lvl:" + set + ":" + i.ToString() + "; " + PlayerPrefs.GetString("lvl:" + set + ":" + i.ToString()).Length);
+
             //separate each set with a delimiter
             if(i <11)
-                result += CrashChainSetManager.SetDelimiter;
+                result += CrashChainSetManager.LevelDelimiter;
 
         }
 
         return result;
+    }
 
+    public static bool ValidSetString(string setString)
+    {
+        string[] newLevels = setString.Split(LevelDelimiter);
+
+        return newLevels.Length == 12;
+    }
+
+    public static void ImportSet(string setString, string setName)
+    {
+        string[] newLevels = setString.Split(LevelDelimiter);
+
+        if(newLevels.Length != 12)
+        {
+            Debug.LogError("ImportSet: Trying to import invalid set! Level count should be 12. Is: " + newLevels.Length);
+        }
+        else
+        {
+            if(!SetExists(setName))
+            {
+                AddSet(setName);
+            }
+
+            for(int i = 0; i < 12; i++)
+            {
+                PlayerPrefs.SetString("lvl:" + setName + ":" + i.ToString(), newLevels[i]);
+            }
+        }
     }
 }

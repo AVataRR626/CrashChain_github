@@ -160,7 +160,7 @@ public class CrashLink : MonoBehaviour
 
     public void SyncAxisLocks()
     {
-        Debug.Log("AXIS LOCK SYNC!");
+        //Debug.Log("AXIS LOCK SYNC!");
 
         if (dragger == null)
             dragger = GetComponent<MouseDrag2D>();

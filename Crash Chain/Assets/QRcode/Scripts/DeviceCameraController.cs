@@ -5,7 +5,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-public class DeviceCameraController : MonoBehaviour {
+public class DeviceCameraController : MonoBehaviour
+{
+    public bool initOnWake = true;
 
 	public enum CameraMode
 	{
@@ -30,9 +32,9 @@ public class DeviceCameraController : MonoBehaviour {
 	}
 	// Use this for initialization  
 	void Awake()  
-	{  
-		StartCoroutine(CamCon());  
-		e_CameraPlaneObj = transform.FindChild ("CameraPlane").gameObject;
+	{
+        if(initOnWake)
+            Init();
 
 	}
 	
@@ -68,6 +70,12 @@ public class DeviceCameraController : MonoBehaviour {
 			isPlay = true;  
 		}  
 	}
+
+    public void Init()
+    {
+        StartCoroutine(CamCon());
+        e_CameraPlaneObj = transform.FindChild("CameraPlane").gameObject;
+    }
 
 	public void StopWork()
 	{
