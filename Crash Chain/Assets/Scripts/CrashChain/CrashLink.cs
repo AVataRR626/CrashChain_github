@@ -70,6 +70,7 @@ public class CrashLink : MonoBehaviour
     //system things..
     public CrashLinkEditor myEditor;
     public float tapTime = 0.1f;
+    public float tapDistance = 0.1f;
     public float touchFactor = 1;
     public float charge;
     public float chargeLimit = 2;
@@ -92,6 +93,7 @@ public class CrashLink : MonoBehaviour
     private Vector3 prevAnchorGridCoordinates;
     public float holdCharge = 0;
     public Vector3 prevPos;
+    public float dragDistance;
 
     void Awake()
     {
@@ -259,8 +261,6 @@ public class CrashLink : MonoBehaviour
             movable = true;
 
         ColourOutlines();
-
-        prevPos = transform.position;
     }
 
     void MonitorMoves()
@@ -558,14 +558,17 @@ public class CrashLink : MonoBehaviour
 
         //glow yourself...
         gameObject.BroadcastMessage("TouchGlow");
+
+        dragDistance = 0;
+        prevPos = transform.position;
     }
 
     void OnMouseUp()
     {
-
-
         //immovable blocks can't be tapped
-        if (holdCharge <= tapTime && tappable)
+        if (holdCharge <= tapTime && 
+            dragDistance <= tapDistance &&
+            tappable)
         {
             if (Time.time - lastClickTime <= tapTime)
             {
@@ -582,6 +585,8 @@ public class CrashLink : MonoBehaviour
 
         gameObject.BroadcastMessage("TouchDim");
         SyncAxisLocks();
+        dragDistance = 0;
+        prevPos = transform.position;
     }
 
     void OnMouseDrag()
@@ -591,6 +596,9 @@ public class CrashLink : MonoBehaviour
             holdCharge += Time.deltaTime;
             //Debug.Log("--------------------- hold charge");
         }
+
+        dragDistance += Vector3.Distance(transform.position,prevPos);
+        prevPos = transform.position;
     }
 
     //returns the CrashLink format serialisation.

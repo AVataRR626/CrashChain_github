@@ -41,7 +41,7 @@ public class PulseMessage : MonoBehaviour
     void PulseStart()
     {
         if(subject != null)
-            subject.SendMessage(startMessage);
+            subject.SendMessage(startMessage, SendMessageOptions.DontRequireReceiver);
 
         Invoke("PulseEnd", pulseLength);
     }
@@ -51,7 +51,7 @@ public class PulseMessage : MonoBehaviour
         pulseCountTracker--;
 
         if (subject != null)
-            subject.SendMessage(endMessage);
+            subject.SendMessage(endMessage, SendMessageOptions.DontRequireReceiver);
 
         if(pulseCountTracker > 0)
             Invoke("PulseStart", pulseInterval);

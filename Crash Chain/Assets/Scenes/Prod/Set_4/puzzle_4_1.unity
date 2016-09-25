@@ -165,7 +165,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 52421370}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.1, y: 47.17, z: -0.7}
+  m_LocalPosition: {x: 49.1, y: 48.02, z: -0.7}
   m_LocalScale: {x: 0.1792224, y: 0.17922239, z: 0.17922239}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -186,9 +186,9 @@ MonoBehaviour:
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
   spr: {fileID: 0}
-  fadeInRate: 0.25
-  startDelay: 4
-  fadeOutMode: 1
+  fadeInRate: 0.75
+  startDelay: 2
+  fadeOutMode: 0
 --- !u!1 &94705654
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,11 +336,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 46.17
+      value: 45.59
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 52.37
+      value: 52.5
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.z

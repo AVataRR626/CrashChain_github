@@ -50,11 +50,11 @@ public class CrashChainImportExportManager : MonoBehaviour
 
     public void ImportButton()
     {
-        string newSetName = "ImportedSet_" + System.DateTime.Now.ToString("yymmddHHmmss");
+        //string newSetName = "ImportedSet_" + System.DateTime.Now.ToString("yymmddHHmmss");
 
         if (CrashChainSetManager.ValidSetString(setString))
         {
-            CrashChainSetManager.ImportSet(setString, newSetName);
+            CrashChainSetManager.ImportSet(setString);
         }
         else
         {
@@ -115,10 +115,10 @@ public class CrashChainImportExportManager : MonoBehaviour
         if (tex != null && tex != null)
         {
             qrCodeImage.texture = tex;
-            debugTxt.text = compressedSetString.Length + ";" + setString.Length;
 
+            //debug shit..
+            debugTxt.text = compressedSetString.Length + ";" + setString.Length;            
             string[] levels = setString.Split(CrashChainSetManager.LevelDelimiter);
-
             debugTxt.text += ";" + levels.Length;
         }
         else
@@ -153,7 +153,7 @@ public class CrashChainImportExportManager : MonoBehaviour
         }
         else
         {
-            UiText.text = "Scan successful!! Ready to import.";
+            UiText.text = "Scan successful! Tap 'import' to finish.";
         }
     }
 

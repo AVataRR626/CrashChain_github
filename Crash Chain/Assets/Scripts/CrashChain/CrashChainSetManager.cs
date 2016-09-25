@@ -164,6 +164,7 @@ public class CrashChainSetManager : MonoBehaviour
     public static string GetSetString(string set)
     {
         string result = "";
+        
 
         for (int i = 0; i < 12; i++)
         {
@@ -178,6 +179,8 @@ public class CrashChainSetManager : MonoBehaviour
 
         }
 
+        result += set += CrashChainSetManager.LevelDelimiter;
+
         return result;
     }
 
@@ -185,28 +188,45 @@ public class CrashChainSetManager : MonoBehaviour
     {
         string[] newLevels = setString.Split(LevelDelimiter);
 
-        return newLevels.Length == 12;
+        return newLevels.Length == 13;
+    }
+
+    public static void ImportSet(string setString)
+    {
+        string[] newLevels = setString.Split(LevelDelimiter);
+        string newSetName = newLevels[12];
+        ImportSet(newLevels, newSetName);
+    }
+
+    public static void ImportSet(string [] newLevels, string setName)
+    {
+        if (!SetExists(setName))
+        {
+            AddSet(setName);
+        }
+
+        for (int i = 0; i < 12; i++)
+        {
+            PlayerPrefs.SetString("lvl:" + setName + ":" + i.ToString(), newLevels[i]);
+        }
+
+        for (int i = 0; i < 12; i++)
+        {
+            PlayerPrefs.SetString("lvl:" + setName + ":" + i.ToString(), newLevels[i]);
+        }
     }
 
     public static void ImportSet(string setString, string setName)
     {
         string[] newLevels = setString.Split(LevelDelimiter);
 
-        if(newLevels.Length != 12)
+        if(newLevels.Length < 12 || newLevels.Length > 13)
         {
-            Debug.LogError("ImportSet: Trying to import invalid set! Level count should be 12. Is: " + newLevels.Length);
+            Debug.LogError("ImportSet: Trying to import invalid set! Level count should be 12. " + newLevels.Length);
         }
         else
         {
-            if(!SetExists(setName))
-            {
-                AddSet(setName);
-            }
-
-            for(int i = 0; i < 12; i++)
-            {
-                PlayerPrefs.SetString("lvl:" + setName + ":" + i.ToString(), newLevels[i]);
-            }
+            ImportSet(newLevels, setName);
         }
     }
 }
