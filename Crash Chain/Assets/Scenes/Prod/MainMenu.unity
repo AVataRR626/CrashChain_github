@@ -1141,7 +1141,7 @@ Prefab:
     - target: {fileID: 114000012374583780, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
         type: 2}
       propertyPath: customSetName
-      value: puzzle_3
+      value: puzzle_4
       objectReference: {fileID: 0}
     - target: {fileID: 114000012607717614, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
         type: 2}
@@ -1152,6 +1152,61 @@ Prefab:
         type: 2}
       propertyPath: m_Text
       value: time attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013875217748, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: customSetName
+      value: puzzle_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013875217748, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: puzzleNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012050276154, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: customSetName
+      value: puzzle_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012050276154, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: setNumber
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012050276154, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: puzzleNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012374583780, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: setNumber
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012374583780, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: puzzleNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012330997256, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: customSetName
+      value: puzzle_6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012330997256, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: setNumber
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012330997256, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: puzzleNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013875217748, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: setNumber
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a15a9a21cfdf56f4ca3770d6cd76f368, type: 2}
@@ -1350,10 +1405,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8358e28c4f467124eb8851a4bb7487d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyString: puzzle_3_12
+  keyString: puzzle_4_1
   mod: -1
   hardSet: 1
   deleteKey: 0
+  setOnStart: 0
 --- !u!1 &1695827821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1559,7 @@ MonoBehaviour:
   mod: 1
   hardSet: 0
   deleteKey: 1
+  setOnStart: 1
 --- !u!224 &1924139997
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1666,7 +1723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8358e28c4f467124eb8851a4bb7487d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyString: puzzle_5_12
+  keyString: puzzle_6_1
   mod: -1
   hardSet: 1
   deleteKey: 0
+  setOnStart: 0

@@ -26,14 +26,14 @@ public class CrashChainSetManager : MonoBehaviour
 
     public void ImportButton()
     {
-        string newSetName = "ImportedSet_" + System.DateTime.Now.ToString("yymmddHHmmss");
+        string newSetName = "ImportedSet_" + System.DateTime.Now.ToString("yyMMddHHmmss");
 
         AddSetButton(newSetName);
     }
 
     public void NewSetButton()
     { 
-        string newSetName = "NewSet_" + System.DateTime.Now.ToString("yymmddHHmmss");
+        string newSetName = "NewSet_" + System.DateTime.Now.ToString("yyMMddHHmmss");
 
         AddSetButton(newSetName);
     }

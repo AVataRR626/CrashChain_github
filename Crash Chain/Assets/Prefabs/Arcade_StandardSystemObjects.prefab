@@ -78,7 +78,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000010863123314
 GameObject:
   m_ObjectHideFlags: 1
@@ -980,6 +980,10 @@ MonoBehaviour:
   - {fileID: 1000014195813352}
   message: Pause
   overchargeLimInc: 2
+  warningTrigger: 2
+  warningObjects: []
+  warningMessages: []
+  warningDisableList: []
 --- !u!114 &114000011373435460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1851,7 +1855,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: arcade mode
+  m_Text: time attack
 --- !u!114 &114000013025980908
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1985,24 +1989,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
-  levelThreshold: 00000000020000000400000006000000070000000a0000000c000000
+  levelThreshold: 00000000020000000400000006000000070000000a0000000d000000
   maxSpawnIndex: 00000000010000000200000003000000040000000500000006000000
   levelDimensions:
-  - {x: 4, y: 1}
   - {x: 4, y: 2}
   - {x: 4, y: 2}
-  - {x: 4, y: 3}
+  - {x: 4, y: 2}
   - {x: 4, y: 3}
   - {x: 5, y: 3}
   - {x: 6, y: 3}
+  - {x: 8, y: 3}
   startPointPositions:
-  - {x: 1.19, y: 3.18, z: 0}
-  - {x: 1.19, y: 3.18, z: 0}
-  - {x: 1.19, y: 3.18, z: 0}
-  - {x: 1.19, y: 3.18, z: 0}
-  - {x: 1.19, y: 3.18, z: 0}
-  - {x: -0.95, y: 3.18, z: 0}
-  - {x: -0.95, y: 3.18, z: 0}
+  - {x: 1.19, y: 2.41, z: 0}
+  - {x: 1.19, y: 2.41, z: 0}
+  - {x: 1.19, y: 2.41, z: 0}
+  - {x: 1.19, y: 2.41, z: 0}
+  - {x: -0.95, y: 2.41, z: 0}
+  - {x: -0.95, y: 2.41, z: 0}
+  - {x: -3.1, y: 2.41, z: 0}
   levelUpMsgList:
   - {fileID: 1000013263179860}
   levelUpMessages:
@@ -2051,12 +2055,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434d0c96362ad094eaf82d58632c08e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  col1: {r: 1, g: 0.9724138, b: 0, a: 1}
+  col1: {r: 0, g: 0.9724138, b: 1, a: 1}
   col2: {r: 1, g: 1, b: 1, a: 1}
   col1BlinkRate: 0.75
   col2BlinkRate: 0.75
-  blinkClock: 3
+  blinkTime: 3
   blinkForever: 1
+  blinkClock: 3
 --- !u!114 &114000013842961256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2101,12 +2106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 434d0c96362ad094eaf82d58632c08e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  col1: {r: 1, g: 0.9724138, b: 0, a: 1}
+  col1: {r: 0, g: 0.9724138, b: 1, a: 1}
   col2: {r: 1, g: 1, b: 1, a: 1}
   col1BlinkRate: 0.75
   col2BlinkRate: 0.75
-  blinkClock: 3
+  blinkTime: 3
   blinkForever: 1
+  blinkClock: 3
 --- !u!222 &222000011090538416
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -2303,7 +2309,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -29.8, y: 100}
+  m_AnchoredPosition: {x: -21.7, y: 100}
   m_SizeDelta: {x: 332.7, y: 36.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000010635990828
@@ -2574,7 +2580,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -10.2, y: 115}
+  m_AnchoredPosition: {x: -4.6, y: 115}
   m_SizeDelta: {x: 66.6, y: 36.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000012221088786
@@ -2665,7 +2671,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 41, y: 101.599976}
+  m_AnchoredPosition: {x: 45.7, y: 101.599976}
   m_SizeDelta: {x: 332.7, y: 36.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000012685540854

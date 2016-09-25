@@ -7,20 +7,23 @@ public class KeyIntValueMod : MonoBehaviour
     public int mod;
     public bool hardSet = false;
     public bool deleteKey = false;
+    public bool setOnStart = true;
 
     private int val;
 
 	// Use this for initialization
 	void Start ()
     {
-        if (!hardSet)
-            SetMod();
-        else
-            HardSet();
+        if(setOnStart)
+        { 
+            if (!hardSet)
+                SetMod();
+            else
+                HardSet();
 
-        if (deleteKey)
-            DeleteKey();
-            
+            if (deleteKey)
+                DeleteKey();
+        }
     }
 
     public void DeleteKey()

@@ -396,6 +396,7 @@ MonoBehaviour:
   warningTrigger: 2
   warningObjects: []
   warningMessages: []
+  warningDisableList: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -913,6 +914,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetKey: puzzle_2_9
+  matchKeyValue: 0
+  matchValue: 0
   activateList: []
   deactivateList:
   - {fileID: 1000012247580402}
@@ -976,8 +979,9 @@ MonoBehaviour:
   col2: {r: 0, g: 1, b: 1, a: 1}
   col1BlinkRate: 0.75
   col2BlinkRate: 0.75
-  blinkClock: 2
+  blinkTime: 3
   blinkForever: 0
+  blinkClock: 2
 --- !u!114 &114000010870251334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -993,23 +997,25 @@ MonoBehaviour:
   col2: {r: 1, g: 1, b: 0, a: 1}
   col1BlinkRate: 0.75
   col2BlinkRate: 0.75
-  blinkClock: 1.4
+  blinkTime: 3
   blinkForever: 0
+  blinkClock: 1.4
 --- !u!114 &114000010918066114
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013796614994}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8358e28c4f467124eb8851a4bb7487d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   keyString: CurrentSetNumber
-  mod: 4
+  mod: 1
   hardSet: 1
   deleteKey: 0
+  setOnStart: 1
 --- !u!114 &114000011054273164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1288,6 +1294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetKey: puzzle_1_1
+  matchKeyValue: 0
+  matchValue: 0
   activateList:
   - {fileID: 193260}
   deactivateList:
@@ -1444,15 +1452,16 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013796614994}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8358e28c4f467124eb8851a4bb7487d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyString: puzzle_4_1
+  keyString: puzzle_1_1
   mod: -1
   hardSet: 1
   deleteKey: 0
+  setOnStart: 1
 --- !u!114 &114000012784581428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2015,6 +2024,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetKey: puzzle_2_8
+  matchKeyValue: 0
+  matchValue: 0
   activateList:
   - {fileID: 1000010985441286}
   deactivateList:

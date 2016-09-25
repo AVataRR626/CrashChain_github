@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class PuzzleLoader : MonoBehaviour
 {
+    public int puzzleNumber = 1;
+
     [Header("Default Mode Settings")]
     public string puzzlePrefix = "puzzle_";
     public string delimiter = "_";
-    public int setNumber = 1;
-    public int puzzleNumber = 1;
+    public int setNumber = 1;    
 
     [Header("Custom Mode Settings")]
     public bool customMode = false;

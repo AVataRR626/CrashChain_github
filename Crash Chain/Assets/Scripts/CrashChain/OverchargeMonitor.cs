@@ -124,8 +124,8 @@ public class OverchargeMonitor : MonoBehaviour
     
     public void AddMove()
     {
-        if(CrashLink.overchargeCount != timerTrigger)
-            moveCount++;
+        //if(CrashLink.overchargeCount != timerTrigger)
+        moveCount++;
     }
 
     public void AddMoves(int n)
