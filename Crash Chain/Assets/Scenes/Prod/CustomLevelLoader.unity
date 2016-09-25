@@ -335,6 +335,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyString: CurrentCustomPuzzleNumber
   mod: 1
+  hardSet: 0
+  deleteKey: 0
 --- !u!1001 &1976393694
 Prefab:
   m_ObjectHideFlags: 0
@@ -475,6 +477,11 @@ Prefab:
     - target: {fileID: 11433506, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
       propertyPath: timer
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011732366666, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: MenuCustomLevels
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
