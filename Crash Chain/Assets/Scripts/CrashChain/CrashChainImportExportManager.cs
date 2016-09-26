@@ -16,6 +16,7 @@ public class CrashChainImportExportManager : MonoBehaviour
     public InputField exportText;
     public QRCodeEncodeController qrEncodeController;
     public RawImage qrCodeImage;
+    public GameObject exportTree;
 
     [Header("Import Settings")]
     public QRCodeDecodeController e_qrController;
@@ -101,15 +102,20 @@ public class CrashChainImportExportManager : MonoBehaviour
     }
 
     public void GenerateQR()
-    {   
-        CompressCustomSetString();
-        
-        Debug.Log(compressedSetString.Length + ";" + setString.Length);
-
-        if (qrEncodeController != null)
+    {
+        if(CrashChainSetManager.CountSets() > 0)
         {
-            //qrEncodeController.Encode(setString);
-            qrEncodeController.Encode(compressedSetString);
+            exportTree.SetActive(true);
+
+            CompressCustomSetString();
+        
+            Debug.Log(compressedSetString.Length + ";" + setString.Length);
+
+            if (qrEncodeController != null)
+            {
+                //qrEncodeController.Encode(setString);
+                qrEncodeController.Encode(compressedSetString);
+            }
         }
     }
 

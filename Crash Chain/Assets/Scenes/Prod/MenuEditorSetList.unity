@@ -90,6 +90,11 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &63623449 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010915009780, guid: dedd1235d520649459e78189ab2c35d9,
+    type: 2}
+  m_PrefabInternal: {fileID: 351828570}
 --- !u!1001 &351828570
 Prefab:
   m_ObjectHideFlags: 0
@@ -100,7 +105,7 @@ Prefab:
     - target: {fileID: 114000010138301956, guid: dedd1235d520649459e78189ab2c35d9,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224000010690578662, guid: dedd1235d520649459e78189ab2c35d9,
         type: 2}
@@ -281,6 +286,46 @@ Prefab:
       propertyPath: m_Text
       value: play set
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010138301956, guid: dedd1235d520649459e78189ab2c35d9,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010138301956, guid: dedd1235d520649459e78189ab2c35d9,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1269811315}
+    - target: {fileID: 114000010138301956, guid: dedd1235d520649459e78189ab2c35d9,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GenerateQR
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010138301956, guid: dedd1235d520649459e78189ab2c35d9,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010138301956, guid: dedd1235d520649459e78189ab2c35d9,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010138301956, guid: dedd1235d520649459e78189ab2c35d9,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010138301956, guid: dedd1235d520649459e78189ab2c35d9,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010138301956, guid: dedd1235d520649459e78189ab2c35d9,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dedd1235d520649459e78189ab2c35d9, type: 2}
   m_IsPrefabParent: 0
@@ -317,6 +362,7 @@ MonoBehaviour:
   exportText: {fileID: 1558591843}
   qrEncodeController: {fileID: 1558591845}
   qrCodeImage: {fileID: 1558591844}
+  exportTree: {fileID: 63623449}
   e_qrController: {fileID: 0}
   UiText: {fileID: 0}
   resetBtn: {fileID: 0}
