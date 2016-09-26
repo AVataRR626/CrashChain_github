@@ -22,6 +22,7 @@ public class CrashLinkEditor : MonoBehaviour
     public Vector2 toolbarBorders = new Vector2(0.25f, 0.2f);
     public GameObject linkMutatorTree;
     public GameObject blockerModTree;
+    public GameObject nameTakenMsg;
 
     public string serialisedLevel;
 
@@ -234,9 +235,20 @@ public class CrashLinkEditor : MonoBehaviour
 
     public void SetSetName(string newName)
     {
-        CrashChainSetManager.RenameSet(setName, newName);
+        if(!CrashChainSetManager.SetExists(newName))
+        { 
+            CrashChainSetManager.RenameSet(setName, newName);
+            setName = newName;
 
-        setName = newName;
+
+        }
+        else
+        {
+            if (nameTakenMsg != null)
+                nameTakenMsg.SetActive(true);
+
+            iptSetName.text = setName;
+        }
     }
 
     //change shell type of focused crash link

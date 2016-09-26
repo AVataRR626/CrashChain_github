@@ -24,13 +24,6 @@ public class CrashChainSetManager : MonoBehaviour
 
     }
 
-    public void ImportButton()
-    {
-        string newSetName = "ImportedSet_" + System.DateTime.Now.ToString("yyMMddHHmmss");
-
-        AddSetButton(newSetName);
-    }
-
     public void NewSetButton()
     { 
         string newSetName = "NewSet_" + System.DateTime.Now.ToString("yyMMddHHmmss");
@@ -109,7 +102,7 @@ public class CrashChainSetManager : MonoBehaviour
         {
             string setListString = PlayerPrefs.GetString(SetListKey);
 
-            if (CountSets(setListString) > 0)
+            if (CountSets() > 0)
                 PlayerPrefs.SetString(SetListKey, setListString + ";" + set );
             else
                 PlayerPrefs.SetString(SetListKey, set);
@@ -117,7 +110,7 @@ public class CrashChainSetManager : MonoBehaviour
         }
     }
 
-    public static int CountSets(string set)
+    public static int CountSets()
     {
         string[] setNames = GetSets();
         return setNames.Length;
@@ -174,12 +167,12 @@ public class CrashChainSetManager : MonoBehaviour
             //Debug.Log("lvl:" + set + ":" + i.ToString() + "; " + PlayerPrefs.GetString("lvl:" + set + ":" + i.ToString()).Length);
 
             //separate each set with a delimiter
-            if(i <11)
+            //if(i <11)
                 result += CrashChainSetManager.LevelDelimiter;
 
         }
 
-        result += set += CrashChainSetManager.LevelDelimiter;
+        result += set;
 
         return result;
     }
@@ -195,6 +188,7 @@ public class CrashChainSetManager : MonoBehaviour
     {
         string[] newLevels = setString.Split(LevelDelimiter);
         string newSetName = newLevels[12];
+        Debug.Log("ImportSet(setString): " + newSetName + ";" + newLevels.Length);
         ImportSet(newLevels, newSetName);
     }
 
@@ -204,6 +198,12 @@ public class CrashChainSetManager : MonoBehaviour
         {
             AddSet(setName);
         }
+        /*
+        else
+        {
+            setName += "(1)";
+            AddSet(setName);
+        }*/
 
         for (int i = 0; i < 12; i++)
         {

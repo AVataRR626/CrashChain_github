@@ -55,6 +55,9 @@ public class CrashChainImportExportManager : MonoBehaviour
         if (CrashChainSetManager.ValidSetString(setString))
         {
             CrashChainSetManager.ImportSet(setString);
+            PlayerPrefs.SetInt(PuzzleLoader.currentCustomSetNumberKey, CrashChainSetManager.CountSets());
+            Reset();
+            LevelLoadUtil.ReloadLevel();
         }
         else
         {
@@ -153,7 +156,12 @@ public class CrashChainImportExportManager : MonoBehaviour
         }
         else
         {
-            UiText.text = "Scan successful! Tap 'import' to finish.";
+            UiText.text = "SCAN SUCCESSFUL!! Tap 'import' to finish.\n\n";
+
+            string[] setParts = setString.Split(CrashChainSetManager.LevelDelimiter);
+
+            if (CrashChainSetManager.SetExists(setParts[12]))
+                UiText.text = "WARNING: Set name already exists. Importing will overwrite existing set.";
         }
     }
 
