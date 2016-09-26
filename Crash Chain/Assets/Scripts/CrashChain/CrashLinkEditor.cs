@@ -23,6 +23,7 @@ public class CrashLinkEditor : MonoBehaviour
     public GameObject linkMutatorTree;
     public GameObject blockerModTree;
     public GameObject nameTakenMsg;
+    public GameObject testModeIndicator;
 
     public string serialisedLevel;
 
@@ -139,8 +140,17 @@ public class CrashLinkEditor : MonoBehaviour
     public void SetTestMode(bool t)
     {
         testMode = t;
-        FindObjectOfType<PopulationCheck>().enabled = t;
+
         //don't check for victory if you're not in test mode...
+        FindObjectOfType<PopulationCheck>().enabled = t;
+
+        //clear the panels too...
+        if (t)
+            myFocus = null;
+
+        if (testModeIndicator != null)
+            testModeIndicator.SetActive(t);
+        
     }
 
     /*

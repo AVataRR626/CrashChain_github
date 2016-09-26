@@ -261,6 +261,11 @@ public class CrashLink : MonoBehaviour
             movable = true;
 
         ColourOutlines();
+
+        if (OverchargeMonitor.instance.RemainingOvercharges() == 0)
+        {
+            dragger.enabled = false;
+        }
     }
 
     void MonitorMoves()
@@ -462,14 +467,14 @@ public class CrashLink : MonoBehaviour
         {
 
             if (!myEditor.testMode)
+            {
                 holdCharge = 0.15f;
-
-            myEditor.myFocus = this;
+                myEditor.myFocus = this;
+            }
 
             //report being clicked to the editor..
             myEditor.blockFrameClickCount++;
         }
-
     }
 
     public static bool CoinFlip()
