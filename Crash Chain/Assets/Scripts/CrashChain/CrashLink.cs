@@ -416,6 +416,19 @@ public class CrashLink : MonoBehaviour
 
     void ManageCharge()
     {
+        if (myEditor == null)
+            myEditor = FindObjectOfType<CrashLinkEditor>();
+
+        if(myEditor != null)
+        {
+            //don't engage overcharge when you're in edit mode.
+            if (myEditor.testMode)
+            {
+                chargeSwitch = false;
+                return;
+            }
+        }
+
         if (chargeSwitch)
         {
             charge += (Time.deltaTime * touchFactor) + Time.deltaTime;
@@ -437,6 +450,7 @@ public class CrashLink : MonoBehaviour
                 charge = 0;
             }
         }
+
     }
 
     public void StartDrag()
@@ -462,6 +476,9 @@ public class CrashLink : MonoBehaviour
 
         lastClickTime = Time.time;
 
+        if (myEditor == null)
+            myEditor = FindObjectOfType<CrashLinkEditor>();
+
         //stuff in editor mode
         if (myEditor != null)
         {
@@ -469,8 +486,10 @@ public class CrashLink : MonoBehaviour
             if (!myEditor.testMode)
             {
                 holdCharge = 0.15f;
-                myEditor.myFocus = this;
+                
             }
+
+            myEditor.myFocus = this;
 
             //report being clicked to the editor..
             myEditor.blockFrameClickCount++;
