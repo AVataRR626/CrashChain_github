@@ -189,6 +189,31 @@ MonoBehaviour:
   fadeInRate: 1
   startDelay: 4
   fadeOutMode: 1
+--- !u!1 &403565765 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010482079494, guid: 788dcadf2c671f44da068cd3c954296f,
+    type: 2}
+  m_PrefabInternal: {fileID: 441299386}
+--- !u!114 &403565767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 403565765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ab86af5078e944ab22f209991480bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: {fileID: 0}
+  startMessage: BlinkOn
+  endMessage: BlinkOff
+  pulseLength: 0.2
+  pulseInterval: 0.1
+  pulseCount: 2
+  resetCLock: 5
+  startDelay: 4
+  totalBlinkTime: 10
 --- !u!1001 &441299386
 Prefab:
   m_ObjectHideFlags: 0
@@ -288,9 +313,119 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114000014044050142, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011080980558, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012122558504, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011072406748, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014044050142, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011080980558, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012122558504, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011072406748, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014044050142, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011080980558, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012122558504, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011072406748, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &761987039 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013817448390, guid: 788dcadf2c671f44da068cd3c954296f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1941004270}
+--- !u!114 &761987041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 761987039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ab86af5078e944ab22f209991480bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: {fileID: 0}
+  startMessage: BlinkOn
+  endMessage: BlinkOff
+  pulseLength: 0.2
+  pulseInterval: 0.1
+  pulseCount: 2
+  resetCLock: 5
+  startDelay: 4
+  totalBlinkTime: 10
+--- !u!1 &869476692 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012461811528, guid: 788dcadf2c671f44da068cd3c954296f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1941004270}
+--- !u!114 &869476694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869476692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ab86af5078e944ab22f209991480bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: {fileID: 0}
+  startMessage: BlinkOn
+  endMessage: BlinkOff
+  pulseLength: 0.2
+  pulseInterval: 0.1
+  pulseCount: 2
+  resetCLock: 5
+  startDelay: 4
+  totalBlinkTime: 10
 --- !u!1001 &874903582
 Prefab:
   m_ObjectHideFlags: 0
@@ -333,6 +468,31 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &894340767 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000010482079494, guid: 788dcadf2c671f44da068cd3c954296f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1941004270}
+--- !u!114 &894340769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 894340767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ab86af5078e944ab22f209991480bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: {fileID: 0}
+  startMessage: BlinkOn
+  endMessage: BlinkOff
+  pulseLength: 0.2
+  pulseInterval: 0.1
+  pulseCount: 2
+  resetCLock: 5
+  startDelay: 4
+  totalBlinkTime: 10
 --- !u!1001 &925079451
 Prefab:
   m_ObjectHideFlags: 0
@@ -571,6 +731,31 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02ce8e426267cea41a222c9834ec136c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1356414468 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012305618660, guid: 788dcadf2c671f44da068cd3c954296f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1941004270}
+--- !u!114 &1356414470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1356414468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ab86af5078e944ab22f209991480bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: {fileID: 0}
+  startMessage: BlinkOn
+  endMessage: BlinkOff
+  pulseLength: 0.2
+  pulseInterval: 0.1
+  pulseCount: 2
+  resetCLock: 5
+  startDelay: 4
+  totalBlinkTime: 10
 --- !u!1 &1429548971
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,6 +805,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!1 &1529955359 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012305618660, guid: 788dcadf2c671f44da068cd3c954296f,
+    type: 2}
+  m_PrefabInternal: {fileID: 441299386}
+--- !u!114 &1529955361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1529955359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ab86af5078e944ab22f209991480bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: {fileID: 0}
+  startMessage: BlinkOn
+  endMessage: BlinkOff
+  pulseLength: 0.2
+  pulseInterval: 0.1
+  pulseCount: 2
+  resetCLock: 5
+  startDelay: 4
+  totalBlinkTime: 10
+--- !u!1 &1689403510 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012461811528, guid: 788dcadf2c671f44da068cd3c954296f,
+    type: 2}
+  m_PrefabInternal: {fileID: 441299386}
+--- !u!114 &1689403512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1689403510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ab86af5078e944ab22f209991480bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: {fileID: 0}
+  startMessage: BlinkOn
+  endMessage: BlinkOff
+  pulseLength: 0.2
+  pulseInterval: 0.1
+  pulseCount: 2
+  resetCLock: 5
+  startDelay: 4
+  totalBlinkTime: 10
+--- !u!1 &1937877921 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013817448390, guid: 788dcadf2c671f44da068cd3c954296f,
+    type: 2}
+  m_PrefabInternal: {fileID: 441299386}
+--- !u!114 &1937877923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1937877921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74ab86af5078e944ab22f209991480bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: {fileID: 0}
+  startMessage: BlinkOn
+  endMessage: BlinkOff
+  pulseLength: 0.2
+  pulseInterval: 0.1
+  pulseCount: 2
+  resetCLock: 5
+  startDelay: 4
+  totalBlinkTime: 10
 --- !u!1001 &1941004270
 Prefab:
   m_ObjectHideFlags: 0
@@ -771,6 +1031,66 @@ Prefab:
     - target: {fileID: 4000010305478440, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014044050142, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011080980558, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012122558504, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011072406748, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014044050142, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011080980558, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012122558504, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011072406748, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000014044050142, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011080980558, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012122558504, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011072406748, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: blinkColour.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}

@@ -94,6 +94,8 @@ public class CrashLink : MonoBehaviour
     public float holdCharge = 0;
     public Vector3 prevPos;
     public float dragDistance;
+    
+    private bool draggedSwitch = false;
 
     void Awake()
     {
@@ -247,7 +249,6 @@ public class CrashLink : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
             smoothSnap.SetAnchorGridCoordinatesOnPos();
 
-        
 
         if (colliderActivateDelay > 0)
             colliderActivateDelay -= Time.deltaTime;
@@ -270,8 +271,14 @@ public class CrashLink : MonoBehaviour
 
     void MonitorMoves()
     {
-        if (prevAnchorGridCoordinates != smoothSnap.anchorGridCoordinates)
-            OverchargeMonitor.instance.AddMove();
+        if(draggedSwitch)
+        { 
+            if (prevAnchorGridCoordinates != smoothSnap.anchorGridCoordinates)
+            {
+                OverchargeMonitor.instance.AddMove();
+                draggedSwitch = false;
+            }
+        }
 
         prevAnchorGridCoordinates = smoothSnap.anchorGridCoordinates;
     }
@@ -611,6 +618,8 @@ public class CrashLink : MonoBehaviour
         SyncAxisLocks();
         dragDistance = 0;
         prevPos = transform.position;
+
+        draggedSwitch = true;
     }
 
     void OnMouseDrag()

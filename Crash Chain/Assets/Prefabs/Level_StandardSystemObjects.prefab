@@ -153,6 +153,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 224000011954170014}
   - 114: {fileID: 114000011745876252}
+  - 114: {fileID: 114000012679393068}
   m_Layer: 0
   m_Name: VictoryTree
   m_TagString: Untagged
@@ -837,7 +838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000010108480772
 Transform:
   m_ObjectHideFlags: 1
@@ -997,7 +998,7 @@ MonoBehaviour:
   col2: {r: 1, g: 1, b: 0, a: 1}
   col1BlinkRate: 0.75
   col2BlinkRate: 0.75
-  blinkTime: 3
+  blinkTime: 1
   blinkForever: 0
   blinkClock: 1.4
 --- !u!114 &114000010918066114
@@ -1446,6 +1447,18 @@ MonoBehaviour:
   customDelimiter: ':'
   puzzleMenuScene: MenuCustomLevels
   maxLevelNumber: 12
+--- !u!114 &114000012679393068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc3445017eab16409db051be94540da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logOnStart: 1
 --- !u!114 &114000012684290166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1946,7 +1959,7 @@ MonoBehaviour:
   txtmsh: {fileID: 0}
   spr: {fileID: 0}
   fadeInRate: 1
-  startDelay: 3
+  startDelay: 4
   fadeOutMode: 1
 --- !u!114 &114000013425091526
 MonoBehaviour:
