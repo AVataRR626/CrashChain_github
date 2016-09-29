@@ -9,6 +9,7 @@ public class PuzzleMenuGenerator : MonoBehaviour
     [Header("Set Settings")]
     public int setNumber = 1;
     public int maxSet = 12;
+    public int maxSetCapacity = 6;
     public bool checkLocked = true;
 
     [Header ("Custom Set Management")]
@@ -198,9 +199,11 @@ public class PuzzleMenuGenerator : MonoBehaviour
             }
         }
 
+        int actualLimit = maxSetCapacity;
         
 
-        if (setNumber > maxSet)
+
+        if (setNumber > maxSetCapacity)
         {
             if (loopSets)
                 setNumber = 1;
