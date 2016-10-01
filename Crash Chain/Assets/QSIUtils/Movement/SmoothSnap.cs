@@ -130,9 +130,9 @@ public class SmoothSnap : MonoBehaviour
 
     public void EnforceGridLimits()
     {
-        anchorGridCoordinates.x = Mathf.Clamp(gridCoordinates.x, minGridCoordinates.x, maxGridCoordinates.x);
-        anchorGridCoordinates.y = Mathf.Clamp(gridCoordinates.y, minGridCoordinates.y, maxGridCoordinates.y);
-        anchorGridCoordinates.z = Mathf.Clamp(gridCoordinates.z, minGridCoordinates.z, maxGridCoordinates.z);
+        anchorGridCoordinates.x = Mathf.Clamp(anchorGridCoordinates.x, minGridCoordinates.x, maxGridCoordinates.x);
+        anchorGridCoordinates.y = Mathf.Clamp(anchorGridCoordinates.y, minGridCoordinates.y, maxGridCoordinates.y);
+        anchorGridCoordinates.z = Mathf.Clamp(anchorGridCoordinates.z, minGridCoordinates.z, maxGridCoordinates.z);
     }
 
     public void EnforceAxisLocks()
