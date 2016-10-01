@@ -63,6 +63,7 @@ public class CrashLink : MonoBehaviour
     public float timeBonus = 0.65f;//extra time player gets before losing
     public float defaultDeathTime = 0.25f;
     public float baseSpinRate = 30;
+    public float spinAcceleration = 900;
     public float deathSpinExtension = 0;//extra spin time this chain's overcharge gives
                                         //to other blocks..
 
@@ -407,7 +408,9 @@ public class CrashLink : MonoBehaviour
     {
         if (chargeSwitch || charge >= chargeLimit)
         {
-            rotationRate = baseSpinRate * charge * charge;
+            
+            rotationRate = baseSpinRate * charge;
+            baseSpinRate += spinAcceleration * Time.deltaTime;
 
             if (graphicsRoot != null)
                 graphicsRoot.transform.Rotate(0, 0, rotationRate * Time.deltaTime);

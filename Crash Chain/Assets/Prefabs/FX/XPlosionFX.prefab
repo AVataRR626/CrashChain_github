@@ -22,6 +22,8 @@ GameObject:
   - 212: {fileID: 212000013554905778}
   - 50: {fileID: 50000012890177878}
   - 114: {fileID: 114000011649273924}
+  - 114: {fileID: 114000014289591122}
+  - 114: {fileID: 114000012344587412}
   m_Layer: 0
   m_Name: XPlosionFX
   m_TagString: Untagged
@@ -71,6 +73,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 0.5
+--- !u!114 &114000012344587412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010382900398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 215483096e0cdf643b41207fc765753a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAdd: {r: 0.759, g: 0.06, b: 0.06, a: 0.159}
+--- !u!114 &114000014289591122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010382900398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9755e954cc592b04bb28da3bca02d142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 180}
 --- !u!212 &212000013554905778
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -101,6 +127,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c0f11018012608a48a447f9f46c0e1ed, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.9586208, a: 0.166}
+  m_Color: {r: 0, g: 0.866, b: 0.859, a: 0.203}
   m_FlipX: 0
   m_FlipY: 0

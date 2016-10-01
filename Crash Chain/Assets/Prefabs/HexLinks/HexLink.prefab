@@ -264,17 +264,21 @@ MonoBehaviour:
   timeBonus: 1.5
   defaultDeathTime: 0.25
   baseSpinRate: 80
+  spinAcceleration: 500
   deathSpinExtension: 0.1
   myEditor: {fileID: 0}
   tapTime: 0.15
+  tapDistance: 0.1
   touchFactor: 2.5
   charge: 0
   chargeLimit: 3.5
   graphicsRoot: {fileID: 0}
   colliderActivateDelay: 0.25
   bitSerialisation: 
+  bitStringEncoding: 
   holdCharge: 0
   prevPos: {x: 0, y: 0, z: 0}
+  dragDistance: 0
 --- !u!114 &11457380
 MonoBehaviour:
   m_ObjectHideFlags: 1
