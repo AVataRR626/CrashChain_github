@@ -720,6 +720,7 @@ GameObject:
   - 114: {fileID: 114000011433398544}
   - 114: {fileID: 114000011732366666}
   - 114: {fileID: 114000010708646650}
+  - 114: {fileID: 114000012468649662}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1502,6 +1503,18 @@ MonoBehaviour:
   timer: 3
   level: next
   timerSkipClick: 1
+--- !u!114 &114000012468649662
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012600707918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65cad3bbec135041ac4330507586cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: MenuPuzzles
 --- !u!114 &114000012644335040
 MonoBehaviour:
   m_ObjectHideFlags: 1
