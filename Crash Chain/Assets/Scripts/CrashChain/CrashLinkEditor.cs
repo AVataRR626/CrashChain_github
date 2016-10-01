@@ -476,7 +476,7 @@ public class CrashLinkEditor : MonoBehaviour
         //keep track of current level in editor
         PlayerPrefs.SetString("CurrentLevelEditorLevel", GetLevelKey());
 
-        Debug.Log("Level Saved:" + levelName);
+        Debug.Log("Level Saved:" + levelName + ";" + GetLevelKey() + "; "+ serialisation.Length);
 
         //PopulateLoadDropdown();
     }

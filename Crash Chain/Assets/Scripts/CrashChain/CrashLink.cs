@@ -769,9 +769,9 @@ public class CrashLink : MonoBehaviour
 
         //store the rest along with the yGrid parts..
         byte xP2 = (byte)(xGrid >> 3);//0000 0xxx     0000 0111 
-        yGrid = (byte) (yGrid << 3);//xxxx x000
+        byte yGridShifted = (byte) (yGrid << 3);//xxxx x000
 
-        byte yGridXPart = (byte)(yGrid | xP2);
+        byte yGridXPart = (byte)(yGridShifted | xP2);
         
 
         char[] resultArr = new char[3];

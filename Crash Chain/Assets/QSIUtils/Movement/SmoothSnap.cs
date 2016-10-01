@@ -25,6 +25,8 @@ public class SmoothSnap : MonoBehaviour
     public float borderHeight = 0.75f;
     public float borderWidth = 0.75f;
 
+    public Vector3 maxGridCoordinates = new Vector3(63,31,3);
+    public Vector3 minGridCoordinates = new Vector3(1,1,0);
     public Vector3 gridCoordinates;
     public Vector3 anchorGridCoordinates;
 
@@ -105,7 +107,7 @@ public class SmoothSnap : MonoBehaviour
         }
 
 
-
+        EnforceGridLimits();
         EnforceAxisLocks();
 
         if (transform.position != snapCoords && snapSwitch)
@@ -124,6 +126,13 @@ public class SmoothSnap : MonoBehaviour
                 lastConflictSS = null;
             }
         }
+    }
+
+    public void EnforceGridLimits()
+    {
+        anchorGridCoordinates.x = Mathf.Clamp(gridCoordinates.x, minGridCoordinates.x, maxGridCoordinates.x);
+        anchorGridCoordinates.y = Mathf.Clamp(gridCoordinates.y, minGridCoordinates.y, maxGridCoordinates.y);
+        anchorGridCoordinates.z = Mathf.Clamp(gridCoordinates.z, minGridCoordinates.z, maxGridCoordinates.z);
     }
 
     public void EnforceAxisLocks()

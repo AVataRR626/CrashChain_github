@@ -65,8 +65,9 @@ public class CrashChainUtil : MonoBehaviour {
 
     public static void BitDeserialiseLevel(string serialisedLevel, Transform spawnMarker, CrashLink squareLinkPrefab, CrashLink triLinkPrefab, CrashLink hexLinkPrefab)
     {
-        char[] levelBits = serialisedLevel.ToCharArray();       
+        char[] levelBits = serialisedLevel.ToCharArray();
 
+        Debug.Log(levelBits.Length + ";" + serialisedLevel.Length);
         //reconstruct the float values from the bytes
         float[] camResults = new float[3];
         for(int i = 0; i < 3; i++)
@@ -74,6 +75,7 @@ public class CrashChainUtil : MonoBehaviour {
             byte[] accumulator = new byte[4];
             for(int j = 0; j < 4; j++)
             {
+                Debug.Log("camscan:" + i + ";" + j);
                 accumulator[j] = (byte)levelBits[i * 4 + j];
             }
             camResults[i] = BitConverter.ToSingle(accumulator,0);
