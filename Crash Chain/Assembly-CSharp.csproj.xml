@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{9BAD3862-3DC8-6F77-853F-B78106B58B6B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_1;UNITY_5_4;UNITY_5;UNITY_64;UNITY_PURCHASING;UNITY_ANALYTICS;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_OSX;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_GAMECENTER;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;CROSS_PLATFORM_INPUT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\QRcode\Plugins\Loom\Loom.cs" />
+     <Compile Include="Assets\QRcode\Scripts\CameraPlaneController.cs" />
+     <Compile Include="Assets\QRcode\Scripts\DecodeByStaticPic.cs" />
+     <Compile Include="Assets\QRcode\Scripts\DeviceCameraController.cs" />
+     <Compile Include="Assets\QRcode\Scripts\QRCodeDecodeController.cs" />
+     <Compile Include="Assets\QRcode\Scripts\QRCodeEncodeController.cs" />
+     <Compile Include="Assets\QRcode\Scripts\QRDecodeTest.cs" />
+     <Compile Include="Assets\QRcode\Scripts\QREncodeTest.cs" />
+     <Compile Include="Assets\QSIUtils\Analytics\QSIWinLogger.cs" />
+     <Compile Include="Assets\QSIUtils\Audio\ClickPlaySound.cs" />
+     <Compile Include="Assets\QSIUtils\Audio\MainVolumeDisplay.cs" />
+     <Compile Include="Assets\QSIUtils\Audio\MusicManager.cs" />
+     <Compile Include="Assets\QSIUtils\Audio\MusicVolumeDisplay.cs" />
+     <Compile Include="Assets\QSIUtils\Audio\PlayRandomSound.cs" />
+     <Compile Include="Assets\QSIUtils\Audio\VolumeManager.cs" />
+     <Compile Include="Assets\QSIUtils\Audio\VolumeSpinMod.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\CameraClickMove.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\CameraOrthoZoom.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\ImageFadeIn.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\IntroOrthoCamZoom.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\LineNode.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\LookAtMainCamera.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\LookAtTarget.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\MainMenu.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\Minimap.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\MouseClickDisable.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\MouseOverDisable.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\MoveCam.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\MoveCamHeroFinder.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\PuzzleMenuGenerator.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\QSIBillboard.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\QSICameraOrbit.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\QSITextPropagate.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\SpinMod.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\SpriteBlink.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\SpriteColorAdder.cs" />
+     <Compile Include="Assets\QSIUtils\Camera&amp;GUI\TextBlink.cs" />
+     <Compile Include="Assets\QSIUtils\GUI\ActionButton.cs" />
+     <Compile Include="Assets\QSIUtils\GUI\EscapeExiter.cs" />
+     <Compile Include="Assets\QSIUtils\GUI\KeyLvlLoader.cs" />
+     <Compile Include="Assets\QSIUtils\GUI\MainLogo.cs" />
+     <Compile Include="Assets\QSIUtils\GUI\RegoFileSaver.cs" />
+     <Compile Include="Assets\QSIUtils\GUI\SpinClick.cs" />
+     <Compile Include="Assets\QSIUtils\GUI\TextEdit3D.cs" />
+     <Compile Include="Assets\QSIUtils\GUI\TextInput.cs" />
+     <Compile Include="Assets\QSIUtils\GUI\TextReplicate.cs" />
+     <Compile Include="Assets\QSIUtils\GUI\TouchJoystick.cs" />
+     <Compile Include="Assets\QSIUtils\GUI\URLClick.cs" />
+     <Compile Include="Assets\QSIUtils\General\AutoDisableTimer.cs" />
+     <Compile Include="Assets\QSIUtils\General\AutoSpriteFlip.cs" />
+     <Compile Include="Assets\QSIUtils\General\AutokillTimer.cs" />
+     <Compile Include="Assets\QSIUtils\General\BumpMessage.cs" />
+     <Compile Include="Assets\QSIUtils\General\ClickMessage.cs" />
+     <Compile Include="Assets\QSIUtils\General\ClickScale.cs" />
+     <Compile Include="Assets\QSIUtils\General\ConstantMove.cs" />
+     <Compile Include="Assets\QSIUtils\General\ConstantRotate.cs" />
+     <Compile Include="Assets\QSIUtils\General\ConstantScale.cs" />
+     <Compile Include="Assets\QSIUtils\General\EscLvlLoader.cs" />
+     <Compile Include="Assets\QSIUtils\General\FixFollow.cs" />
+     <Compile Include="Assets\QSIUtils\General\FocusList.cs" />
+     <Compile Include="Assets\QSIUtils\General\GenUtils.cs" />
+     <Compile Include="Assets\QSIUtils\General\GenericPickup.cs" />
+     <Compile Include="Assets\QSIUtils\General\HeightRandomiser.cs" />
+     <Compile Include="Assets\QSIUtils\General\KeypressActivator.cs" />
+     <Compile Include="Assets\QSIUtils\General\KillOnClick.cs" />
+     <Compile Include="Assets\QSIUtils\General\KillOnHold.cs" />
+     <Compile Include="Assets\QSIUtils\General\MessageTicker.cs" />
+     <Compile Include="Assets\QSIUtils\General\MouseDrag.cs" />
+     <Compile Include="Assets\QSIUtils\General\MouseDrag2D.cs" />
+     <Compile Include="Assets\QSIUtils\General\MouseOverEnable.cs" />
+     <Compile Include="Assets\QSIUtils\General\NavmeshAgentDestinationIndicator.cs" />
+     <Compile Include="Assets\QSIUtils\General\PopulationCheck.cs" />
+     <Compile Include="Assets\QSIUtils\General\PulseMessage.cs" />
+     <Compile Include="Assets\QSIUtils\General\QSIRandomTransform.cs" />
+     <Compile Include="Assets\QSIUtils\General\RandomStartRotation.cs" />
+     <Compile Include="Assets\QSIUtils\General\RaycastClickable.cs" />
+     <Compile Include="Assets\QSIUtils\General\RaycastMouseFollow.cs" />
+     <Compile Include="Assets\QSIUtils\General\RotationNub.cs" />
+     <Compile Include="Assets\QSIUtils\General\SinBounce.cs" />
+     <Compile Include="Assets\QSIUtils\General\SmoothLookAt.cs" />
+     <Compile Include="Assets\QSIUtils\General\SpawnBump.cs" />
+     <Compile Include="Assets\QSIUtils\General\TaggedScale.cs" />
+     <Compile Include="Assets\QSIUtils\General\TextureScrolling.cs" />
+     <Compile Include="Assets\QSIUtils\General\TriggerActivator.cs" />
+     <Compile Include="Assets\QSIUtils\General\TypeExtinctionTrigger.cs" />
+     <Compile Include="Assets\QSIUtils\General\UnParenter.cs" />
+     <Compile Include="Assets\QSIUtils\LevelLoading\LevelButton.cs" />
+     <Compile Include="Assets\QSIUtils\LevelLoading\LevelLoadUtil.cs" />
+     <Compile Include="Assets\QSIUtils\LevelLoading\OnTriggerLevelLoader.cs" />
+     <Compile Include="Assets\QSIUtils\LevelLoading\PuzzleLoader.cs" />
+     <Compile Include="Assets\QSIUtils\LevelLoading\RestartOnMousedown.cs" />
+     <Compile Include="Assets\QSIUtils\LevelLoading\TimedLevelLoad.cs" />
+     <Compile Include="Assets\QSIUtils\Movement\LerpToPosition.cs" />
+     <Compile Include="Assets\QSIUtils\Movement\SmoothSnap.cs" />
+     <Compile Include="Assets\QSIUtils\PlayerPrefs\KeyBasedActivator.cs" />
+     <Compile Include="Assets\QSIUtils\PlayerPrefs\KeyIntValueMod.cs" />
+     <Compile Include="Assets\QSIUtils\Spawning\GridSpawner.cs" />
+     <Compile Include="Assets\QSIUtils\Spawning\KeySpawner.cs" />
+     <Compile Include="Assets\QSIUtils\Spawning\ObjectSpawner.cs" />
+     <Compile Include="Assets\QSIUtils\Spawning\RandomSpawner.cs" />
+     <Compile Include="Assets\QSIUtils\Spawning\SpawnGrenade2D.cs" />
+     <Compile Include="Assets\QSIUtils\Timer\QSITimer.cs" />
+     <Compile Include="Assets\QSIUtils\Timer\TimerBonus.cs" />
+     <Compile Include="Assets\Scripts\Audio\ArcadeModeMusicManager.cs" />
+     <Compile Include="Assets\Scripts\Audio\PuzzleModeMusicManager.cs" />
+     <Compile Include="Assets\Scripts\Audio\SetMixerSettings.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\BlockerDisplay.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\CrashBolt.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\CrashChainArcadeManager.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\CrashChainDisplayUtil.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\CrashChainDynLevelLoader.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\CrashChainDynLevelSaver.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\CrashChainImportExportManager.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\CrashChainSetButtonGroupManager.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\CrashChainSetManager.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\CrashChainStoreManager.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\CrashChainUtil.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\CrashLink.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\CrashLinkEditor.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\LevelNavigator.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\MovesMonitor.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\OverchargeMonitor.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\PuzzleUnlocker.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\QREncoderCrashChain.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\SetMenuManager.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\TypeMask.cs" />
+     <Compile Include="Assets\Scripts\CrashChain\TypeMaster.cs" />
+     <Compile Include="Assets\Scripts\LZF.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\BlockType.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\CompressionMode.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\CopyEncoder.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\Crc32Helper.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\DeflateInput.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\DeflateStream.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\DeflateStreamAsyncResult.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\DeflaterManaged.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\FastEncoder.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\FastEncoderStatics.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\FastEncoderWindow.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\FileFormats.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\GZipDecoder.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\GZipStream.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\GZipUtils.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\HuffmanTree.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\IDeflater.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\Inflater.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\InflaterState.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\InputBuffer.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\InvalidDataException.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\Match.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\MatchState.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\OutputBuffer.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\OutputWindow.cs" />
+     <Compile Include="Assets\Unity.IO.Compression\SR.cs" />
+     <None Include="Assets\QRcode\CamMat\WebCam.shader" />
+     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
+     <None Include="Assets\notes.txt" />
+     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Purchasing">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
+ </Reference>
+ <Reference Include="Common">
+ <HintPath>/Users/Tom/Documents/Client Work/Crash Chain/Beta/CrashChain_github-master/Crash Chain/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
+ </Reference>
+ <Reference Include="Editor">
+ <HintPath>/Users/Tom/Documents/Client Work/Crash Chain/Beta/CrashChain_github-master/Crash Chain/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Security">
+ <HintPath>/Users/Tom/Documents/Client Work/Crash Chain/Beta/CrashChain_github-master/Crash Chain/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
+ </Reference>
+ <Reference Include="Stores">
+ <HintPath>/Users/Tom/Documents/Client Work/Crash Chain/Beta/CrashChain_github-master/Crash Chain/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
+ </Reference>
+ <Reference Include="Apple">
+ <HintPath>/Users/Tom/Documents/Client Work/Crash Chain/Beta/CrashChain_github-master/Crash Chain/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
+ </Reference>
+ <Reference Include="Tizen">
+ <HintPath>/Users/Tom/Documents/Client Work/Crash Chain/Beta/CrashChain_github-master/Crash Chain/Assets/Plugins/UnityPurchasing/Bin/Tizen/Tizen.dll</HintPath>
+ </Reference>
+ <Reference Include="winrt">
+ <HintPath>/Users/Tom/Documents/Client Work/Crash Chain/Beta/CrashChain_github-master/Crash Chain/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
+ </Reference>
+ <Reference Include="QRCode">
+ <HintPath>/Users/Tom/Documents/Client Work/Crash Chain/Beta/CrashChain_github-master/Crash Chain/Assets/QRcode/Plugins/QRCode.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{84866CDB-E7CE-4F0E-F1F4-72C3C4387EC6}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
