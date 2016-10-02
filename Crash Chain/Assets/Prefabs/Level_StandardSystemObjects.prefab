@@ -665,6 +665,7 @@ GameObject:
   - 114: {fileID: 114000013645227540}
   - 212: {fileID: 212000013040142874}
   - 114: {fileID: 114000010863084152}
+  - 114: {fileID: 114000014014596148}
   m_Layer: 5
   m_Name: txtNowTrackingMoves
   m_TagString: Untagged
@@ -951,7 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e9257a3e16f2c47844ab33b7523b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetKey: puzzle_5_7
+  targetKey: TrackingNotified
   matchKeyValue: 0
   matchValue: 0
   activateList: []
@@ -2175,7 +2176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e9257a3e16f2c47844ab33b7523b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetKey: puzzle_5_6
+  targetKey: puzzle_5_7
   matchKeyValue: 0
   matchValue: 0
   activateList:
@@ -2272,6 +2273,22 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000014014596148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012247580402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8358e28c4f467124eb8851a4bb7487d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyString: TrackingNotified
+  mod: 1
+  hardSet: 1
+  deleteKey: 0
+  setOnStart: 1
 --- !u!114 &114000014060767994
 MonoBehaviour:
   m_ObjectHideFlags: 1

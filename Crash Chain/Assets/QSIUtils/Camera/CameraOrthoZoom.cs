@@ -31,7 +31,7 @@ public class CameraOrthoZoom : MonoBehaviour
 
 	private float touchDistance;
 	private float prevTouchDistance = 0;
-    private float prevTouchDelta;
+    private float prevTouchDelta = 0;
     private float magDelta;
 	private float originalZoom;
 
@@ -49,6 +49,20 @@ public class CameraOrthoZoom : MonoBehaviour
 
         if (camMover == null)
             camMover = FindObjectOfType<CameraClickMove>();
+
+        if (Input.touchCount >= 2)
+        {
+
+
+            Destroy(GetComponent<IntroOrthoCamZoom>());
+
+            Vector2 touch0, touch1;
+
+            touch0 = Input.GetTouch(0).position;
+            touch1 = Input.GetTouch(1).position;
+
+            touchDistance = Vector2.Distance(touch0, touch1);
+        }
 
     }
 

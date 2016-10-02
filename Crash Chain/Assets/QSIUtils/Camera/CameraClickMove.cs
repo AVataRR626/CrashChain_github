@@ -48,9 +48,10 @@ public class CameraClickMove : MonoBehaviour
 	{
         Instance = this;
         focusList = new Transform[100];
-
+        pauseMove = true;
+        Init();
         Invoke("Init", 0.1f);
-       
+        
     }
 
     void Init()
@@ -59,6 +60,7 @@ public class CameraClickMove : MonoBehaviour
         mouseDown = transform.localPosition;//Camera.main.ScreenToWorldPoint(Input.mousePosition);
         currentMousePos = transform.localPosition;
         prevMousePos = transform.localPosition;
+        pauseMove = false;
     }
 	
 	// Update is called once per frame
