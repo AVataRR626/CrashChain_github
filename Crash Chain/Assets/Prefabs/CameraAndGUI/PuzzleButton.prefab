@@ -373,7 +373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e9257a3e16f2c47844ab33b7523b69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetKey: puzzle_2_8
+  targetKey: TrackingNotified
+  matchKeyValue: 0
+  matchValue: 0
   activateList:
   - {fileID: 1000013996829328}
   deactivateList:
@@ -389,10 +391,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472b1954642bdf242b61f2db031d043f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleNumber: 1
   puzzlePrefix: puzzle
   delimiter: _
   setNumber: 1
-  puzzleNumber: 1
   customMode: 0
   customSetName: 
   customDelimiter: ':'
