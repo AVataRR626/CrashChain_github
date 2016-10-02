@@ -14,6 +14,7 @@ GameObject:
   - 81: {fileID: 8156302}
   - 114: {fileID: 11409996}
   - 114: {fileID: 11431906}
+  - 114: {fileID: 114000011065833094}
   m_Layer: 0
   m_Name: CrashChainCam 1
   m_TagString: MainCamera
@@ -248,3 +249,18 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 144006}
   m_IsPrefabParent: 1
+--- !u!114 &114000011065833094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b4c61b8d11f154a8f9cb537a0eaec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeTime: 0.25
+  shakeSwitch: 0
+  turbulence: 11
+  shakeScale: 0.2

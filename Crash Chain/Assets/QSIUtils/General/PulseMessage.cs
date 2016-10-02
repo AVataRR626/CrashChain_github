@@ -38,6 +38,11 @@ public class PulseMessage : MonoBehaviour
         PulseStart();
     }
 
+    public void Pulse()
+    {
+        Init();
+    }
+
     void PulseStart()
     {
         if(subject != null)

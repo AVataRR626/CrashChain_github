@@ -14,6 +14,7 @@ GameObject:
   - 114: {fileID: 11439746}
   - 114: {fileID: 11418352}
   - 61: {fileID: 6150048}
+  - 114: {fileID: 114000010735079808}
   m_Layer: 0
   m_Name: SquareLink
   m_TagString: CrashLink
@@ -122,7 +123,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 49.311455, y: 58.03401, z: 0}
+  m_LocalPosition: {x: 50.12, y: 53.76, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -232,6 +233,8 @@ MonoBehaviour:
   conflictSwitch: 0
   borderHeight: 0.75
   borderWidth: 0.75
+  maxGridCoordinates: {x: 63, y: 31, z: 3}
+  minGridCoordinates: {x: 1, y: 1, z: 0}
   gridCoordinates: {x: 29, y: 47, z: 0}
   anchorGridCoordinates: {x: 29, y: 47, z: 0}
 --- !u!114 &11429768
@@ -288,14 +291,15 @@ MonoBehaviour:
   east: 1
   south: 1
   west: 1
+  screenShake: 1
   deathSpawnList:
   - {fileID: 148294, guid: 6c38d98e8fb574c41be9e74cd218d42c, type: 2}
   overchargeSpawnList:
   - {fileID: 120376, guid: 74633493cb7c4b14099ad3e9e2109342, type: 2}
   timeBonus: 0.75
-  defaultDeathTime: 0.27
+  defaultDeathTime: 0.35
   baseSpinRate: 120
-  spinAcceleration: 900
+  spinAcceleration: 600
   deathSpinExtension: 0
   myEditor: {fileID: 0}
   tapTime: 0.15
@@ -307,6 +311,7 @@ MonoBehaviour:
   colliderActivateDelay: 0.25
   bitSerialisation: 
   bitStringEncoding: 
+  touchPulser: {fileID: 0}
   holdCharge: 0
   prevPos: {x: 0, y: 0, z: 0}
   dragDistance: 0
@@ -1020,6 +1025,20 @@ MonoBehaviour:
   resetCLock: 2
   startDelay: 2.2
   totalBlinkTime: 0.5
+--- !u!114 &114000010735079808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c38755d5052a8c4280f16197a17220c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseTime: 0.2
+  scaleFactor: {x: 0.1, y: 0.1, z: 0.1}
+  scaleAdd: {x: 0, y: 0, z: 0}
 --- !u!114 &114000010794048128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1079,7 +1098,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLink: {fileID: 11471638}
   arrowMode: 0
-  blinkColour: {r: 0, g: 0, b: 0, a: 0}
+  blinkColour: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 0.703}
 --- !u!114 &114000011080298374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1111,7 +1130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLink: {fileID: 11471638}
   arrowMode: 0
-  blinkColour: {r: 0, g: 0, b: 0, a: 0}
+  blinkColour: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 0.703}
 --- !u!114 &114000011163886128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1144,8 +1163,8 @@ MonoBehaviour:
   pulseInterval: 0.1
   pulseCount: 2
   resetCLock: 2
-  startDelay: 4.4
-  totalBlinkTime: 0.5
+  startDelay: 2
+  totalBlinkTime: 0.2
 --- !u!114 &114000011553084046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1182,8 +1201,8 @@ MonoBehaviour:
   pulseInterval: 0.1
   pulseCount: 2
   resetCLock: 2
-  startDelay: 2.8
-  totalBlinkTime: 0.5
+  startDelay: 2
+  totalBlinkTime: 0.2
 --- !u!114 &114000011674863580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1215,7 +1234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLink: {fileID: 11471638}
   arrowMode: 0
-  blinkColour: {r: 0, g: 0, b: 0, a: 0}
+  blinkColour: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 0.703}
 --- !u!114 &114000012176495928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1281,7 +1300,7 @@ MonoBehaviour:
   pulseCount: 2
   resetCLock: 2
   startDelay: 2
-  totalBlinkTime: 0.5
+  totalBlinkTime: 0.2
 --- !u!114 &114000012652397042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1429,7 +1448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLink: {fileID: 11471638}
   arrowMode: 0
-  blinkColour: {r: 0, g: 0, b: 0, a: 0}
+  blinkColour: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 0.703}
 --- !u!114 &114000014190617166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1448,8 +1467,8 @@ MonoBehaviour:
   pulseInterval: 0.1
   pulseCount: 2
   resetCLock: 2
-  startDelay: 2.2
-  totalBlinkTime: 0.5
+  startDelay: 2
+  totalBlinkTime: 0.2
 --- !u!212 &212000010589833358
 SpriteRenderer:
   m_ObjectHideFlags: 1

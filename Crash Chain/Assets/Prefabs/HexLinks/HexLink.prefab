@@ -30,6 +30,7 @@ GameObject:
   - 114: {fileID: 11444628}
   - 114: {fileID: 11477560}
   - 114: {fileID: 11485734}
+  - 114: {fileID: 114000013358187448}
   m_Layer: 0
   m_Name: HexLink
   m_TagString: CrashLink
@@ -257,6 +258,7 @@ MonoBehaviour:
   east: 1
   south: 1
   west: 1
+  screenShake: 1
   deathSpawnList:
   - {fileID: 148294, guid: 6c38d98e8fb574c41be9e74cd218d42c, type: 2}
   overchargeSpawnList:
@@ -276,6 +278,7 @@ MonoBehaviour:
   colliderActivateDelay: 0.25
   bitSerialisation: 
   bitStringEncoding: 
+  touchPulser: {fileID: 0}
   holdCharge: 0
   prevPos: {x: 0, y: 0, z: 0}
   dragDistance: 0
@@ -319,6 +322,8 @@ MonoBehaviour:
   conflictSwitch: 1
   borderHeight: 0.75
   borderWidth: 0.75
+  maxGridCoordinates: {x: 63, y: 31, z: 3}
+  minGridCoordinates: {x: 1, y: 1, z: 0}
   gridCoordinates: {x: 0, y: 0, z: 0}
   anchorGridCoordinates: {x: 0, y: 0, z: 0}
 --- !u!114 &11482162
@@ -686,7 +691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLink: {fileID: 11445440}
   arrowMode: 0
-  blinkColour: {r: 0, g: 0, b: 0, a: 0}
+  blinkColour: {r: 0.20588237, g: 0.20588237, b: 0.20588237, a: 0.809}
 --- !u!114 &114000011498230334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -700,7 +705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLink: {fileID: 11445440}
   arrowMode: 0
-  blinkColour: {r: 0, g: 0, b: 0, a: 0}
+  blinkColour: {r: 0.20588237, g: 0.20588237, b: 0.20588237, a: 0.809}
 --- !u!114 &114000011789158714
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -715,6 +720,20 @@ MonoBehaviour:
   myLink: {fileID: 11445440}
   arrowMode: 0
   blinkColour: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &114000013358187448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c38755d5052a8c4280f16197a17220c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseTime: 0.35
+  scaleFactor: {x: 0.15, y: 0.15, z: 0.15}
+  scaleAdd: {x: 0, y: 0, z: 0}
 --- !u!114 &114000014278416024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -728,7 +747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myLink: {fileID: 11445440}
   arrowMode: 0
-  blinkColour: {r: 0, g: 0, b: 0, a: 0}
+  blinkColour: {r: 0.20588237, g: 0.20588237, b: 0.20588237, a: 0.809}
 --- !u!212 &212000010053304700
 SpriteRenderer:
   m_ObjectHideFlags: 1

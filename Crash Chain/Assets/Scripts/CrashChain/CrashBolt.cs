@@ -15,6 +15,7 @@ public class CrashBolt : MonoBehaviour
     public GameObject[] shellCrashSpawnList;
     public GameObject[] convertShellSpawnList;
     public GameObject[] convertCoreSpawnList;
+    public Transform [] detatchOnDeath;
 
     // Use this for initialization
     void Start ()
@@ -25,6 +26,34 @@ public class CrashBolt : MonoBehaviour
         if(opMode == OperationMode.TunnelCore)
         {
             IgnoreOtherCores(type);
+        }
+
+        ttl -= 0.1f;
+    }
+
+    void Update()
+    {
+        if(ttl > 0)
+        { 
+
+            ttl -= Time.deltaTime;
+        }
+        else
+        {
+            DetatchList();
+        }
+    }
+
+    void DetatchList()
+    {
+        foreach (Transform o in detatchOnDeath)
+        {
+            o.parent = null;
+
+            AutokillTimer autoKiller = o.GetComponent<AutokillTimer>();
+
+            if (autoKiller != null)
+                autoKiller.timer = 0.65f;
         }
     }
 
@@ -95,6 +124,8 @@ public class CrashBolt : MonoBehaviour
             }
 
         }
+
+        DetatchList();
         Destroy(gameObject);
     }
 

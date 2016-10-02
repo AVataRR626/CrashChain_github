@@ -58,6 +58,7 @@ public class CrashLink : MonoBehaviour
     public bool west = true;
 
     [Header("Overcharge Behaviours")]
+    public bool screenShake = true;
     public GameObject[] deathSpawnList;
     public GameObject[] overchargeSpawnList;
     public float timeBonus = 0.65f;//extra time player gets before losing
@@ -79,6 +80,7 @@ public class CrashLink : MonoBehaviour
     public float colliderActivateDelay = 0.25f;
     public int [] bitSerialisation;
     public string bitStringEncoding;
+    public ScalePulse touchPulser;
 
     private LerpToPosition mover;
     private MouseDrag2D dragger;
@@ -108,6 +110,8 @@ public class CrashLink : MonoBehaviour
             horizontalDrag = false;
             verticalDrag = false;
         }
+
+        touchPulser = GetComponent<ScalePulse>();
     }
 
     // Use this for initialization
@@ -286,6 +290,17 @@ public class CrashLink : MonoBehaviour
 
     public void Kill()
     {
+        //Pulse();
+
+        if (screenShake)
+        {
+
+            PerlinShake shaker = Camera.main.GetComponent<PerlinShake>();
+            
+            if(shaker != null)
+                shaker.StartShake();
+        }
+
         Kill(defaultDeathTime);
     }
 
@@ -293,6 +308,14 @@ public class CrashLink : MonoBehaviour
     //t is the countdown timer;
     public void Kill(float t)
     {
+        if (touchPulser != null)
+        {
+            touchPulser.pulseTime *= 1.1f;
+            touchPulser.scaleFactor *= 1.1f;
+        }
+
+        PulseUp();
+
         SpawnOverchargeList();
         chargeSwitch = true;
         killClock = t;
@@ -370,6 +393,7 @@ public class CrashLink : MonoBehaviour
 
                 // Debug.Log("Adding " + timeBonus + " to " + OverchargeMonitor.timeLimit + " ");
                 OverchargeMonitor.instance.AddToClock(timeBonus);
+
                 Destroy(gameObject);
                 crashCount++;
             }
@@ -378,10 +402,30 @@ public class CrashLink : MonoBehaviour
         {
             if (charge >= chargeLimit)
             {
+                
+
                 overchargeCount++;
                 Kill();
             }
         }
+    }
+
+    public void Pulse()
+    {
+        if (touchPulser != null)
+            touchPulser.Pulse();
+    }
+
+    public void PulseUp()
+    {
+        if (touchPulser != null)
+            touchPulser.PulseUp();
+    }
+
+    public void PulseDown()
+    {
+        if (touchPulser != null)
+            touchPulser.PulseDown();
     }
 
     void SpawnDeathList()
@@ -587,6 +631,10 @@ public class CrashLink : MonoBehaviour
 
     void OnMouseDown()
     {
+        ArrowPulser.pulseMode = false;
+
+        PulseUp();
+
         lastClickTime = Time.time;
         StartDrag();
 
@@ -599,6 +647,10 @@ public class CrashLink : MonoBehaviour
 
     void OnMouseUp()
     {
+        ArrowPulser.pulseMode = true;
+
+        PulseDown();
+
         //immovable blocks can't be tapped
         if (holdCharge <= tapTime && 
             dragDistance <= tapDistance &&

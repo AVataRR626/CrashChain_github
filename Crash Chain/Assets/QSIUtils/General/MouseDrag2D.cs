@@ -152,6 +152,7 @@ public class MouseDrag2D : MonoBehaviour
 
     void OnMouseDown()
     {
+
         StartDrag();
         TrackMouse();
     }
@@ -165,7 +166,8 @@ public class MouseDrag2D : MonoBehaviour
 
     void OnMouseUp()
     {
-        if(hasRigidBody)
+
+        if (hasRigidBody)
         { 
             if (rb2d != null)
             {
