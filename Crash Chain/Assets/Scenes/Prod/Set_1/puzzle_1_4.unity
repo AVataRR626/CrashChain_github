@@ -333,6 +333,7 @@ GameObject:
   - 23: {fileID: 220230394}
   - 102: {fileID: 220230393}
   - 114: {fileID: 220230396}
+  - 114: {fileID: 220230397}
   m_Layer: 0
   m_Name: txtChainReaction (2)
   m_TagString: Untagged
@@ -347,7 +348,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 220230392}
-  m_Text: tap once
+  m_Text: tap one
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -421,6 +422,22 @@ MonoBehaviour:
   fadeInRate: 1
   startDelay: 1.5
   fadeOutMode: 0
+--- !u!114 &220230397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 220230392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c38755d5052a8c4280f16197a17220c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseTime: 0.25
+  scaleFactor: {x: 0.025, y: 0.025, z: 0.02}
+  scaleAdd: {x: 0, y: 0, z: 0}
+  pulseOnStart: 1
+  startDelay: 1.75
 --- !u!1 &389885389
 GameObject:
   m_ObjectHideFlags: 0

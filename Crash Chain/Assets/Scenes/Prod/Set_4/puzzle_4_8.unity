@@ -170,11 +170,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000011292277864, guid: 31039445c4d19c549b6b034fb3446241, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.53
+      value: -0.214
       objectReference: {fileID: 0}
     - target: {fileID: 4000011292277864, guid: 31039445c4d19c549b6b034fb3446241, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.41
+      value: -0.925
       objectReference: {fileID: 0}
     - target: {fileID: 4000011292277864, guid: 31039445c4d19c549b6b034fb3446241, type: 2}
       propertyPath: m_LocalPosition.z
@@ -210,6 +210,11 @@ Prefab:
       propertyPath: startDelay
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 102000012015001672, guid: 31039445c4d19c549b6b034fb3446241,
+        type: 2}
+      propertyPath: m_Anchor
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31039445c4d19c549b6b034fb3446241, type: 2}
   m_IsPrefabParent: 0
@@ -230,10 +235,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pulseTime: 0.5
-  scaleFactor: {x: 0.02, y: 0.02, z: 0.02}
+  scaleFactor: {x: 0.015, y: 0.015, z: 0.015}
   scaleAdd: {x: 0, y: 0, z: 0}
   pulseOnStart: 1
-  startDelay: 1
+  startDelay: 0.5
 --- !u!1001 &765590055
 Prefab:
   m_ObjectHideFlags: 0
@@ -291,7 +296,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 45.51
+      value: 45.41
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -583,7 +588,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 50.24
+      value: 49.98
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -757,7 +762,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 54.56
+      value: 54.61
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
