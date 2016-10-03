@@ -306,6 +306,27 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &318876215 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000012724876046, guid: 31039445c4d19c549b6b034fb3446241,
+    type: 2}
+  m_PrefabInternal: {fileID: 1780289176}
+--- !u!114 &318876217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 318876215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c38755d5052a8c4280f16197a17220c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseTime: 0.5
+  scaleFactor: {x: 0.02, y: 0.02, z: 0.02}
+  scaleAdd: {x: 0, y: 0, z: 0}
+  pulseOnStart: 1
+  startDelay: 1
 --- !u!1001 &353576494
 Prefab:
   m_ObjectHideFlags: 0
@@ -1059,7 +1080,7 @@ Prefab:
     - target: {fileID: 114000013056318654, guid: 31039445c4d19c549b6b034fb3446241,
         type: 2}
       propertyPath: startDelay
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 31039445c4d19c549b6b034fb3446241, type: 2}

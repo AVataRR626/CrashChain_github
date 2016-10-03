@@ -15,6 +15,8 @@ public class ScalePulse : MonoBehaviour
     public float pulseTime = 0.25f;
     public Vector3 scaleFactor = new Vector3(0.15f, 0.15f, 1);
     public Vector3 scaleAdd;
+    public bool pulseOnStart = false;
+    public float startDelay = 2;
 
     private float pulseClock = 0;
     private Vector3 originalScale;
@@ -26,6 +28,9 @@ public class ScalePulse : MonoBehaviour
 	void Start ()
     {
         originalScale = transform.localScale;
+
+        if (pulseOnStart)
+            Invoke("Pulse", startDelay);
 	}
 
     // Update is called once per frame

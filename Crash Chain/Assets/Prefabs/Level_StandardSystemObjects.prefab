@@ -832,6 +832,8 @@ GameObject:
   - 114: {fileID: 114000013023355070}
   - 114: {fileID: 114000012684290166}
   - 114: {fileID: 114000010918066114}
+  - 114: {fileID: 114000010531273198}
+  - 114: {fileID: 114000011011313712}
   m_Layer: 5
   m_Name: Text (2)
   m_TagString: Untagged
@@ -958,6 +960,22 @@ MonoBehaviour:
   activateList: []
   deactivateList:
   - {fileID: 1000012247580402}
+--- !u!114 &114000010531273198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013796614994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c38755d5052a8c4280f16197a17220c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseTime: 0.25
+  scaleFactor: {x: 0.25, y: 0.25, z: 1}
+  scaleAdd: {x: 0, y: 0, z: 0}
+  pulseOnStart: 1
+  startDelay: 0
 --- !u!114 &114000010536781516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1118,6 +1136,39 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000011011313712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013796614994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf4379ec1fb4fd4fb98e44ba4ba193a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: 
+  textRepo:
+  - victory!!
+  - success!!
+  - you win :)
+  - well done :)
+  - great \o/
+  - clever...
+  - tottemo sugoi!!
+  - you win!!
+  - positive affirmation!!
+  - winner!!
+  - omidetou!!
+  - yatta!!
+  - sugoi nee...
+  - victory is yours
+  - your enemies fall
+  - admirable
+  - '\o/ \o/ \o/ '
+  - woohooo!! \o/
+  - guess the next win message ;)
+  closeRepeatAvoidance: 1
 --- !u!114 &114000011054273164
 MonoBehaviour:
   m_ObjectHideFlags: 1

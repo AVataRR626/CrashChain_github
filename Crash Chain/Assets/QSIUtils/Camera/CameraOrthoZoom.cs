@@ -22,7 +22,7 @@ public class CameraOrthoZoom : MonoBehaviour
 	public float zoomTouchCoefficient = 0.75f;
     public bool focusZoom = false;
     public float focusZoomRate = 0.2f;
-    public float focusZoomFactor = 0.5f;
+    public float focusZoomFactor = 0.5f;    
     //public float yPos = 100f;
 
 
