@@ -82,6 +82,7 @@ GameObject:
   - 114: {fileID: 114000012064695498}
   - 114: {fileID: 114000011476671058}
   - 114: {fileID: 114000012012553722}
+  - 114: {fileID: 114000011644133272}
   m_Layer: 5
   m_Name: PuzzleButton
   m_TagString: Untagged
@@ -322,6 +323,22 @@ MonoBehaviour:
   fadeInRate: 0.75
   startDelay: 0
   fadeOutMode: 0
+--- !u!114 &114000011644133272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012676821952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c38755d5052a8c4280f16197a17220c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseTime: 0.25
+  scaleFactor: {x: 0.05, y: 0.05, z: 0.05}
+  scaleAdd: {x: 0, y: 0, z: 0}
+  pulseOnStart: 1
+  startDelay: 0
 --- !u!114 &114000011733548256
 MonoBehaviour:
   m_ObjectHideFlags: 1
