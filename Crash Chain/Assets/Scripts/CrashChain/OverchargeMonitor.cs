@@ -14,7 +14,7 @@ public class OverchargeMonitor : MonoBehaviour
     public PopulationCheck popChecker;
     
     public GameObject [] activateObjects;
-    public GameObject [] disableObjects;
+    public GameObject [] immediateDisableObjects;
     public GameObject [] messageList;
     public string message;
     public int overchargeLimInc = 0;
@@ -56,11 +56,9 @@ public class OverchargeMonitor : MonoBehaviour
 	void Update ()
     {
 	    if(CrashLink.overchargeCount == timerTrigger)
-        {       
-
+        {
             if (clock > 0)
             {
-
                 //someone's trying to cheat! end the game now.
                 if (Input.GetMouseButtonDown(0) && clock < timeLimit - 0.2f)
                     clock = 0;
@@ -68,6 +66,10 @@ public class OverchargeMonitor : MonoBehaviour
                 if (!saveSwitch)
                 {
                     levelSaver.SaveLevel();
+
+                    foreach (GameObject o in immediateDisableObjects)
+                        o.SetActive(false);
+
                     saveSwitch = true;
                 }
 
@@ -146,9 +148,6 @@ public class OverchargeMonitor : MonoBehaviour
 
         foreach (GameObject o in activateObjects)
             o.SetActive(true);
-
-        foreach (GameObject o in disableObjects)
-            o.SetActive(false);
 
         foreach (GameObject o in messageList)
             o.SendMessage(message, SendMessageOptions.DontRequireReceiver);

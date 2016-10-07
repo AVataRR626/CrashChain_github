@@ -136,8 +136,8 @@ MonoBehaviour:
   pulseLength: 0.2
   pulseInterval: 0.1
   pulseCount: 2
-  resetCLock: 4
-  startDelay: 4
+  resetCLock: 5
+  startDelay: 1.25
   totalBlinkTime: 0
 --- !u!1 &94705654
 GameObject:
@@ -491,8 +491,8 @@ MonoBehaviour:
   pulseLength: 0.2
   pulseInterval: 0.1
   pulseCount: 2
-  resetCLock: 4
-  startDelay: 5.5
+  resetCLock: 5
+  startDelay: 4.25
   totalBlinkTime: 0
 --- !u!1001 &488879245
 Prefab:
@@ -625,8 +625,8 @@ MonoBehaviour:
   pulseLength: 0.2
   pulseInterval: 0.1
   pulseCount: 2
-  resetCLock: 4
-  startDelay: 6
+  resetCLock: 5
+  startDelay: 5.25
   totalBlinkTime: 0
 --- !u!1001 &586254917
 Prefab:
@@ -702,18 +702,18 @@ Prefab:
     - target: {fileID: 114000010554298698, guid: 8f6726d73ced0104c917e3dfcf6f6597,
         type: 2}
       propertyPath: startDelay
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000010499263088, guid: 8f6726d73ced0104c917e3dfcf6f6597,
+        type: 2}
+      propertyPath: startDelay
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011000931986, guid: 8f6726d73ced0104c917e3dfcf6f6597,
         type: 2}
       propertyPath: startDelay
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114000011000931986, guid: 8f6726d73ced0104c917e3dfcf6f6597,
-        type: 2}
-      propertyPath: startDelay
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 114000010499263088, guid: 8f6726d73ced0104c917e3dfcf6f6597,
         type: 2}
       propertyPath: fadeOutMode
@@ -727,12 +727,12 @@ Prefab:
     - target: {fileID: 114000011000931986, guid: 8f6726d73ced0104c917e3dfcf6f6597,
         type: 2}
       propertyPath: fadeInRate
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000010554298698, guid: 8f6726d73ced0104c917e3dfcf6f6597,
         type: 2}
       propertyPath: fadeInRate
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000010499263088, guid: 8f6726d73ced0104c917e3dfcf6f6597,
         type: 2}
@@ -798,17 +798,27 @@ Prefab:
     - target: {fileID: 114000010554298698, guid: 8f6726d73ced0104c917e3dfcf6f6597,
         type: 2}
       propertyPath: startDelay
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114000010499263088, guid: 8f6726d73ced0104c917e3dfcf6f6597,
         type: 2}
       propertyPath: startDelay
-      value: 0.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 114000011000931986, guid: 8f6726d73ced0104c917e3dfcf6f6597,
         type: 2}
       propertyPath: startDelay
-      value: 1
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011000931986, guid: 8f6726d73ced0104c917e3dfcf6f6597,
+        type: 2}
+      propertyPath: fadeInRate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010554298698, guid: 8f6726d73ced0104c917e3dfcf6f6597,
+        type: 2}
+      propertyPath: fadeInRate
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f6726d73ced0104c917e3dfcf6f6597, type: 2}
@@ -1043,8 +1053,8 @@ MonoBehaviour:
   pulseLength: 0.2
   pulseInterval: 0.1
   pulseCount: 2
-  resetCLock: 4
-  startDelay: 4.5
+  resetCLock: 5
+  startDelay: 2.25
   totalBlinkTime: 0
 --- !u!1001 &1976393694
 Prefab:

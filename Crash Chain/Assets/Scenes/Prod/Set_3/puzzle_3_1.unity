@@ -453,7 +453,7 @@ MonoBehaviour:
   pulseInterval: 0.1
   pulseCount: 2
   resetCLock: 4
-  startDelay: 2
+  startDelay: 0.5
   totalBlinkTime: 0
 --- !u!1001 &445802684
 Prefab:
@@ -550,7 +550,7 @@ MonoBehaviour:
   pulseInterval: 0.1
   pulseCount: 2
   resetCLock: 4
-  startDelay: 2.5
+  startDelay: 2.2
   totalBlinkTime: 0
 --- !u!1001 &629904493
 Prefab:
@@ -579,7 +579,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000011045377408, guid: 8f6726d73ced0104c917e3dfcf6f6597, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 45.33
+      value: 46.43
       objectReference: {fileID: 0}
     - target: {fileID: 4000011045377408, guid: 8f6726d73ced0104c917e3dfcf6f6597, type: 2}
       propertyPath: m_LocalPosition.z
@@ -613,11 +613,21 @@ Prefab:
     - target: {fileID: 114000010499263088, guid: 8f6726d73ced0104c917e3dfcf6f6597,
         type: 2}
       propertyPath: startDelay
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000011000931986, guid: 8f6726d73ced0104c917e3dfcf6f6597,
         type: 2}
       propertyPath: startDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010554298698, guid: 8f6726d73ced0104c917e3dfcf6f6597,
+        type: 2}
+      propertyPath: fadeInRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011000931986, guid: 8f6726d73ced0104c917e3dfcf6f6597,
+        type: 2}
+      propertyPath: fadeInRate
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
