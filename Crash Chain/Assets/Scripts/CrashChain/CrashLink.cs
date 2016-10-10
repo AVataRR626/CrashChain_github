@@ -529,25 +529,6 @@ public class CrashLink : MonoBehaviour
         }*/
 
         lastClickTime = Time.time;
-
-        if (myEditor == null)
-            myEditor = FindObjectOfType<CrashLinkEditor>();
-
-        //stuff in editor mode
-        if (myEditor != null)
-        {
-
-            if (!myEditor.testMode)
-            {
-                holdCharge = 0.15f;
-                
-            }
-
-            myEditor.myFocus = this;
-
-            //report being clicked to the editor..
-            myEditor.blockFrameClickCount++;
-        }
     }
 
     public static bool CoinFlip()
@@ -633,9 +614,21 @@ public class CrashLink : MonoBehaviour
     {
         ArrowPulser.pulseMode = false;
 
+        if (myEditor == null)
+            myEditor = FindObjectOfType<CrashLinkEditor>();
+
+        if(myEditor != null)
+        {
+            if(!myEditor.testMode)
+            {
+                holdCharge = tapTime * 3;
+            }
+        }
+
         PulseUp();
 
         lastClickTime = Time.time;
+
         StartDrag();
 
         //glow yourself...

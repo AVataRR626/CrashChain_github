@@ -142,6 +142,7 @@ GameObject:
   - 4: {fileID: 232595711}
   - 23: {fileID: 232595710}
   - 102: {fileID: 232595709}
+  - 114: {fileID: 232595712}
   m_Layer: 0
   m_Name: txtTap
   m_TagString: Untagged
@@ -212,6 +213,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 976011442}
   m_RootOrder: 1
+--- !u!114 &232595712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 232595708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c38755d5052a8c4280f16197a17220c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseTime: 0.15
+  scaleFactor: {x: 0.05, y: 0.05, z: 0.05}
+  scaleAdd: {x: 0, y: 0, z: 0}
+  pulseOnStart: 0
+  startDelay: 0.5
+  pulseRepeat: 1
+  pulseInterval: 1.33
 --- !u!1001 &441299386
 Prefab:
   m_ObjectHideFlags: 0

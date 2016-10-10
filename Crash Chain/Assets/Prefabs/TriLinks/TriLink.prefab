@@ -307,7 +307,7 @@ MonoBehaviour:
   spinAcceleration: 900
   deathSpinExtension: 0
   myEditor: {fileID: 0}
-  tapTime: 0.15
+  tapTime: 0.25
   tapDistance: 0.1
   touchFactor: 2.5
   charge: 0
@@ -855,6 +855,10 @@ MonoBehaviour:
   pulseTime: 0.25
   scaleFactor: {x: 0.15, y: 0.15, z: 0.15}
   scaleAdd: {x: 0, y: 0, z: 0}
+  pulseOnStart: 0
+  startDelay: 2
+  pulseRepeat: 0
+  pulseInterval: 3
 --- !u!114 &114000013578384312
 MonoBehaviour:
   m_ObjectHideFlags: 1

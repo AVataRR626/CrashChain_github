@@ -17,6 +17,8 @@ public class ScalePulse : MonoBehaviour
     public Vector3 scaleAdd;
     public bool pulseOnStart = false;
     public float startDelay = 2;
+    public bool pulseRepeat = false;
+    public float pulseInterval = 3;
 
     private float pulseClock = 0;
     private Vector3 originalScale;
@@ -31,6 +33,9 @@ public class ScalePulse : MonoBehaviour
 
         if (pulseOnStart)
             Invoke("Pulse", startDelay);
+
+        if (pulseRepeat)
+            InvokeRepeating("Pulse", startDelay, pulseInterval);
 	}
 
     // Update is called once per frame
