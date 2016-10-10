@@ -619,9 +619,15 @@ public class CrashLink : MonoBehaviour
 
         if(myEditor != null)
         {
-            if(!myEditor.testMode)
+
+            Debug.Log("CrashLink: myEditor is not null");
+            if (!myEditor.testMode)
             {
                 holdCharge = tapTime * 3;
+                Debug.Log("CrashLink: I am the focus:");
+                myEditor.myFocus = this;
+
+                myEditor.blockFrameClickCount += 1;
             }
         }
 
