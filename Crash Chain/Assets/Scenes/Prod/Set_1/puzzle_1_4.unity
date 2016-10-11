@@ -115,7 +115,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 52421370}
-  m_Text: align all
+  m_Text: move all
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -348,7 +348,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 220230392}
-  m_Text: tap one
+  m_Text: tap once
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -438,6 +438,8 @@ MonoBehaviour:
   scaleAdd: {x: 0, y: 0, z: 0}
   pulseOnStart: 1
   startDelay: 1.6
+  pulseRepeat: 0
+  pulseInterval: 3
 --- !u!1 &389885389
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,11 +694,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 39.37967
+      value: 39.4
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 48.28
+      value: 49.77
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1206,7 +1208,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 49.8
+      value: 47.37
       objectReference: {fileID: 0}
     - target: {fileID: 444984, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: m_LocalPosition.z
