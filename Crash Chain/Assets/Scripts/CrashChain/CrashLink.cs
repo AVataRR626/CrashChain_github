@@ -282,6 +282,9 @@ public class CrashLink : MonoBehaviour
             {
                 OverchargeMonitor.instance.AddMove();
                 draggedSwitch = false;
+
+                if (myEditor != null)
+                    myEditor.SetUnsavedIndicator(true);
             }
         }
 

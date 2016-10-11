@@ -5,11 +5,16 @@ using UnityEngine.UI;
 
 public class CrashLinkEditor : MonoBehaviour
 {
+    public static string currentEditorLevelKey = "CurrentLevelEditorLevel";
+
+    [Header("Basic Parameters")]
     public bool testMode = false;
     public string levelName = "LevelDefault";
     public int levelNumber = 0;
     public string setName = "DefaultSet";
     int selectIndex;
+
+    [Header("GUI Links")]
     public InputField iptSetName;
     public Text lblLevelNumber;    
     public InputField iptLevelName;
@@ -24,8 +29,11 @@ public class CrashLinkEditor : MonoBehaviour
     public GameObject blockerModTree;
     public GameObject nameTakenMsg;
     public GameObject testModeIndicator;
+    public GameObject unsavedIndicator;
 
+    [Header("System Use")]
     public string serialisedLevel;
+    public bool unsavedFlag = false;
 
     private bool spawnLinkSwitch = false;
     Vector3 origLoadPanelPos;
@@ -115,6 +123,14 @@ public class CrashLinkEditor : MonoBehaviour
         Invoke("LoadLevel", 0.1f);
     }
 
+    public void SetUnsavedIndicator(bool mode)
+    {
+        unsavedFlag = mode;
+        if (unsavedIndicator != null)
+            unsavedIndicator.SetActive(mode);
+
+    }
+
     public string GetLevelName(string setName)
     {
         return setName + ":" + levelNumber.ToString();
@@ -160,7 +176,6 @@ public class CrashLinkEditor : MonoBehaviour
     */
     public void AddLevelNumber(int n)
     {
-        //SaveLevel();
 
         levelNumber += n;
 
@@ -246,18 +261,23 @@ public class CrashLinkEditor : MonoBehaviour
     public void SetSetName(string newName)
     {
         if(!CrashChainSetManager.SetExists(newName))
-        { 
+        {
             CrashChainSetManager.RenameSet(setName, newName);
             setName = newName;
+            PlayerPrefs.SetString(PuzzleLoader.currentCustomSetNameKey, setName);
+            PlayerPrefs.SetString(currentEditorLevelKey, GetLevelKey());
 
-
+            //SaveLevel();
         }
         else
         {
-            if (nameTakenMsg != null)
-                nameTakenMsg.SetActive(true);
+            if(newName != setName)
+            { 
+                if (nameTakenMsg != null)
+                    nameTakenMsg.SetActive(true);
 
-            iptSetName.text = setName;
+                iptSetName.text = setName;
+            }
         }
     }
 
@@ -267,6 +287,7 @@ public class CrashLinkEditor : MonoBehaviour
         if(myFocus != null)
         {
             myFocus.shellType = newType;
+            SetUnsavedIndicator(true);
         }
     }
 
@@ -276,6 +297,7 @@ public class CrashLinkEditor : MonoBehaviour
         if (myFocus != null)
         {
             myFocus.coreType = newType;
+            SetUnsavedIndicator(true);
         }
     }
 
@@ -303,6 +325,8 @@ public class CrashLinkEditor : MonoBehaviour
                     break;
                    
             }
+
+            SetUnsavedIndicator(true);
         }
     }
 
@@ -321,6 +345,8 @@ public class CrashLinkEditor : MonoBehaviour
         {
             myFocus.movable = !myFocus.movable;
             myFocus.ColourOutlines();
+
+            SetUnsavedIndicator(true);
         }
     }
 
@@ -330,6 +356,8 @@ public class CrashLinkEditor : MonoBehaviour
         {
             myFocus.HorizontalDrag = mode;
             myFocus.ColourOutlines();
+
+            SetUnsavedIndicator(true);
         }
     }
 
@@ -339,6 +367,8 @@ public class CrashLinkEditor : MonoBehaviour
         {
             myFocus.HorizontalDrag = !myFocus.HorizontalDrag;
             myFocus.ColourOutlines();
+
+            SetUnsavedIndicator(true);
         }
     }
 
@@ -348,6 +378,8 @@ public class CrashLinkEditor : MonoBehaviour
         {
             myFocus.VerticalDrag = mode;
             myFocus.ColourOutlines();
+
+            SetUnsavedIndicator(true);
         }
     }
 
@@ -357,6 +389,8 @@ public class CrashLinkEditor : MonoBehaviour
         {
             myFocus.VerticalDrag = !myFocus.VerticalDrag;
             myFocus.ColourOutlines();
+
+            SetUnsavedIndicator(true);
         }
     }
 
@@ -366,6 +400,8 @@ public class CrashLinkEditor : MonoBehaviour
         {
             myFocus.tappable = mode;
             myFocus.ColourOutlines();
+
+            SetUnsavedIndicator(true);
         }
     }
 
@@ -375,6 +411,8 @@ public class CrashLinkEditor : MonoBehaviour
         {
             myFocus.tappable = !myFocus.tappable;
             myFocus.ColourOutlines();
+
+            SetUnsavedIndicator(true);
         }
     }
 
@@ -414,7 +452,7 @@ public class CrashLinkEditor : MonoBehaviour
             */
 
             spawnLinkSwitch = true;
-
+            SetUnsavedIndicator(true);
         }
 
     }
@@ -463,7 +501,8 @@ public class CrashLinkEditor : MonoBehaviour
         else
         {
             //start a new level list. (no delimiter at the start or end)
-            PlayerPrefs.SetString("SetList", setName);
+            
+            PlayerPrefs.SetString(CrashChainSetManager.SetListKey, setName);
         }
 
         //and now save the actual level.
@@ -474,10 +513,10 @@ public class CrashLinkEditor : MonoBehaviour
         PlayerPrefs.SetString(GetLevelKey(), serialisation);
 
         //keep track of current level in editor
-        PlayerPrefs.SetString("CurrentLevelEditorLevel", GetLevelKey());
+        PlayerPrefs.SetString(currentEditorLevelKey, GetLevelKey());
 
         Debug.Log("Level Saved:" + levelName + ";" + GetLevelKey() + "; "+ serialisation.Length);
-
+        SetUnsavedIndicator(false);
         //PopulateLoadDropdown();
     }
 
@@ -511,11 +550,12 @@ public class CrashLinkEditor : MonoBehaviour
         serialisedLevel = PlayerPrefs.GetString(GetLevelKey());
         DeserialiseLevel(serialisedLevel);
 
-        PlayerPrefs.SetString("CurrentLevelEditorLevel", levelName);
+        PlayerPrefs.SetString(currentEditorLevelKey, levelName);
 
         myFocus = FindObjectOfType<CrashLink>();
 
         Debug.Log("Level Loaded:" + levelName);
+        SetUnsavedIndicator(false);
     }
 
     //Loads a level based on the serialisedLevel string variable..
