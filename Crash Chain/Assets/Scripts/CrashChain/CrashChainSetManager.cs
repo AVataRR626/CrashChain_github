@@ -82,7 +82,7 @@ public class CrashChainSetManager : MonoBehaviour
         {
             //copy the old levels...
             string levelString = PlayerPrefs.GetString("lvl:" + oldName + ":" + i.ToString());
-            PlayerPrefs.SetString("lvl:" + oldName + ":" + i.ToString(), levelString);
+            PlayerPrefs.SetString("lvl:" + newName + ":" + i.ToString(), levelString);
             PlayerPrefs.DeleteKey("lvl:" + oldName + ":" + i.ToString());
 
         }

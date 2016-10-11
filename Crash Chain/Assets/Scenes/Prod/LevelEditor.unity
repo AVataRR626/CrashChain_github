@@ -6297,6 +6297,14 @@ Prefab:
       propertyPath: immovableColour.b
       value: 0.375
       objectReference: {fileID: 0}
+    - target: {fileID: 125186, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468716, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
+      propertyPath: levelSaver
+      value: 
+      objectReference: {fileID: 1729245753}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de53643941da4974ea68adca0fdc6aea, type: 2}
   m_IsPrefabParent: 0
@@ -6694,6 +6702,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1715700037}
+--- !u!114 &1729245753 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11440112, guid: de53643941da4974ea68adca0fdc6aea,
+    type: 2}
+  m_PrefabInternal: {fileID: 1590027569}
+  m_Script: {fileID: 11500000, guid: 420fb21fbdc2a894fb99ebc5acafba50, type: 3}
 --- !u!1 &1781562422
 GameObject:
   m_ObjectHideFlags: 0

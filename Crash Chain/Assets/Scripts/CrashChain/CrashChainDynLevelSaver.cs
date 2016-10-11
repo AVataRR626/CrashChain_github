@@ -6,7 +6,7 @@ public class CrashChainDynLevelSaver : MonoBehaviour
     public string serialisedLevel;
     int retryCount;
 
-    public bool customMode = false;
+    //public bool customMode = false;
 
     LevelNavigator myNavigator;
     string levelName;
