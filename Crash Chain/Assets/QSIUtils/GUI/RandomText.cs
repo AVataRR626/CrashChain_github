@@ -56,7 +56,7 @@ public class RandomText : MonoBehaviour
                 content += randomIndexList[i] + ",";
             }
 
-            Debug.Log(content);
+            //Debug.Log(content);
         }
 
         

@@ -467,8 +467,8 @@ public class CrashLinkEditor : MonoBehaviour
             myFocus = null;
         }
 
-        if (highlighter != null)
-            highlighter.position = new Vector3(-100, -100, -100);
+        //if (highlighter != null)
+            //highlighter.position = new Vector3(-100, -100, -100);
     }
 
     public void LoadLevel()
@@ -570,7 +570,7 @@ public class CrashLinkEditor : MonoBehaviour
 
     public void ClearLevel()
     {
-        highlighter.position = new Vector3(-100, -100, -100);
+        //highlighter.position = new Vector3(-100, -100, -100);
         myFocus = null;
 
         CrashChainUtil.ClearLevel();
