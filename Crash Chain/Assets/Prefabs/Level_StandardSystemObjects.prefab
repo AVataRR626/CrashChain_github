@@ -334,7 +334,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serialisedLevel: 
-  customMode: 0
 --- !u!114 &11455156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -929,7 +928,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 224000013534982290}
-  m_RootOrder: 6
+  m_RootOrder: 8
 --- !u!114 &114000010246565120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1014,6 +1013,8 @@ MonoBehaviour:
   scaleAdd: {x: 0, y: 0, z: 0}
   pulseOnStart: 1
   startDelay: 0
+  pulseRepeat: 0
+  pulseInterval: 3
 --- !u!114 &114000010536781516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3021,10 +3022,10 @@ RectTransform:
   m_Children:
   - {fileID: 224000010399270744}
   m_Father: {fileID: 224000013534982290}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -26.3, y: 27.3}
+  m_AnchoredPosition: {x: -25.1, y: 26.1}
   m_SizeDelta: {x: 125, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000011800091142
@@ -3173,10 +3174,10 @@ RectTransform:
   m_Children:
   - {fileID: 224000013677288042}
   m_Father: {fileID: 224000013534982290}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -78, y: 27.3}
+  m_AnchoredPosition: {x: -74.7, y: 26.1}
   m_SizeDelta: {x: 125, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013457120658
@@ -3232,9 +3233,9 @@ RectTransform:
   - {fileID: 224000013855660986}
   - {fileID: 224000010078413976}
   - {fileID: 224000014237363168}
-  - {fileID: 4000010108480772}
   - {fileID: 224000011757660796}
   - {fileID: 224000013296298992}
+  - {fileID: 4000010108480772}
   - {fileID: 224000014089190172}
   m_Father: {fileID: 407446}
   m_RootOrder: 0
