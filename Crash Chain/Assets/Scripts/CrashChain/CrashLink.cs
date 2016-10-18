@@ -464,8 +464,10 @@ public class CrashLink : MonoBehaviour
         }
         else
         {
+            
             if (graphicsRoot != null)
                 graphicsRoot.transform.rotation = initialGraphicsRotation;
+                
         }
 
 
