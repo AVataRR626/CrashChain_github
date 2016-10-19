@@ -87,4 +87,13 @@ public class TypeMask : MonoBehaviour
     {
         touchSwitch = false;
     }
+
+
+    public void TypeCycle()
+    {
+        type++;
+
+        if (type > 2)
+            type = 0;
+    }
 }
