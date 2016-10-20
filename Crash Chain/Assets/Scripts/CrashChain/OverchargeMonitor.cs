@@ -6,6 +6,7 @@ public class OverchargeMonitor : MonoBehaviour
 {
     public static OverchargeMonitor instance;
     public static string crashBoltTag = "CrashBolt";
+    public static int crashBoltCount = 0;
 
     [Header("Trigger Settings")]
     public float timeLimit = 1.65f;    
@@ -47,8 +48,8 @@ public class OverchargeMonitor : MonoBehaviour
     public int GetCrashBoltCount()
     {
         GameObject[] crashBolts = GameObject.FindGameObjectsWithTag(crashBoltTag);
-
-        return crashBolts.Length;
+        crashBoltCount = crashBolts.Length;
+        return crashBoltCount;
     }
 
 	
@@ -87,6 +88,8 @@ public class OverchargeMonitor : MonoBehaviour
         }
 
         ManageWarnings();
+
+        GetCrashBoltCount();
     }
 
     public void ManageWarnings()

@@ -276,7 +276,7 @@ public class CrashLink : MonoBehaviour
 
     void MonitorMoves()
     {
-        //if(draggedSwitch)
+        if(OverchargeMonitor.crashBoltCount <= 0)
         { 
             if (prevAnchorGridCoordinates != smoothSnap.anchorGridCoordinates)
             {
