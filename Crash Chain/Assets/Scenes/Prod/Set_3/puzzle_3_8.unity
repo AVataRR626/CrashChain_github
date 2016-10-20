@@ -239,6 +239,8 @@ MonoBehaviour:
   scaleAdd: {x: 0, y: 0, z: 0}
   pulseOnStart: 1
   startDelay: 0.5
+  pulseRepeat: 0
+  pulseInterval: 3
 --- !u!1001 &765590055
 Prefab:
   m_ObjectHideFlags: 0
@@ -1056,17 +1058,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11471638, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: horizontalDrag
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212000010596091982, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 212000014118590188, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}

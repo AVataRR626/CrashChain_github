@@ -25,17 +25,61 @@ public class CrashChainUtil : MonoBehaviour {
         }
     }
 
+
+    public static byte BitSerialiseFloat(float value, int max, int min, int maxRepresentation)
+    {
+
+        float scaled = value / max;
+        float gridSize = (float)max / (float)maxRepresentation;
+
+        int representation = (int) (value / gridSize);
+        Debug.Log("Representation of: " + value + " :> " + representation + " | gs: "+gridSize);
+
+        return Convert.ToByte(representation);
+    }
+
+    public static float DeserialiseFloat(byte byteValue, int max, int min, int maxRepresentation)
+    {
+        
+
+        int truncated = (int)byteValue;
+
+        Debug.Log("Truncated: " + truncated);
+
+        float reconstructed = ((float)truncated / (float)maxRepresentation)* max;
+        return reconstructed;
+    }
+
     public static string BitSerialiseLevel()
     {
         Vector3 camPos = Camera.main.transform.position;
         float zoom = Camera.main.orthographicSize;
-                
+
+        /*
+        old 32 bit serialisation
         string xCam = new string(CharByteConvert(camPos.x));
         string yCam = new string(CharByteConvert(camPos.y));
         string zCam = new string(CharByteConvert(camPos.z));
         string zm = new string(CharByteConvert(zoom));
+        */
 
-        string serialisedLevel = xCam + yCam + zm;
+        //8 bit serialisation for camera data */
+        byte xCam = BitSerialiseFloat(camPos.x, 128, 0, 256);
+        byte yCam = BitSerialiseFloat(camPos.y, 64, 0, 256);
+        byte zm = BitSerialiseFloat(zoom, 10, 0, 256);
+        //*/
+
+        char[] camData = new char[3];
+        camData[0] = (char)xCam;
+        camData[1] = (char)yCam;
+        camData[2] = (char)zm;
+
+        string serialisedCamData = new string(camData);
+
+        Debug.Log("Serialised Cam Data: " + camData);
+
+        string serialisedLevel = serialisedCamData;
+        
 
         //get all the crash links and serialise them..
         CrashLink[] allTheLinks = FindObjectsOfType<CrashLink>();
@@ -70,6 +114,15 @@ public class CrashChainUtil : MonoBehaviour {
         Debug.Log(levelBits.Length + ";" + serialisedLevel.Length);
         //reconstruct the float values from the bytes
         float[] camResults = new float[3];
+
+        //8 bit reconstruction for camera data */
+        camResults[0] = DeserialiseFloat((byte)levelBits[0], 128, 0, 256);
+        camResults[1] = DeserialiseFloat((byte)levelBits[1], 64, 0, 256);
+        camResults[2] = DeserialiseFloat((byte)levelBits[2], 10, 0, 256);
+
+        //*/
+
+        /*old 32 bit reconstruction
         for(int i = 0; i < 3; i++)
         {
             byte[] accumulator = new byte[4];
@@ -80,6 +133,7 @@ public class CrashChainUtil : MonoBehaviour {
             }
             camResults[i] = BitConverter.ToSingle(accumulator,0);
         }
+        */
 
         Vector3 camPos = new Vector3(0, 0, -1);
 
@@ -106,7 +160,7 @@ public class CrashChainUtil : MonoBehaviour {
         //okay, now onto the pieces..
         //char[] puzzlePieces = components[1].ToCharArray();
 
-        for(int i = 12; i < levelBits.Length; i+=3)
+        for(int i = 3; i < levelBits.Length; i+=3)
         {
             //put the encoding in the right format for consumption..
             int[] parts = new int[3];
