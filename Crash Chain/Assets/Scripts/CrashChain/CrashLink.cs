@@ -197,6 +197,18 @@ public class CrashLink : MonoBehaviour
     {
         if (t.name == "Outline")
         {
+            //don't interfere with fading
+            ImageFadeIn localFader = t.GetComponent<ImageFadeIn>();
+            if(localFader != null)
+            {
+                if(!localFader.Started)
+                    return;
+
+                if (localFader.DelayClock < 0)
+                    return;
+
+            }
+
             if (t.parent.name == "Shell")
             {
                 if (movable)
@@ -1008,6 +1020,8 @@ public class CrashLink : MonoBehaviour
 
         if (attributes[7].Contains("U"))
             tappable = false;
+
+        BroadcastMessage("ForceSyncColours");
     }
 
 }

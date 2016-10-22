@@ -17,15 +17,44 @@ public class ImageFadeIn : MonoBehaviour
     private float startAlpha = 0;
 
     private float delayClock;
+    private bool startedSwitch = false;
+    private bool finishedSwitch = false;
     
+    public float DelayClock
+    {
+        get
+        {
+            return delayClock;
+        }
+    }
+
+    public bool Started
+    {
+        get
+        {
+            return startedSwitch;
+        }
+    }
+
+    public bool Finished
+    {
+        get
+        {
+            return finishedSwitch;
+        }
+    }
 
 	void Start ()
+    {
+        Init();
+    }
+
+    public void Init()
     {
         img = GetComponent<Image>();
         txt = GetComponent<Text>();
         txtmsh = GetComponent<TextMesh>();
         spr = GetComponent<SpriteRenderer>();
-
 
         Reset();
     }
@@ -60,6 +89,8 @@ public class ImageFadeIn : MonoBehaviour
             originalAlpha[3] = spr.color.a;
             spr.color = SetAlpha(spr.color, startAlpha);
         }
+
+        startedSwitch = false;
     }
 
     // Update is called once per frame
@@ -71,6 +102,13 @@ public class ImageFadeIn : MonoBehaviour
                 FadeOut();
             else
                 FadeIn();
+
+            if (!startedSwitch)
+                startedSwitch = true;
+
+            if (!finishedSwitch)
+                if (ReachedOriginalAlpha())
+                    finishedSwitch = true;
         }
         else
         {
@@ -123,6 +161,37 @@ public class ImageFadeIn : MonoBehaviour
         {
             spr.color = FadeIn(spr.color, originalAlpha[3], fadeInRate);
         }
+    }
+
+    public bool ReachedOriginalAlpha()
+    {
+        if (img != null)
+        {
+            return (img.color.a >= originalAlpha[0]);
+        }
+
+        if (txt != null)
+        {
+            //txt.color = FadeIn(txt.color, originalAlpha[1], fadeInRate);
+
+            return (txt.color.a >= originalAlpha[1]);
+        }
+
+        if (txtmsh != null)
+        {
+            //txtmsh.color = FadeIn(txtmsh.color, originalAlpha[2], fadeInRate);
+
+            return (txtmsh.color.a >= originalAlpha[2]);
+        }
+
+        if (spr != null)
+        {
+            //spr.color = FadeIn(spr.color, originalAlpha[3], fadeInRate);
+
+            return (spr.color.a >= originalAlpha[3]);
+        }
+
+        return false;
     }
 
     public static Color FadeOut(Color c, float goalAlpha, float increment)

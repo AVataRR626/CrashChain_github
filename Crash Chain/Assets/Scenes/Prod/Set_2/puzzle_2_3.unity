@@ -1439,6 +1439,76 @@ Prefab:
       propertyPath: colourList.Array.data[1].b
       value: 0.43137255
       objectReference: {fileID: 0}
+    - target: {fileID: 114000010463053220, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: fadeOutMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011988685418, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: fadeOutMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011506310446, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: fadeOutMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011847993184, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: fadeOutMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011302997632, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: fadeOutMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010463053220, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011988685418, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011506310446, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011847993184, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011302997632, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013460960926, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010579629870, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: efcc029aaf42e504bb376859ee6e8353, type: 2}
   m_IsPrefabParent: 0
@@ -1703,6 +1773,7 @@ MonoBehaviour:
   myCrashBolt: {fileID: 0}
   spr: {fileID: 1703390108}
   myTypeMaster: {fileID: 2008131844}
+  syncColourDelay: 0
   touchSwitch: 0
 --- !u!212 &1703390108
 SpriteRenderer:
