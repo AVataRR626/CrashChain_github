@@ -171,29 +171,6 @@ Transform:
   - {fileID: 576646412}
   m_Father: {fileID: 491575733}
   m_RootOrder: 0
---- !u!1 &198945671 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000012965819262, guid: 8f6726d73ced0104c917e3dfcf6f6597,
-    type: 2}
-  m_PrefabInternal: {fileID: 666611678}
---- !u!114 &198945673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 198945671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c38755d5052a8c4280f16197a17220c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pulseTime: 0.25
-  scaleFactor: {x: 0.15, y: 0.15, z: 1}
-  scaleAdd: {x: 0, y: 0, z: 0}
-  pulseOnStart: 1
-  startDelay: 0.5
-  pulseRepeat: 0
-  pulseInterval: 3
 --- !u!1 &199284864 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 189308, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
@@ -330,6 +307,11 @@ Prefab:
       propertyPath: syncColourDelay
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 212000013950996490, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   m_IsPrefabParent: 0
@@ -449,6 +431,11 @@ Prefab:
     - target: {fileID: 11494268, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: syncColourDelay
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000013950996490, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
@@ -667,12 +654,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b5615c155e58f9409c5d125997cc8dd, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &646219029 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11471638, guid: 788dcadf2c671f44da068cd3c954296f,
-    type: 2}
-  m_PrefabInternal: {fileID: 257612180}
-  m_Script: {fileID: 11500000, guid: 5227f3092bbc7c541a505fee6db6bccb, type: 3}
 --- !u!1001 &666611678
 Prefab:
   m_ObjectHideFlags: 0
@@ -711,40 +692,6 @@ Prefab:
     - target: {fileID: 4000011045377408, guid: 8f6726d73ced0104c917e3dfcf6f6597, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000014221572186, guid: 8f6726d73ced0104c917e3dfcf6f6597,
-        type: 2}
-      propertyPath: myCrashLink
-      value: 
-      objectReference: {fileID: 646219029}
-    - target: {fileID: 114000014221572186, guid: 8f6726d73ced0104c917e3dfcf6f6597,
-        type: 2}
-      propertyPath: myTypeMaster
-      value: 
-      objectReference: {fileID: 2008131844}
-    - target: {fileID: 114000013761970790, guid: 8f6726d73ced0104c917e3dfcf6f6597,
-        type: 2}
-      propertyPath: myCrashLink
-      value: 
-      objectReference: {fileID: 1138837387}
-    - target: {fileID: 114000013761970790, guid: 8f6726d73ced0104c917e3dfcf6f6597,
-        type: 2}
-      propertyPath: myTypeMaster
-      value: 
-      objectReference: {fileID: 2008131844}
-    - target: {fileID: 4000010331405718, guid: 8f6726d73ced0104c917e3dfcf6f6597, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000014199413734, guid: 8f6726d73ced0104c917e3dfcf6f6597,
-        type: 2}
-      propertyPath: startDelay
-      value: 1.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011000931986, guid: 8f6726d73ced0104c917e3dfcf6f6597,
-        type: 2}
-      propertyPath: startDelay
-      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 1000010765324154, guid: 8f6726d73ced0104c917e3dfcf6f6597, type: 2}
       propertyPath: m_IsActive
@@ -863,12 +810,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c0ac7612e9493824c8e08cf504bfb57f, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1138837387 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11471638, guid: 788dcadf2c671f44da068cd3c954296f,
-    type: 2}
-  m_PrefabInternal: {fileID: 235129573}
-  m_Script: {fileID: 11500000, guid: 5227f3092bbc7c541a505fee6db6bccb, type: 3}
 --- !u!1001 &1182116211
 Prefab:
   m_ObjectHideFlags: 0
@@ -953,29 +894,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d5be204997f84a439b5755e6ca8a407, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1807680944 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000014036136814, guid: 8f6726d73ced0104c917e3dfcf6f6597,
-    type: 2}
-  m_PrefabInternal: {fileID: 666611678}
---- !u!114 &1807680946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1807680944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c38755d5052a8c4280f16197a17220c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pulseTime: 0.25
-  scaleFactor: {x: 0.15, y: 0.15, z: 1}
-  scaleAdd: {x: 0, y: 0, z: 0}
-  pulseOnStart: 1
-  startDelay: 2.5
-  pulseRepeat: 0
-  pulseInterval: 3
 --- !u!1 &1885740139
 GameObject:
   m_ObjectHideFlags: 0

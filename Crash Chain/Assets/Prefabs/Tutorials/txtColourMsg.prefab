@@ -164,7 +164,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010649221486}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.15, y: 0, z: 0}
+  m_LocalPosition: {x: 5.15, y: -1.21, z: 0}
   m_LocalScale: {x: 0.1792224, y: 0.17922239, z: 0.17922239}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -310,7 +310,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4777675f3327abc4cb8ddca5a35f0eec, type: 3}
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -383,7 +383,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010649221486}
-  m_Text: breaks
+  m_Text: '>>'
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -393,7 +393,7 @@ TextMesh:
   m_FontSize: 47
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 12800000, guid: 4777675f3327abc4cb8ddca5a35f0eec, type: 3}
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
@@ -618,6 +618,7 @@ MonoBehaviour:
   myCrashBolt: {fileID: 0}
   spr: {fileID: 212000013627726370}
   myTypeMaster: {fileID: 0}
+  syncColourDelay: 0
   touchSwitch: 0
 --- !u!114 &114000013861482982
 MonoBehaviour:
@@ -666,6 +667,7 @@ MonoBehaviour:
   myCrashBolt: {fileID: 0}
   spr: {fileID: 212000013571956538}
   myTypeMaster: {fileID: 0}
+  syncColourDelay: 0
   touchSwitch: 0
 --- !u!212 &212000010155446918
 SpriteRenderer:
