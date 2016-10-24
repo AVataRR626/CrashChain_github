@@ -159,6 +159,7 @@ public class CrashChainImportExportManager : MonoBehaviour
         if (!CrashChainSetManager.ValidSetString(setString))
         {
             UiText.text = "Invalid Set Data";
+
         }
         else
         {
@@ -166,7 +167,7 @@ public class CrashChainImportExportManager : MonoBehaviour
 
             string[] setParts = setString.Split(CrashChainSetManager.LevelDelimiter);
 
-            if (CrashChainSetManager.SetExists(setParts[12]))
+            if (CrashChainSetManager.SetExists(setParts[CrashChainSetManager.MaxLevelCountPerSet]))
                 UiText.text = "WARNING: Set name already exists. Importing will overwrite existing set.";
         }
     }

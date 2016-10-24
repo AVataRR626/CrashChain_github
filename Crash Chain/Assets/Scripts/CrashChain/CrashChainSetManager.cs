@@ -4,6 +4,8 @@ using System.Collections;
 
 public class CrashChainSetManager : MonoBehaviour
 {
+    public static int MaxLevelCountPerSet = 9;
+
     public GameObject setButtonTemplate;
     public static string SetListKey = "SetList";
     public static char LevelDelimiter = (char)512;
@@ -64,7 +66,7 @@ public class CrashChainSetManager : MonoBehaviour
     {
         AddSet(newSetName);
 
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < MaxLevelCountPerSet; i++)
         {
             string levelString = PlayerPrefs.GetString("lvl:" + sourceSet + ":" + i.ToString());
             PlayerPrefs.SetString("lvl:" + newSetName + ":" + i.ToString(), levelString);
@@ -78,7 +80,7 @@ public class CrashChainSetManager : MonoBehaviour
         setList = setList.Replace(oldName, newName);
         PlayerPrefs.SetString(SetListKey, setList);
 
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < MaxLevelCountPerSet; i++)
         {
             //copy the old levels...
             string levelString = PlayerPrefs.GetString("lvl:" + oldName + ":" + i.ToString());
@@ -147,7 +149,7 @@ public class CrashChainSetManager : MonoBehaviour
 
 
 
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < MaxLevelCountPerSet; i++)
         {
             PlayerPrefs.DeleteKey("lvl:" + set + ":" + i.ToString());
 
@@ -159,7 +161,7 @@ public class CrashChainSetManager : MonoBehaviour
         string result = "";
         
 
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < MaxLevelCountPerSet; i++)
         {
             //get set data from internal storage...
             result += PlayerPrefs.GetString("lvl:" + set + ":" + i.ToString());
@@ -181,13 +183,15 @@ public class CrashChainSetManager : MonoBehaviour
     {
         string[] newLevels = setString.Split(LevelDelimiter);
 
-        return newLevels.Length == 13;
+        Debug.Log("set string array count:" + newLevels.Length);
+
+        return newLevels.Length == MaxLevelCountPerSet+1;
     }
 
     public static void ImportSet(string setString)
     {
         string[] newLevels = setString.Split(LevelDelimiter);
-        string newSetName = newLevels[12];
+        string newSetName = newLevels[MaxLevelCountPerSet];
         Debug.Log("ImportSet(setString): " + newSetName + ";" + newLevels.Length);
         ImportSet(newLevels, newSetName);
     }
@@ -205,12 +209,12 @@ public class CrashChainSetManager : MonoBehaviour
             AddSet(setName);
         }*/
 
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < MaxLevelCountPerSet; i++)
         {
             PlayerPrefs.SetString("lvl:" + setName + ":" + i.ToString(), newLevels[i]);
         }
 
-        for (int i = 0; i < 12; i++)
+        for (int i = 0; i < MaxLevelCountPerSet; i++)
         {
             PlayerPrefs.SetString("lvl:" + setName + ":" + i.ToString(), newLevels[i]);
         }
@@ -220,9 +224,9 @@ public class CrashChainSetManager : MonoBehaviour
     {
         string[] newLevels = setString.Split(LevelDelimiter);
 
-        if(newLevels.Length < 12 || newLevels.Length > 13)
+        if(newLevels.Length != MaxLevelCountPerSet)
         {
-            Debug.LogError("ImportSet: Trying to import invalid set! Level count should be 12. " + newLevels.Length);
+            Debug.LogError("ImportSet: Trying to import invalid set! Level count should be " + MaxLevelCountPerSet + ". Is: " + newLevels.Length);
         }
         else
         {

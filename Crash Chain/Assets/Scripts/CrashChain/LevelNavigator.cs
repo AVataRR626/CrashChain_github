@@ -18,7 +18,7 @@ public class LevelNavigator : MonoBehaviour
     public string customPrefix = "lvl";
     public string customDelimiter = ":";
     public string puzzleMenuScene = "MenuCustomLevels";
-    public int maxLevelNumber = 12;
+    public int maxLevelNumber = CrashChainSetManager.MaxLevelCountPerSet;
 
     public static LevelNavigator instance;
 

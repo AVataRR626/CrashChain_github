@@ -41,7 +41,7 @@ public class CrashLinkEditor : MonoBehaviour
     public string setListString;
 
     int lvlMin = 0;
-    int lvlMax = 11;
+    int lvlMax = 8;
 
     private string[] customSets;
     public string setListKey = "SetList";
@@ -171,7 +171,7 @@ public class CrashLinkEditor : MonoBehaviour
 
     /*
     BIG NOTE:
-    The assumption is that each set will have a maximum of 12 levels
+    The assumption is that each set will have a maximum of 9 levels
 
     */
     public void AddLevelNumber(int n)
@@ -579,7 +579,7 @@ public class CrashLinkEditor : MonoBehaviour
 
     public void RelativeSwap(int sourceDelta)
     {
-        int swapLvlNo = (levelNumber + sourceDelta) % 12;
+        int swapLvlNo = (levelNumber + sourceDelta) % CrashChainSetManager.MaxLevelCountPerSet;
 
         if (swapLvlNo < 0)
             swapLvlNo = lvlMax;

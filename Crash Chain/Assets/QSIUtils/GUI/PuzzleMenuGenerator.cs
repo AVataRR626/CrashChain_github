@@ -8,7 +8,7 @@ public class PuzzleMenuGenerator : MonoBehaviour
     //set settings
     [Header("Set Settings")]
     public int setNumber = 1;
-    public int maxSet = 12;
+    public int maxSet = 9;
     public int maxSetCapacity = 6;
     public bool checkLocked = true;
 
