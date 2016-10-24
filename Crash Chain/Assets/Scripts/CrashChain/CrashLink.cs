@@ -81,6 +81,7 @@ public class CrashLink : MonoBehaviour
     public int [] bitSerialisation;
     public string bitStringEncoding;
     public ScalePulse touchPulser;
+    public float syncColourDelay = 2;
 
     private LerpToPosition mover;
     private MouseDrag2D dragger;
@@ -201,11 +202,13 @@ public class CrashLink : MonoBehaviour
             ImageFadeIn localFader = t.GetComponent<ImageFadeIn>();
             if(localFader != null)
             {
-                if(!localFader.Started)
-                    return;
-
-                if (localFader.DelayClock < 0)
-                    return;
+                if (Application.isPlaying)
+                {
+                    if (syncColourDelay > 0)
+                    {
+                        return;
+                    }
+                }
 
             }
 
@@ -284,6 +287,9 @@ public class CrashLink : MonoBehaviour
         {
             dragger.enabled = false;
         }
+
+        if (syncColourDelay > 0)
+            syncColourDelay -= Time.deltaTime;
     }
 
     void MonitorMoves()
