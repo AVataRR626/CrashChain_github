@@ -565,15 +565,16 @@ public class CrashLink : MonoBehaviour
     public void RandomiseBasicStatsEZ1()
     {
         RandomiseBlockers();
-        RandomiseCore(2);
-        RandomiseShell(2);
+
+        RandomiseCore(1,2);
+        RandomiseShell(1,2);
     }
 
     public void RandomiseBasicStatsEZ2()
     {
         RandomiseBlockers();
-        RandomiseCore(3);
-        RandomiseShell(2);
+        RandomiseCore(0,2);
+        RandomiseShell(0,2);
         RandomiseTapability();
     }
 
@@ -615,22 +616,22 @@ public class CrashLink : MonoBehaviour
 
     public void RandomiseCore()
     {
-        RandomiseCore(3);
+        RandomiseCore(0,2);
     }
 
     public void RandomiseShell()
     {
-        RandomiseShell(3);
+        RandomiseShell(0,2);
     }
 
-    public void RandomiseCore(int max)
+    public void RandomiseCore(int min, int max)
     {
-        coreType = Random.Range(0, max);
+        coreType = Random.Range(min, max);
     }
 
-    public void RandomiseShell(int max)
+    public void RandomiseShell(int min, int max)
     {
-        shellType = Random.Range(0, max);
+        shellType = Random.Range(min, max);
     }
 
     void OnMouseDown()

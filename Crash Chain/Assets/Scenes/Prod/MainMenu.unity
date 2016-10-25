@@ -987,7 +987,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: version 0.97.3 beta
+  m_Text: version 0.97.4 beta
 --- !u!222 &1050030333
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1618,6 +1618,26 @@ Prefab:
       propertyPath: m_AnchoredPosition.x
       value: -151.9
       objectReference: {fileID: 0}
+    - target: {fileID: 224000012194292746, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010083319846, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012479319422, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: startDelay
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012709430858, guid: a15a9a21cfdf56f4ca3770d6cd76f368,
+        type: 2}
+      propertyPath: startDelay
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a15a9a21cfdf56f4ca3770d6cd76f368, type: 2}
   m_IsPrefabParent: 0
@@ -1746,7 +1766,7 @@ MonoBehaviour:
   txtmsh: {fileID: 0}
   spr: {fileID: 0}
   fadeInRate: 1
-  startDelay: 2
+  startDelay: 3
   fadeOutMode: 0
 --- !u!114 &1458580395
 MonoBehaviour:
@@ -2026,7 +2046,7 @@ MonoBehaviour:
   txtmsh: {fileID: 0}
   spr: {fileID: 0}
   fadeInRate: 1
-  startDelay: 2
+  startDelay: 3
   fadeOutMode: 0
 --- !u!1 &1678469519
 GameObject:
