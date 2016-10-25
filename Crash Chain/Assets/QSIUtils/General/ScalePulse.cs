@@ -71,7 +71,7 @@ public class ScalePulse : MonoBehaviour
 
     public void PulseUp()
     {
-        Debug.Log("PulseUp");
+        //Debug.Log("PulseUp");
         pulseClock = 0;
         timeLimit = pulseTime/2;
         pulseSwitch = true;

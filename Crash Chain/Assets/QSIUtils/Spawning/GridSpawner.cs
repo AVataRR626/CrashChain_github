@@ -69,7 +69,7 @@ public class GridSpawner : MonoBehaviour
                     spawnPos.x += xSpace;
 
                 spawnCount++;
-                Debug.Log("SpawnCount:" + spawnCount + " ;" + i + ";" + j);
+                //Debug.Log("SpawnCount:" + spawnCount + " ;" + i + ";" + j);
 
                 yield return new WaitForSeconds(waitTime);
             }
