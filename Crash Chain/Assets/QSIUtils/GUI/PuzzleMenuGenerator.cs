@@ -141,7 +141,7 @@ public class PuzzleMenuGenerator : MonoBehaviour
         else if (!emptyMode)
             textDisplay.text = setNumber.ToString() + " : " + customSets[setNumber - 1];
         else
-            textDisplay.text = "NO CUSTOM PUZZLES FOUND";
+            textDisplay.text = "NO CUSTOM PUZZLES FOUND \n\n Check social media for #CrashChainPuzzle";
 
         if(!loopSets)
         {   
