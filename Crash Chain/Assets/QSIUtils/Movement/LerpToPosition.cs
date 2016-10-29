@@ -10,7 +10,7 @@ public class LerpToPosition : MonoBehaviour
     public Vector3 destination;
     public Vector3 sourcePosition;
     public float lerpTime = 3;
-
+    public bool startFix = false;
 
     private float dist2dest = 0;
 
@@ -21,8 +21,11 @@ public class LerpToPosition : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        destination = transform.position;
-        sourcePosition = transform.position;
+        if (startFix)
+        {
+            destination = transform.position;
+            sourcePosition = transform.position;
+        }
     }
 
     // Update is called once per frame
@@ -67,7 +70,7 @@ public class LerpToPosition : MonoBehaviour
     }
 
     [ContextMenu("StartMove")]
-    void StartMove()
+    public void StartMove()
     {
         sourcePosition = transform.position;
         dist2dest = Vector3.Distance(destination, sourcePosition);

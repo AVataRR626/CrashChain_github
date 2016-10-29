@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 /*BounceBlaster Project
@@ -16,6 +17,7 @@ Authors:
 public class CameraClickMove : MonoBehaviour 
 {
     public static CameraClickMove Instance;
+    public static Vector3 prevScenePos;
 
 	public LayerMask qBrickMask = 8;
 	public bool pauseMove = false;
@@ -42,16 +44,50 @@ public class CameraClickMove : MonoBehaviour
     private Vector3 prevMousePos = Vector3.zero;
     private Vector3 focalPoint;
     private int focusCount;
-	
-	// Use this for initialization
-	void Start () 
+
+    private LerpToPosition mover;
+
+    // Use this for initialization
+    void Start () 
 	{
         Instance = this;
         focusList = new Transform[100];
         pauseMove = true;
         Init();
         Invoke("Init", 0.1f);
+
+        mover = GetComponent<LerpToPosition>();
+        if(mover != null && prevScenePos != Vector3.zero)
+        {
+            Debug.Log("ClickMove mover: " + prevScenePos + "," + transform.position);
+
+            mover.destination = transform.position;
+            mover.sourcePosition = prevScenePos;
+            transform.position = prevScenePos;
+            mover.moveSwitch = false;
+
+            Invoke("StartMove", 0.1f);
+        }
+    }
+
+    void StartMove()
+    {
+        if(mover != null)
+        {
+
+            Debug.Log("Starting to move");
+            mover.moveSwitch = true;
+            mover.StartMove();
+
+            Invoke("Init", mover.lerpTime);
+        }
+    }
+
+    void OnDisable()
+    {
         
+        prevScenePos = transform.position;
+        Debug.Log(SceneManager.GetActiveScene().name + ", " + prevScenePos);
     }
 
     void Init()
@@ -108,7 +144,7 @@ public class CameraClickMove : MonoBehaviour
             }
         }
 
-
+        //prevPos = transform.position;
     }
 
     void HandleTouch()

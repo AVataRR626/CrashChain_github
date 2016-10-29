@@ -16,6 +16,8 @@ GameObject:
   - 114: {fileID: 11431906}
   - 114: {fileID: 114000010002857448}
   - 114: {fileID: 114000012048421356}
+  - 114: {fileID: 114000012423142232}
+  - 114: {fileID: 114000011508490284}
   m_Layer: 0
   m_Name: CrashChainCam
   m_TagString: MainCamera
@@ -346,6 +348,25 @@ MonoBehaviour:
   shakeSwitch: 0
   turbulence: 11
   shakeScale: 0
+--- !u!114 &114000011508490284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 820e1f4b0accc56448fcf7aecd77934f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sourceZoom: 0
+  destinationZoom: 0
+  lerpTime: 1
+  startFix: 0
+  moveSwitch: 0
+  lerpClock: 0
+  lerpValue: 0
+  zoomVal: 0
 --- !u!114 &114000012048421356
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -358,3 +379,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instance: {fileID: 0}
+--- !u!114 &114000012423142232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b58579ef02579d419bdc4b256907de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {x: 0, y: 0, z: 0}
+  sourcePosition: {x: 0, y: 0, z: 0}
+  lerpTime: 0.5
+  startFix: 0
+  moveSwitch: 0
+  lerpClock: 0
+  lerpValue: 0

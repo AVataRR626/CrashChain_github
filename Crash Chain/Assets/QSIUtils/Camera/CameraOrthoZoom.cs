@@ -15,6 +15,8 @@ Authors:
 
 public class CameraOrthoZoom : MonoBehaviour 
 {
+
+    public static float prevSceneZoom;
 	
 	public float minZoom = 60;
 	public float maxZoom = 100;
@@ -36,6 +38,7 @@ public class CameraOrthoZoom : MonoBehaviour
 	private float originalZoom;
 
     private CameraClickMove camMover;
+    private CameraOrthoLerp camAutoZoomer;
 
     // Use this for initialization
     void Start () 
@@ -43,9 +46,15 @@ public class CameraOrthoZoom : MonoBehaviour
 		//Vector3 startPos =  new Vector3(transform.position.x,yPos,transform.position.z);
 		//transform.position = startPos;
 
-
 		originalZoom = Camera.main.orthographicSize;
+        camAutoZoomer = GetComponent<CameraOrthoLerp>();
 
+        if(camAutoZoomer != null && prevSceneZoom != 0)
+        {
+            camAutoZoomer.destinationZoom = originalZoom;
+            camAutoZoomer.sourceZoom = prevSceneZoom;
+            camAutoZoomer.moveSwitch = true;
+        }
 
         if (camMover == null)
             camMover = FindObjectOfType<CameraClickMove>();
@@ -66,13 +75,16 @@ public class CameraOrthoZoom : MonoBehaviour
 
     }
 
+    void OnDisable()
+    {
+        prevSceneZoom = Camera.main.orthographicSize;
+    }
+
     // Update is called once per frame
     void Update () 
 	{
 		if (Input.touchCount >= 2)
 		{
-
-
             Destroy(GetComponent<IntroOrthoCamZoom>());
 
 			Vector2 touch0, touch1;
