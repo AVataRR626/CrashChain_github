@@ -198,18 +198,32 @@ public class CrashLink : MonoBehaviour
     {
         if (t.name == "Outline")
         {
-            //don't interfere with fading
-            ImageFadeIn localFader = t.GetComponent<ImageFadeIn>();
-            if(localFader != null)
-            {
-                if (Application.isPlaying)
-                {
-                    if (syncColourDelay > 0)
-                    {
-                        return;
-                    }
-                }
 
+            //sorry for the spaghetti code!
+            if (Application.isPlaying)
+            {
+                if (syncColourDelay > 0 && tappable)
+                {
+                    return;
+                }
+            }
+
+
+            if (t.parent.name == "Core")
+            {
+                if (tappable)
+                    t.GetComponent<SpriteRenderer>().color = myTypeMaster.outlineColour;
+                else
+                    t.GetComponent<SpriteRenderer>().color = myTypeMaster.immovableColour;
+            }
+
+            //sorry for the spaghetti code!
+            if (Application.isPlaying)
+            {
+                if (syncColourDelay > 0)
+                {
+                    return;
+                }
             }
 
             if (t.parent.name == "Shell")
@@ -220,13 +234,7 @@ public class CrashLink : MonoBehaviour
                     t.GetComponent<SpriteRenderer>().color = myTypeMaster.immovableColour;
             }
 
-            if (t.parent.name == "Core")
-            {
-                if (tappable)
-                    t.GetComponent<SpriteRenderer>().color = myTypeMaster.outlineColour;
-                else
-                    t.GetComponent<SpriteRenderer>().color = myTypeMaster.immovableColour;
-            }
+
         }
 
         foreach (Transform child in t)
