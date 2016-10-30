@@ -12,6 +12,7 @@ public class CrashChainMonetisationManager : MonoBehaviour
     public int shards = 0;
     public int setCount = 0;
     public int slotCount = 0;
+    public int setSlotCost = 100;
 
     [Header("Set Count Management")]
     public GameObject[] overSetLimitDisable;
@@ -87,7 +88,6 @@ public class CrashChainMonetisationManager : MonoBehaviour
         slotCount = GetSlotCount();
         InitSlots();
 
-        InitLimited();
         CheckLimits();
         //Invoke("CheckLimits", 0.1f);
     }
@@ -105,6 +105,20 @@ public class CrashChainMonetisationManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void BuySetSlotButton()
+    {
+        shards = InGameCurrency.GetCurrentValue();
+        slotCount = PlayerPrefs.GetInt(PuzzleSlotKey, 3);
+
+        if(shards >= setSlotCost)
+        {
+            Debug.Log("Slot added!");
+            InGameCurrency.Purchase(setSlotCost);
+            shards = InGameCurrency.GetCurrentValue();
+            slotCount += 1;
+            PlayerPrefs.SetInt(PuzzleSlotKey, slotCount);
+        }
+    }
 
     public string GetSlotStringI()
     {
