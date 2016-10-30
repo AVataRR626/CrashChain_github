@@ -20,8 +20,8 @@ public class ScalePulse : MonoBehaviour
     public bool pulseRepeat = false;
     public float pulseInterval = 3;
 
-    private float pulseClock = 0;
     private Vector3 originalScale;
+    private float pulseClock = 0;   
     private bool pulseSwitch = false;
     private float timeLimit;
     private bool resetSwitch = false;
@@ -34,15 +34,21 @@ public class ScalePulse : MonoBehaviour
         Reset();
     }
 
-    void Reset()
+    void OnEnable()
     {
-        pulseClock = 0;
-
         if (pulseOnStart)
             Invoke("Pulse", startDelay);
 
         if (pulseRepeat)
             InvokeRepeating("Pulse", startDelay, pulseInterval);
+    }
+
+    void Reset()
+    {
+        pulseClock = 0;
+        pulseSwitch = false;
+        resetSwitch = false;
+        //timeLimit = 0;
     }
 
     // Update is called once per frame

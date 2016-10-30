@@ -14,6 +14,12 @@ public class CrashChainMonetisationManager : MonoBehaviour
     public int slotCount = 0;
     public int setSlotCost = 100;
 
+    [Header("Rewarded Ads Management")]
+    public int shardsEarned = 0;
+    public int rewardFactor = 3;
+    public Button rewardedAdButton;
+
+
     [Header("Set Count Management")]
     public GameObject[] overSetLimitDisable;
     public GameObject[] overSetLimitEnable;
@@ -68,6 +74,7 @@ public class CrashChainMonetisationManager : MonoBehaviour
 
         setMgr = FindObjectOfType<CrashChainSetManager>();
 
+
         if(setMgr != null)
             setCount = setMgr.setList.Length;
 
@@ -80,6 +87,17 @@ public class CrashChainMonetisationManager : MonoBehaviour
         {
             InitUnlimited();
         }
+
+
+    }
+
+    void SyncRewardedAdButton()
+    {
+      
+        GameObject rab = GameObject.Find("RewardedAdButton");
+
+        if (rab != null)
+            rewardedAdButton = rab.GetComponent<Button>();
     }
 
     public void InitLimited()
@@ -99,10 +117,29 @@ public class CrashChainMonetisationManager : MonoBehaviour
         //get all microtransaction objects and disable them
         GameObject[] m = GameObject.FindGameObjectsWithTag("Microtransactions");
 
-        foreach (GameObject o in m)
-            o.SetActive(false);
 
+        SetEnabled(m, false);
+
+        /*
+        foreach (GameObject o in m)
+        {
+            o.SetActive(false);
+        }
+        */
         gameObject.SetActive(false);
+    }
+
+    public void MultiplyShardsEarnedButton()
+    {
+        //put rewarded ads code here....
+
+        InGameCurrency.AddValue(shardsEarned*(rewardFactor-1));
+        shardsEarned *= rewardFactor;
+
+        if (rewardedAdButton == null) 
+            SyncRewardedAdButton();
+
+        rewardedAdButton.interactable = false;
     }
 
     public void BuySetSlotButton()
@@ -134,7 +171,7 @@ public class CrashChainMonetisationManager : MonoBehaviour
 
     public void ShardsRefund(int amt)
     {
-        InGameCurrency.ModValue(amt);
+        InGameCurrency.AddValue(amt);
         shards = InGameCurrency.GetCurrentValue();
         CheckLimits();
     }

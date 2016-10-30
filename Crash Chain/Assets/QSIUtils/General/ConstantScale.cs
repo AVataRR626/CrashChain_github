@@ -13,12 +13,18 @@ public class ConstantScale : MonoBehaviour
 	public Vector3 scaleRate = new Vector3(0.1f,0.1f,0.1f);
 	
 	private Vector3 delta;
+    private Vector3 origScale;
 	
 	// Use this for initialization
 	void Start () 
 	{
-	
-	}
+        origScale = transform.localScale;
+    }
+    
+    void Reset()
+    {
+        transform.localScale = origScale;
+    }
 	
 	// Update is called once per frame
 	void Update () 

@@ -58,6 +58,7 @@ public class CrashChainArcadeManager : MonoBehaviour
                 {
                     m.SetActive(true);
                     m.SendMessage(levelUpMessages[i], SendMessageOptions.DontRequireReceiver);
+                    Debug.Log("ArcadeManager: Sending Level Up Message: " + m.name);
                     i++;
                 }
             }

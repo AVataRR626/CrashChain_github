@@ -21,7 +21,7 @@ public class InGameCurrency : MonoBehaviour
 
     public void ModValueI(int amt)
     {
-        ModValue(amt);
+        AddValue(amt);
     }
 
     public bool PurchaseI(int amt)
@@ -41,7 +41,7 @@ public class InGameCurrency : MonoBehaviour
     }
 
     //includes both deposit and withdrawal...
-    public static void ModValue(int amt)
+    public static void AddValue(int amt)
     {
         //make sure the key exists...
         if(!PlayerPrefs.HasKey(IGCKey))
@@ -61,7 +61,7 @@ public class InGameCurrency : MonoBehaviour
 
         if(balance - amt >= 0)
         {
-            ModValue(-amt);
+            AddValue(-amt);
             return true;
         }
 
