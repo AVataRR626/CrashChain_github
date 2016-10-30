@@ -11,16 +11,6 @@ public class FocusList : MonoBehaviour
 
     public GameObject[] focusList;
 
-	// Use this for initialization
-	void Start ()
-    {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public void Focus(int target)
     {
