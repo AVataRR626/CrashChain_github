@@ -266,9 +266,7 @@ public class CrashLinkEditor : MonoBehaviour
             CrashChainSetManager.RenameSet(setName, newName);
             setName = newName;
             PlayerPrefs.SetString(PuzzleLoader.currentCustomSetNameKey, setName);
-            PlayerPrefs.SetString(currentEditorLevelKey, GetLevelKey());
-
-            
+            PlayerPrefs.SetString(currentEditorLevelKey, GetLevelKey());     
         }
         else
         {

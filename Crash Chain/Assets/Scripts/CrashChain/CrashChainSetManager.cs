@@ -4,6 +4,7 @@ using System.Collections;
 
 public class CrashChainSetManager : MonoBehaviour
 {
+    public static CrashChainSetManager instance;
     public static int MaxLevelCountPerSet = 9;
 
     public GameObject setButtonTemplate;
@@ -16,6 +17,8 @@ public class CrashChainSetManager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        instance = this;
+
         setList = GetSets();
         myGenerator = FindObjectOfType<PuzzleMenuGenerator>();
     }
@@ -93,8 +96,15 @@ public class CrashChainSetManager : MonoBehaviour
     //checks if a set already in the set list
     public static bool SetExists(string set)
     {
-        string setListString = PlayerPrefs.GetString(SetListKey);
-        return setListString.Contains(set);
+        string[] setNames = GetSets();
+
+        foreach(string s in setNames)
+        {
+            if (s.Equals(set))
+                return true;
+        }
+
+        return false;
     }
 
     //adds set to the setlist

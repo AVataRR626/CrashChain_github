@@ -10,8 +10,8 @@ using System.Collections;
 public class AutoDisableTimer : MonoBehaviour 
 {
 	public float timer;
-
     private float clock;
+    public string disableMessage = "Reset";
 	
 	// Use this for initialization
 	void Start () 
@@ -31,6 +31,7 @@ public class AutoDisableTimer : MonoBehaviour
 		}
 		else
 		{
+            gameObject.SendMessage(disableMessage, SendMessageOptions.DontRequireReceiver);            
 			gameObject.SetActive(false);
 		}
 	}

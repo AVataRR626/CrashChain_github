@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Text))]
 public class CrashChainDisplayUtil : MonoBehaviour
 {
-    public enum DisplayMode {currentScore,bestScore,levelName,overchargeCount,overchargeLeft,arcadeLevel,puzzleButtonLevel,puzzleButtonBestScore,movesLeft,currentCustomSet};
+    public enum DisplayMode {currentScore,bestScore,levelName,overchargeCount,overchargeLeft,arcadeLevel,puzzleButtonLevel,puzzleButtonBestScore,movesLeft,currentCustomSet,shardCount,slotStatus,slotCount};
 
     public string prefix = "";
     public DisplayMode displayMode;
@@ -81,6 +81,21 @@ public class CrashChainDisplayUtil : MonoBehaviour
         if(displayMode == DisplayMode.currentCustomSet)
         {
             txt.text = PlayerPrefs.GetString(PuzzleLoader.currentCustomSetNameKey);
+        }
+
+        if(displayMode == DisplayMode.shardCount)
+        {
+            txt.text = InGameCurrency.GetCurrentValue().ToString();
+        }
+
+        if(displayMode == DisplayMode.slotStatus)
+        {
+            txt.text = CrashChainMonetisationManager.instance.GetSlotStringI();
+        }
+
+        if(displayMode == DisplayMode.slotCount)
+        {
+            txt.text = CrashChainMonetisationManager.GetSlotCount().ToString();
         }
     }
 

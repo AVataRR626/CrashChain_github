@@ -31,12 +31,19 @@ public class ScalePulse : MonoBehaviour
     {
         originalScale = transform.localScale;
 
+        Reset();
+    }
+
+    void Reset()
+    {
+        pulseClock = 0;
+
         if (pulseOnStart)
             Invoke("Pulse", startDelay);
 
         if (pulseRepeat)
             InvokeRepeating("Pulse", startDelay, pulseInterval);
-	}
+    }
 
     // Update is called once per frame
     void Update()

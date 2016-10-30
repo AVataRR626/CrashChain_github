@@ -13,6 +13,7 @@ public class TextBlink : MonoBehaviour
     public float blinkTime = 3;
     
     public bool blinkForever = false;
+    public bool blinkSwitch = true;
 
 	private Text sr;
 	private bool blinkFlag;
@@ -30,33 +31,37 @@ public class TextBlink : MonoBehaviour
         Debug.Log("TextBlink: Reset");
         sr.color = col1;
         blinkClock = blinkTime;
+        blinkSwitch = true;
     }
 	
 	// Update is called once per frame
 	void Update () 
 	{
-        if(blinkClock > 0 || blinkForever)
-        {
-            if(blinkClock > 0)
-                blinkClock -= Time.deltaTime;
-
-            if (sr.color == col1 || sr.color == col2)
-                blinkFlag = !blinkFlag;
-
-            if (blinkFlag)
+        if(blinkSwitch)
+        { 
+            if(blinkClock > 0 || blinkForever)
             {
-                sr.color = Color.Lerp(sr.color, col1, col1BlinkRate);
+                if(blinkClock > 0)
+                    blinkClock -= Time.deltaTime;
+
+                if (sr.color == col1 || sr.color == col2)
+                    blinkFlag = !blinkFlag;
+
+                if (blinkFlag)
+                {
+                    sr.color = Color.Lerp(sr.color, col1, col1BlinkRate);
+                }
+                else
+                {
+                    sr.color = Color.Lerp(sr.color, col2, col2BlinkRate);
+                }
+
             }
             else
             {
-                sr.color = Color.Lerp(sr.color, col2, col2BlinkRate);
+                sr.color = col1;
+                blinkSwitch = false;
             }
-
-        }
-        else
-        {
-            sr.color = col1;
-            enabled = false;
         }
 
     }
