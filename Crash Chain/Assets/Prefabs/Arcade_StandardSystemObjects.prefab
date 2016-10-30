@@ -721,7 +721,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010354069512}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.42, y: 3.28, z: 0}
+  m_LocalPosition: {x: 0.42, y: 3.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1150,6 +1150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 2
+  disableMessage: Reset
 --- !u!114 &114000011069958102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1916,6 +1917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: 2
+  disableMessage: Reset
 --- !u!114 &114000012520455600
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2301,13 +2303,13 @@ MonoBehaviour:
   - {x: 6, y: 3}
   - {x: 8, y: 3}
   startPointPositions:
-  - {x: 1.19, y: 2.41, z: 0}
-  - {x: 1.19, y: 2.41, z: 0}
-  - {x: 1.19, y: 2.41, z: 0}
-  - {x: 1.19, y: 2.41, z: 0}
-  - {x: -0.95, y: 2.41, z: 0}
-  - {x: -0.95, y: 2.41, z: 0}
-  - {x: -3.1, y: 2.41, z: 0}
+  - {x: 1.19, y: 4.99, z: 0}
+  - {x: 1.19, y: 4.99, z: 0}
+  - {x: 1.19, y: 4.99, z: 0}
+  - {x: 1.19, y: 4.99, z: 0}
+  - {x: -0.95, y: 4.99, z: 0}
+  - {x: -0.95, y: 4.99, z: 0}
+  - {x: -3.1, y: 4.99, z: 0}
   levelUpMsgList:
   - {fileID: 1000013263179860}
   levelUpMessages:
@@ -2362,6 +2364,7 @@ MonoBehaviour:
   col2BlinkRate: 0.75
   blinkTime: 3
   blinkForever: 1
+  blinkSwitch: 1
   blinkClock: 3
 --- !u!114 &114000013312161518
 MonoBehaviour:
@@ -2431,6 +2434,7 @@ MonoBehaviour:
   col2BlinkRate: 0.75
   blinkTime: 3
   blinkForever: 1
+  blinkSwitch: 1
   blinkClock: 3
 --- !u!114 &114000013925419156
 MonoBehaviour:

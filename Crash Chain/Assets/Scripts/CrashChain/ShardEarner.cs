@@ -14,10 +14,11 @@ public class ShardEarner : MonoBehaviour
     private Text txt;
     private CrashChainArcadeManager mgr;
 
+
 	// Use this for initialization
 	void Start ()
     {
-        Init();
+        //Init();
     }
 
     void OnEnable()
@@ -56,6 +57,7 @@ public class ShardEarner : MonoBehaviour
 
     public void Add()
     {
+        Debug.Log("ShardEarner: " + name + " : " + amount);
         InGameCurrency.AddValue(amount);
 
         if (CrashChainMonetisationManager.instance != null)

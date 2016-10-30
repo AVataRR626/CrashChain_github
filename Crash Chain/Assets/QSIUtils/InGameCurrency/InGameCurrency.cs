@@ -52,6 +52,7 @@ public class InGameCurrency : MonoBehaviour
         int balance = PlayerPrefs.GetInt(IGCKey);
         balance += amt;
 
+        //Debug.Log("InGameCurrency.AddValue: " + amt);
         PlayerPrefs.SetInt(IGCKey, balance);
     }
 

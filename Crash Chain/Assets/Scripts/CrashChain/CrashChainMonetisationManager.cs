@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Advertisements;
+using UnityEngine.Analytics;
+using UnityEngine.Purchasing;
 using System.Collections;
 
 public class CrashChainMonetisationManager : MonoBehaviour
@@ -129,20 +132,6 @@ public class CrashChainMonetisationManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void MultiplyShardsEarnedButton()
-    {
-        //put rewarded ads code here....
-
-        //InGameCurrency.AddValue(shardsEarned*(rewardFactor-1));
-        InGameCurrency.AddValue(shardsEarned * (rewardFactor));
-        shardsEarned *= rewardFactor;
-
-        if (rewardedAdButton == null) 
-            SyncRewardedAdButton();
-
-        rewardedAdButton.interactable = false;
-    }
-
     public void BuySetSlotButton()
     {
         shards = InGameCurrency.GetCurrentValue();
@@ -176,6 +165,96 @@ public class CrashChainMonetisationManager : MonoBehaviour
         shards = InGameCurrency.GetCurrentValue();
         CheckLimits();
     }
+
+    public void ShowDefaultAd()
+    {
+        #if UNITY_ADS
+        if (!Advertisement.IsReady())
+        {
+            Debug.Log("Ads not ready for default zone");
+            return;
+        }
+
+        Advertisement.Show();
+        #endif
+    }
+
+    public void Purchase3ShardsButton()
+    {
+        const string RewardedZoneId = "rewardedVideo";
+
+        #if UNITY_ADS
+        if (!Advertisement.IsReady(RewardedZoneId))
+        {
+            Debug.Log(string.Format("Ads not ready for zone '{0}'", RewardedZoneId));
+            return;
+        }
+
+        var options = new ShowOptions { resultCallback = Purchase3ShardsResult };
+        Advertisement.Show(RewardedZoneId, options);
+        #endif
+    }
+
+    #if UNITY_ADS
+    private void Purchase3ShardsResult(ShowResult result)
+    {
+        switch (result)
+        {
+            case ShowResult.Finished:                
+                InGameCurrency.AddValue(3);
+                Debug.Log("The ad was successfully shown.");
+                break;
+            case ShowResult.Skipped:
+                Debug.Log("The ad was skipped before reaching the end.");
+                break;
+            case ShowResult.Failed:
+                Debug.LogError("The ad failed to be shown.");
+                break;
+        }
+    }
+    #endif
+
+    public void MultiplyShardsEarnedButton()
+    {
+
+        const string RewardedZoneId = "rewardedVideo";
+
+        #if UNITY_ADS
+        if (!Advertisement.IsReady(RewardedZoneId))
+        {
+            Debug.Log(string.Format("Ads not ready for zone '{0}'", RewardedZoneId));
+            return;
+        }
+
+        var options = new ShowOptions { resultCallback = MultiplyShardsResult };
+        Advertisement.Show(RewardedZoneId, options);
+        #endif
+
+        if (rewardedAdButton == null)
+            SyncRewardedAdButton();
+
+        rewardedAdButton.interactable = false;
+    }
+
+    #if UNITY_ADS
+    private void MultiplyShardsResult(ShowResult result)
+    {
+        switch (result)
+        {
+            case ShowResult.Finished:
+                InGameCurrency.AddValue(shardsEarned * (rewardFactor));
+                shardsEarned *= rewardFactor;
+                Debug.Log("The ad was successfully shown.");
+                break;
+            case ShowResult.Skipped:
+                Debug.Log("The ad was skipped before reaching the end.");
+                break;
+            case ShowResult.Failed:
+                Debug.LogError("The ad failed to be shown.");
+                break;
+        }
+    }
+    #endif
 
     public static void InitSlots()
     {

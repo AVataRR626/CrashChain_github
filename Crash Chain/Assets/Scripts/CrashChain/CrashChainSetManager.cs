@@ -9,6 +9,7 @@ public class CrashChainSetManager : MonoBehaviour
 
     public GameObject setButtonTemplate;
     public static string SetListKey = "SetList";
+    public static string SetSerialKey = "SetSerialNo";
     public static char LevelDelimiter = (char)512;
 
     public PuzzleMenuGenerator myGenerator;
@@ -30,8 +31,12 @@ public class CrashChainSetManager : MonoBehaviour
     }
 
     public void NewSetButton()
-    { 
-        string newSetName = "NewSet_" + System.DateTime.Now.ToString("yyMMddHHmmss");
+    {
+        int suffix = PlayerPrefs.GetInt(SetSerialKey, 0);
+        suffix++;
+        PlayerPrefs.SetInt(SetSerialKey, suffix);
+
+        string newSetName = "NewSet_" + suffix;//System.DateTime.Now.ToString("yyMMddHHmmss");
 
         AddSetButton(newSetName);
     }
