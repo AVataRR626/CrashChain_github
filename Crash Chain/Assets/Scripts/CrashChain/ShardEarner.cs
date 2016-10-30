@@ -7,14 +7,28 @@ public class ShardEarner : MonoBehaviour
     public int amount = 1;
     public string prefix = "shards earned: ";
     public bool syncAmountToSet = true;
+    public bool syncAmountToArcadeLevel = false;
     public bool addOnStart = true;
     public float addOnStartDelay = 0.5f;
 
     private Text txt;
+    private CrashChainArcadeManager mgr;
 
 	// Use this for initialization
 	void Start ()
     {
+        Init();
+    }
+
+    void OnEnable()
+    {
+        Init();
+    }
+
+    void Init()
+    {
+        mgr = CrashChainArcadeManager.instance;
+
         txt = GetComponent<Text>();
 
         if (syncAmountToSet)
@@ -22,18 +36,19 @@ public class ShardEarner : MonoBehaviour
             amount = LevelNavigator.instance.setNumber;
         }
 
-        if (txt != null)
+        if (syncAmountToArcadeLevel)
         {
-            txt.text = prefix + amount.ToString();
+            amount = Mathf.Max(1, mgr.level);
         }
-    }
-
-    void OnEnable()
-    {
 
         if (addOnStart)
         {
             Invoke("Add", addOnStartDelay);
+        }
+
+        if (txt != null)
+        {
+            txt.text = prefix + amount.ToString();
         }
 
         CrashChainMonetisationManager.instance.Init();
@@ -46,10 +61,4 @@ public class ShardEarner : MonoBehaviour
         if (CrashChainMonetisationManager.instance != null)
             CrashChainMonetisationManager.instance.shardsEarned += amount;
     }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-	
-	}
 }

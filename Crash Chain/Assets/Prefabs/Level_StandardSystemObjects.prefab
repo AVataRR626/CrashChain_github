@@ -365,7 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadCustomMode: 0
   customLevel: 
-  retryMode: 1
+  retryMode: 0
   serialisedLevel: 
   squareLinkPrefab: {fileID: 11471638, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
   triLinkPrefab: {fileID: 11471660, guid: 047dd4659c123624e924510087f30691, type: 2}
@@ -1306,7 +1306,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013796614994}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdf4379ec1fb4fd4fb98e44ba4ba193a, type: 3}
   m_Name: 
@@ -1394,7 +1394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b171efb71b875e242afceaf332c05d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 3
+  timer: 2
   disableMessage: Reset
 --- !u!114 &114000011085489498
 MonoBehaviour:
@@ -1741,6 +1741,7 @@ MonoBehaviour:
   amount: 1
   prefix: 'shards earned: '
   syncAmountToSet: 1
+  syncAmountToArcadeLevel: 0
   addOnStart: 1
   addOnStartDelay: 0.65
 --- !u!114 &114000012362957782
@@ -2054,7 +2055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveUnitsPerSecond:
-    value: {x: 0, y: 40, z: 0}
+    value: {x: 0, y: 30, z: 0}
     space: 1
   rotateDegreesPerSecond:
     value: {x: 0, y: 0, z: 0}
@@ -2623,9 +2624,9 @@ MonoBehaviour:
   txt: {fileID: 0}
   txtmsh: {fileID: 0}
   spr: {fileID: 0}
-  fadeInRate: 3
-  startDelay: 0.5
-  fadeOutMode: 0
+  fadeInRate: 1
+  startDelay: 1
+  fadeOutMode: 1
 --- !u!114 &114000013425091526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2987,7 +2988,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012529400028}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0930ef057b9b6a1499c80023e79514b9, type: 3}
   m_Name: 
@@ -3355,7 +3356,7 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -158}
+  m_AnchoredPosition: {x: -153, y: -158}
   m_SizeDelta: {x: 525, y: 125.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000011172230364
@@ -3693,7 +3694,7 @@ RectTransform:
   m_RootOrder: 6
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -226}
+  m_AnchoredPosition: {x: 153, y: -158}
   m_SizeDelta: {x: 525, y: 125.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000012871482526

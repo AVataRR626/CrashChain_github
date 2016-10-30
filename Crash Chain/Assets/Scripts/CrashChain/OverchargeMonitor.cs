@@ -69,7 +69,10 @@ public class OverchargeMonitor : MonoBehaviour
                     levelSaver.SaveLevel();
 
                     foreach (GameObject o in immediateDisableObjects)
-                        o.SetActive(false);
+                    {
+                        if(o != null)
+                            o.SetActive(false);
+                    }
 
                     saveSwitch = true;
                 }

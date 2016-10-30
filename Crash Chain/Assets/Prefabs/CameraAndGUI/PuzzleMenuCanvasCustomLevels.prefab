@@ -338,7 +338,6 @@ GameObject:
   - 114: {fileID: 114000013163831554}
   - 114: {fileID: 114000011311131408}
   - 114: {fileID: 114000014247130210}
-  - 114: {fileID: 114000013131827128}
   m_Layer: 5
   m_Name: AddSetSlots
   m_TagString: Untagged
@@ -605,7 +604,6 @@ GameObject:
   - 114: {fileID: 114000012374283144}
   - 114: {fileID: 114000013614907556}
   - 114: {fileID: 114000012874359886}
-  - 114: {fileID: 114000011766532268}
   m_Layer: 5
   m_Name: DeleteSet
   m_TagString: Untagged
@@ -1507,7 +1505,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114000010144666184}
         m_MethodName: LoadLevel
         m_Mode: 5
         m_Arguments:
@@ -1668,28 +1666,6 @@ MonoBehaviour:
   fadeInRate: 1
   startDelay: 0.75
   fadeOutMode: 0
---- !u!114 &114000011766532268
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012921131030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 472b1954642bdf242b61f2db031d043f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puzzleNumber: 1
-  puzzlePrefix: puzzle
-  delimiter: _
-  setNumber: 5
-  customMode: 1
-  customSetName: puzzle_5
-  customDelimiter: _
-  customLevelLoader: MenuEditorSetList
-  checkLocked: 1
-  locked: 0
-  lockTint: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 1}
 --- !u!114 &114000011769891510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2580,6 +2556,9 @@ MonoBehaviour:
   setCount: 0
   slotCount: 0
   setSlotCost: 100
+  shardsEarned: 0
+  rewardFactor: 3
+  rewardedAdButton: {fileID: 0}
   overSetLimitDisable:
   - {fileID: 1000013672263420}
   overSetLimitEnable:
@@ -2989,28 +2968,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Total Slots:'
---- !u!114 &114000013131827128
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012152278058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 472b1954642bdf242b61f2db031d043f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puzzleNumber: 1
-  puzzlePrefix: puzzle
-  delimiter: _
-  setNumber: 5
-  customMode: 1
-  customSetName: puzzle_5
-  customDelimiter: _
-  customLevelLoader: MenuEditorSetList
-  checkLocked: 1
-  locked: 0
-  lockTint: {r: 0.6666667, g: 0.6666667, b: 0.6666667, a: 1}
 --- !u!114 &114000013143223086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4284,7 +4241,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -6.7, y: 3.1999989}
-  m_SizeDelta: {x: 158.4, y: 71}
+  m_SizeDelta: {x: 180, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000011368338676
 RectTransform:
@@ -4590,7 +4547,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -6.6999817, y: -15.8}
-  m_SizeDelta: {x: 158.4, y: 71}
+  m_SizeDelta: {x: 180, y: 71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000012283510720
 RectTransform:

@@ -971,6 +971,7 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   sourcePosition: {x: 0, y: 0, z: 0}
   lerpTime: 3
+  startFix: 0
   moveSwitch: 0
   lerpClock: 0
   lerpValue: 0
@@ -1855,6 +1856,11 @@ Prefab:
         type: 2}
       propertyPath: keyString
       value: puzzle_2_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012196081700, guid: 121f03785b0400d46805fa1c4ff67f61,
+        type: 2}
+      propertyPath: amount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 121f03785b0400d46805fa1c4ff67f61, type: 2}

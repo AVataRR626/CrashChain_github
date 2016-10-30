@@ -133,7 +133,8 @@ public class CrashChainMonetisationManager : MonoBehaviour
     {
         //put rewarded ads code here....
 
-        InGameCurrency.AddValue(shardsEarned*(rewardFactor-1));
+        //InGameCurrency.AddValue(shardsEarned*(rewardFactor-1));
+        InGameCurrency.AddValue(shardsEarned * (rewardFactor));
         shardsEarned *= rewardFactor;
 
         if (rewardedAdButton == null) 
