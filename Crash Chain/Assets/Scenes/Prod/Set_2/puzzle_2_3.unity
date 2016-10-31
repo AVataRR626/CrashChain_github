@@ -673,11 +673,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: colourList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: colourList.Array.size
@@ -685,7 +680,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
-      propertyPath: displayTime.Array.size
+      propertyPath: colourList.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
@@ -695,7 +690,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
-      propertyPath: cycleMessages.Array.size
+      propertyPath: displayTime.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
@@ -704,11 +699,16 @@ Prefab:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: cycleMessages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: displayInterval.Array.size
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
+    - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: displayInterval.Array.size
       value: 2
@@ -745,30 +745,30 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114000012966981302, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: myTypeMaster
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 114000010091738006, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: myTypeMaster
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 453490254}
+    - target: {fileID: 114000012966981302, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: myTypeMaster
+      value: 
+      objectReference: {fileID: 453490254}
     - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: colourList.Array.data[2].r
-      value: 0.94509804
+      value: 0.6392157
       objectReference: {fileID: 0}
     - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: colourList.Array.data[2].g
-      value: 0.8745098
+      value: 0.84313726
       objectReference: {fileID: 0}
     - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: colourList.Array.data[2].b
-      value: 0.43137255
+      value: 0.6627451
       objectReference: {fileID: 0}
     - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
@@ -778,17 +778,17 @@ Prefab:
     - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: colourList.Array.data[2].r
-      value: 0.94509804
+      value: 0.6392157
       objectReference: {fileID: 0}
     - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: colourList.Array.data[2].g
-      value: 0.8745098
+      value: 0.84313726
       objectReference: {fileID: 0}
     - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: colourList.Array.data[2].b
-      value: 0.43137255
+      value: 0.6627451
       objectReference: {fileID: 0}
     - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
@@ -815,62 +815,7 @@ Prefab:
       propertyPath: displayTime.Array.data[2]
       value: 1.6
       objectReference: {fileID: 0}
-    - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: cycleMessages.Array.data[2]
-      value: Pulse
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: cycleMessages.Array.data[3]
-      value: Pulse
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: cycleMessages.Array.data[2]
-      value: Pulse
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: cycleMessages.Array.data[3]
-      value: Pulse
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: colourList.Array.data[1].r
-      value: 0.94509804
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: colourList.Array.data[1].g
-      value: 0.8745098
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: colourList.Array.data[1].b
-      value: 0.43137255
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: colourList.Array.data[1].r
-      value: 0.94509804
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: colourList.Array.data[1].g
-      value: 0.8745098
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: colourList.Array.data[1].b
-      value: 0.43137255
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010463053220, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: fadeOutMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011988685418, guid: efcc029aaf42e504bb376859ee6e8353,
+    - target: {fileID: 114000011847993184, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: fadeOutMode
       value: 0
@@ -880,17 +825,27 @@ Prefab:
       propertyPath: fadeOutMode
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114000011847993184, guid: efcc029aaf42e504bb376859ee6e8353,
+    - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
-      propertyPath: fadeOutMode
-      value: 0
+      propertyPath: cycleMessages.Array.data[2]
+      value: Pulse
       objectReference: {fileID: 0}
-    - target: {fileID: 114000011302997632, guid: efcc029aaf42e504bb376859ee6e8353,
+    - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
-      propertyPath: fadeOutMode
-      value: 0
+      propertyPath: cycleMessages.Array.data[2]
+      value: Pulse
       objectReference: {fileID: 0}
-    - target: {fileID: 114000010463053220, guid: efcc029aaf42e504bb376859ee6e8353,
+    - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013405983550, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: startDelay
       value: 6
@@ -900,7 +855,7 @@ Prefab:
       propertyPath: startDelay
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114000011506310446, guid: efcc029aaf42e504bb376859ee6e8353,
+    - target: {fileID: 114000010463053220, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: startDelay
       value: 6
@@ -910,27 +865,12 @@ Prefab:
       propertyPath: startDelay
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011506310446, guid: efcc029aaf42e504bb376859ee6e8353,
+        type: 2}
+      propertyPath: startDelay
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 114000011302997632, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: startDelay
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013460960926, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: startDelay
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010579629870, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: startDelay
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011737535070, guid: efcc029aaf42e504bb376859ee6e8353,
-        type: 2}
-      propertyPath: startDelay
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000013203431706, guid: efcc029aaf42e504bb376859ee6e8353,
         type: 2}
       propertyPath: startDelay
       value: 6
