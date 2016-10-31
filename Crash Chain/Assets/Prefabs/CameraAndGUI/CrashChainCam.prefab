@@ -361,7 +361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sourceZoom: 0
   destinationZoom: 0
-  lerpTime: 1
+  lerpTime: 1.5
   startFix: 0
   moveSwitch: 0
   lerpClock: 0
@@ -392,8 +392,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {x: 0, y: 0, z: 0}
   sourcePosition: {x: 0, y: 0, z: 0}
-  lerpTime: 0.5
+  lerpTime: 1
   startFix: 0
+  smoothing: 1
   moveSwitch: 0
   lerpClock: 0
   lerpValue: 0

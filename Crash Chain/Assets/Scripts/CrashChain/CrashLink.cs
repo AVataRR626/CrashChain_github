@@ -695,8 +695,12 @@ public class CrashLink : MonoBehaviour
         {
             if (Time.time - lastClickTime <= tapTime)
             {
-                charge = chargeLimit;
-                chargeSwitch = true;
+                //don't allow further overcharges if you've already lost
+                if(OverchargeMonitor.instance.RemainingOvercharges() > 0)
+                { 
+                    charge = chargeLimit;
+                    chargeSwitch = true;
+                }
             }
             else
             {

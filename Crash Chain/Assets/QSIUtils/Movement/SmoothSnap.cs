@@ -182,7 +182,15 @@ public class SmoothSnap : MonoBehaviour
         snapCoords.y = gridCoordinates.y * snapSettings.y;
         snapCoords.z = gridCoordinates.z * snapSettings.z;
 
+        anchorGridCoordinates = gridCoordinates;
+
         transform.position = snapCoords;
+
+        if (mover == null)
+            mover = GetComponent<LerpToPosition>();
+
+        mover.destination = transform.position;
+        mover.sourcePosition = mover.destination;
     }
 
     public void ManualSnap(Vector3 gc)

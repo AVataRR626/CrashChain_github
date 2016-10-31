@@ -11,6 +11,7 @@ public class LerpToPosition : MonoBehaviour
     public Vector3 sourcePosition;
     public float lerpTime = 3;
     public bool startFix = false;
+    public bool smoothing = false;
 
     private float dist2dest = 0;
 
@@ -47,6 +48,9 @@ public class LerpToPosition : MonoBehaviour
 
             lerpValue = lerpClock / lerpTime;
 
+            if(smoothing)
+                lerpValue = smootherstep(0, 1, lerpValue);
+
             if (lerpValue > 1)
             {
                 lerpValue = 1;
@@ -54,6 +58,7 @@ public class LerpToPosition : MonoBehaviour
             }
 
             Vector3 newPos = Vector3.Lerp(sourcePosition, destination, lerpValue);
+            //Vector3 newPos = Vector3.Slerp(sourcePosition, destination, lerpValue);
             transform.Translate(newPos - transform.position, Space.Self);
 
             //you have arrived!!
@@ -68,6 +73,17 @@ public class LerpToPosition : MonoBehaviour
         }
 
     }
+
+    //taken from:
+    //https://en.wikipedia.org/wiki/Smoothstep
+    float smootherstep(float edge0, float edge1, float x)
+    {
+        // Scale, and clamp x to 0..1 range
+        x = Mathf.Clamp((x - edge0) / (edge1 - edge0), 0.0f, 1.0f);
+        // Evaluate polynomial
+        return x * x * x * (x * (x * 6 - 15) + 10);
+    }
+
 
     [ContextMenu("StartMove")]
     public void StartMove()
