@@ -2308,17 +2308,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 985905117}
-        m_MethodName: ShardsRefund
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &463672304
@@ -4539,6 +4528,10 @@ MonoBehaviour:
   shards: 0
   setCount: 0
   slotCount: 0
+  setSlotCost: 100
+  shardsEarned: 0
+  rewardFactor: 3
+  rewardedAdButton: {fileID: 0}
   overSetLimitDisable: []
   overSetLimitEnable: []
   noShardsDisable:
@@ -7426,6 +7419,7 @@ MonoBehaviour:
   sourcePosition: {x: 0, y: 0, z: 0}
   lerpTime: 3
   startFix: 0
+  smoothing: 0
   moveSwitch: 0
   lerpClock: 0
   lerpValue: 0

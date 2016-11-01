@@ -179,7 +179,7 @@ public class CrashChainMonetisationManager : MonoBehaviour
         #endif
     }
 
-    public void Purchase3ShardsButton()
+    public void ViewAdForShardsButton()
     {
         const string RewardedZoneId = "rewardedVideo";
 
@@ -190,18 +190,18 @@ public class CrashChainMonetisationManager : MonoBehaviour
             return;
         }
 
-        var options = new ShowOptions { resultCallback = Purchase3ShardsResult };
+        var options = new ShowOptions { resultCallback = ViewAdForShardsButtonResult };
         Advertisement.Show(RewardedZoneId, options);
         #endif
     }
 
     #if UNITY_ADS
-    private void Purchase3ShardsResult(ShowResult result)
+    private void ViewAdForShardsButtonResult(ShowResult result)
     {
         switch (result)
         {
             case ShowResult.Finished:                
-                InGameCurrency.AddValue(3);
+                InGameCurrency.AddValue(30);
                 Debug.Log("The ad was successfully shown.");
                 break;
             case ShowResult.Skipped:

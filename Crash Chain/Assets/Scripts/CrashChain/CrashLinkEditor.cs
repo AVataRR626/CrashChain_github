@@ -462,6 +462,8 @@ public class CrashLinkEditor : MonoBehaviour
         if(myFocus !=  null)
         {
             Destroy(myFocus.gameObject);
+            InGameCurrency.AddValue(1);
+
             myFocus = null;
         }
 
