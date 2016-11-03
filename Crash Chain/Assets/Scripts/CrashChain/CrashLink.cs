@@ -170,7 +170,6 @@ public class CrashLink : MonoBehaviour
 
     public void SyncAxisLocks()
     {
-        //Debug.Log("AXIS LOCK SYNC!");
 
         if (dragger == null)
             dragger = GetComponent<MouseDrag2D>();
@@ -304,9 +303,12 @@ public class CrashLink : MonoBehaviour
     {
         if(OverchargeMonitor.crashBoltCount <= 0)
         { 
-            if (prevAnchorGridCoordinates != smoothSnap.anchorGridCoordinates)
+            if(prevAnchorGridCoordinates != smoothSnap.anchorGridCoordinates)
             {
-                OverchargeMonitor.instance.AddMove();
+                //don't count moves post clicking....
+                if(OverchargeMonitor.instance.RemainingOvercharges() > 0)
+                    OverchargeMonitor.instance.AddMove();
+
                 draggedSwitch = false;
 
                 if (myEditor != null)
@@ -431,8 +433,6 @@ public class CrashLink : MonoBehaviour
         {
             if (charge >= chargeLimit)
             {
-                
-
                 overchargeCount++;
                 Kill();
             }
