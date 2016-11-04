@@ -296,20 +296,49 @@ Prefab:
     - target: {fileID: 114000011043882626, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: startDelay
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000012070105730, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: startDelay
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 11494268, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: syncColourDelay
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 212000013950996490, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011835405092, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: startDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013245770082, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: startDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404084, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: syncColourDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013383088968, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: startDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012070105730, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: fadeInRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011043882626, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: fadeInRate
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -421,20 +450,53 @@ Prefab:
     - target: {fileID: 114000011043882626, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: startDelay
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114000012070105730, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: startDelay
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 11494268, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
       propertyPath: syncColourDelay
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 212000013950996490, guid: 788dcadf2c671f44da068cd3c954296f,
         type: 2}
       propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011835405092, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: startDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013245770082, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: startDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404084, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404084, guid: 788dcadf2c671f44da068cd3c954296f, type: 2}
+      propertyPath: syncColourDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011674863580, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: startDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000012070105730, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: fadeInRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000011043882626, guid: 788dcadf2c671f44da068cd3c954296f,
+        type: 2}
+      propertyPath: fadeInRate
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -572,10 +634,10 @@ MonoBehaviour:
     entries:
     - target: {fileID: 1061807422}
       action: 0
-      delay: 3
+      delay: 4
     - target: {fileID: 94705654}
       action: 0
-      delay: 3
+      delay: 4
 --- !u!4 &491575733
 Transform:
   m_ObjectHideFlags: 0
@@ -728,7 +790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &674358640
 RectTransform:
   m_ObjectHideFlags: 0
