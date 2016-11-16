@@ -95,6 +95,20 @@ public class CrashBolt : MonoBehaviour
 
     void CrashALink(CrashLink cl)
     {
+        /*
+        LerpToPosition camMover = Camera.main.GetComponent<LerpToPosition>();
+        
+        if (camMover != null)
+        {
+            Vector3 newPos = transform.position;
+            newPos.z = -1.7f;
+            camMover.destination = newPos;
+            camMover.lerpTime = 5;
+            camMover.lerpClock = 0;
+            camMover.moveSwitch = true;
+        }*/
+
+
         if (cl != null)
         {
             if (opMode == OperationMode.ShellCrash)
@@ -139,6 +153,8 @@ public class CrashBolt : MonoBehaviour
 
     void ShellCrash(CrashLink cl)
     {
+        
+
         if (myTypeMaster.typeMatch[type] == cl.shellType)
         {
             GenUtils.SpawnList(shellCrashSpawnList, transform);
