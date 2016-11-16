@@ -61,10 +61,18 @@ public class CrashBolt : MonoBehaviour
     {
         CrashLink[] allLinks = FindObjectsOfType<CrashLink>();
 
-        foreach(CrashLink l in allLinks)
-        {  
+        Debug.Log("CrashLinkCount: " + allLinks.Length);
+
+        foreach (CrashLink l in allLinks)
+        {
             if (l.coreType != targetType)
-                Physics2D.IgnoreCollision(l.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
+            {
+                Debug.Log("------ ignoring: " + l.name);
+
+                Collider2D otherCol = l.GetComponent<Collider2D>();
+
+                Physics2D.IgnoreCollision(otherCol, GetComponent<Collider2D>(), true);
+            }
         }
     }
 	

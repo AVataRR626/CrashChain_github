@@ -12,12 +12,13 @@ using System.Collections;
 public class OrientationToggle : MonoBehaviour
 {
     public ScreenOrientation [] stateList;
-    public int currentState;
+    public static int currentState;
+    public static string orientationKey = "Orientation";
 
 	// Use this for initialization
 	void Start ()
     {
-        currentState = 0;
+        currentState = PlayerPrefs.GetInt(orientationKey,0);
         Screen.orientation = stateList[currentState];
     }
 	
@@ -35,6 +36,8 @@ public class OrientationToggle : MonoBehaviour
             currentState = 0;
 
         Screen.orientation = stateList[currentState];
+
+        PlayerPrefs.SetInt(orientationKey, currentState);
         
     }
 }

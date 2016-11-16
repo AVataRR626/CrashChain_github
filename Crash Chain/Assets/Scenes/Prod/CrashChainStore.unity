@@ -366,7 +366,7 @@ MonoBehaviour:
   txtmsh: {fileID: 0}
   spr: {fileID: 0}
   fadeInRate: 1
-  startDelay: 1
+  startDelay: 0
   fadeOutMode: 0
 --- !u!114 &85988691
 MonoBehaviour:
@@ -1004,7 +1004,6 @@ GameObject:
   - 222: {fileID: 330030066}
   - 114: {fileID: 330030065}
   - 114: {fileID: 330030064}
-  - 114: {fileID: 330030063}
   - 114: {fileID: 330030062}
   m_Layer: 5
   m_Name: Purchase (2)
@@ -1050,21 +1049,8 @@ MonoBehaviour:
   txtmsh: {fileID: 0}
   spr: {fileID: 0}
   fadeInRate: 1
-  startDelay: 1
+  startDelay: 0
   fadeOutMode: 0
---- !u!114 &330030063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000011550779016, guid: 8deb735a179dace4aa014693882a0825,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 330030060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29f174a556213a4f8731a72dcf7c783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: 
 --- !u!114 &330030064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,7 +2547,6 @@ GameObject:
   - 222: {fileID: 996436039}
   - 114: {fileID: 996436038}
   - 114: {fileID: 996436037}
-  - 114: {fileID: 996436036}
   - 114: {fileID: 996436035}
   m_Layer: 5
   m_Name: Purchase (1)
@@ -2609,19 +2594,6 @@ MonoBehaviour:
   fadeInRate: 1
   startDelay: 0
   fadeOutMode: 0
---- !u!114 &996436036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000011550779016, guid: 8deb735a179dace4aa014693882a0825,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 996436033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29f174a556213a4f8731a72dcf7c783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: 
 --- !u!114 &996436037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2661,18 +2633,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 996436038}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 284087755}
-        m_MethodName: ShowRewardedAd
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MainMenu
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &996436038
@@ -3633,7 +3594,6 @@ GameObject:
   - 222: {fileID: 1359295983}
   - 114: {fileID: 1359295982}
   - 114: {fileID: 1359295981}
-  - 114: {fileID: 1359295980}
   - 114: {fileID: 1359295979}
   m_Layer: 5
   m_Name: Purchase (3)
@@ -3681,19 +3641,6 @@ MonoBehaviour:
   fadeInRate: 1
   startDelay: 0
   fadeOutMode: 0
---- !u!114 &1359295980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000011550779016, guid: 8deb735a179dace4aa014693882a0825,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1359295977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29f174a556213a4f8731a72dcf7c783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: 
 --- !u!114 &1359295981
 MonoBehaviour:
   m_ObjectHideFlags: 0

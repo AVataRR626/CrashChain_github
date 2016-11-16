@@ -20,13 +20,15 @@ public class PopulationCheck : MonoBehaviour
     private GameObject[] tagSearch;
     private bool triggerSwitch = false;
 
-    float delayClock = 0.5f;
+    public float delayClock = 0.5f;
 
     // Use this for initialization
     void Start ()
     {
         if (levelSaver == null)
             levelSaver = FindObjectOfType<CrashChainDynLevelSaver>();
+
+        
     }
 
     public int GetPop()
@@ -89,5 +91,12 @@ public class PopulationCheck : MonoBehaviour
                 if(levelSaver.isActiveAndEnabled)
                     levelSaver.RegisterWin();
         }
+    }
+
+    void Disable()
+    {
+        Debug.Log("----- Disable!! " + name);
+        enabled = false;
+        delayClock = 1000;
     }
 }

@@ -94,7 +94,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 495860}
   - 114: {fileID: 11471660}
-  - 58: {fileID: 5856494}
   - 50: {fileID: 5028322}
   - 114: {fileID: 11439886}
   - 114: {fileID: 11484016}
@@ -209,20 +208,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &5856494
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 163210}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 4209ff3ab2aceff4088b93696e6403b8, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.77
 --- !u!114 &11401926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,6 +241,8 @@ MonoBehaviour:
   destination: {x: 1, y: 1, z: 0}
   sourcePosition: {x: 0, y: 0, z: 0}
   lerpTime: 3
+  startFix: 0
+  smoothing: 0
   moveSwitch: 0
   lerpClock: 0
   lerpValue: 0
@@ -322,6 +309,7 @@ MonoBehaviour:
   bitSerialisation: 
   bitStringEncoding: 
   touchPulser: {fileID: 0}
+  syncColourDelay: 2
   holdCharge: 0
   prevPos: {x: 0, y: 0, z: 0}
   dragDistance: 0

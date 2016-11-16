@@ -58,13 +58,13 @@ public class CrashChainMonetisationManager : MonoBehaviour
 
             if(shards <= 0)
             {
-                Debug.Log("------There are no shards!!");
+               //Debug.Log("------There are no shards!!");
                 SetEnabled(noShardsDisable, false);
                 SetEnabled(noShardsEnable, true);
             }
             else
             {
-                Debug.Log("+++++There are shards");
+                //Debug.Log("+++++There are shards");
                 SetEnabled(noShardsDisable, true);
                 SetEnabled(noShardsEnable, false);
             }

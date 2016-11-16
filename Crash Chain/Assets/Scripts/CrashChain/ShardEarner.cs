@@ -10,15 +10,37 @@ public class ShardEarner : MonoBehaviour
     public bool syncAmountToArcadeLevel = false;
     public bool addOnStart = true;
     public float addOnStartDelay = 0.5f;
+    public bool earnOnBest = false;
 
     private Text txt;
     private CrashChainArcadeManager mgr;
 
+    void Awake()
+    {
+        //earn shards if you have'nt earned them before...
+        if (earnOnBest)
+        {
+            Debug.Log("WHATS MY MOVE: " + PuzzleUnlocker.instance.bestMoves);
+
+            if (PuzzleUnlocker.instance.bestMoves > -1)
+            {
+                //only earn shards if you get a better score than previously..
+                if (PuzzleUnlocker.instance.bestMoves <= OverchargeMonitor.instance.GetMoves())
+                {
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                Debug.Log("**NEW SCORE***");
+            }
+        }
+    }
 
 	// Use this for initialization
 	void Start ()
-    {
-        //Init();
+    {   
+
     }
 
     void OnEnable()
