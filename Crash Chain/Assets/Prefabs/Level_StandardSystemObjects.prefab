@@ -290,6 +290,7 @@ MonoBehaviour:
   levelSaver: {fileID: 11452704}
   triggerDelay: 0.5
   continuous: 0
+  delayClock: 0.5
 --- !u!114 &11410312
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -319,7 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadNextOnStart: 1
   reloadLevelOnStart: 0
-  timer: 2
+  timer: 1
   level: next
   timerSkipClick: 1
 --- !u!114 &11452704
