@@ -113,11 +113,13 @@ public class CrashLink : MonoBehaviour
         }
 
         touchPulser = GetComponent<ScalePulse>();
+        
     }
 
     // Use this for initialization
     void Start()
     {
+        holdCharge = tapTime * 3;//don't be triggered by accidental taps from prev level...
 
         if (myEditor == null)
             myEditor = FindObjectOfType<CrashLinkEditor>();
