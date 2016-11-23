@@ -330,4 +330,15 @@ public class GenUtils : MonoBehaviour {
             Instantiate(o, spawnPoint.position, spawnPoint.rotation);
         }
     }
+
+    public static void SendMessages(ref GameObject [] list, ref string [] messages)
+    {
+        int i = 0;
+        foreach(GameObject o in list)
+        {
+            o.SendMessage(messages[i], SendMessageOptions.DontRequireReceiver);
+            i++;
+        }
+
+    }
 }

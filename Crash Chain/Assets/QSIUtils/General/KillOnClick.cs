@@ -12,6 +12,7 @@ public class KillOnClick : MonoBehaviour
 	public KeyCode killButton = KeyCode.Mouse0;
 	public KeyCode secondaryKillButton = KeyCode.Mouse1;
 	public bool raycastMode = false;
+    public bool clickAnywhere = false;
 	public LayerMask cullingMask;
 
 	protected bool killSwitch = false;
@@ -41,6 +42,13 @@ public class KillOnClick : MonoBehaviour
 				}
 			}
 		}
+
+        if(clickAnywhere)
+        {
+            if (Input.GetKey(killButton) || Input.GetKey(secondaryKillButton))
+                killSwitch = true;
+                
+        }
 
 		if(killSwitch)
 			KillObject();

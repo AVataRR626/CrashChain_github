@@ -74,7 +74,7 @@ public class CrashChainMonetisationManager : MonoBehaviour
     public void Init()
     {
         instance = this;
-
+        Debug.Log("SL:DKFJLKSJDF");
         setMgr = FindObjectOfType<CrashChainSetManager>();
 
 

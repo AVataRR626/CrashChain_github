@@ -31,6 +31,9 @@ public class OverchargeMonitor : MonoBehaviour
     private bool saveSwitch = false;
     private bool warningSwitch = false;
 
+    [Header("Debug Stuff")]
+    public int overchargeCount;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -43,6 +46,10 @@ public class OverchargeMonitor : MonoBehaviour
             levelSaver = FindObjectOfType<CrashChainDynLevelSaver>();
 
         clock = timeLimit;
+
+
+        //start from scratch...
+        CrashLink.overchargeCount = 0;
     }
 
     public int GetCrashBoltCount()
@@ -56,6 +63,8 @@ public class OverchargeMonitor : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        overchargeCount = CrashLink.overchargeCount;
+
 	    if(CrashLink.overchargeCount == timerTrigger)
         {
             if (clock > 0)
@@ -166,8 +175,7 @@ public class OverchargeMonitor : MonoBehaviour
 
     public void ResetOvercharge()
     {
-        //Debug.Log("--------------RESETTING OVERCHARGE");
-
+        Debug.Log("--------------RESETTING OVERCHARGE");
 
         timerTrigger += overchargeLimInc;
 

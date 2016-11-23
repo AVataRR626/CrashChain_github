@@ -14,6 +14,7 @@ public class ShardEarner : MonoBehaviour
 
     private Text txt;
     private CrashChainArcadeManager mgr;
+    private ZenModeSpawner zenSpnr;
 
     void Awake()
     {
@@ -39,8 +40,8 @@ public class ShardEarner : MonoBehaviour
 
 	// Use this for initialization
 	void Start ()
-    {   
-
+    {
+        Init();
     }
 
     void OnEnable()
@@ -51,6 +52,7 @@ public class ShardEarner : MonoBehaviour
     void Init()
     {
         mgr = CrashChainArcadeManager.instance;
+        zenSpnr = ZenModeSpawner.instance;
 
         txt = GetComponent<Text>();
 
@@ -61,8 +63,14 @@ public class ShardEarner : MonoBehaviour
 
         if (syncAmountToArcadeLevel)
         {
-            amount = Mathf.Max(1, mgr.level);
+            if(mgr != null)
+                amount = Mathf.Max(1, mgr.level);
+
+            if (zenSpnr != null)
+                amount = Mathf.Max(1, zenSpnr.level);
         }
+
+        
 
         if (addOnStart)
         {

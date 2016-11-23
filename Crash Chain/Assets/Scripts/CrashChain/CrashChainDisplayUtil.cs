@@ -1,20 +1,27 @@
-﻿using UnityEngine;
+﻿/*
+ * Crash Chain stuff.
+
+ Matt Cabanag, Nov 2016
+ */
+
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-[RequireComponent(typeof(Text))]
 public class CrashChainDisplayUtil : MonoBehaviour
 {
-    public enum DisplayMode {currentScore,bestScore,levelName,overchargeCount,overchargeLeft,arcadeLevel,puzzleButtonLevel,puzzleButtonBestScore,movesLeft,currentCustomSet,shardCount,slotStatus,slotCount,shardsEarned};
+    public enum DisplayMode {currentScore,bestScore,levelName,overchargeCount,overchargeLeft,arcadeLevel,puzzleButtonLevel,puzzleButtonBestScore,movesLeft,currentCustomSet,shardCount,slotStatus,slotCount,shardsEarned,zenModeLevel,zenSpawnsLeft};
 
     public string prefix = "";
     public DisplayMode displayMode;
     Text txt;
+    TextMesh txtMsh;
 
 	// Use this for initialization
 	void Start ()
     {
         txt = GetComponent<Text>();
+        txtMsh = GetComponent<TextMesh>();
 	
 	}
 	
@@ -44,7 +51,10 @@ public class CrashChainDisplayUtil : MonoBehaviour
             txt.text = OverchargeMonitor.instance.RemainingOvercharges().ToString();
 
         if (displayMode == DisplayMode.arcadeLevel)
-            txt.text = CrashChainArcadeManager.instance.level.ToString();
+        {
+            if(CrashChainArcadeManager.instance != null)
+                txt.text = CrashChainArcadeManager.instance.level.ToString();
+        }
 
         if (displayMode == DisplayMode.puzzleButtonLevel)
         {
@@ -101,6 +111,24 @@ public class CrashChainDisplayUtil : MonoBehaviour
         if(displayMode == DisplayMode.shardsEarned)
         {
             txt.text = CrashChainMonetisationManager.instance.shardsEarned.ToString();
+        }
+
+        if(displayMode == DisplayMode.zenModeLevel)
+        {
+            if (ZenModeSpawner.instance != null)
+                txt.text = ZenModeSpawner.instance.level.ToString();
+        }
+
+        if(displayMode == DisplayMode.zenSpawnsLeft)
+        {
+            if (ZenModeSpawner.instance != null)
+            {
+                if(txt != null)
+                    txt.text = ZenModeSpawner.instance.spawnAmmo.ToString();
+
+                if(txtMsh != null)
+                    txtMsh.text = ZenModeSpawner.instance.spawnAmmo.ToString();
+            }
         }
     }
 

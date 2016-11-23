@@ -126,7 +126,8 @@ public class CrashLink : MonoBehaviour
 
         //reset overcharge if you're not in arcade mode..
         //bit hacky way of doing things, but don't care rn.
-        if (FindObjectOfType<CrashChainArcadeManager>() == null)
+        if (FindObjectOfType<CrashChainArcadeManager>() == null && 
+            FindObjectOfType<ZenModeSpawner>() == null)
             overchargeCount = 0;
 
         dragger = GetComponent<MouseDrag2D>();
@@ -653,6 +654,7 @@ public class CrashLink : MonoBehaviour
     void OnMouseDown()
     {
         ArrowPulser.pulseMode = false;
+        ZenModeSpawner.spawnMode = false;
 
         if (myEditor == null)
             myEditor = FindObjectOfType<CrashLinkEditor>();
@@ -687,6 +689,7 @@ public class CrashLink : MonoBehaviour
     void OnMouseUp()
     {
         ArrowPulser.pulseMode = true;
+        ZenModeSpawner.spawnMode = true;
 
         PulseDown();
 
