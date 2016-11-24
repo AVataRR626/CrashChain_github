@@ -96,6 +96,8 @@ public class ZenModeSpawner : MonoBehaviour
                 crashPhaseTree.SendMessage("Reset");
                 crashPhaseTree.SetActive(false);
             }
+
+            spawnMode = true;
         }
         else
         {
