@@ -92,6 +92,13 @@ public class PuzzleLoader : MonoBehaviour
     {
         PlayerPrefs.SetInt("RetryCount", 0);
 
+        Transform loading = transform.root.Find("LoadingTree");
+        if (loading != null)
+        {
+            Debug.Log("LOAAAAAAAAAADDZZIINGG-------");
+            loading.gameObject.SetActive(true);
+        }
+
         if (!locked)
         {
             if (!customMode)
