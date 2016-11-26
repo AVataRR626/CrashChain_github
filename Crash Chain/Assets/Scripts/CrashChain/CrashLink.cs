@@ -619,8 +619,39 @@ public class CrashLink : MonoBehaviour
     }
 
     public void RandomiseTapability()
-    {
+    {   
+
         tappable = CoinFlip();
+
+        //make sure there's still a chance to win...
+        if(!tappable)
+        {
+            if (!hasCompatibleLinks())
+                tappable = true;
+        }
+    }
+
+    public bool hasCompatibleLinks()
+    {
+        CrashLink[] links = FindObjectsOfType<CrashLink>();
+
+        foreach(CrashLink l in links)
+        {
+            if(l.myCrashBolt.opMode == CrashBolt.OperationMode.ShellCrash ||
+                l.myCrashBolt.opMode == CrashBolt.OperationMode.ConvertShell)
+            { 
+                if (l.coreType == shellType)
+                    return true;
+            }
+
+            if(l.myCrashBolt.opMode == CrashBolt.OperationMode.TunnelCore)
+            {
+                if (l.coreType == coreType)
+                    return true;
+            }
+        }
+
+        return false;
     }
 
     public void RandomiseBlockers()
