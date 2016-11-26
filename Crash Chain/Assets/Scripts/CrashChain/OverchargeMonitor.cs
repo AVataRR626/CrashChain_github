@@ -1,4 +1,10 @@
-﻿using UnityEngine;
+﻿/*
+ * Crash Chain overcharge monitor
+ * 
+ * Matt Cabanag
+ */
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
@@ -100,8 +106,64 @@ public class OverchargeMonitor : MonoBehaviour
         }
 
         ManageWarnings();
-
         GetCrashBoltCount();
+
+        CheckUntappables();
+    }
+    
+
+    public void CheckUntappables()
+    {
+        //don't check untappables if there's still some spawning to do 
+        ZenModeSpawner zsp = FindObjectOfType<ZenModeSpawner>();
+        if(zsp != null)
+        {
+            if (zsp.spawnAmmo > 0)
+                return;
+        }
+
+        GridSpawner gspnr = FindObjectOfType<GridSpawner>();
+        if(gspnr != null)
+        {
+            if(gspnr.spawnCount < (gspnr.rowCount*gspnr.rowCount))
+            {
+                return;
+            }
+        }
+
+        //and if there aren't any bolts either
+        CrashBolt [] bolts = FindObjectsOfType<CrashBolt>();
+        if (bolts.Length > 0)
+            return;
+
+
+        //trigger game over if impossible to win!
+        if (AllUntappable())
+        {
+            Trigger();
+        }
+    }
+
+    public bool AllUntappable()
+    {
+        //check to see if all the present crash links are untappable
+        CrashLink [] crashLinks = FindObjectsOfType<CrashLink>();
+        
+
+        if(crashLinks.Length > 0)
+        {
+            foreach(CrashLink cl in crashLinks)
+            {
+                if (cl.tappable)
+                    return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+
+        return true;
     }
 
     public void ManageWarnings()

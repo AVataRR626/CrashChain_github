@@ -681,9 +681,50 @@ public class CrashLink : MonoBehaviour
 
         //glow yourself...
         gameObject.BroadcastMessage("TouchGlow");
+        HighlightCompatibles();
 
         dragDistance = 0;
         prevPos = transform.position;
+    }
+
+    
+    void HighlightCompatibles()
+    {
+        CrashLink[] crashLinks = FindObjectsOfType<CrashLink>();
+
+        //look for compatible crash links and highlight them..
+        foreach(CrashLink link in crashLinks)
+        {
+
+            if(myCrashBolt.opMode == CrashBolt.OperationMode.ShellCrash ||
+                myCrashBolt.opMode == CrashBolt.OperationMode.ConvertShell)
+            { 
+                //square links need shells with same core type
+                if(coreType == link.shellType)
+                {
+                    link.BroadcastMessage("TouchGlow");
+                }
+            }
+
+            if(myCrashBolt.opMode == CrashBolt.OperationMode.TunnelCore)
+            {
+                if(coreType == link.coreType)
+                {
+                    link.BroadcastMessage("TouchGlow");
+                }
+            }
+        }
+    }
+
+    void DimAllLinks()
+    {
+        CrashLink []
+        crashLinks = FindObjectsOfType<CrashLink>();
+
+        foreach(CrashLink link in crashLinks)
+        {
+            link.BroadcastMessage("TouchDim");
+        }
     }
 
     void OnMouseUp()
@@ -715,7 +756,8 @@ public class CrashLink : MonoBehaviour
         }
 
 
-        gameObject.BroadcastMessage("TouchDim");
+        //gameObject.BroadcastMessage("TouchDim");
+        DimAllLinks();
         SyncAxisLocks();
         dragDistance = 0;
         prevPos = transform.position;

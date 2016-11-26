@@ -17,7 +17,7 @@ public class PopulationCheck : MonoBehaviour
     public bool continuous = false;
 
     private int pop;
-    private GameObject[] tagSearch;
+    public GameObject[] tagSearch;
     private bool triggerSwitch = false;
 
     public float delayClock = 0.5f;

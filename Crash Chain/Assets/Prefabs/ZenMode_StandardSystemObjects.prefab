@@ -2279,6 +2279,7 @@ MonoBehaviour:
   levelSaver: {fileID: 114000013250513492}
   triggerDelay: 1
   continuous: 1
+  tagSearch: []
   delayClock: 0.5
 --- !u!114 &114000010513505910
 MonoBehaviour:
@@ -2897,7 +2898,7 @@ MonoBehaviour:
     entries:
     - target: {fileID: 1000013716759748}
       action: 0
-      delay: 6
+      delay: 5
 --- !u!114 &114000011275997958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4512,9 +4513,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLimit: 2.5
-  timerTrigger: 4
+  timerTrigger: 3
   levelSaver: {fileID: 114000013250513492}
-  popChecker: {fileID: 0}
+  popChecker: {fileID: 114000010484284384}
   activateObjects:
   - {fileID: 1000012897089860}
   immediateDisableObjects: []
